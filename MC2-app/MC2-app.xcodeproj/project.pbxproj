@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		F465BC63246249D70025396A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC62246249D70025396A /* AppDelegate.swift */; };
 		F465BC65246249D70025396A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC64246249D70025396A /* SceneDelegate.swift */; };
-		F465BC67246249D70025396A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC66246249D70025396A /* ViewController.swift */; };
+		F465BC67246249D70025396A /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC66246249D70025396A /* SignInController.swift */; };
 		F465BC6A246249D70025396A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F465BC68246249D70025396A /* Main.storyboard */; };
 		F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F465BC6B246249D70025396A /* MC2_app.xcdatamodeld */; };
 		F465BC6F246249DA0025396A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F465BC6E246249DA0025396A /* Assets.xcassets */; };
 		F465BC72246249DA0025396A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F465BC70246249DA0025396A /* LaunchScreen.storyboard */; };
 		F465BC7D246249DB0025396A /* MC2_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC7C246249DB0025396A /* MC2_appTests.swift */; };
 		F465BC88246249DB0025396A /* MC2_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC87246249DB0025396A /* MC2_appUITests.swift */; };
+		F465BC9724628FAC0025396A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC9624628FAC0025396A /* User.swift */; };
+		F465BC99246307790025396A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC98246307790025396A /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,7 @@
 		F465BC5F246249D70025396A /* MC2-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC62246249D70025396A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F465BC64246249D70025396A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F465BC66246249D70025396A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F465BC66246249D70025396A /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		F465BC69246249D70025396A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F465BC6C246249D70025396A /* MC2_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC2_app.xcdatamodel; sourceTree = "<group>"; };
 		F465BC6E246249DA0025396A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +53,9 @@
 		F465BC83246249DB0025396A /* MC2-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MC2-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC87246249DB0025396A /* MC2_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_appUITests.swift; sourceTree = "<group>"; };
 		F465BC89246249DB0025396A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F465BC9524628C7D0025396A /* MC2-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC2-app.entitlements"; sourceTree = "<group>"; };
+		F465BC9624628FAC0025396A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F465BC98246307790025396A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +106,13 @@
 		F465BC61246249D70025396A /* MC2-app */ = {
 			isa = PBXGroup;
 			children = (
+				F465BC9524628C7D0025396A /* MC2-app.entitlements */,
 				F465BC62246249D70025396A /* AppDelegate.swift */,
 				F465BC64246249D70025396A /* SceneDelegate.swift */,
-				F465BC66246249D70025396A /* ViewController.swift */,
+				F465BC66246249D70025396A /* SignInController.swift */,
+				F465BC98246307790025396A /* HomeController.swift */,
 				F465BC68246249D70025396A /* Main.storyboard */,
+				F465BC9624628FAC0025396A /* User.swift */,
 				F465BC6E246249DA0025396A /* Assets.xcassets */,
 				F465BC70246249DA0025396A /* LaunchScreen.storyboard */,
 				F465BC73246249DA0025396A /* Info.plist */,
@@ -262,9 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F465BC67246249D70025396A /* ViewController.swift in Sources */,
+				F465BC67246249D70025396A /* SignInController.swift in Sources */,
 				F465BC63246249D70025396A /* AppDelegate.swift in Sources */,
 				F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */,
+				F465BC99246307790025396A /* HomeController.swift in Sources */,
+				F465BC9724628FAC0025396A /* User.swift in Sources */,
 				F465BC65246249D70025396A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MC2-app/MC2-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LUWAU8N83;
 				INFOPLIST_FILE = "MC2-app/Info.plist";
@@ -456,6 +467,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MC2-app/MC2-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LUWAU8N83;
 				INFOPLIST_FILE = "MC2-app/Info.plist";
