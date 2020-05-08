@@ -23,6 +23,8 @@ struct User{
     }
 }
 
+var user:User?
+
 extension User:CustomDebugStringConvertible{
     var debugDescription: String{
         return """

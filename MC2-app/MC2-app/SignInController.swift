@@ -56,7 +56,7 @@ extension SignInController : ASAuthorizationControllerDelegate{
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let credentials as ASAuthorizationAppleIDCredential:
-            let user = User(credentials: credentials)
+            user = User(credentials: credentials)
             performSegue(withIdentifier: "showMain", sender: user)
         default:
             break
