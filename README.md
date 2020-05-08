@@ -1,4 +1,4 @@
-# MC2-app
+# Awaro
 Mini Challenge 2 App
 
 An integrated app where teachers are able to check students attendance and awareness.
