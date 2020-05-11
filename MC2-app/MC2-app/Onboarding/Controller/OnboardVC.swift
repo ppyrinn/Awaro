@@ -28,7 +28,7 @@ class OnboardVC: UIViewController {
     // MARK: - Customizations
     
     func customWelcomeLabel() {
-        let string: String = "Welcome to Pláno"
+        let string: String = "Welcome to Awaro"
         let mutableString = NSMutableAttributedString(string: string as String, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 34, weight: .bold)])
         
         mutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 38.0 / 255.0, green: 176.0 / 255.0, blue: 235.0 / 255.0, alpha: 1), range: NSRange(location:11, length:5))
@@ -176,7 +176,7 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
         
     private func saveUserInKeychain(_ userIdentifier: String) {
         do {
-            try KeychainItem(service: "MC1-G7.Plano", account: "userIdentifier").saveItem(userIdentifier)
+            try KeychainItem(service: "com.poppy.MC2-app", account: "userIdentifier").saveItem(userIdentifier)
         } catch {
             print("Unable to save userIdentifier to keychain.")
         }
@@ -184,7 +184,7 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
     
     private func saveGivenNameInKeychain(_ givenName: String) {
         do {
-            try KeychainItem(service: "MC1-G7.Plano", account: "givenName").saveItem(givenName)
+            try KeychainItem(service: "com.poppy.MC2-app", account: "givenName").saveItem(givenName)
         } catch {
             print("Unable to save userIdentifier to keychain.")
         }
@@ -192,7 +192,7 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
     
     private func saveBirthNameInKeychain(_ birthName: String) {
         do {
-            try KeychainItem(service: "MC1-G7.Plano", account: "birthName").saveItem(birthName)
+            try KeychainItem(service: "com.poppy.MC2-app", account: "birthName").saveItem(birthName)
         } catch {
             print("Unable to save userIdentifier to keychain.")
         }
@@ -200,7 +200,7 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
     
     private func saveEmailInKeychain(_ email: String) {
         do {
-            try KeychainItem(service: "MC1-G7.Plano", account: "email").saveItem(email)
+            try KeychainItem(service: "com.poppy.MC2-app", account: "email").saveItem(email)
         } catch {
             print("Unable to save userIdentifier to keychain.")
         }
@@ -252,8 +252,8 @@ extension OnboardVC: ASAuthorizationControllerPresentationContextProviding {
 
 extension UIViewController {
     func showLoginViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let onboardVC = storyboard.instantiateViewController(withIdentifier: "onboardVC") as? OnboardVC {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let onboardVC = storyboard.instantiateViewController(withIdentifier: "OnboardVC") as? OnboardVC {
             onboardVC.modalPresentationStyle = .formSheet
             onboardVC.isModalInPresentation = true
             self.present(onboardVC, animated: true, completion: nil)
