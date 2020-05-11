@@ -7,17 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1F67DA2469005A00323DE3 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F67D92469005A00323DE3 /* Onboarding.storyboard */; };
+		2C1F67DC2469006600323DE3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F67DB2469006600323DE3 /* Home.storyboard */; };
+		2C1F67DE2469007300323DE3 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F67DD2469007300323DE3 /* History.storyboard */; };
+		2C1F67E02469007A00323DE3 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F67DF2469007A00323DE3 /* Profile.storyboard */; };
+		2C1F67E22469013900323DE3 /* OnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F67E12469013900323DE3 /* OnboardVC.swift */; };
+		2C1F67E62469016D00323DE3 /* LandingTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F67E52469016D00323DE3 /* LandingTabBarVC.swift */; };
+		2C1F67E82469021400323DE3 /* HelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F67E72469021400323DE3 /* HelperExtension.swift */; };
+		2C1F67EC2469029E00323DE3 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F67EB2469029E00323DE3 /* KeychainItem.swift */; };
+		2C1F67EE2469040400323DE3 /* HomeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F67ED2469040400323DE3 /* HomeTableVC.swift */; };
+		2C1F67F02469041600323DE3 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F67EF2469041600323DE3 /* HistoryTableVC.swift */; };
+		2C1F67F22469045900323DE3 /* ProfileTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F67F12469045900323DE3 /* ProfileTableVC.swift */; };
 		F465BC63246249D70025396A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC62246249D70025396A /* AppDelegate.swift */; };
 		F465BC65246249D70025396A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC64246249D70025396A /* SceneDelegate.swift */; };
-		F465BC67246249D70025396A /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC66246249D70025396A /* SignInController.swift */; };
-		F465BC6A246249D70025396A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F465BC68246249D70025396A /* Main.storyboard */; };
 		F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F465BC6B246249D70025396A /* MC2_app.xcdatamodeld */; };
 		F465BC6F246249DA0025396A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F465BC6E246249DA0025396A /* Assets.xcassets */; };
 		F465BC72246249DA0025396A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F465BC70246249DA0025396A /* LaunchScreen.storyboard */; };
 		F465BC7D246249DB0025396A /* MC2_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC7C246249DB0025396A /* MC2_appTests.swift */; };
 		F465BC88246249DB0025396A /* MC2_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC87246249DB0025396A /* MC2_appUITests.swift */; };
 		F465BC9724628FAC0025396A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC9624628FAC0025396A /* User.swift */; };
-		F465BC99246307790025396A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC98246307790025396A /* HomeController.swift */; };
 		F4FAFDB62468F3BC00B4F3A5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FAFDB52468F3BC00B4F3A5 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,24 +47,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F465BC5F246249D70025396A /* MC2-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C1F67D92469005A00323DE3 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		2C1F67DB2469006600323DE3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		2C1F67DD2469007300323DE3 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		2C1F67DF2469007A00323DE3 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		2C1F67E12469013900323DE3 /* OnboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardVC.swift; sourceTree = "<group>"; };
+		2C1F67E52469016D00323DE3 /* LandingTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingTabBarVC.swift; sourceTree = "<group>"; };
+		2C1F67E72469021400323DE3 /* HelperExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperExtension.swift; sourceTree = "<group>"; };
+		2C1F67EB2469029E00323DE3 /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
+		2C1F67ED2469040400323DE3 /* HomeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableVC.swift; sourceTree = "<group>"; };
+		2C1F67EF2469041600323DE3 /* HistoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
+		2C1F67F12469045900323DE3 /* ProfileTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableVC.swift; sourceTree = "<group>"; };
+		F465BC5F246249D70025396A /* Awaro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awaro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC62246249D70025396A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F465BC64246249D70025396A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F465BC66246249D70025396A /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
-		F465BC69246249D70025396A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F465BC6C246249D70025396A /* MC2_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC2_app.xcdatamodel; sourceTree = "<group>"; };
 		F465BC6E246249DA0025396A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F465BC71246249DA0025396A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F465BC73246249DA0025396A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F465BC78246249DB0025396A /* MC2-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MC2-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F465BC78246249DB0025396A /* AwaroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwaroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC7C246249DB0025396A /* MC2_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_appTests.swift; sourceTree = "<group>"; };
 		F465BC7E246249DB0025396A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F465BC83246249DB0025396A /* MC2-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MC2-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F465BC83246249DB0025396A /* AwaroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwaroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC87246249DB0025396A /* MC2_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_appUITests.swift; sourceTree = "<group>"; };
 		F465BC89246249DB0025396A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F465BC9524628C7D0025396A /* MC2-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC2-app.entitlements"; sourceTree = "<group>"; };
 		F465BC9624628FAC0025396A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F465BC98246307790025396A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		F4FAFDB52468F3BC00B4F3A5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -86,6 +102,124 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C1F67CD2468FFD800323DE3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67D22469001D00323DE3 /* View */,
+				2C1F67D12469000200323DE3 /* Controller */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		2C1F67CE2468FFDD00323DE3 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67D42469002600323DE3 /* View */,
+				2C1F67D32469002200323DE3 /* Controller */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		2C1F67CF2468FFF700323DE3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67D62469002F00323DE3 /* View */,
+				2C1F67D52469002A00323DE3 /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2C1F67D02468FFFC00323DE3 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67D82469003D00323DE3 /* View */,
+				2C1F67D72469003400323DE3 /* Controller */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2C1F67D12469000200323DE3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67F12469045900323DE3 /* ProfileTableVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2C1F67D22469001D00323DE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67DF2469007A00323DE3 /* Profile.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C1F67D32469002200323DE3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67EF2469041600323DE3 /* HistoryTableVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2C1F67D42469002600323DE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67DD2469007300323DE3 /* History.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C1F67D52469002A00323DE3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67ED2469040400323DE3 /* HomeTableVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2C1F67D62469002F00323DE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67DB2469006600323DE3 /* Home.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C1F67D72469003400323DE3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67E12469013900323DE3 /* OnboardVC.swift */,
+				2C1F67E52469016D00323DE3 /* LandingTabBarVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2C1F67D82469003D00323DE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67D92469005A00323DE3 /* Onboarding.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C1F67E92469024000323DE3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				2C1F67E72469021400323DE3 /* HelperExtension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		2C1F67EA2469026500323DE3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F465BC9624628FAC0025396A /* User.swift */,
+				2C1F67EB2469029E00323DE3 /* KeychainItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F465BC56246249D70025396A = {
 			isa = PBXGroup;
 			children = (
@@ -100,9 +234,9 @@
 		F465BC60246249D70025396A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F465BC5F246249D70025396A /* MC2-app.app */,
-				F465BC78246249DB0025396A /* MC2-appTests.xctest */,
-				F465BC83246249DB0025396A /* MC2-appUITests.xctest */,
+				F465BC5F246249D70025396A /* Awaro.app */,
+				F465BC78246249DB0025396A /* AwaroTests.xctest */,
+				F465BC83246249DB0025396A /* AwaroUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,13 +244,15 @@
 		F465BC61246249D70025396A /* MC2-app */ = {
 			isa = PBXGroup;
 			children = (
+				2C1F67D02468FFFC00323DE3 /* Onboarding */,
+				2C1F67CF2468FFF700323DE3 /* Home */,
+				2C1F67CE2468FFDD00323DE3 /* History */,
+				2C1F67CD2468FFD800323DE3 /* Profile */,
+				2C1F67EA2469026500323DE3 /* Model */,
+				2C1F67E92469024000323DE3 /* Helper */,
 				F465BC9524628C7D0025396A /* MC2-app.entitlements */,
 				F465BC62246249D70025396A /* AppDelegate.swift */,
 				F465BC64246249D70025396A /* SceneDelegate.swift */,
-				F465BC66246249D70025396A /* SignInController.swift */,
-				F465BC98246307790025396A /* HomeController.swift */,
-				F465BC68246249D70025396A /* Main.storyboard */,
-				F465BC9624628FAC0025396A /* User.swift */,
 				F465BC6E246249DA0025396A /* Assets.xcassets */,
 				F465BC70246249DA0025396A /* LaunchScreen.storyboard */,
 				F465BC73246249DA0025396A /* Info.plist */,
@@ -154,9 +290,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F465BC5E246249D70025396A /* MC2-app */ = {
+		F465BC5E246249D70025396A /* Awaro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F465BC8C246249DB0025396A /* Build configuration list for PBXNativeTarget "MC2-app" */;
+			buildConfigurationList = F465BC8C246249DB0025396A /* Build configuration list for PBXNativeTarget "Awaro" */;
 			buildPhases = (
 				F465BC5B246249D70025396A /* Sources */,
 				F465BC5C246249D70025396A /* Frameworks */,
@@ -166,14 +302,14 @@
 			);
 			dependencies = (
 			);
-			name = "MC2-app";
+			name = Awaro;
 			productName = "MC2-app";
-			productReference = F465BC5F246249D70025396A /* MC2-app.app */;
+			productReference = F465BC5F246249D70025396A /* Awaro.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F465BC77246249DB0025396A /* MC2-appTests */ = {
+		F465BC77246249DB0025396A /* AwaroTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F465BC8F246249DB0025396A /* Build configuration list for PBXNativeTarget "MC2-appTests" */;
+			buildConfigurationList = F465BC8F246249DB0025396A /* Build configuration list for PBXNativeTarget "AwaroTests" */;
 			buildPhases = (
 				F465BC74246249DB0025396A /* Sources */,
 				F465BC75246249DB0025396A /* Frameworks */,
@@ -184,14 +320,14 @@
 			dependencies = (
 				F465BC7A246249DB0025396A /* PBXTargetDependency */,
 			);
-			name = "MC2-appTests";
+			name = AwaroTests;
 			productName = "MC2-appTests";
-			productReference = F465BC78246249DB0025396A /* MC2-appTests.xctest */;
+			productReference = F465BC78246249DB0025396A /* AwaroTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F465BC82246249DB0025396A /* MC2-appUITests */ = {
+		F465BC82246249DB0025396A /* AwaroUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F465BC92246249DB0025396A /* Build configuration list for PBXNativeTarget "MC2-appUITests" */;
+			buildConfigurationList = F465BC92246249DB0025396A /* Build configuration list for PBXNativeTarget "AwaroUITests" */;
 			buildPhases = (
 				F465BC7F246249DB0025396A /* Sources */,
 				F465BC80246249DB0025396A /* Frameworks */,
@@ -202,9 +338,9 @@
 			dependencies = (
 				F465BC85246249DB0025396A /* PBXTargetDependency */,
 			);
-			name = "MC2-appUITests";
+			name = AwaroUITests;
 			productName = "MC2-appUITests";
-			productReference = F465BC83246249DB0025396A /* MC2-appUITests.xctest */;
+			productReference = F465BC83246249DB0025396A /* AwaroUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +366,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F465BC5A246249D70025396A /* Build configuration list for PBXProject "MC2-app" */;
+			buildConfigurationList = F465BC5A246249D70025396A /* Build configuration list for PBXProject "Awaro" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -243,9 +379,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F465BC5E246249D70025396A /* MC2-app */,
-				F465BC77246249DB0025396A /* MC2-appTests */,
-				F465BC82246249DB0025396A /* MC2-appUITests */,
+				F465BC5E246249D70025396A /* Awaro */,
+				F465BC77246249DB0025396A /* AwaroTests */,
+				F465BC82246249DB0025396A /* AwaroUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,8 +392,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F465BC72246249DA0025396A /* LaunchScreen.storyboard in Resources */,
+				2C1F67DC2469006600323DE3 /* Home.storyboard in Resources */,
 				F465BC6F246249DA0025396A /* Assets.xcassets in Resources */,
-				F465BC6A246249D70025396A /* Main.storyboard in Resources */,
+				2C1F67DA2469005A00323DE3 /* Onboarding.storyboard in Resources */,
+				2C1F67E02469007A00323DE3 /* Profile.storyboard in Resources */,
+				2C1F67DE2469007300323DE3 /* History.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +421,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F465BC67246249D70025396A /* SignInController.swift in Sources */,
 				F465BC63246249D70025396A /* AppDelegate.swift in Sources */,
+				2C1F67F22469045900323DE3 /* ProfileTableVC.swift in Sources */,
+				2C1F67EC2469029E00323DE3 /* KeychainItem.swift in Sources */,
+				2C1F67E62469016D00323DE3 /* LandingTabBarVC.swift in Sources */,
+				2C1F67EE2469040400323DE3 /* HomeTableVC.swift in Sources */,
 				F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */,
-				F465BC99246307790025396A /* HomeController.swift in Sources */,
+				2C1F67F02469041600323DE3 /* HistoryTableVC.swift in Sources */,
+				2C1F67E22469013900323DE3 /* OnboardVC.swift in Sources */,
+				2C1F67E82469021400323DE3 /* HelperExtension.swift in Sources */,
 				F465BC9724628FAC0025396A /* User.swift in Sources */,
 				F465BC65246249D70025396A /* SceneDelegate.swift in Sources */,
 			);
@@ -312,25 +456,17 @@
 /* Begin PBXTargetDependency section */
 		F465BC7A246249DB0025396A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F465BC5E246249D70025396A /* MC2-app */;
+			target = F465BC5E246249D70025396A /* Awaro */;
 			targetProxy = F465BC79246249DB0025396A /* PBXContainerItemProxy */;
 		};
 		F465BC85246249DB0025396A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F465BC5E246249D70025396A /* MC2-app */;
+			target = F465BC5E246249D70025396A /* Awaro */;
 			targetProxy = F465BC84246249DB0025396A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F465BC68246249D70025396A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F465BC69246249D70025396A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F465BC70246249DA0025396A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -462,7 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MC2-app/MC2-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7LUWAU8N83;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "MC2-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -481,7 +617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MC2-app/MC2-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7LUWAU8N83;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "MC2-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -512,7 +648,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MC2-app.app/MC2-app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Awaro.app/Awaro";
 			};
 			name = Debug;
 		};
@@ -534,7 +670,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MC2-app.app/MC2-app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Awaro.app/Awaro";
 			};
 			name = Release;
 		};
@@ -581,7 +717,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F465BC5A246249D70025396A /* Build configuration list for PBXProject "MC2-app" */ = {
+		F465BC5A246249D70025396A /* Build configuration list for PBXProject "Awaro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F465BC8A246249DB0025396A /* Debug */,
@@ -590,7 +726,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F465BC8C246249DB0025396A /* Build configuration list for PBXNativeTarget "MC2-app" */ = {
+		F465BC8C246249DB0025396A /* Build configuration list for PBXNativeTarget "Awaro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F465BC8D246249DB0025396A /* Debug */,
@@ -599,7 +735,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F465BC8F246249DB0025396A /* Build configuration list for PBXNativeTarget "MC2-appTests" */ = {
+		F465BC8F246249DB0025396A /* Build configuration list for PBXNativeTarget "AwaroTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F465BC90246249DB0025396A /* Debug */,
@@ -608,7 +744,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F465BC92246249DB0025396A /* Build configuration list for PBXNativeTarget "MC2-appUITests" */ = {
+		F465BC92246249DB0025396A /* Build configuration list for PBXNativeTarget "AwaroUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F465BC93246249DB0025396A /* Debug */,

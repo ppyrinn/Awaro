@@ -1,24 +1,20 @@
 //
-//  HomeControllerViewController.swift
-//  MC2-app
+//  LandingTabBarVC.swift
+//  Awaro
 //
-//  Created by Poppy on 06/05/20.
+//  Created by Rayhan Martiza Faluda on 11/05/20.
 //  Copyright © 2020 Poppy. All rights reserved.
 //
 
 import UIKit
 
-class HomeController: UIViewController {
+class LandingTabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-    var user:User?
-    
-    
     
 
     /*

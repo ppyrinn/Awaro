@@ -34,15 +34,15 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
+					<string>Onboarding</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Onboarding</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Onboarding</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -50,8 +50,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
