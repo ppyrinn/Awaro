@@ -253,8 +253,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="wZJ-hh-Uu4"/>
                     <connections>
-                        <outlet property="signInWithAppleStackView" destination="bG2-Od-i9a" id="KNe-3O-z1Y"/>
-                        <outlet property="welcomeToPlanoLabel" destination="IgO-Z4-uXh" id="35q-Ja-BXj"/>
+                        <outlet property="signInWithAppleStackView" destination="bG2-Od-i9a" id="AhO-J4-Jjg"/>
+                        <outlet property="welcomeToAwaroLabel" destination="IgO-Z4-uXh" id="DsC-SE-gAy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Usy-wg-snw" sceneMemberID="firstResponder"/>
