@@ -9,7 +9,7 @@
 import UIKit
 
 class HistoryTableVC: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,29 +18,65 @@ class HistoryTableVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "History", preferredLargeTitle: true)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if isDarkMode ==  true {
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor.black
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor.white
+        }
+        else {
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor.white
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = UIColor.black
+        }
     }
 
-    /*
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 50
+//    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryCell
 
         // Configure the cell...
+        if isDarkMode == true {
+            cell.historyView.backgroundColor = .systemGray5
+        }
+        else {
+            cell.historyView.backgroundColor = .white
+            cell.historyView.shadowColor = .black
+            cell.historyView.shadowOffset = CGSize(width: 0, height: 0)
+            cell.historyView.shadowRadius = 5
+            cell.historyView.shadowOpacity = 0.2
+        }
+        cell.historyView.cornerRadius = 10
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
