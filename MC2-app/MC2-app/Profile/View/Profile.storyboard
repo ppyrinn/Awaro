@@ -39,7 +39,7 @@
         <scene sceneID="cYZ-SD-C62">
             <objects>
                 <navigationController id="iPq-IP-dX6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="iBX-ey-L1u"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="iBX-ey-L1u"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hDK-d5-dSI">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -54,4 +54,7 @@
             <point key="canvasLocation" x="-525" y="-35"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile" width="25" height="25"/>
+    </resources>
 </document>

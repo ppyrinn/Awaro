@@ -150,6 +150,16 @@ extension UIView: CAAnimationDelegate {
         }
     }
     
+    func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
+                   shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
+                   shadowOpacity: Float = 0.4,
+                   shadowRadius: CGFloat = 3.0) {
+        layer.shadowColor = shadowColor
+        layer.shadowOffset = shadowOffset
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
+    }
+    
     fileprivate var isAnimate: Bool {
         get {
             return objc_getAssociatedObject(self, &associateObjectValue) as? Bool ?? false
@@ -321,6 +331,11 @@ extension UIViewController {
             navigationController?.navigationBar.isTranslucent = false
             navigationController?.navigationBar.tintColor = tintColor
             navigationItem.title = title
+            
+            self.navigationController?.navigationBar.layer.cornerRadius = 20
+            //self.navigationController?.navigationBar.clipsToBounds = true
+            //navigationController?.navigationBar.layer.masksToBounds = true
+            self.navigationController?.navigationBar.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMaxYCorner]
 
         } else {
             // Fallback on earlier versions
@@ -329,6 +344,54 @@ extension UIViewController {
             navigationController?.navigationBar.isTranslucent = false
             navigationItem.title = title
         }
+    }
+    
+    func roundedNavigationBar(title: String) {
+        // 1. Enable prefersLargeTitles and title
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = title
+
+        //3. Change default navbar to blank UI
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1)
+
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.backgroundColor = .white
+
+        //4. Add shadow and cirner radius to navbar
+        let offset : CGFloat = (self.navigationController?.view.safeAreaInsets.top ?? 20)
+
+        let shadowView = UIView(frame: CGRect(x: 0, y: -offset,
+                                           width: (self.navigationController?.navigationBar.bounds.width)!,
+                                           height: (self.navigationController?.navigationBar.bounds.height)! + offset))
+        shadowView.backgroundColor = .clear
+        self.navigationController?.navigationBar.insertSubview(shadowView, at: 1)
+
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.path = UIBezierPath(roundedRect: shadowView.bounds, byRoundingCorners: [.bottomLeft , .bottomRight , .topLeft], cornerRadii: CGSize(width: 20, height: 20)).cgPath
+
+        shadowLayer.fillColor = #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1)
+
+        shadowLayer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        shadowLayer.shadowPath = shadowLayer.path
+        shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
+        shadowLayer.shadowOpacity = 0.25
+        shadowLayer.shadowRadius = 5
+
+        shadowView.layer.insertSublayer(shadowLayer, at: 0)
+    }
+    
+    func setStatusBar(backgroundColor: UIColor) {
+        let statusBarFrame: CGRect
+        if #available(iOS 13.0, *) {
+            statusBarFrame = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
+        } else {
+            statusBarFrame = UIApplication.shared.statusBarFrame
+        }
+        let statusBarView = UIView(frame: statusBarFrame)
+        statusBarView.backgroundColor = backgroundColor
+        view.addSubview(statusBarView)
     }
 }
 
@@ -609,4 +672,30 @@ enum ButtonDisplayMode {
 
 enum ButtonStyle {
     case backgroundColor, circular
+}
+
+protocol RoundedCornerNavigationBar {
+    func addRoundedCorner(OnNavigationBar navigationBar: UINavigationBar, cornerRadius: CGFloat)
+}
+
+extension RoundedCornerNavigationBar where Self: UIViewController{
+    
+    func addRoundedCorner(OnNavigationBar navigationBar: UINavigationBar, cornerRadius: CGFloat){
+        navigationBar.isTranslucent = false
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.backgroundColor = .white
+        
+        let customView = UIView(frame: CGRect(x: 0, y: navigationBar.bounds.maxY, width: navigationBar.bounds.width, height: cornerRadius))
+        customView.backgroundColor = .clear
+        navigationBar.insertSubview(customView, at: 1)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = UIBezierPath(roundedRect: customView.bounds, byRoundingCorners: [.bottomLeft,.bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)).cgPath
+        shapeLayer.shadowColor = UIColor.lightGray.cgColor
+        shapeLayer.shadowOffset = CGSize(width: 0, height: 4.0)
+        shapeLayer.shadowOpacity = 0.8
+        shapeLayer.shadowRadius = 2
+        shapeLayer.fillColor = UIColor.white.cgColor
+        customView.layer.insertSublayer(shapeLayer, at: 0)
+    }
 }

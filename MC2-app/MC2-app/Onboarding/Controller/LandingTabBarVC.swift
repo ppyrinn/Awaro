@@ -15,6 +15,7 @@ class LandingTabBarVC: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setStatusBar(backgroundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1))
     }
     
     //MARK: Check if user is signed in or not

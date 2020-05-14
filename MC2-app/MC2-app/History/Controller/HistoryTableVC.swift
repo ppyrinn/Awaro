@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryTableVC: UITableViewController {
+class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +18,16 @@ class HistoryTableVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "History", preferredLargeTitle: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "History", preferredLargeTitle: true)
+        //roundedNavigationBar(title: "History")
+        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+    }
+    
 
     // MARK: - Table view data source
 
@@ -54,14 +61,20 @@ class HistoryTableVC: UITableViewController {
 
         // Configure the cell...
         if isDarkMode == true {
-            cell.historyView.backgroundColor = .systemGray5
-        }
-        else {
-            cell.historyView.backgroundColor = .white
+            cell.contentView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+            cell.historyView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
             cell.historyView.shadowColor = .black
             cell.historyView.shadowOffset = CGSize(width: 0, height: 0)
             cell.historyView.shadowRadius = 5
-            cell.historyView.shadowOpacity = 0.2
+            cell.historyView.shadowOpacity = 0.25
+        }
+        else {
+            cell.contentView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+            cell.historyView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+            cell.historyView.shadowColor = .black
+            cell.historyView.shadowOffset = CGSize(width: 0, height: 0)
+            cell.historyView.shadowRadius = 5
+            cell.historyView.shadowOpacity = 0.25
         }
         cell.historyView.cornerRadius = 10
 
