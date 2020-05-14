@@ -17,6 +17,18 @@ class SessionMemberVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     
+    // MARK: - IBAction Function
+    @IBAction func quitSessionButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Are you sure you want to quit this session?", message: "You will still be able to rejoin this session afterwards.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Quit", style: .destructive, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+
+        self.present(alert, animated: true)
+    }
+    
+    
     // MARK: - Table view data source
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            return 5

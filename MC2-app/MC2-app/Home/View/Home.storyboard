@@ -659,6 +659,9 @@
                                         <state key="normal" title="Quit Session">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="quitSessionButton:" destination="G8l-lj-nQT" eventType="touchUpInside" id="nMf-ly-Oa3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92242574690000001" green="0.303917408" blue="0.2391683459" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
