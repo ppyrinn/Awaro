@@ -8,19 +8,27 @@
 
 import UIKit
 import AuthenticationServices
+import SwiftyGif
 
 class LandingTabBarVC: UITabBarController {
 
+    let logoAnimationView = LogoAnimationView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setStatusBar(backgroundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1))
+        
+        view.addSubview(logoAnimationView)
+        logoAnimationView.pinEdgesToSuperView()
+        logoAnimationView.logoGifImageView.delegate = self
     }
     
     //MARK: Check if user is signed in or not
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        logoAnimationView.logoGifImageView.startAnimatingGif()
         
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier ?? "") { (credentialState, error) in
@@ -68,4 +76,20 @@ class LandingTabBarVC: UITabBarController {
     }
     */
 
+}
+
+extension LandingTabBarVC: SwiftyGifDelegate {
+    func gifDidStop(sender: UIImageView) {
+        logoAnimationView.isHidden = true
+        let splashView = SplashView(iconImage: UIImage(named: "Awaro-splash-(white)-lastframe")!,iconInitialSize: CGSize(width:250, height: 250), backgroundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1))
+        
+            self.view.addSubview(splashView)
+    
+            splashView.duration = 3.0
+            splashView.animationType = AnimationType.twitter
+    
+            splashView.startAnimation(){
+                print("Completed")
+        }
+    }
 }

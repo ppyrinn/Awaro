@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,11 +22,18 @@
 		2C331059246C277E00DBF2AA /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C331058246C277E00DBF2AA /* HomeVC.swift */; };
 		2C33105B246CF9F300DBF2AA /* HistoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33105A246CF9F300DBF2AA /* HistoryDetailVC.swift */; };
 		2C33105D246CFB2F00DBF2AA /* HistoryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33105C246CFB2F00DBF2AA /* HistoryDetailCell.swift */; };
+		2C6FC449246D6F440033A1C8 /* SessionHostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC448246D6F440033A1C8 /* SessionHostVC.swift */; };
+		2C6FC44C246D70120033A1C8 /* SessionHostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC44B246D70120033A1C8 /* SessionHostCell.swift */; };
+		2C6FC44E246D75620033A1C8 /* SessionMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC44D246D75620033A1C8 /* SessionMemberVC.swift */; };
+		2C6FC450246D75770033A1C8 /* SessionMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC44F246D75770033A1C8 /* SessionMemberCell.swift */; };
+		2C6FC453246D8CE20033A1C8 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6FC452246D8CE20033A1C8 /* SwiftyGif */; };
+		2C6FC463246DA06F0033A1C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FC462246DA06F0033A1C8 /* LaunchScreen.storyboard */; };
+		2C6FC467246DC13B0033A1C8 /* Awaro-splash-(white).gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FC465246DC13B0033A1C8 /* Awaro-splash-(white).gif */; };
+		2C6FC46B246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FC46A246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif */; };
 		F465BC63246249D70025396A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC62246249D70025396A /* AppDelegate.swift */; };
 		F465BC65246249D70025396A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC64246249D70025396A /* SceneDelegate.swift */; };
 		F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F465BC6B246249D70025396A /* MC2_app.xcdatamodeld */; };
 		F465BC6F246249DA0025396A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F465BC6E246249DA0025396A /* Assets.xcassets */; };
-		F465BC72246249DA0025396A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F465BC70246249DA0025396A /* LaunchScreen.storyboard */; };
 		F465BC7D246249DB0025396A /* MC2_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC7C246249DB0025396A /* MC2_appTests.swift */; };
 		F465BC88246249DB0025396A /* MC2_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC87246249DB0025396A /* MC2_appUITests.swift */; };
 		F465BC9724628FAC0025396A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC9624628FAC0025396A /* User.swift */; };
@@ -66,12 +73,18 @@
 		2C331058246C277E00DBF2AA /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		2C33105A246CF9F300DBF2AA /* HistoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailVC.swift; sourceTree = "<group>"; };
 		2C33105C246CFB2F00DBF2AA /* HistoryDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailCell.swift; sourceTree = "<group>"; };
+		2C6FC448246D6F440033A1C8 /* SessionHostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHostVC.swift; sourceTree = "<group>"; };
+		2C6FC44B246D70120033A1C8 /* SessionHostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHostCell.swift; sourceTree = "<group>"; };
+		2C6FC44D246D75620033A1C8 /* SessionMemberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMemberVC.swift; sourceTree = "<group>"; };
+		2C6FC44F246D75770033A1C8 /* SessionMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMemberCell.swift; sourceTree = "<group>"; };
+		2C6FC462246DA06F0033A1C8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C6FC465246DC13B0033A1C8 /* Awaro-splash-(white).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Awaro-splash-(white).gif"; sourceTree = "<group>"; };
+		2C6FC46A246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Awaro-splash-(white)-no-loop.gif"; sourceTree = "<group>"; };
 		F465BC5F246249D70025396A /* Awaro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awaro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC62246249D70025396A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F465BC64246249D70025396A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F465BC6C246249D70025396A /* MC2_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC2_app.xcdatamodel; sourceTree = "<group>"; };
 		F465BC6E246249DA0025396A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F465BC71246249DA0025396A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F465BC73246249DA0025396A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F465BC78246249DB0025396A /* AwaroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwaroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC7C246249DB0025396A /* MC2_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_appTests.swift; sourceTree = "<group>"; };
@@ -90,6 +103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FAFDB62468F3BC00B4F3A5 /* CloudKit.framework in Frameworks */,
+				2C6FC453246D8CE20033A1C8 /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +148,7 @@
 			children = (
 				2C1F67D62469002F00323DE3 /* View */,
 				2C1F67D52469002A00323DE3 /* Controller */,
+				2C6FC44A246D6FF40033A1C8 /* Cell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -143,6 +158,7 @@
 			children = (
 				2C1F67D82469003D00323DE3 /* View */,
 				2C1F67D72469003400323DE3 /* Controller */,
+				2C6FC45D246D94150033A1C8 /* Asset */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -185,6 +201,8 @@
 			children = (
 				2C1F67ED2469040400323DE3 /* HomeTableVC.swift */,
 				2C331058246C277E00DBF2AA /* HomeVC.swift */,
+				2C6FC448246D6F440033A1C8 /* SessionHostVC.swift */,
+				2C6FC44D246D75620033A1C8 /* SessionMemberVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,6 +227,7 @@
 		2C1F67D82469003D00323DE3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C6FC462246DA06F0033A1C8 /* LaunchScreen.storyboard */,
 				2C1F67D92469005A00323DE3 /* Onboarding.storyboard */,
 			);
 			path = View;
@@ -238,6 +257,24 @@
 				2C33105C246CFB2F00DBF2AA /* HistoryDetailCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C6FC44A246D6FF40033A1C8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C6FC44B246D70120033A1C8 /* SessionHostCell.swift */,
+				2C6FC44F246D75770033A1C8 /* SessionMemberCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C6FC45D246D94150033A1C8 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				2C6FC46A246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif */,
+				2C6FC465246DC13B0033A1C8 /* Awaro-splash-(white).gif */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 		F465BC56246249D70025396A = {
@@ -274,7 +311,6 @@
 				F465BC62246249D70025396A /* AppDelegate.swift */,
 				F465BC64246249D70025396A /* SceneDelegate.swift */,
 				F465BC6E246249DA0025396A /* Assets.xcassets */,
-				F465BC70246249DA0025396A /* LaunchScreen.storyboard */,
 				F465BC73246249DA0025396A /* Info.plist */,
 				F465BC6B246249D70025396A /* MC2_app.xcdatamodeld */,
 			);
@@ -323,6 +359,9 @@
 			dependencies = (
 			);
 			name = Awaro;
+			packageProductDependencies = (
+				2C6FC452246D8CE20033A1C8 /* SwiftyGif */,
+			);
 			productName = "MC2-app";
 			productReference = F465BC5F246249D70025396A /* Awaro.app */;
 			productType = "com.apple.product-type.application";
@@ -395,6 +434,9 @@
 				Base,
 			);
 			mainGroup = F465BC56246249D70025396A;
+			packageReferences = (
+				2C6FC451246D8CE20033A1C8 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+			);
 			productRefGroup = F465BC60246249D70025396A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -411,10 +453,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F465BC72246249DA0025396A /* LaunchScreen.storyboard in Resources */,
+				2C6FC463246DA06F0033A1C8 /* LaunchScreen.storyboard in Resources */,
 				2C1F67DC2469006600323DE3 /* Home.storyboard in Resources */,
 				F465BC6F246249DA0025396A /* Assets.xcassets in Resources */,
 				2C1F67DA2469005A00323DE3 /* Onboarding.storyboard in Resources */,
+				2C6FC46B246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif in Resources */,
+				2C6FC467246DC13B0033A1C8 /* Awaro-splash-(white).gif in Resources */,
 				2C1F67E02469007A00323DE3 /* Profile.storyboard in Resources */,
 				2C1F67DE2469007300323DE3 /* History.storyboard in Resources */,
 			);
@@ -441,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C6FC44C246D70120033A1C8 /* SessionHostCell.swift in Sources */,
 				F465BC63246249D70025396A /* AppDelegate.swift in Sources */,
 				2C1F67F22469045900323DE3 /* ProfileTableVC.swift in Sources */,
 				2C1F67EC2469029E00323DE3 /* KeychainItem.swift in Sources */,
@@ -449,12 +494,15 @@
 				2C1F67EE2469040400323DE3 /* HomeTableVC.swift in Sources */,
 				F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */,
 				2C33105D246CFB2F00DBF2AA /* HistoryDetailCell.swift in Sources */,
+				2C6FC44E246D75620033A1C8 /* SessionMemberVC.swift in Sources */,
 				2C1F67F72469620200323DE3 /* HistoryCell.swift in Sources */,
+				2C6FC449246D6F440033A1C8 /* SessionHostVC.swift in Sources */,
 				2C33105B246CF9F300DBF2AA /* HistoryDetailVC.swift in Sources */,
 				2C1F67F02469041600323DE3 /* HistoryTableVC.swift in Sources */,
 				2C1F67E22469013900323DE3 /* OnboardVC.swift in Sources */,
 				2C1F67E82469021400323DE3 /* HelperExtension.swift in Sources */,
 				F465BC9724628FAC0025396A /* User.swift in Sources */,
+				2C6FC450246D75770033A1C8 /* SessionMemberCell.swift in Sources */,
 				F465BC65246249D70025396A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,17 +537,6 @@
 			targetProxy = F465BC84246249DB0025396A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		F465BC70246249DA0025396A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F465BC71246249DA0025396A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F465BC8A246249DB0025396A /* Debug */ = {
@@ -633,7 +670,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -654,7 +691,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -782,6 +819,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C6FC451246D8CE20033A1C8 /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C6FC452246D8CE20033A1C8 /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C6FC451246D8CE20033A1C8 /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F465BC6B246249D70025396A /* MC2_app.xcdatamodeld */ = {

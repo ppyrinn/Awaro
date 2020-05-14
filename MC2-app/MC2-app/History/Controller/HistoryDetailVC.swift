@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - IBOutlet
     @IBOutlet weak var topView: UIView!

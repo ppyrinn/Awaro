@@ -8,8 +8,12 @@
 
 import Foundation
 import UIKit
+import SwiftyGif
 
 var associateObjectValue: Int = 0
+
+public typealias AnimationCompletion = () -> Void
+public typealias AnimationExecution = () -> Void
 
 @IBDesignable
 class DesignableView: UIView {
@@ -256,6 +260,35 @@ struct GlobalVariables {
 }
 
 //Extensions
+extension UIView {
+    func pinEdgesToSuperView() {
+        guard let superView = superview else { return }
+        translatesAutoresizingMaskIntoConstraints = false
+        topAnchor.constraint(equalTo: superView.topAnchor).isActive = true
+        leftAnchor.constraint(equalTo: superView.leftAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
+        rightAnchor.constraint(equalTo: superView.rightAnchor).isActive = true
+    }
+}
+
+extension UIImage {
+    class func colorForNavBar(color: UIColor) -> UIImage {
+        //    let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        //    Or if you need a thinner border :
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 0.5)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image!
+    }
+}
+
 extension UIColor{
     class func rbg(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         let color = UIColor.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
@@ -419,7 +452,6 @@ private extension DateComponents {
 }
 
 extension Calendar {
-
   func makeIterator(components: DateComponents, from date: Date, until: Date?) -> Calendar.DateComponentsIterator {
     return DateComponentsIterator(calendar: self, startDate: date, cutoff: until, components: components, count: 0)
   }
@@ -448,6 +480,136 @@ extension Calendar {
       return nextDate
     }
   }
+}
+
+extension SplashView {
+    
+    //---------------------------------
+    //--- The function called to start the animation, Entry point of extention.
+    //---------------------------------
+    public func startAnimation(_ completion: AnimationCompletion? = nil)
+    {
+        switch animationType{
+        case .twitter:
+            playTwitterAnimation(completion)
+            
+        case .heartBeat:
+            playHeartBeatAnimation(completion)
+        }
+    }
+    
+    
+    //---------------------------------
+    //--- Makes the twitter animation overlay.
+    //---------------------------------
+    public func playTwitterAnimation(_ completion: AnimationCompletion? = nil)
+    {
+        
+        if let imageView = self.imageView {
+            
+            //Define the shink and grow duration based on the duration parameter
+            let shrinkDuration: TimeInterval = duration * 0.01
+            
+            //Plays the shrink animation
+            UIView.animate(withDuration: shrinkDuration, delay: delay, usingSpringWithDamping: 0.7, initialSpringVelocity: 10, options: UIView.AnimationOptions(), animations: {
+                //Shrinks the image
+                let scaleTransform: CGAffineTransform = CGAffineTransform(scaleX: 1,y: 1)
+                imageView.transform = scaleTransform
+                
+                //When animation completes, grow the image
+            }, completion: { finished in
+                
+                self.playZoomOutAnimation(completion)
+            })
+        }
+    }
+    
+    //---------------------------------
+    //--- Twitter Zoom out animation performs here.
+    //--- Remove the view after animation
+    //---------------------------------
+    public func playZoomOutAnimation(_ completion: AnimationCompletion? = nil)
+    {
+        if let imageView =  imageView
+        {
+            let growDuration: TimeInterval =  duration * 0.3
+            
+            UIView.animate(withDuration: growDuration, animations:{
+                
+                imageView.transform = self.getZoomOutTranform()
+                self.alpha = 0
+                
+                //When animation completes remote self from super view
+            }, completion: { finished in
+                
+                self.removeFromSuperview()
+                
+                completion?()
+            })
+        }
+    }
+    
+    //---------------------------------
+    //--- Makes the heartbeat animation for icon.
+    //---------------------------------
+    public func playHeartBeatAnimation(_ completion: AnimationCompletion? = nil)
+    {
+        if let imageView = self.imageView {
+            
+            let popForce = 1.5 // How much high can go.
+            
+            animateLayer({
+                let animation = CAKeyframeAnimation(keyPath: "transform.scale")
+                animation.values = [0, 0.1 * popForce, 0.015 * popForce, 0.2 * popForce, 0]
+                animation.keyTimes = [0, 0.25, 0.50, 0.75, 1]
+                animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                animation.duration = CFTimeInterval(self.duration/2)
+                animation.isAdditive = true
+                animation.repeatCount = Float(minimumBeats > 0 ? minimumBeats : 1)
+                animation.beginTime = CACurrentMediaTime() + CFTimeInterval(self.delay/2)
+                imageView.layer.add(animation, forKey: "pop")
+            }, completion: { [weak self] in
+                if self?.heartAttack ?? true {
+                    self?.playZoomOutAnimation(completion)
+                } else {
+                    self?.playHeartBeatAnimation(completion)
+                }
+            })
+        }
+    }
+    
+    
+    //---------------------------------
+    //--- stop the heart beat
+    //--- Once the heart beat stops the Zoom out function called to perform the final animation
+    //---------------------------------
+    public func finishHeartBeatAnimation()
+    {
+        self.heartAttack = true
+    }
+    
+    //---------------------------------
+    //--- returns the default zoom out transform
+    //---------------------------------
+    fileprivate func getZoomOutTranform() -> CGAffineTransform
+    {
+        let zoomOutTranform: CGAffineTransform = CGAffineTransform(scaleX: 20, y: 20)
+        return zoomOutTranform
+    }
+    
+    //---------------------------------
+    //--- Animate layer continuosly to show as heart beat
+    //---------------------------------
+    fileprivate func animateLayer(_ animation: AnimationExecution, completion: AnimationCompletion? = nil) {
+        
+        CATransaction.begin()
+        if let completion = completion {
+            CATransaction.setCompletionBlock { completion() }
+        }
+        animation()
+        CATransaction.commit()
+    }
+
 }
 
 
@@ -513,6 +675,214 @@ class IndicatorView: UIView {
     override func draw(_ rect: CGRect) {
         color.set()
         UIBezierPath(ovalIn: rect).fill()
+    }
+}
+
+class LogoAnimationView: UIView {
+    let logoGifImageView: UIImageView = {
+        guard let gifImage = try? UIImage(gifName: "Awaro-splash-(white)-no-loop.gif") else {
+            return UIImageView()
+        }
+        return UIImageView(gifImage: gifImage, loopCount: 1)
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        backgroundColor = #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1)
+        addSubview(logoGifImageView)
+        logoGifImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoGifImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        logoGifImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        logoGifImageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        logoGifImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+    }
+}
+
+class SplashView: UIView {
+
+    
+    //---------------------------------
+    //--- pass the icon image, to view and to animate -- both are same image
+    //---------------------------------
+    open var iconImage: UIImage? {
+        
+        didSet{
+            if let iconImage = self.iconImage{
+                imageView?.image = iconImage
+            }
+        }
+        
+    }
+    
+    //---------------------------------
+    //--- pass the icon color, if required. By default its white, like twitter
+    //---------------------------------
+    open var iconColor: UIColor = UIColor.white{
+        
+        didSet{
+            
+            imageView?.tintColor = iconColor
+        }
+        
+    }
+    
+    //---------------------------------
+    //--- Custom icon color if required to pass with rendering
+    //--- True - if using background color
+    //--- false - if using background image
+    //---------------------------------
+    open var useCustomIconColor: Bool = false{
+        
+        didSet{
+            
+            if(useCustomIconColor == true){
+                
+                if let iconImage = self.iconImage {
+                    imageView?.image = iconImage.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                }
+            }
+            else{
+                
+                if let iconImage = self.iconImage {
+                    imageView?.image = iconImage.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+                }
+            }
+        }
+    }
+    
+    //---------------------------------
+    //--- pass the icon size,
+    //--- In case using launch screen with the Imageview, the size should match the icon size of the imageview.
+    //--- If don't want to see the heartbeat till API call, then Image view should be visible there in splash screen too.
+    //---------------------------------
+    
+    open var iconInitialSize: CGSize = CGSize(width: 60, height: 60) {
+        
+        didSet{
+            
+            imageView?.frame = CGRect(x: 0, y: 0, width: iconInitialSize.width, height: iconInitialSize.height)
+        }
+    }
+    
+    
+    //---------------------------------
+    //--- If required to show image in spite of background color
+    //---------------------------------
+    open var backgroundImageView: UIImageView?
+    
+    //---------------------------------
+    //--- Image view used to hold the icon
+    //---------------------------------
+    open var imageView: UIImageView?
+    
+    //---------------------------------
+    //--- Default Twitter, as per requirement change to heartbeat
+    //---------------------------------
+    open var animationType: AnimationType = AnimationType.twitter
+    
+    //---------------------------------
+    //--- Duration of animation, default is 1.5, In case of Heartbeat-pass 3
+    //---------------------------------
+    open var duration: Double = 1.5
+    
+    //---------------------------------
+    //--- delay of the animation to zoom in and out
+    //---------------------------------
+    open var delay: Double = 0.5
+    
+    //---------------------------------
+    //--- Default - False - will continuos beat, True - stop the heartbeat
+    //---------------------------------
+    open var heartAttack: Bool = false
+    
+    //---------------------------------
+    //--- Repeat counter of heartbeat, Default - 1
+    //---------------------------------
+    open var minimumBeats: Int = 1
+    
+    //---------------------------------
+    //--- Default constructor of the class
+    //--- iconImage:       The Icon image to show the animation
+    //--- iconInitialSize: The initial size of the icon image
+    //--- backgroundColor: The background color of the image
+    //--- returns: SplashView Object
+    //---------------------------------
+    public init(iconImage: UIImage, iconInitialSize:CGSize, backgroundColor: UIColor)
+    {
+        //Sets the initial values of the image view and icon view
+        self.imageView = UIImageView()
+        self.iconImage = iconImage
+        self.iconInitialSize = iconInitialSize
+        //Inits the view to the size of the screen
+        super.init(frame: (UIScreen.main.bounds))
+        
+        imageView?.image = iconImage
+        imageView?.tintColor = iconColor
+        //Set the initial size and position
+        imageView?.frame = CGRect(x: 0, y: 0, width: iconInitialSize.width, height: iconInitialSize.height)
+        //Sets the content mode and set it to be centered
+        imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        imageView?.center = self.center
+        
+        //Adds the icon to the view
+        self.addSubview(imageView!)
+        
+        //Sets the background color
+        self.backgroundColor = backgroundColor
+        
+    }
+    
+    //---------------------------------
+    //--- Default constructor of the class
+    //--- iconImage:       The Icon image to show the animation
+    //--- iconInitialSize: The initial size of the icon image
+    //--- backgroundImage: The background image to show behined icon
+    //--- returns: SplashView Object
+    //---------------------------------
+    public init(iconImage: UIImage, iconInitialSize:CGSize, backgroundImage: UIImage)
+    {
+        //Sets the initial values of the image view and icon view
+        self.imageView = UIImageView()
+        self.iconImage = iconImage
+        self.iconInitialSize = iconInitialSize
+        //Inits the view to the size of the screen
+        super.init(frame: (UIScreen.main.bounds))
+        
+        imageView?.image = iconImage
+        imageView?.tintColor = iconColor
+        //Set the initial size and position
+        imageView?.frame = CGRect(x: 0, y: 0, width: iconInitialSize.width, height: iconInitialSize.height)
+        //Sets the content mode and set it to be centered
+        imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        imageView?.center = self.center
+        
+        //Sets the background image
+        self.backgroundImageView = UIImageView()
+        backgroundImageView?.image = backgroundImage
+        backgroundImageView?.frame = UIScreen.main.bounds
+        backgroundImageView?.contentMode = UIView.ContentMode.scaleAspectFill
+        
+        self.addSubview(backgroundImageView!)
+        
+        //Adds the icon to the view
+        self.addSubview(imageView!)
+        
+    }
+    
+    //---------------------------------
+    //--- Decoder and coder haven't defined.
+    //---------------------------------
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) haven't implemented")
     }
 }
 
@@ -672,6 +1042,11 @@ enum ButtonDisplayMode {
 
 enum ButtonStyle {
     case backgroundColor, circular
+}
+
+public enum AnimationType: String{
+    case twitter
+    case heartBeat
 }
 
 protocol RoundedCornerNavigationBar {
