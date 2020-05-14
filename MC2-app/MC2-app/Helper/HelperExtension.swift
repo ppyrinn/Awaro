@@ -332,10 +332,10 @@ extension UIViewController {
             navigationController?.navigationBar.tintColor = tintColor
             navigationItem.title = title
             
-            self.navigationController?.navigationBar.layer.cornerRadius = 20
+            //self.navigationController?.navigationBar.layer.cornerRadius = 20
             //self.navigationController?.navigationBar.clipsToBounds = true
             //navigationController?.navigationBar.layer.masksToBounds = true
-            self.navigationController?.navigationBar.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMaxYCorner]
+            //self.navigationController?.navigationBar.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMaxYCorner]
 
         } else {
             // Fallback on earlier versions

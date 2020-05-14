@@ -53,7 +53,7 @@ class OnboardVC: UIViewController {
     /// - Tag: add_appleid_button
     func setupProviderLoginView() {
         let isDarkTheme = view.traitCollection.userInterfaceStyle == .dark
-        let style: ASAuthorizationAppleIDButton.Style = isDarkTheme ? .white : .black
+        let style: ASAuthorizationAppleIDButton.Style = isDarkTheme ? .black : .black
         
         let authorizationButton = ASAuthorizationAppleIDButton(type: .default, style: style)
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)

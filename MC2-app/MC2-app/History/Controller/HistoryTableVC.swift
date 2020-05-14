@@ -65,16 +65,16 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
             cell.historyView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
             cell.historyView.shadowColor = .black
             cell.historyView.shadowOffset = CGSize(width: 0, height: 0)
-            cell.historyView.shadowRadius = 5
-            cell.historyView.shadowOpacity = 0.25
+            cell.historyView.shadowRadius = 4
+            cell.historyView.shadowOpacity = 0.2
         }
         else {
             cell.contentView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
             cell.historyView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
             cell.historyView.shadowColor = .black
             cell.historyView.shadowOffset = CGSize(width: 0, height: 0)
-            cell.historyView.shadowRadius = 5
-            cell.historyView.shadowOpacity = 0.25
+            cell.historyView.shadowRadius = 4
+            cell.historyView.shadowOpacity = 0.2
         }
         cell.historyView.cornerRadius = 10
 

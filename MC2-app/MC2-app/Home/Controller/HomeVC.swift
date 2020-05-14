@@ -26,12 +26,32 @@ class HomeVC: UIViewController {
     }
     
     
+    // MARK: - IBAction Function
+    @IBAction func createSessionButtonAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func joinSessionButtonAction(_ sender: Any) {
+        let alert = UIAlertController(title: "Join Session", message: "Please enter session ID!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input session ID here..."
+        })
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+            if let sessionID = alert.textFields?.first?.text {
+                print("Session ID: \(sessionID)")
+            }
+        }))
+
+        self.present(alert, animated: true)
+    }
+    
+    
     // MARK: - Function
     func roundedTabBar() {
-//        tabBarController?.tabBar.layer.cornerRadius = 20
-//        tabBarController?.tabBar.clipsToBounds = true
-//        tabBarController?.tabBar.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
-        
         tabBarController?.tabBar.backgroundImage = UIImage()
         tabBarController?.tabBar.shadowImage = UIImage()
         tabBarController?.tabBar.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
@@ -54,8 +74,8 @@ class HomeVC: UIViewController {
         shadowLayer.shadowColor = UIColor.darkGray.cgColor
         shadowLayer.shadowPath = shadowLayer.path
         shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
-        shadowLayer.shadowOpacity = 0.25
-        shadowLayer.shadowRadius = 5
+        shadowLayer.shadowOpacity = 0.2
+        shadowLayer.shadowRadius = 4
 
         shadowView.layer.insertSublayer(shadowLayer, at: 0)
     }
