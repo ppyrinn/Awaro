@@ -266,7 +266,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="PCe-yh-4Uw"/>
                     <connections>
-                        <segue destination="G8l-lj-nQT" kind="presentation" identifier="JoinSessionSegue" modalPresentationStyle="fullScreen" id="bHt-8J-giv"/>
+                        <segue destination="G8l-lj-nQT" kind="presentation" identifier="JoinSessionSegue" modalPresentationStyle="fullScreen" id="bgU-if-SQf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Grb-cQ-FdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -565,10 +565,10 @@
             </objects>
             <point key="canvasLocation" x="3310" y="666"/>
         </scene>
-        <!--View Controller-->
+        <!--Session MemberVC-->
         <scene sceneID="zxo-Cx-0VO">
             <objects>
-                <viewController storyboardIdentifier="SessionMemberVC" id="G8l-lj-nQT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SessionMemberVC" id="G8l-lj-nQT" customClass="SessionMemberVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mo1-C4-Idt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -736,8 +736,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="G8l-lj-nQT" id="uUq-Ov-Ymg"/>
-                                    <outlet property="delegate" destination="G8l-lj-nQT" id="OHe-29-Peg"/>
+                                    <outlet property="dataSource" destination="G8l-lj-nQT" id="y6M-C0-Wwl"/>
+                                    <outlet property="delegate" destination="G8l-lj-nQT" id="veb-Sk-gP2"/>
                                 </connections>
                             </tableView>
                         </subviews>
