@@ -144,6 +144,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgm-fo-yLb">
                                 <rect key="frame" x="40" y="496.5" width="334" height="236.5"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JoinSessionPattern" translatesAutoresizingMaskIntoConstraints="NO" id="LFB-8o-M55">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="236.5"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Os1-NG-Pxu">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="236.5"/>
                                         <state key="normal">
@@ -163,18 +166,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.28444540499999998" green="0.70975214239999995" blue="0.46663153169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="Os1-NG-Pxu" firstAttribute="top" secondItem="Kgm-fo-yLb" secondAttribute="top" id="7XZ-xm-1jA"/>
                                     <constraint firstItem="Os1-NG-Pxu" firstAttribute="leading" secondItem="Kgm-fo-yLb" secondAttribute="leading" id="AdF-BO-qi3"/>
+                                    <constraint firstAttribute="bottom" secondItem="LFB-8o-M55" secondAttribute="bottom" id="aem-XI-NDq"/>
+                                    <constraint firstAttribute="trailing" secondItem="LFB-8o-M55" secondAttribute="trailing" id="eLe-bl-oYW"/>
                                     <constraint firstItem="vod-aD-Lnh" firstAttribute="centerX" secondItem="Kgm-fo-yLb" secondAttribute="centerX" id="eMK-Cx-gZF"/>
                                     <constraint firstItem="vod-aD-Lnh" firstAttribute="centerY" secondItem="Kgm-fo-yLb" secondAttribute="centerY" id="hg3-qf-dzO"/>
                                     <constraint firstAttribute="trailing" secondItem="Os1-NG-Pxu" secondAttribute="trailing" id="kfQ-tE-qVo"/>
                                     <constraint firstAttribute="bottom" secondItem="Os1-NG-Pxu" secondAttribute="bottom" id="mvr-gA-lzp"/>
+                                    <constraint firstItem="LFB-8o-M55" firstAttribute="leading" secondItem="Kgm-fo-yLb" secondAttribute="leading" id="pRI-bb-pYY"/>
+                                    <constraint firstItem="LFB-8o-M55" firstAttribute="top" secondItem="Kgm-fo-yLb" secondAttribute="top" id="tTQ-yX-zac"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
+                                        <real key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                         <real key="value" value="5"/>
@@ -199,6 +206,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2T-xV-8NV">
                                 <rect key="frame" x="40" y="220" width="334" height="236.5"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CreateSessionPattern" translatesAutoresizingMaskIntoConstraints="NO" id="cJR-92-byz">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="236.5"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYP-yo-7FD">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="236.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="36"/>
@@ -220,18 +230,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.34019836780000001" green="0.28784984349999998" blue="0.78827834129999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cJR-92-byz" secondAttribute="trailing" id="2pS-Ev-1lW"/>
                                     <constraint firstItem="JyF-Yg-tcz" firstAttribute="centerY" secondItem="j2T-xV-8NV" secondAttribute="centerY" id="HUO-ST-cqU"/>
                                     <constraint firstAttribute="bottom" secondItem="bYP-yo-7FD" secondAttribute="bottom" id="JIQ-8F-SQx"/>
                                     <constraint firstItem="bYP-yo-7FD" firstAttribute="top" secondItem="j2T-xV-8NV" secondAttribute="top" id="Jdo-df-Ynl"/>
                                     <constraint firstItem="JyF-Yg-tcz" firstAttribute="centerX" secondItem="j2T-xV-8NV" secondAttribute="centerX" id="ciy-Mu-K6z"/>
+                                    <constraint firstItem="cJR-92-byz" firstAttribute="leading" secondItem="j2T-xV-8NV" secondAttribute="leading" id="eiz-nr-6QJ"/>
+                                    <constraint firstItem="cJR-92-byz" firstAttribute="top" secondItem="j2T-xV-8NV" secondAttribute="top" id="iJw-w2-IAa"/>
                                     <constraint firstItem="bYP-yo-7FD" firstAttribute="leading" secondItem="j2T-xV-8NV" secondAttribute="leading" id="nCX-ul-ISz"/>
                                     <constraint firstAttribute="trailing" secondItem="bYP-yo-7FD" secondAttribute="trailing" id="sbU-uQ-VMx"/>
+                                    <constraint firstAttribute="bottom" secondItem="cJR-92-byz" secondAttribute="bottom" id="w8C-t5-bTQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
+                                        <real key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                         <real key="value" value="5"/>
@@ -771,6 +785,8 @@
     </scenes>
     <resources>
         <image name="Bronze I" width="165" height="242"/>
+        <image name="CreateSessionPattern" width="306" height="206"/>
+        <image name="JoinSessionPattern" width="306" height="208"/>
         <image name="home" width="25" height="25"/>
     </resources>
 </document>

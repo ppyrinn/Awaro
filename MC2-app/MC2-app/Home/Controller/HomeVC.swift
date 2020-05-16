@@ -9,6 +9,9 @@
 import UIKit
 
 class HomeVC: UIViewController {
+    
+    // MARK: - IBOutlet Function
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
