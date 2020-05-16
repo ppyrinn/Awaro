@@ -22,7 +22,7 @@ class SessionHostVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         let alert = UIAlertController(title: "Are you sure you want to end this session?", message: "All of the participants will be removed if you end this session.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "End", style: .destructive, handler: { action in
-            self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
         }))
 
         self.present(alert, animated: true)

@@ -1,21 +1,20 @@
 //
-//  HistoryDetailVC.swift
+//  SessionResultVC.swift
 //  Awaro
 //
-//  Created by Rayhan Martiza Faluda on 14/05/20.
+//  Created by Rayhan Martiza Faluda on 16/05/20.
 //  Copyright © 2020 Poppy. All rights reserved.
 //
 
 import UIKit
 
-class HistoryDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SessionResultVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - IBOutlet
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var viewContainingTableView: UIView!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var historyDetailTable: UITableView!
-    
+    @IBOutlet weak var sessionResultTable: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,20 +50,26 @@ class HistoryDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         viewContainingTableView.shadowOpacity = 0.1
         viewContainingTableView.shadowRadius = 2
         
-        historyDetailTable.backgroundColor = .white
-        historyDetailTable.cornerRadius = 10
-        historyDetailTable.layer.masksToBounds = true
-        historyDetailTable.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        sessionResultTable.backgroundColor = .white
+        sessionResultTable.cornerRadius = 10
+        sessionResultTable.layer.masksToBounds = true
+        sessionResultTable.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+    }
+    
+    
+    // MARK: - IBAction Function
+    @IBAction func backToHomeButton(_ sender: Any) {
+        view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryDetailCell", for: indexPath) as! HistoryDetailCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SessionResultCell", for: indexPath) as! SessionResultCell
 
         // Configure the cell...
         if isDarkMode == true {
@@ -75,11 +80,11 @@ class HistoryDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             cell.contentView.backgroundColor = .white
             cell.placeholderView.backgroundColor = .white
         }
-
+        
         return cell
     }
     
-    
+
     /*
     // MARK: - Navigation
 

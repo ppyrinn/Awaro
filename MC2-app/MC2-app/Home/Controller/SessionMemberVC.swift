@@ -30,17 +30,17 @@ class SessionMemberVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     // MARK: - Table view data source
-       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return 5
-       }
-       
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "SessionMemberCell", for: indexPath) as! SessionMemberCell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SessionMemberCell", for: indexPath) as! SessionMemberCell
 
-           // Configure the cell...
+        // Configure the cell...
 
-           return cell
-       }
+        return cell
+    }
     
 
     /*

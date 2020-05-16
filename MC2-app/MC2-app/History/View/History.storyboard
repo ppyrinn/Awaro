@@ -341,8 +341,8 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="awarenessLabel" destination="oNg-j7-hGz" id="pBf-g3-HBr"/>
                                                     <outlet property="badgeImage" destination="U2d-zF-M0d" id="72r-mK-VNc"/>
+                                                    <outlet property="challengeScoreLabel" destination="oNg-j7-hGz" id="aYY-9l-hsC"/>
                                                     <outlet property="clockInLabel" destination="J58-hH-Pw9" id="c6X-VW-s5m"/>
                                                     <outlet property="nameLabel" destination="gbf-Dr-kTh" id="4ff-r6-nky"/>
                                                     <outlet property="placeholderView" destination="pdR-nq-hLd" id="Jqv-3u-fPq"/>
