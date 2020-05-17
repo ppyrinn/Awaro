@@ -32,6 +32,8 @@
 		2C6FC46B246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FC46A246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif */; };
 		2C6FC46D246FDA210033A1C8 /* SessionResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC46C246FDA210033A1C8 /* SessionResultVC.swift */; };
 		2C6FC46F246FDA6A0033A1C8 /* SessionResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC46E246FDA6A0033A1C8 /* SessionResultCell.swift */; };
+		2CCC9D5924717ABB00AEF11B /* BadgeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC9D5824717ABB00AEF11B /* BadgeCollectionViewController.swift */; };
+		2CCC9D5C2471891800AEF11B /* BadgeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */; };
 		F465BC63246249D70025396A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC62246249D70025396A /* AppDelegate.swift */; };
 		F465BC65246249D70025396A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC64246249D70025396A /* SceneDelegate.swift */; };
 		F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F465BC6B246249D70025396A /* MC2_app.xcdatamodeld */; };
@@ -84,6 +86,8 @@
 		2C6FC46A246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Awaro-splash-(white)-no-loop.gif"; sourceTree = "<group>"; };
 		2C6FC46C246FDA210033A1C8 /* SessionResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultVC.swift; sourceTree = "<group>"; };
 		2C6FC46E246FDA6A0033A1C8 /* SessionResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultCell.swift; sourceTree = "<group>"; };
+		2CCC9D5824717ABB00AEF11B /* BadgeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewController.swift; sourceTree = "<group>"; };
+		2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionCell.swift; sourceTree = "<group>"; };
 		F465BC5F246249D70025396A /* Awaro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awaro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC62246249D70025396A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F465BC64246249D70025396A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			children = (
 				2C1F67D22469001D00323DE3 /* View */,
 				2C1F67D12469000200323DE3 /* Controller */,
+				2CCC9D5A247188FD00AEF11B /* Cell */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1F67F12469045900323DE3 /* ProfileTableVC.swift */,
+				2CCC9D5824717ABB00AEF11B /* BadgeCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +287,14 @@
 				2C6FC465246DC13B0033A1C8 /* Awaro-splash-(white).gif */,
 			);
 			path = Asset;
+			sourceTree = "<group>";
+		};
+		2CCC9D5A247188FD00AEF11B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F465BC56246249D70025396A = {
@@ -492,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6FC44C246D70120033A1C8 /* SessionHostCell.swift in Sources */,
+				2CCC9D5C2471891800AEF11B /* BadgeCollectionCell.swift in Sources */,
 				F465BC63246249D70025396A /* AppDelegate.swift in Sources */,
 				2C6FC46F246FDA6A0033A1C8 /* SessionResultCell.swift in Sources */,
 				2C1F67F22469045900323DE3 /* ProfileTableVC.swift in Sources */,
@@ -499,6 +514,7 @@
 				2C1F67E62469016D00323DE3 /* LandingTabBarVC.swift in Sources */,
 				2C331059246C277E00DBF2AA /* HomeVC.swift in Sources */,
 				2C1F67EE2469040400323DE3 /* HomeTableVC.swift in Sources */,
+				2CCC9D5924717ABB00AEF11B /* BadgeCollectionViewController.swift in Sources */,
 				F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */,
 				2C33105D246CFB2F00DBF2AA /* HistoryDetailCell.swift in Sources */,
 				2C6FC44E246D75620033A1C8 /* SessionMemberVC.swift in Sources */,
