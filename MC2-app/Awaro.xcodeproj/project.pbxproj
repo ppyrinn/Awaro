@@ -35,6 +35,8 @@
 		2C7E3325247226C500B587C3 /* ChallengeQuestionTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E3324247226C500B587C3 /* ChallengeQuestionTableVC.swift */; };
 		2C7E3327247226DA00B587C3 /* QuestionChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E3326247226DA00B587C3 /* QuestionChallengeCell.swift */; };
 		2CCC9D5C2471891800AEF11B /* BadgeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */; };
+		F40773A32472283800CEC2B0 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A22472283800CEC2B0 /* UserExtension.swift */; };
+		F40773A52472289900CEC2B0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A42472289900CEC2B0 /* CoreDataHelper.swift */; };
 		F465BC63246249D70025396A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC62246249D70025396A /* AppDelegate.swift */; };
 		F465BC65246249D70025396A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC64246249D70025396A /* SceneDelegate.swift */; };
 		F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F465BC6B246249D70025396A /* MC2_app.xcdatamodeld */; };
@@ -90,6 +92,8 @@
 		2C7E3324247226C500B587C3 /* ChallengeQuestionTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeQuestionTableVC.swift; sourceTree = "<group>"; };
 		2C7E3326247226DA00B587C3 /* QuestionChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionChallengeCell.swift; sourceTree = "<group>"; };
 		2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionCell.swift; sourceTree = "<group>"; };
+		F40773A22472283800CEC2B0 /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
+		F40773A42472289900CEC2B0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		F465BC5F246249D70025396A /* Awaro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awaro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC62246249D70025396A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F465BC64246249D70025396A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				2C1F67E72469021400323DE3 /* HelperExtension.swift */,
+				F40773A22472283800CEC2B0 /* UserExtension.swift */,
+				F40773A42472289900CEC2B0 /* CoreDataHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				2CCC9D5C2471891800AEF11B /* BadgeCollectionCell.swift in Sources */,
 				F465BC63246249D70025396A /* AppDelegate.swift in Sources */,
 				2C6FC46F246FDA6A0033A1C8 /* SessionResultCell.swift in Sources */,
+				F40773A32472283800CEC2B0 /* UserExtension.swift in Sources */,
 				2C1F67F22469045900323DE3 /* ProfileTableVC.swift in Sources */,
 				2C1F67EC2469029E00323DE3 /* KeychainItem.swift in Sources */,
 				2C1F67E62469016D00323DE3 /* LandingTabBarVC.swift in Sources */,
@@ -527,6 +534,7 @@
 				2C33105B246CF9F300DBF2AA /* HistoryDetailVC.swift in Sources */,
 				2C1F67F02469041600323DE3 /* HistoryTableVC.swift in Sources */,
 				2C1F67E22469013900323DE3 /* OnboardVC.swift in Sources */,
+				F40773A52472289900CEC2B0 /* CoreDataHelper.swift in Sources */,
 				2C1F67E82469021400323DE3 /* HelperExtension.swift in Sources */,
 				2C6FC46D246FDA210033A1C8 /* SessionResultVC.swift in Sources */,
 				F465BC9724628FAC0025396A /* User.swift in Sources */,

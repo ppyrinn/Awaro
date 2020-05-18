@@ -90,36 +90,6 @@ class OnboardVC: UIViewController {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-    
-    // fungsi tambah data
-        func create(_ firstName:String, _ lastName:String, _ email:String){
-            
-            // referensi ke AppDelegate
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-            
-            // managed context
-            let managedContext = appDelegate.persistentContainer.viewContext
-            
-            // refensi entity yang telah dibuat sebelumnya
-            let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)
-            
-            // entity body
-            let insert = NSManagedObject(entity: userEntity!, insertInto: managedContext)
-    //        insert.setValue(id, forKey: "userID")
-            insert.setValue(firstName, forKey: "firstName")
-            insert.setValue(lastName, forKey: "lastName")
-            insert.setValue(email, forKey: "email")
-            
-            do{
-                // save data ke entity user core data
-                try managedContext.save()
-                print("\n\nsave data ke entity user core data berhasil\n\n")
-//                id += 1
-            }catch let err{
-                print(err)
-            }
-            
-        }
 }
 
 
@@ -181,7 +151,7 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
             guard let lastName = appleIDCredential.fullName?.familyName else { return }
             guard let email = appleIDCredential.email else { return }
             
-            self.create(firstName, lastName, email)
+            User.createUser(firstName, lastName, email)
                 
             print("User Id - \(appleIDCredential.user)")
             print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")
