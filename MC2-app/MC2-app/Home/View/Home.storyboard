@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AuG-Fg-kMr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AuG-Fg-kMr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -672,20 +672,32 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RS1-wH-iTi">
-                                                            <rect key="frame" x="40" y="43" width="97" height="34"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p7k-zZ-W06">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
+                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="CcS-Yv-MjO" id="pGT-Fl-L28"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.607779026" green="0.82437068219999998" blue="0.95296126599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="p7k-zZ-W06" secondAttribute="bottom" id="6g9-ez-0oY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="p7k-zZ-W06" secondAttribute="trailing" id="7Da-x7-qcm"/>
                                                         <constraint firstItem="7LV-9B-ev6" firstAttribute="top" secondItem="Frw-6s-0iQ" secondAttribute="top" id="FLE-9S-DKY"/>
                                                         <constraint firstAttribute="bottom" secondItem="7LV-9B-ev6" secondAttribute="bottom" id="Hls-9W-iGq"/>
+                                                        <constraint firstItem="p7k-zZ-W06" firstAttribute="leading" secondItem="Frw-6s-0iQ" secondAttribute="leading" id="LnE-Pl-LkL"/>
                                                         <constraint firstAttribute="trailing" secondItem="7LV-9B-ev6" secondAttribute="trailing" id="MQP-TT-dnK"/>
                                                         <constraint firstItem="7LV-9B-ev6" firstAttribute="leading" secondItem="Frw-6s-0iQ" secondAttribute="leading" id="fGO-vO-U3Q"/>
                                                         <constraint firstAttribute="height" constant="120" id="hYG-Xt-3GC"/>
+                                                        <constraint firstItem="p7k-zZ-W06" firstAttribute="top" secondItem="Frw-6s-0iQ" secondAttribute="top" id="nFZ-8A-L7d"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -716,13 +728,31 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5oN-fX-fMQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
+                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="CcS-Yv-MjO" id="6YU-1Q-CEE"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.58192902800000001" green="0.94868117569999999" blue="0.74115115399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="5oN-fX-fMQ" secondAttribute="trailing" id="GN0-o7-WOz"/>
                                                         <constraint firstAttribute="height" constant="120" id="IlT-Sq-YZs"/>
                                                         <constraint firstAttribute="trailing" secondItem="WOk-5J-GoP" secondAttribute="trailing" id="Q5D-6O-OaT"/>
                                                         <constraint firstItem="WOk-5J-GoP" firstAttribute="leading" secondItem="fml-Lx-36H" secondAttribute="leading" id="fXz-iM-rFs"/>
                                                         <constraint firstItem="WOk-5J-GoP" firstAttribute="top" secondItem="fml-Lx-36H" secondAttribute="top" id="na4-eK-YAE"/>
+                                                        <constraint firstItem="5oN-fX-fMQ" firstAttribute="top" secondItem="fml-Lx-36H" secondAttribute="top" id="rBk-6x-sAE"/>
+                                                        <constraint firstItem="5oN-fX-fMQ" firstAttribute="leading" secondItem="fml-Lx-36H" secondAttribute="leading" id="szs-NC-EN9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5oN-fX-fMQ" secondAttribute="bottom" id="xD3-ee-mKW"/>
                                                         <constraint firstAttribute="bottom" secondItem="WOk-5J-GoP" secondAttribute="bottom" id="yS8-mn-EJp"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -754,12 +784,30 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-wd-GU0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
+                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="CcS-Yv-MjO" id="lpr-2W-Jne"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.96307355169999997" green="0.7377907038" blue="0.71763998269999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="3Yk-bo-M3b"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VdW-wd-GU0" secondAttribute="trailing" id="8eq-t5-oM7"/>
                                                         <constraint firstAttribute="bottom" secondItem="sVr-gy-iYJ" secondAttribute="bottom" id="AAj-k0-fLu"/>
+                                                        <constraint firstAttribute="bottom" secondItem="VdW-wd-GU0" secondAttribute="bottom" id="Nen-DH-4Mr"/>
                                                         <constraint firstAttribute="trailing" secondItem="sVr-gy-iYJ" secondAttribute="trailing" id="Sno-yo-M5B"/>
+                                                        <constraint firstItem="VdW-wd-GU0" firstAttribute="top" secondItem="HXk-HN-NOB" secondAttribute="top" id="Zny-ki-d2i"/>
+                                                        <constraint firstItem="VdW-wd-GU0" firstAttribute="leading" secondItem="HXk-HN-NOB" secondAttribute="leading" id="dlc-xo-Gfg"/>
                                                         <constraint firstItem="sVr-gy-iYJ" firstAttribute="top" secondItem="HXk-HN-NOB" secondAttribute="top" id="oMH-d6-0Ro"/>
                                                         <constraint firstItem="sVr-gy-iYJ" firstAttribute="leading" secondItem="HXk-HN-NOB" secondAttribute="leading" id="swQ-eX-PtD"/>
                                                     </constraints>
@@ -792,14 +840,32 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dUj-qO-Wdf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
+                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="CcS-Yv-MjO" id="Avf-IG-wb7"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.99712353939999998" green="0.91657167669999995" blue="0.45086824889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="dUj-qO-Wdf" secondAttribute="bottom" id="8cR-Tw-iyv"/>
                                                         <constraint firstItem="S0g-9Q-kVo" firstAttribute="top" secondItem="Ndk-we-LAJ" secondAttribute="top" id="9ER-Xg-T2f"/>
                                                         <constraint firstAttribute="height" constant="120" id="EAb-nd-nGs"/>
+                                                        <constraint firstItem="dUj-qO-Wdf" firstAttribute="top" secondItem="Ndk-we-LAJ" secondAttribute="top" id="KJu-0B-Hyy"/>
                                                         <constraint firstItem="S0g-9Q-kVo" firstAttribute="leading" secondItem="Ndk-we-LAJ" secondAttribute="leading" id="bvI-ad-OYD"/>
+                                                        <constraint firstItem="dUj-qO-Wdf" firstAttribute="leading" secondItem="Ndk-we-LAJ" secondAttribute="leading" id="ith-6s-CIC"/>
                                                         <constraint firstAttribute="bottom" secondItem="S0g-9Q-kVo" secondAttribute="bottom" id="kdK-ZJ-ocm"/>
                                                         <constraint firstAttribute="trailing" secondItem="S0g-9Q-kVo" secondAttribute="trailing" id="qhA-Fn-Oww"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dUj-qO-Wdf" secondAttribute="trailing" id="uXF-WM-Faz"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -858,8 +924,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Coi-fu-6TR">
-                                                    <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Coi-fu-6TR">
+                                                    <rect key="frame" x="356" y="12" width="38" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -910,9 +976,14 @@
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="bgI-eX-j9p"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="aAnswerTextView" destination="p7k-zZ-W06" id="oZ0-Ds-Bwb"/>
+                        <outlet property="bAnswerTextView" destination="5oN-fX-fMQ" id="1lz-eD-pNg"/>
+                        <outlet property="cAnswerTextView" destination="VdW-wd-GU0" id="wfc-MK-TD3"/>
+                        <outlet property="dAnswerTextView" destination="dUj-qO-Wdf" id="ElC-g1-3RM"/>
                         <outlet property="durationLabel" destination="Ovb-TN-GNR" id="451-G9-BKE"/>
                         <outlet property="durationPicker" destination="wax-z3-lji" id="ena-Dl-6Lj"/>
                         <outlet property="questionTextView" destination="rLy-pl-Bd6" id="82a-cF-52D"/>
+                        <outlet property="timeLabel" destination="Coi-fu-6TR" id="XMe-x5-dka"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXb-3m-woz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
