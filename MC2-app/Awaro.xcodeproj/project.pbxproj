@@ -37,6 +37,10 @@
 		2CCC9D5C2471891800AEF11B /* BadgeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */; };
 		F40773A32472283800CEC2B0 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A22472283800CEC2B0 /* UserExtension.swift */; };
 		F40773A52472289900CEC2B0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A42472289900CEC2B0 /* CoreDataHelper.swift */; };
+		F40773A72472306700CEC2B0 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A62472306700CEC2B0 /* UIViewController+Extensions.swift */; };
+		F40773A92472433000CEC2B0 /* SessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A82472433000CEC2B0 /* SessionExtension.swift */; };
+		F40773AB2472434700CEC2B0 /* HistoryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773AA2472434700CEC2B0 /* HistoryExtension.swift */; };
+		F40773AD2472435400CEC2B0 /* HistoryDetailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773AC2472435400CEC2B0 /* HistoryDetailExtension.swift */; };
 		F465BC63246249D70025396A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC62246249D70025396A /* AppDelegate.swift */; };
 		F465BC65246249D70025396A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC64246249D70025396A /* SceneDelegate.swift */; };
 		F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F465BC6B246249D70025396A /* MC2_app.xcdatamodeld */; };
@@ -94,6 +98,10 @@
 		2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionCell.swift; sourceTree = "<group>"; };
 		F40773A22472283800CEC2B0 /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
 		F40773A42472289900CEC2B0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		F40773A62472306700CEC2B0 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "../../../../../../../Downloads/SaveListSample2/SaveListSample2/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		F40773A82472433000CEC2B0 /* SessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionExtension.swift; sourceTree = "<group>"; };
+		F40773AA2472434700CEC2B0 /* HistoryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryExtension.swift; sourceTree = "<group>"; };
+		F40773AC2472435400CEC2B0 /* HistoryDetailExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailExtension.swift; sourceTree = "<group>"; };
 		F465BC5F246249D70025396A /* Awaro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awaro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F465BC62246249D70025396A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F465BC64246249D70025396A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,9 +261,13 @@
 		2C1F67E92469024000323DE3 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				F40773A62472306700CEC2B0 /* UIViewController+Extensions.swift */,
 				2C1F67E72469021400323DE3 /* HelperExtension.swift */,
 				F40773A22472283800CEC2B0 /* UserExtension.swift */,
 				F40773A42472289900CEC2B0 /* CoreDataHelper.swift */,
+				F40773A82472433000CEC2B0 /* SessionExtension.swift */,
+				F40773AA2472434700CEC2B0 /* HistoryExtension.swift */,
+				F40773AC2472435400CEC2B0 /* HistoryDetailExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -521,13 +533,17 @@
 				2C6FC46F246FDA6A0033A1C8 /* SessionResultCell.swift in Sources */,
 				F40773A32472283800CEC2B0 /* UserExtension.swift in Sources */,
 				2C1F67F22469045900323DE3 /* ProfileTableVC.swift in Sources */,
+				F40773AB2472434700CEC2B0 /* HistoryExtension.swift in Sources */,
 				2C1F67EC2469029E00323DE3 /* KeychainItem.swift in Sources */,
 				2C1F67E62469016D00323DE3 /* LandingTabBarVC.swift in Sources */,
+				F40773AD2472435400CEC2B0 /* HistoryDetailExtension.swift in Sources */,
 				2C331059246C277E00DBF2AA /* HomeVC.swift in Sources */,
 				2C7E3327247226DA00B587C3 /* QuestionChallengeCell.swift in Sources */,
 				2C1F67EE2469040400323DE3 /* HomeTableVC.swift in Sources */,
 				F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */,
 				2C33105D246CFB2F00DBF2AA /* HistoryDetailCell.swift in Sources */,
+				F40773A92472433000CEC2B0 /* SessionExtension.swift in Sources */,
+				F40773A72472306700CEC2B0 /* UIViewController+Extensions.swift in Sources */,
 				2C6FC44E246D75620033A1C8 /* SessionMemberVC.swift in Sources */,
 				2C1F67F72469620200323DE3 /* HistoryCell.swift in Sources */,
 				2C6FC449246D6F440033A1C8 /* SessionHostVC.swift in Sources */,

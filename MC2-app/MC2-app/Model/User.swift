@@ -25,6 +25,7 @@ struct UserModel{
 }
 
 var users:UserModel?
+var userID:Int?
 
 extension UserModel:CustomDebugStringConvertible{
     var debugDescription: String{

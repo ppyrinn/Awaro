@@ -21,5 +21,16 @@ struct CoreDataHelper {
             return []
         }
     }
+    
+    func fetchSpecificID<T : NSManagedObject>(id:Int) -> [T] {
+        let request = T.fetchRequest()
+        let predicate = NSPredicate(format: "sessionID = $id")
+        request.predicate = predicate
+        do {
+            return try context.fetch(request) as? [T] ?? []
+        } catch {
+            return []
+        }
+    }
 }
 

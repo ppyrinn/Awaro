@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let docDir = dirPath[0]
         let localPath = docDir.appending("/local.store")
+        print("\n\nLOCAL PATH\n\n \(localPath)\n\n")
         let cloudPath = docDir.appending("/cloud.store")
 
         

@@ -12,7 +12,7 @@ import UIKit
 
 extension User{
     // fungsi tambah data ke core data
-    static func createUser(_ firstName:String, _ lastName:String, _ email:String){
+    static func createUser(_ id:Int, _ fullName:String, _ email:String){
         
         // referensi ke AppDelegate
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -25,9 +25,8 @@ extension User{
         
         // entity body
         let insert = NSManagedObject(entity: userEntity!, insertInto: managedContext)
-//        insert.setValue(id, forKey: "userID")
-        insert.setValue(firstName, forKey: "firstName")
-        insert.setValue(lastName, forKey: "lastName")
+        insert.setValue(id, forKey: "userID")
+        insert.setValue(fullName, forKey: "fullName")
         insert.setValue(email, forKey: "email")
         
         do{
