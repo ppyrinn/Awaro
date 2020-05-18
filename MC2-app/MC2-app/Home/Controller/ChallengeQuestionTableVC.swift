@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ChallengeQuestionTableVC: UITableViewController {
+class ChallengeQuestionTableVC: UITableViewController, UITextViewDelegate {
 
     var hour: Int = 0
     var minutes: Int = 0
     var seconds: Int = 0
     
     // MARK: - IBOutlet
+    @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var durationPicker: UIPickerView!
     
@@ -27,9 +28,9 @@ class ChallengeQuestionTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        durationPicker.dataSource = self
-        durationPicker.delegate = self
-        durationPicker.isHidden = true
+        questionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        tableView.keyboardDismissMode = .onDrag
+        setupDurationPicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +56,21 @@ class ChallengeQuestionTableVC: UITableViewController {
     
     
     // MARK: - Function
+    func setupTextView() {
+        questionTextView.delegate = self
+        questionTextView.text = "Enter your question..."
+        
+    }
+    
+    @objc func tapDone(sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    func setupDurationPicker() {
+        durationPicker.dataSource = self
+        durationPicker.delegate = self
+        durationPicker.isHidden = true
+    }
     
 
     // MARK: - Table view data source

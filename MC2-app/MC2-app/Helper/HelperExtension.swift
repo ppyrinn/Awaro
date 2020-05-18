@@ -15,6 +15,7 @@ var associateObjectValue: Int = 0
 public typealias AnimationCompletion = () -> Void
 public typealias AnimationExecution = () -> Void
 
+// MARK: - IBDesignable
 @IBDesignable
 class DesignableView: UIView {
 }
@@ -27,6 +28,7 @@ class DesignableButton: UIButton {
 class DesignableLabel: UILabel {
 }
 
+// MARK: - UIButton Extension
 extension UIButton {
     
     private func imageWithColor(color: UIColor) -> UIImage {
@@ -49,6 +51,7 @@ extension UIButton {
     
 }
 
+// MARK: - UIView Extension
 extension UIView: CAAnimationDelegate {
     
     /**
@@ -70,6 +73,7 @@ extension UIView: CAAnimationDelegate {
         self.layer.insertSublayer(gradient, at: 0)
     }
     
+    // MARK: - IBInspectable
     @IBInspectable
     var cornerRadius: CGFloat {
         get {
@@ -254,12 +258,13 @@ extension UIView: CAAnimationDelegate {
     }
 }
 
+// MARK: - Struct: Color Global Variables
 struct GlobalVariables {
     static let blue = UIColor.rbg(r: 129, g: 144, b: 255)
     static let purple = UIColor.rbg(r: 161, g: 114, b: 255)
 }
 
-//Extensions
+// MARK: - Extensions
 extension UIView {
     func pinEdgesToSuperView() {
         guard let superView = superview else { return }
@@ -305,6 +310,21 @@ extension UITextField {
         border.borderWidth = width
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
+    }
+}
+
+extension UITextView {
+    
+    func addDoneButton(title: String, target: Any, selector: Selector) {
+        
+        let toolBar = UIToolbar(frame: CGRect(x: 0.0,
+                                              y: 0.0,
+                                              width: UIScreen.main.bounds.size.width,
+                                              height: 44.0))//1
+        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)//2
+        let barButton = UIBarButtonItem(title: title, style: .plain, target: target, action: selector)//3
+        toolBar.setItems([flexible, barButton], animated: false)//4
+        self.inputAccessoryView = toolBar//5
     }
 }
 
@@ -612,7 +632,7 @@ extension SplashView {
 
 }
 
-
+// MARK: - Classes
 class RoundedImageView: UIImageView {
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -886,7 +906,7 @@ class SplashView: UIView {
     }
 }
 
-//Enums
+// MARK: - Enums
 enum ViewControllerType {
     case welcome
     case home
@@ -1049,6 +1069,7 @@ public enum AnimationType: String{
     case heartBeat
 }
 
+// MARK: - Protocols
 protocol RoundedCornerNavigationBar {
     func addRoundedCorner(OnNavigationBar navigationBar: UINavigationBar, cornerRadius: CGFloat)
 }

@@ -590,12 +590,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="228"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rLy-pl-Bd6">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9q-yi-xro">
                                                     <rect key="frame" x="20" y="20" width="374" height="188"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rLy-pl-Bd6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="188"/>
+                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="CcS-Yv-MjO" id="UjS-pA-IXi"/>
+                                                            </connections>
+                                                        </textView>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="rLy-pl-Bd6" secondAttribute="trailing" id="CiT-bE-gZo"/>
+                                                        <constraint firstItem="rLy-pl-Bd6" firstAttribute="leading" secondItem="h9q-yi-xro" secondAttribute="leading" id="XGj-bx-Ov2"/>
+                                                        <constraint firstItem="rLy-pl-Bd6" firstAttribute="top" secondItem="h9q-yi-xro" secondAttribute="top" id="ca4-c9-qSh"/>
+                                                        <constraint firstAttribute="bottom" secondItem="rLy-pl-Bd6" secondAttribute="bottom" id="ycX-ag-3TY"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="10"/>
@@ -613,13 +632,13 @@
                                                             <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                </textView>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="rLy-pl-Bd6" secondAttribute="bottom" constant="20" id="15J-fA-0li"/>
-                                                <constraint firstItem="rLy-pl-Bd6" firstAttribute="top" secondItem="Ijy-lO-2qO" secondAttribute="top" constant="20" id="GMn-vp-Dim"/>
-                                                <constraint firstAttribute="trailing" secondItem="rLy-pl-Bd6" secondAttribute="trailing" constant="20" id="XCg-yh-DJp"/>
-                                                <constraint firstItem="rLy-pl-Bd6" firstAttribute="leading" secondItem="Ijy-lO-2qO" secondAttribute="leading" constant="20" id="h9z-JQ-3Th"/>
+                                                <constraint firstAttribute="bottom" secondItem="h9q-yi-xro" secondAttribute="bottom" constant="20" id="6bF-f9-qt6"/>
+                                                <constraint firstAttribute="trailing" secondItem="h9q-yi-xro" secondAttribute="trailing" constant="20" id="RwL-n8-MtQ"/>
+                                                <constraint firstItem="h9q-yi-xro" firstAttribute="leading" secondItem="Ijy-lO-2qO" secondAttribute="leading" constant="20" id="pRb-D2-eno"/>
+                                                <constraint firstItem="h9q-yi-xro" firstAttribute="top" secondItem="Ijy-lO-2qO" secondAttribute="top" constant="20" id="sct-BM-hsK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -643,16 +662,22 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Frw-6s-0iQ">
-                                                    <rect key="frame" x="20" y="20" width="177" height="125"/>
+                                                    <rect key="frame" x="20" y="20" width="177" height="120"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeAnsButton_A" translatesAutoresizingMaskIntoConstraints="NO" id="7LV-9B-ev6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="125"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RS1-wH-iTi">
+                                                            <rect key="frame" x="40" y="43" width="97" height="34"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.607779026" green="0.82437068219999998" blue="0.95296126599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
@@ -660,7 +685,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="7LV-9B-ev6" secondAttribute="bottom" id="Hls-9W-iGq"/>
                                                         <constraint firstAttribute="trailing" secondItem="7LV-9B-ev6" secondAttribute="trailing" id="MQP-TT-dnK"/>
                                                         <constraint firstItem="7LV-9B-ev6" firstAttribute="leading" secondItem="Frw-6s-0iQ" secondAttribute="leading" id="fGO-vO-U3Q"/>
-                                                        <constraint firstAttribute="height" constant="125" id="hYG-Xt-3GC"/>
+                                                        <constraint firstAttribute="height" constant="120" id="hYG-Xt-3GC"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -681,10 +706,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fml-Lx-36H">
-                                                    <rect key="frame" x="217" y="20" width="177" height="125"/>
+                                                    <rect key="frame" x="217" y="20" width="177" height="120"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeAnsButton_B" translatesAutoresizingMaskIntoConstraints="NO" id="WOk-5J-GoP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="125"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -694,7 +719,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.58192902800000001" green="0.94868117569999999" blue="0.74115115399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="125" id="IlT-Sq-YZs"/>
+                                                        <constraint firstAttribute="height" constant="120" id="IlT-Sq-YZs"/>
                                                         <constraint firstAttribute="trailing" secondItem="WOk-5J-GoP" secondAttribute="trailing" id="Q5D-6O-OaT"/>
                                                         <constraint firstItem="WOk-5J-GoP" firstAttribute="leading" secondItem="fml-Lx-36H" secondAttribute="leading" id="fXz-iM-rFs"/>
                                                         <constraint firstItem="WOk-5J-GoP" firstAttribute="top" secondItem="fml-Lx-36H" secondAttribute="top" id="na4-eK-YAE"/>
@@ -719,10 +744,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXk-HN-NOB">
-                                                    <rect key="frame" x="20" y="155" width="177" height="125"/>
+                                                    <rect key="frame" x="20" y="160" width="177" height="120"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeAnsButton_C" translatesAutoresizingMaskIntoConstraints="NO" id="sVr-gy-iYJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="125"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -732,7 +757,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.96307355169999997" green="0.7377907038" blue="0.71763998269999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="125" id="3Yk-bo-M3b"/>
+                                                        <constraint firstAttribute="height" constant="120" id="3Yk-bo-M3b"/>
                                                         <constraint firstAttribute="bottom" secondItem="sVr-gy-iYJ" secondAttribute="bottom" id="AAj-k0-fLu"/>
                                                         <constraint firstAttribute="trailing" secondItem="sVr-gy-iYJ" secondAttribute="trailing" id="Sno-yo-M5B"/>
                                                         <constraint firstItem="sVr-gy-iYJ" firstAttribute="top" secondItem="HXk-HN-NOB" secondAttribute="top" id="oMH-d6-0Ro"/>
@@ -757,10 +782,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-we-LAJ">
-                                                    <rect key="frame" x="217" y="155" width="177" height="125"/>
+                                                    <rect key="frame" x="217" y="160" width="177" height="120"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeAnsButton_D" translatesAutoresizingMaskIntoConstraints="NO" id="S0g-9Q-kVo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="125"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -771,7 +796,7 @@
                                                     <color key="backgroundColor" red="0.99712353939999998" green="0.91657167669999995" blue="0.45086824889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstItem="S0g-9Q-kVo" firstAttribute="top" secondItem="Ndk-we-LAJ" secondAttribute="top" id="9ER-Xg-T2f"/>
-                                                        <constraint firstAttribute="height" constant="125" id="EAb-nd-nGs"/>
+                                                        <constraint firstAttribute="height" constant="120" id="EAb-nd-nGs"/>
                                                         <constraint firstItem="S0g-9Q-kVo" firstAttribute="leading" secondItem="Ndk-we-LAJ" secondAttribute="leading" id="bvI-ad-OYD"/>
                                                         <constraint firstAttribute="bottom" secondItem="S0g-9Q-kVo" secondAttribute="bottom" id="kdK-ZJ-ocm"/>
                                                         <constraint firstAttribute="trailing" secondItem="S0g-9Q-kVo" secondAttribute="trailing" id="qhA-Fn-Oww"/>
@@ -887,6 +912,7 @@
                     <connections>
                         <outlet property="durationLabel" destination="Ovb-TN-GNR" id="451-G9-BKE"/>
                         <outlet property="durationPicker" destination="wax-z3-lji" id="ena-Dl-6Lj"/>
+                        <outlet property="questionTextView" destination="rLy-pl-Bd6" id="82a-cF-52D"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXb-3m-woz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
