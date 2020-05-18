@@ -31,7 +31,7 @@ class HomeVC: UIViewController {
     
     // MARK: - IBAction Function
     @IBAction func createSessionButtonAction(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "CreateSessionSegue", sender: nil)
     }
     
     @IBAction func joinSessionButtonAction(_ sender: Any) {

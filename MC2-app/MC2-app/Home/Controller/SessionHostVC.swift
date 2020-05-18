@@ -8,16 +8,25 @@
 
 import UIKit
 
-class SessionHostVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SessionHostVC: UIViewController {
 
+    // MARK: - IBOutlet
+    @IBOutlet weak var sessionHostTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        sessionHostTable.dataSource = self
+        sessionHostTable.delegate = self
     }
     
     
     // MARK: - IBAction Function
+    @IBAction func createAwarenessButton(_ sender: Any) {
+        performSegue(withIdentifier: "CreateAwarenessSegue", sender: nil)
+    }
+    
     @IBAction func endSessionButton(_ sender: Any) {
         let alert = UIAlertController(title: "Are you sure you want to end this session?", message: "All of the participants will be removed if you end this session.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -26,20 +35,6 @@ class SessionHostVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         }))
 
         self.present(alert, animated: true)
-    }
-    
-    
-    // MARK: - Table view data source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SessionHostCell", for: indexPath) as! SessionHostCell
-
-        // Configure the cell...
-
-        return cell
     }
     
 
@@ -53,4 +48,19 @@ class SessionHostVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     */
 
+}
+
+extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Table view data source
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SessionHostCell", for: indexPath) as! SessionHostCell
+
+        // Configure the cell...
+
+        return cell
+    }
 }

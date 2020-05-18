@@ -102,7 +102,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ls1-zu-h6Q">
                                 <rect key="frame" x="20" y="302" width="374" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List" translatesAutoresizingMaskIntoConstraints="NO" id="O2z-kA-V93">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AwarenessIcon" translatesAutoresizingMaskIntoConstraints="NO" id="O2z-kA-V93">
                                         <rect key="frame" x="0.0" y="10" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="2hQ-WR-AXx"/>
@@ -110,16 +110,16 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Awareness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXm-On-gCH">
-                                        <rect key="frame" x="68" y="10" width="306" height="18"/>
+                                        <rect key="frame" x="76" y="10" width="298" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="QcC-qN-6s4"/>
+                                            <constraint firstAttribute="height" constant="25" id="QcC-qN-6s4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check awareness, help you find out the participants attention’s in the session." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiK-i3-mrD">
-                                        <rect key="frame" x="68" y="32" width="306" height="40"/>
+                                        <rect key="frame" x="76" y="32" width="298" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="EAD-j5-hxd"/>
                                         </constraints>
@@ -131,20 +131,20 @@
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="RiK-i3-mrD" secondAttribute="trailing" id="Iwz-Q9-y3m"/>
-                                    <constraint firstItem="qXm-On-gCH" firstAttribute="leading" secondItem="O2z-kA-V93" secondAttribute="trailing" constant="8" id="OPv-6m-vDD"/>
+                                    <constraint firstItem="qXm-On-gCH" firstAttribute="leading" secondItem="O2z-kA-V93" secondAttribute="trailing" constant="16" id="OPv-6m-vDD"/>
                                     <constraint firstItem="O2z-kA-V93" firstAttribute="leading" secondItem="Ls1-zu-h6Q" secondAttribute="leading" id="REE-2J-ErT"/>
                                     <constraint firstItem="qXm-On-gCH" firstAttribute="top" secondItem="Ls1-zu-h6Q" secondAttribute="top" constant="10" id="S1z-KJ-MDm"/>
                                     <constraint firstAttribute="height" constant="80" id="Trb-oc-WFo"/>
                                     <constraint firstAttribute="bottom" secondItem="RiK-i3-mrD" secondAttribute="bottom" constant="8" id="YAo-g6-X4m"/>
                                     <constraint firstItem="O2z-kA-V93" firstAttribute="top" secondItem="Ls1-zu-h6Q" secondAttribute="top" constant="10" id="cDz-Ky-4Br"/>
-                                    <constraint firstItem="RiK-i3-mrD" firstAttribute="leading" secondItem="O2z-kA-V93" secondAttribute="trailing" constant="8" id="ek0-sS-ara"/>
+                                    <constraint firstItem="RiK-i3-mrD" firstAttribute="leading" secondItem="O2z-kA-V93" secondAttribute="trailing" constant="16" id="ek0-sS-ara"/>
                                     <constraint firstAttribute="trailing" secondItem="qXm-On-gCH" secondAttribute="trailing" id="hEm-ep-0hS"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nf1-uJ-3i4">
                                 <rect key="frame" x="20" y="392" width="374" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Medal" translatesAutoresizingMaskIntoConstraints="NO" id="NwP-dW-z4T">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NwP-dW-z4T">
                                         <rect key="frame" x="0.0" y="10" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="NNn-g6-mtY"/>
@@ -152,15 +152,15 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join more session to rank up your badge and boost your productivity." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-DK-130">
-                                        <rect key="frame" x="68" y="36" width="306" height="36"/>
+                                        <rect key="frame" x="76" y="36" width="298" height="36"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="13"/>
                                         <color key="textColor" red="0.48627450980392156" green="0.4823529411764706" blue="0.4823529411764706" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reward your achievement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IK-hS-q4C">
-                                        <rect key="frame" x="68" y="10" width="298" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank Up Your Badge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IK-hS-q4C">
+                                        <rect key="frame" x="76" y="10" width="290" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="lkf-bS-wTd"/>
+                                            <constraint firstAttribute="height" constant="25" id="lkf-bS-wTd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -175,9 +175,9 @@
                                     <constraint firstItem="8IK-hS-q4C" firstAttribute="top" secondItem="Nf1-uJ-3i4" secondAttribute="top" constant="10" id="LRi-xI-6hn"/>
                                     <constraint firstItem="NwP-dW-z4T" firstAttribute="top" secondItem="Nf1-uJ-3i4" secondAttribute="top" constant="10" id="gd2-ry-I1G"/>
                                     <constraint firstAttribute="trailing" secondItem="8IK-hS-q4C" secondAttribute="trailing" constant="8" id="hno-im-mJP"/>
-                                    <constraint firstItem="8IK-hS-q4C" firstAttribute="leading" secondItem="NwP-dW-z4T" secondAttribute="trailing" constant="8" id="mgl-Ws-czt"/>
+                                    <constraint firstItem="8IK-hS-q4C" firstAttribute="leading" secondItem="NwP-dW-z4T" secondAttribute="trailing" constant="16" id="mgl-Ws-czt"/>
                                     <constraint firstAttribute="height" constant="80" id="vmx-2f-lcf"/>
-                                    <constraint firstItem="dKI-DK-130" firstAttribute="leading" secondItem="NwP-dW-z4T" secondAttribute="trailing" constant="8" id="zPQ-cj-Ywv"/>
+                                    <constraint firstItem="dKI-DK-130" firstAttribute="leading" secondItem="NwP-dW-z4T" secondAttribute="trailing" constant="16" id="zPQ-cj-Ywv"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -219,8 +219,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="List" width="128" height="128"/>
-        <image name="Medal" width="128" height="128"/>
+        <image name="AwarenessIcon" width="100" height="100"/>
         <image name="onboardingIcons" width="1292" height="509"/>
+        <image name="upIcon" width="100" height="100"/>
     </resources>
 </document>

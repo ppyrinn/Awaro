@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SessionResultVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SessionResultVC: UIViewController {
     
     // MARK: - IBOutlet
     @IBOutlet weak var topView: UIView!
@@ -20,6 +20,8 @@ class SessionResultVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        sessionResultTable.dataSource = self
+        sessionResultTable.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +65,19 @@ class SessionResultVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -83,16 +98,4 @@ class SessionResultVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         return cell
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

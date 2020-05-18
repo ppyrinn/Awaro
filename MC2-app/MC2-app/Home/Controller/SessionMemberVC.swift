@@ -8,12 +8,17 @@
 
 import UIKit
 
-class SessionMemberVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SessionMemberVC: UIViewController {
 
+    // MARK: - IBOutlet
+    @IBOutlet weak var sessionMemberTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        sessionMemberTable.dataSource = self
+        sessionMemberTable.delegate = self
     }
     
     
@@ -28,7 +33,20 @@ class SessionMemberVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.present(alert, animated: true)
     }
     
-    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -41,16 +59,4 @@ class SessionMemberVC: UIViewController, UITableViewDataSource, UITableViewDeleg
 
         return cell
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
