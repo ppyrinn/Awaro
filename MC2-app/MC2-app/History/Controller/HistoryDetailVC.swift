@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HistoryDetailVC: UIViewController {
     
     // MARK: - IBOutlet
     @IBOutlet weak var topView: UIView!
@@ -21,6 +21,8 @@ class HistoryDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        historyDetailTable.dataSource = self
+        historyDetailTable.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +60,19 @@ class HistoryDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension HistoryDetailVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -78,16 +93,4 @@ class HistoryDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
 
         return cell
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

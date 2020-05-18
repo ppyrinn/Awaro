@@ -29,9 +29,11 @@
 		2C6FC453246D8CE20033A1C8 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6FC452246D8CE20033A1C8 /* SwiftyGif */; };
 		2C6FC463246DA06F0033A1C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FC462246DA06F0033A1C8 /* LaunchScreen.storyboard */; };
 		2C6FC467246DC13B0033A1C8 /* Awaro-splash-(white).gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FC465246DC13B0033A1C8 /* Awaro-splash-(white).gif */; };
-		2C6FC46B246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C6FC46A246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif */; };
 		2C6FC46D246FDA210033A1C8 /* SessionResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC46C246FDA210033A1C8 /* SessionResultVC.swift */; };
 		2C6FC46F246FDA6A0033A1C8 /* SessionResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC46E246FDA6A0033A1C8 /* SessionResultCell.swift */; };
+		2C7E3325247226C500B587C3 /* ChallengeQuestionTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E3324247226C500B587C3 /* ChallengeQuestionTableVC.swift */; };
+		2C7E3327247226DA00B587C3 /* QuestionChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E3326247226DA00B587C3 /* QuestionChallengeCell.swift */; };
+		2C7E33292472459500B587C3 /* Awaro-splash-(white)-no-loop.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C7E33282472459500B587C3 /* Awaro-splash-(white)-no-loop.gif */; };
 		2CCC9D5C2471891800AEF11B /* BadgeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */; };
 		F40773A32472283800CEC2B0 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A22472283800CEC2B0 /* UserExtension.swift */; };
 		F40773A52472289900CEC2B0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A42472289900CEC2B0 /* CoreDataHelper.swift */; };
@@ -88,9 +90,11 @@
 		2C6FC44F246D75770033A1C8 /* SessionMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMemberCell.swift; sourceTree = "<group>"; };
 		2C6FC462246DA06F0033A1C8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C6FC465246DC13B0033A1C8 /* Awaro-splash-(white).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Awaro-splash-(white).gif"; sourceTree = "<group>"; };
-		2C6FC46A246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Awaro-splash-(white)-no-loop.gif"; sourceTree = "<group>"; };
 		2C6FC46C246FDA210033A1C8 /* SessionResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultVC.swift; sourceTree = "<group>"; };
 		2C6FC46E246FDA6A0033A1C8 /* SessionResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultCell.swift; sourceTree = "<group>"; };
+		2C7E3324247226C500B587C3 /* ChallengeQuestionTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeQuestionTableVC.swift; sourceTree = "<group>"; };
+		2C7E3326247226DA00B587C3 /* QuestionChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionChallengeCell.swift; sourceTree = "<group>"; };
+		2C7E33282472459500B587C3 /* Awaro-splash-(white)-no-loop.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Awaro-splash-(white)-no-loop.gif"; sourceTree = "<group>"; };
 		2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionCell.swift; sourceTree = "<group>"; };
 		F40773A22472283800CEC2B0 /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
 		F40773A42472289900CEC2B0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 				2C6FC448246D6F440033A1C8 /* SessionHostVC.swift */,
 				2C6FC44D246D75620033A1C8 /* SessionMemberVC.swift */,
 				2C6FC46C246FDA210033A1C8 /* SessionResultVC.swift */,
+				2C7E3324247226C500B587C3 /* ChallengeQuestionTableVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				2C6FC44B246D70120033A1C8 /* SessionHostCell.swift */,
 				2C6FC44F246D75770033A1C8 /* SessionMemberCell.swift */,
 				2C6FC46E246FDA6A0033A1C8 /* SessionResultCell.swift */,
+				2C7E3326247226DA00B587C3 /* QuestionChallengeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -298,7 +304,7 @@
 		2C6FC45D246D94150033A1C8 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
-				2C6FC46A246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif */,
+				2C7E33282472459500B587C3 /* Awaro-splash-(white)-no-loop.gif */,
 				2C6FC465246DC13B0033A1C8 /* Awaro-splash-(white).gif */,
 			);
 			path = Asset;
@@ -492,7 +498,7 @@
 				2C1F67DC2469006600323DE3 /* Home.storyboard in Resources */,
 				F465BC6F246249DA0025396A /* Assets.xcassets in Resources */,
 				2C1F67DA2469005A00323DE3 /* Onboarding.storyboard in Resources */,
-				2C6FC46B246DC2640033A1C8 /* Awaro-splash-(white)-no-loop.gif in Resources */,
+				2C7E33292472459500B587C3 /* Awaro-splash-(white)-no-loop.gif in Resources */,
 				2C6FC467246DC13B0033A1C8 /* Awaro-splash-(white).gif in Resources */,
 				2C1F67E02469007A00323DE3 /* Profile.storyboard in Resources */,
 				2C1F67DE2469007300323DE3 /* History.storyboard in Resources */,
@@ -521,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6FC44C246D70120033A1C8 /* SessionHostCell.swift in Sources */,
+				2C7E3325247226C500B587C3 /* ChallengeQuestionTableVC.swift in Sources */,
 				2CCC9D5C2471891800AEF11B /* BadgeCollectionCell.swift in Sources */,
 				F465BC63246249D70025396A /* AppDelegate.swift in Sources */,
 				2C6FC46F246FDA6A0033A1C8 /* SessionResultCell.swift in Sources */,
@@ -531,6 +538,7 @@
 				2C1F67E62469016D00323DE3 /* LandingTabBarVC.swift in Sources */,
 				F40773AD2472435400CEC2B0 /* HistoryDetailExtension.swift in Sources */,
 				2C331059246C277E00DBF2AA /* HomeVC.swift in Sources */,
+				2C7E3327247226DA00B587C3 /* QuestionChallengeCell.swift in Sources */,
 				2C1F67EE2469040400323DE3 /* HomeTableVC.swift in Sources */,
 				F465BC6D246249D70025396A /* MC2_app.xcdatamodeld in Sources */,
 				2C33105D246CFB2F00DBF2AA /* HistoryDetailCell.swift in Sources */,
