@@ -15,8 +15,14 @@ class OnboardVC: UIViewController {
     @IBOutlet weak var signInWithAppleStackView: UIStackView!
     @IBOutlet weak var welcomeToAwaroLabel: UILabel!
     
+    var userList = [User]()
+    var helper:CoreDataHelper!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        helper = CoreDataHelper(context: getViewContext())
+        userList = helper.fetchAll()
+        
         setupProviderLoginView()
     }
         
@@ -149,9 +155,15 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
         
             guard let firstName = appleIDCredential.fullName?.givenName else { return }
             guard let lastName = appleIDCredential.fullName?.familyName else { return }
+            let fullName = firstName + " " + lastName
             guard let email = appleIDCredential.email else { return }
+        
+            let id = userList.count + 1
+            userID = id
             
-            User.createUser(firstName, lastName, email)
+            User.createUser(id,fullName, email)
+            userList = helper.fetchAll()
+            print("\n\nIsi User List\n\n\(userList)\n\ntotal userList = \(userList.count)")
                 
             print("User Id - \(appleIDCredential.user)")
             print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")

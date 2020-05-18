@@ -34,10 +34,9 @@
         <attribute name="badgeTitle" optional="YES" attributeType="String"/>
         <attribute name="didChallengeCounter" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="fullName" optional="YES" attributeType="String"/>
         <attribute name="historyID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="joinAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="lastName" optional="YES" attributeType="String"/>
         <attribute name="memberDuration" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="sessionID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -58,7 +57,7 @@
         <memberEntity name="History"/>
     </configuration>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="283"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="268"/>
         <element name="Session" positionX="-63" positionY="63" width="128" height="208"/>
         <element name="History" positionX="-54" positionY="72" width="128" height="148"/>
         <element name="HistoryDetail" positionX="-36" positionY="81" width="128" height="88"/>
