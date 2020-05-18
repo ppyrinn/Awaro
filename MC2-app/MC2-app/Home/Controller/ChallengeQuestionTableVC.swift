@@ -8,17 +8,27 @@
 
 import UIKit
 
-class ChallengeQuestionTableVC: UITableViewController, UITextViewDelegate {
-
-    var hour: Int = 0
-    var minutes: Int = 0
-    var seconds: Int = 0
+class ChallengeQuestionTableVC: UITableViewController {
     
     // MARK: - IBOutlet
     @IBOutlet weak var questionTextView: UITextView!
+    @IBOutlet weak var aAnswerTextView: UITextView!
+    @IBOutlet weak var bAnswerTextView: UITextView!
+    @IBOutlet weak var cAnswerTextView: UITextView!
+    @IBOutlet weak var dAnswerTextView: UITextView!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var durationPicker: UIPickerView!
     
+    
+    // MARK: - Variable
+    var minutes: Int = 0
+    var seconds: Int = 0
+    let questionTextViewPlaceholderText = "Enter your question..."
+    let answerTextViewPlaceholderText = "Your right answer..."
+    
+    
+    // MARK: - View Behaviour
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,18 +38,26 @@ class ChallengeQuestionTableVC: UITableViewController, UITextViewDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        questionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
-        tableView.keyboardDismissMode = .onDrag
+        tableView.keyboardDismissMode = .interactive
+        setupTextView()
         setupDurationPicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureNavigationBar(largeTitleColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), backgoundColor: #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1), tintColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), title: "Challenge Question", preferredLargeTitle: false)
-        //roundedNavigationBar(title: "History")
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
         isModalInPresentation =  true
+        configureNavigationBar(largeTitleColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), backgoundColor: #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1), tintColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), title: "Challenge Question", preferredLargeTitle: false)
+        //roundedNavigationBar(title: "History")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        questionTextView.centerVertically()
+        aAnswerTextView.centerVertically()
+        bAnswerTextView.centerVertically()
+        cAnswerTextView.centerVertically()
+        dAnswerTextView.centerVertically()
     }
     
     
@@ -56,25 +74,12 @@ class ChallengeQuestionTableVC: UITableViewController, UITextViewDelegate {
     
     
     // MARK: - Function
-    func setupTextView() {
-        questionTextView.delegate = self
-        questionTextView.text = "Enter your question..."
-        
-    }
     
-    @objc func tapDone(sender: Any) {
-        self.view.endEditing(true)
-    }
-    
-    func setupDurationPicker() {
-        durationPicker.dataSource = self
-        durationPicker.delegate = self
-        durationPicker.isHidden = true
-    }
     
 
     // MARK: - Table view data source
 
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
@@ -84,6 +89,7 @@ class ChallengeQuestionTableVC: UITableViewController, UITextViewDelegate {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
+     */
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if isDarkMode ==  true {
@@ -120,8 +126,8 @@ class ChallengeQuestionTableVC: UITableViewController, UITextViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dateIndexPath = IndexPath(row: 0, section: 2)
-        if dateIndexPath == indexPath {
+        let durationIndexPath = IndexPath(row: 0, section: 2)
+        if durationIndexPath == indexPath {
             
             if durationPicker.isHidden == true {
                 durationPicker.isHidden = false
@@ -193,17 +199,112 @@ class ChallengeQuestionTableVC: UITableViewController, UITextViewDelegate {
 
 }
 
+
+// MARK: - Extension
+extension ChallengeQuestionTableVC: UITextViewDelegate {
+    
+    func setupTextView() {
+        questionTextView.delegate = self
+        aAnswerTextView.delegate = self
+        bAnswerTextView.delegate = self
+        cAnswerTextView.delegate = self
+        dAnswerTextView.delegate = self
+        
+        questionTextView.tag = 0
+        aAnswerTextView.tag = 1
+        bAnswerTextView.tag = 2
+        cAnswerTextView.tag = 3
+        dAnswerTextView.tag = 4
+        
+        questionTextView.text = questionTextViewPlaceholderText
+        aAnswerTextView.text = answerTextViewPlaceholderText
+        bAnswerTextView.text = answerTextViewPlaceholderText
+        cAnswerTextView.text = answerTextViewPlaceholderText
+        dAnswerTextView.text = answerTextViewPlaceholderText
+        
+        questionTextView.textColor = .lightGray
+        aAnswerTextView.textColor = .lightGray
+        bAnswerTextView.textColor = .lightGray
+        cAnswerTextView.textColor = .lightGray
+        dAnswerTextView.textColor = .lightGray
+        
+        questionTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        aAnswerTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        bAnswerTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        cAnswerTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        dAnswerTextView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.tag == 0) {
+            questionTextView.text = nil
+            questionTextView.textColor = .white
+        }
+        if (textView.tag == 1) {
+            aAnswerTextView.text = nil
+            aAnswerTextView.textColor = .black
+        }
+        if (textView.tag == 2) {
+            bAnswerTextView.text = nil
+            bAnswerTextView.textColor = .black
+        }
+        if (textView.tag == 3) {
+            cAnswerTextView.text = nil
+            cAnswerTextView.textColor = .black
+        }
+        if (textView.tag == 4) {
+            dAnswerTextView.text = nil
+            dAnswerTextView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if questionTextView.text.isEmpty {
+            questionTextView.text = questionTextViewPlaceholderText
+            questionTextView.textColor = .lightGray
+        }
+        if aAnswerTextView.text.isEmpty {
+            aAnswerTextView.text = answerTextViewPlaceholderText
+            aAnswerTextView.textColor = .lightGray
+        }
+        if bAnswerTextView.text.isEmpty {
+            bAnswerTextView.text = answerTextViewPlaceholderText
+            bAnswerTextView.textColor = .lightGray
+        }
+        if cAnswerTextView.text.isEmpty {
+            cAnswerTextView.text = answerTextViewPlaceholderText
+            cAnswerTextView.textColor = .lightGray
+        }
+        if dAnswerTextView.text.isEmpty {
+            dAnswerTextView.text = answerTextViewPlaceholderText
+            dAnswerTextView.textColor = .lightGray
+        }
+    }
+    
+    @objc func tapDone(sender: Any) {
+        self.view.endEditing(true)
+    }
+}
+
 extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func setupDurationPicker() {
+        durationPicker.dataSource = self
+        durationPicker.delegate = self
+        durationPicker.isHidden = true
+        
+        timeLabel.text = "\(minutes) Min" + " " + "\(seconds) Sec"
+    }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
+        return 2
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return 25
-        case 1, 2:
+            return 2
+        case 1:
             return 60
         default:
             return 0
@@ -217,11 +318,9 @@ extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return "\(row) Hour"
+            return "\(row) Min"
         case 1:
-            return "\(row) Minute"
-        case 2:
-            return "\(row) Second"
+            return "\(row) Sec"
         default:
             return ""
         }
@@ -229,11 +328,11 @@ extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
-            hour = row
-        case 1:
             minutes = row
-        case 2:
+            timeLabel.text = "\(minutes) Min" + " " + "\(seconds) Sec"
+        case 1:
             seconds = row
+            timeLabel.text = "\(minutes) Min" + " " + "\(seconds) Sec"
         default:
             break;
         }
