@@ -303,7 +303,7 @@ extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return 6
+            return 2
         case 1:
             return 60
         default:
