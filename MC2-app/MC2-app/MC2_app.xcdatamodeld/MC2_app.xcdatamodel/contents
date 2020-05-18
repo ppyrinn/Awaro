@@ -45,6 +45,18 @@
         <relationship name="history" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="History" inverseName="user" inverseEntity="History"/>
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="member" inverseEntity="Session"/>
     </entity>
+    <configuration name="Cloud" usedWithCloudKit="YES">
+        <memberEntity name="User"/>
+        <memberEntity name="Session"/>
+        <memberEntity name="HistoryDetail"/>
+        <memberEntity name="History"/>
+    </configuration>
+    <configuration name="Local">
+        <memberEntity name="User"/>
+        <memberEntity name="Session"/>
+        <memberEntity name="HistoryDetail"/>
+        <memberEntity name="History"/>
+    </configuration>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="283"/>
         <element name="Session" positionX="-63" positionY="63" width="128" height="208"/>
