@@ -91,7 +91,7 @@ class OnboardVC: UIViewController {
         authorizationController.performRequests()
     }
     
-    // fungsi tambah data
+    // fungsi tambah data ke core data
         func create(_ firstName:String, _ lastName:String, _ email:String){
             
             // referensi ke AppDelegate
