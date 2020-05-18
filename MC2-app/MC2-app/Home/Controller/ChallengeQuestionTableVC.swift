@@ -44,7 +44,13 @@ class ChallengeQuestionTableVC: UITableViewController {
     
     // MARK: - IBAction Function
     @IBAction func cancelButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "Are you sure you want to cancel?", message: "Unsubmitted question won't be saved.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+
+        self.present(alert, animated: true)
     }
     
     
