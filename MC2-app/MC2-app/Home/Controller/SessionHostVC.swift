@@ -17,12 +17,8 @@ class SessionHostVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-<<<<<<< HEAD
-        
-=======
         sessionHostTable.dataSource = self
         sessionHostTable.delegate = self
->>>>>>> be51dd99ddb907a937cfb04c97c4d79ae1f0e3cd
     }
     
     
