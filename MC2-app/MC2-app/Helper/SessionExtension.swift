@@ -51,9 +51,9 @@ extension Session{
         do{
             let fetch = try managedContext.fetch(fetchRequest)
             let dataToUpdate = fetch[0] as! NSManagedObject
-//            dataToUpdate.setValue(firstName, forKey: "first_name")
-//            dataToUpdate.setValue(lastName, forKey: "last_name")
-//            dataToUpdate.setValue(email, forKey: "email")
+            //            dataToUpdate.setValue(firstName, forKey: "first_name")
+            //            dataToUpdate.setValue(lastName, forKey: "last_name")
+            //            dataToUpdate.setValue(email, forKey: "email")
             
             try managedContext.save()
         }catch let err{
@@ -62,17 +62,17 @@ extension Session{
     }
     
     static func deleteSession(_ sessionID:Int){
-    
+        
         // referensi ke AppDelegate
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    
+        
         // managed context
         let managedContext = appDelegate.persistentContainer.viewContext
-    
+        
         // fetch data to delete
         let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Session")
         fetchRequest.predicate = NSPredicate(format: "sessionID = %d", sessionID)
-    
+        
         do{
             let dataToDelete = try managedContext.fetch(fetchRequest)[0] as! NSManagedObject
             managedContext.delete(dataToDelete)
@@ -84,4 +84,30 @@ extension Session{
             print(err)
         }
     }
+    
+    static func setSessionDuration(_ sessionID:Int,_ duration:Int){
+        
+        // referensi ke AppDelegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        // managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // fetch data to delete
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Session")
+        fetchRequest.predicate = NSPredicate(format: "sessionID = %d", sessionID)
+        
+        do{
+            let fetch = try managedContext.fetch(fetchRequest)
+            let dataToUpdate = fetch[0] as! NSManagedObject
+            dataToUpdate.setValue(duration, forKey: "currentDuration")
+            //            dataToUpdate.setValue(lastName, forKey: "last_name")
+            //            dataToUpdate.setValue(email, forKey: "email")
+            
+            try managedContext.save()
+        }catch let err{
+            print(err)
+        }
+    }
+    
 }
