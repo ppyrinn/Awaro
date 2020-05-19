@@ -32,7 +32,7 @@ extension User{
         do{
             // save data ke entity user core data
             try managedContext.save()
-            print("\n\nsave data ke entity user core data berhasil\n\n")
+            print("\n\ncreate user data ke entity user core data berhasil\n\n")
             //                id += 1
         }catch let err{
             print(err)

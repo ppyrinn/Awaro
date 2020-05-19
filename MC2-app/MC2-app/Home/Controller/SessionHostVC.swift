@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SessionHostVC: UIViewController {
     
@@ -14,6 +15,8 @@ class SessionHostVC: UIViewController {
     var sessionName = String()
     var sessionID = Int()
     var members = [User]()
+    var helper: CoreDataHelper!
+    var memberName = [String]()
     
     var timer = Timer()
     var duration = 0
@@ -31,6 +34,7 @@ class SessionHostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        helper = CoreDataHelper(context: getViewContext())
         // Do any additional setup after loading the view.
         sessionHostTable.dataSource = self
         sessionHostTable.delegate = self
@@ -71,32 +75,37 @@ class SessionHostVC: UIViewController {
     
     //MARK: - Functions
        
-       func toggleTimer(on : Bool){
-           timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
-               
-               guard let strongSelf = self else {return}
-               strongSelf.duration += 1
-               strongSelf.hour = strongSelf.duration / 3600
-               strongSelf.min = (strongSelf.duration % 3600)/60
-               strongSelf.sec = strongSelf.duration % 60
-               
-               if(strongSelf.hour < 10){
-                   strongSelf.timerLabel.text = "0\(strongSelf.hour) : \(strongSelf.min) : \(strongSelf.sec)"
-                   if(strongSelf.min < 10){
-                       strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : \(strongSelf.sec)"
-                       if(strongSelf.duration < 10){
-                           strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : 0\(strongSelf.sec)"
-                       }
-                   }
-               }
-           })
-       }
+    func toggleTimer(on : Bool){
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.duration += 1
+            strongSelf.hour = strongSelf.duration / 3600
+            strongSelf.min = (strongSelf.duration % 3600)/60
+            strongSelf.sec = strongSelf.duration % 60
+            
+            if(strongSelf.hour < 10){
+                strongSelf.timerLabel.text = "0\(strongSelf.hour) : \(strongSelf.min) : \(strongSelf.sec)"
+                if(strongSelf.min < 10){
+                    strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : \(strongSelf.sec)"
+                    if(strongSelf.duration < 10){
+                        strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : 0\(strongSelf.sec)"
+                    }
+                }
+            }
+            
+            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
+            for member in self!.members{
+                strongSelf.memberName.append(member.fullName ?? "")
+            }
+        })
+    }
 }
 
 extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return memberName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

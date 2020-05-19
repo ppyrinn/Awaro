@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set the container options on the cloud store
         cloudStoreDescription.cloudKitContainerOptions =
             NSPersistentCloudKitContainerOptions(
-                containerIdentifier: "com.poppy.MC2-app")
+                containerIdentifier: "iCloud.com.poppy.MC2-app")
         
         // Update the container's list of store descriptions
         container.persistentStoreDescriptions = [
@@ -82,6 +82,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Could not load persistent stores. \(error!)")
             }
         }
+        
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         return container
     }()

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class">
+    <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class" coreSpotlightDisplayNameExpression="History">
         <attribute name="historyDetailID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="historyID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="sessionID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -9,12 +9,12 @@
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="history" inverseEntity="Session"/>
         <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="history" inverseEntity="User"/>
     </entity>
-    <entity name="HistoryDetail" representedClassName="HistoryDetail" syncable="YES" codeGenerationType="class">
+    <entity name="HistoryDetail" representedClassName="HistoryDetail" syncable="YES" codeGenerationType="class" coreSpotlightDisplayNameExpression="HistoryDetail">
         <attribute name="historyDetailID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="historyID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="historyDetail" inverseEntity="History"/>
     </entity>
-    <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class">
+    <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class" coreSpotlightDisplayNameExpression="Session">
         <attribute name="challengeCounter" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="challengeTriggerStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -27,7 +27,7 @@
         <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="session" inverseEntity="History"/>
         <relationship name="member" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="session" inverseEntity="User"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class" coreSpotlightDisplayNameExpression="User">
         <attribute name="achievedTitle" optional="YES" attributeType="String"/>
         <attribute name="activateChallenge" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="badgePicture" optional="YES" attributeType="String"/>
