@@ -41,8 +41,13 @@ class SessionHostVC: UIViewController {
         sessionHostTable.dataSource = self
         sessionHostTable.delegate = self
         
+        for member in members{
+            sessionID = Int(member.userID)
+        }
+        
         sessionIDLabel.text = "ID: \(sessionID)"
-        sessionNameLabel.text = "\(sessionName)'s Session"
+        print(sessionID)
+        sessionNameLabel.text = "\(KeychainItem.currentUserBirthName ?? "Your Name")'s Session"
         toggleTimer(on: true)
     }
     
@@ -58,6 +63,7 @@ class SessionHostVC: UIViewController {
         alert.addAction(UIAlertAction(title: "End", style: .destructive, handler: { action in
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
             Session.deleteSession(self.sessionID)
+            self.members.removeAll()
         }))
 
         self.present(alert, animated: true)
@@ -102,8 +108,10 @@ class SessionHostVC: UIViewController {
             if strongSelf.currentTotalMember != strongSelf.members.count{
                 strongSelf.currentTotalMember = strongSelf.members.count
                 strongSelf.memberName.removeAll()
+                self?.sessionHostTable.reloadData()
                 for member in strongSelf.members{
                     strongSelf.memberName.append(member.fullName ?? "")
+                    self?.sessionHostTable.reloadData()
                 }
             }
             
@@ -124,6 +132,7 @@ extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionHostCell", for: indexPath) as! SessionHostCell
 
         // Configure the cell...
+        cell.participantLabel.text = memberName[indexPath.row]
 
         return cell
     }

@@ -18,6 +18,7 @@ class HomeVC: UIViewController {
     var createdSessionID = Int()
     var existedSessionID = Int()
     
+    
     // MARK: - IBOutlet Function
     
     
@@ -35,7 +36,10 @@ class HomeVC: UIViewController {
         configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "Home", preferredLargeTitle: true)
         //roundedNavigationBar(title: "Home")
         tabBarCustomization()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         helper = CoreDataHelper(context: getViewContext())
     }
     
