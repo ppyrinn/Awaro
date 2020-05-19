@@ -37,6 +37,7 @@
 		2C7E3327247226DA00B587C3 /* ChallengeQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E3326247226DA00B587C3 /* ChallengeQuestionCell.swift */; };
 		2C7E33292472459500B587C3 /* Awaro-splash-(white)-no-loop.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C7E33282472459500B587C3 /* Awaro-splash-(white)-no-loop.gif */; };
 		2CCC9D5C2471891800AEF11B /* BadgeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */; };
+		6CDD3AE72473E56200431EA3 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD3AE62473E56200431EA3 /* ProfileCell.swift */; };
 		F40773A32472283800CEC2B0 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A22472283800CEC2B0 /* UserExtension.swift */; };
 		F40773A52472289900CEC2B0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A42472289900CEC2B0 /* CoreDataHelper.swift */; };
 		F40773A92472433000CEC2B0 /* SessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40773A82472433000CEC2B0 /* SessionExtension.swift */; };
@@ -100,6 +101,7 @@
 		2C7E3326247226DA00B587C3 /* ChallengeQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeQuestionCell.swift; sourceTree = "<group>"; };
 		2C7E33282472459500B587C3 /* Awaro-splash-(white)-no-loop.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Awaro-splash-(white)-no-loop.gif"; sourceTree = "<group>"; };
 		2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionCell.swift; sourceTree = "<group>"; };
+		6CDD3AE62473E56200431EA3 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		F40773A22472283800CEC2B0 /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
 		F40773A42472289900CEC2B0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		F40773A82472433000CEC2B0 /* SessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionExtension.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				2CCC9D5B2471891800AEF11B /* BadgeCollectionCell.swift */,
+				6CDD3AE62473E56200431EA3 /* ProfileCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				F40773A32472283800CEC2B0 /* UserExtension.swift in Sources */,
 				2C3641D324738E41000FF83A /* ChallengeResultVC.swift in Sources */,
 				2C1F67F22469045900323DE3 /* ProfileTableVC.swift in Sources */,
+				6CDD3AE72473E56200431EA3 /* ProfileCell.swift in Sources */,
 				F40773AB2472434700CEC2B0 /* HistoryExtension.swift in Sources */,
 				2C1F67EC2469029E00323DE3 /* KeychainItem.swift in Sources */,
 				2C1F67E62469016D00323DE3 /* LandingTabBarVC.swift in Sources */,

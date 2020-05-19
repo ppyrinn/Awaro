@@ -44,7 +44,7 @@ class SessionMemberVC: UIViewController {
         sessionMemberTable.dataSource = self
         sessionMemberTable.delegate = self
         
-        sessionIDLabel.text = "ID : \(sessionID)"
+        sessionIDLabel.text = "ID: \(sessionID)"
         sessionNameLabel.text = "\(sessionName)'s Session"
     }
     

@@ -62,7 +62,7 @@ class LandingTabBarVC: UITabBarController {
                 break // The Apple ID credential is valid.
             case .revoked, .notFound:
                 // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
                     self.pushTo(viewController: .welcome)
                 }
             default:
@@ -100,6 +100,13 @@ class LandingTabBarVC: UITabBarController {
 }
 
 extension LandingTabBarVC: SwiftyGifDelegate {
+    #if targetEnvironment(macCatalyst)
+      //code to run on macOS
+    func gifDidStop(sender: UIImageView) {
+        logoAnimationView.isHidden = true
+    }
+    #else
+      //code to run on iOS
     func gifDidStop(sender: UIImageView) {
         logoAnimationView.isHidden = true
         let splashView = SplashView(iconImage: UIImage(named: "Awaro-splash-(white)-lastframe")!,iconInitialSize: CGSize(width:250, height: 250), backgroundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1))
@@ -113,4 +120,5 @@ extension LandingTabBarVC: SwiftyGifDelegate {
                 print("Completed")
         }
     }
+    #endif
 }
