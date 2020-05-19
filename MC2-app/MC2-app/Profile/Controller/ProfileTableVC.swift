@@ -30,6 +30,8 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
 
     // MARK: - Table view data source
 
+    // Uncomment to use Dynamic Prototypes
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 4
@@ -50,6 +52,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
             return 2
         }
     }
+    */
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
