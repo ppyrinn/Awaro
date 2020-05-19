@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Awaro-splash-(white)-midframe" translatesAutoresizingMaskIntoConstraints="NO" id="FpL-C4-Zzv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Awaro-splash-(white)-lastframe" translatesAutoresizingMaskIntoConstraints="NO" id="FpL-C4-Zzv">
                                 <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="HKD-ah-ffo"/>
@@ -25,8 +25,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="FpL-C4-Zzv" firstAttribute="centerY" secondItem="AdJ-cD-2YN" secondAttribute="centerY" id="305-id-bHy"/>
-                            <constraint firstItem="FpL-C4-Zzv" firstAttribute="centerX" secondItem="AdJ-cD-2YN" secondAttribute="centerX" id="gvc-CC-DKD"/>
+                            <constraint firstItem="FpL-C4-Zzv" firstAttribute="centerY" secondItem="bbr-ve-aRL" secondAttribute="centerY" id="305-id-bHy"/>
+                            <constraint firstItem="FpL-C4-Zzv" firstAttribute="centerX" secondItem="bbr-ve-aRL" secondAttribute="centerX" id="gvc-CC-DKD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AdJ-cD-2YN"/>
                     </view>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Awaro-splash-(white)-midframe" width="1000" height="1000"/>
+        <image name="Awaro-splash-(white)-lastframe" width="1000" height="1000"/>
     </resources>
 </document>
