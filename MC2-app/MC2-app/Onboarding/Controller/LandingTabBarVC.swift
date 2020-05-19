@@ -80,8 +80,8 @@ class LandingTabBarVC: UITabBarController {
             self.present(vc, animated: false, completion: nil)
         case .welcome:
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnboardVC") as! OnboardVC
-            vc.modalPresentationStyle = .formSheet
-            vc.isModalInPresentation = true
+            vc.modalPresentationStyle = .fullScreen
+            //vc.isModalInPresentation = true
             self.present(vc, animated: true, completion: nil)
         }
     }

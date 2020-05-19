@@ -47,7 +47,7 @@ class ChallengeQuestionTableVC: UITableViewController {
         super.viewWillAppear(animated)
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
-        isModalInPresentation =  true
+        //isModalInPresentation =  true
         configureNavigationBar(largeTitleColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), backgoundColor: #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1), tintColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), title: "Challenge Question", preferredLargeTitle: false)
         //roundedNavigationBar(title: "History")
     }
