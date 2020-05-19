@@ -52,11 +52,11 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func joinSessionButtonAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Join Session", message: "Please enter session ID!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Join Session", message: "Please enter Session ID.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Input session ID here..."
+            textField.placeholder = "Input Session ID here..."
         })
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -74,7 +74,7 @@ class HomeVC: UIViewController {
             }else{
                 self.existedSessionID = 0
                 //tolong kasih komponen apakek disini yg bisa ngasih tau user kalo sessionID yg di cari ga exist
-                let alert = UIAlertController(title: "Session ID Doesn't Exist", message: "Make sure you input the right Session ID!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Session ID Doesn't Exist", message: "Make sure you input the right Session ID.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 
                 self.present(alert, animated: true)
