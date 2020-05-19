@@ -9,16 +9,36 @@
 import UIKit
 
 class SessionMemberVC: UIViewController {
-
+    
+    // MARK: - Variables
+    var sessionName = String()
+    var sessionID = Int()
+    var helper:CoreDataHelper!
+    var sessionData = [Session]()
+    
     // MARK: - IBOutlet
     @IBOutlet weak var sessionMemberTable: UITableView!
+    @IBOutlet weak var sessionNameLabel: UILabel!
+    @IBOutlet weak var sessionIDLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        helper = CoreDataHelper(context: getViewContext())
+        sessionData = helper.fetchSpecificID(id: sessionID) as [Session]
+        print(sessionData)
+        for data in sessionData{
+            sessionName = data.sessionName ?? ""
+        }
+        
 
         // Do any additional setup after loading the view.
         sessionMemberTable.dataSource = self
         sessionMemberTable.delegate = self
+        
+        sessionIDLabel.text = "ID : \(sessionID)"
+        sessionNameLabel.text = "\(sessionName)'s Session"
     }
     
     

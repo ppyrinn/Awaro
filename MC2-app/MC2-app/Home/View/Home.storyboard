@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AuG-Fg-kMr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AuG-Fg-kMr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -564,6 +564,8 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="d9H-rb-Dfw"/>
                     <connections>
                         <outlet property="sessionHostTable" destination="g7x-G4-vjw" id="OsH-ra-7fk"/>
+                        <outlet property="sessionIDLabel" destination="hC4-jd-Rj7" id="a5D-6j-W3y"/>
+                        <outlet property="sessionNameLabel" destination="Isg-fW-hlT" id="HQO-w6-uAZ"/>
                         <segue destination="HPk-Nd-DGE" kind="presentation" identifier="EndSessionSegue" modalPresentationStyle="fullScreen" id="mTR-fo-neU"/>
                         <segue destination="mW1-xc-FKk" kind="presentation" identifier="CreateAwarenessSegue" modalPresentationStyle="formSheet" id="dzc-IB-7rM"/>
                     </connections>
@@ -1194,7 +1196,9 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Xsw-iu-Oay"/>
                     <connections>
+                        <outlet property="sessionIDLabel" destination="xBu-Th-mBJ" id="O3T-6D-Nv9"/>
                         <outlet property="sessionMemberTable" destination="aYg-FD-EGI" id="pFi-d0-fCT"/>
+                        <outlet property="sessionNameLabel" destination="JqO-Al-NsI" id="6FH-uc-9z0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hb5-m0-3HF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

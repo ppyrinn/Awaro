@@ -9,9 +9,16 @@
 import UIKit
 
 class SessionHostVC: UIViewController {
+    
+    // MARK: - Variables
+    var sessionName = String()
+    var sessionID = Int()
 
     // MARK: - IBOutlet
     @IBOutlet weak var sessionHostTable: UITableView!
+    @IBOutlet weak var sessionNameLabel: UILabel!
+    @IBOutlet weak var sessionIDLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +26,9 @@ class SessionHostVC: UIViewController {
         // Do any additional setup after loading the view.
         sessionHostTable.dataSource = self
         sessionHostTable.delegate = self
+        
+        sessionIDLabel.text = "ID : \(sessionID)"
+        sessionNameLabel.text = "\(sessionName)'s Session"
     }
     
     

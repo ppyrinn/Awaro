@@ -13,15 +13,17 @@ class HomeVC: UIViewController {
     
     // MARK: - Variables
     var helper:CoreDataHelper!
-    var existedSession = [Session]()
     var sessionList = [Session]()
+    var createdSessionName = String()
+    var createdSessionID = Int()
+    var existedSessionID = Int()
     
     // MARK: - IBOutlet Function
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
     }
@@ -40,32 +42,38 @@ class HomeVC: UIViewController {
     
     // MARK: - IBAction Function
     @IBAction func createSessionButtonAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "CreateSessionSegue", sender: nil)
-        
-        Session.createSession(userID ?? 0, users?.firstName ?? "")
+        createdSessionName = users?.firstName ?? ""
+        createdSessionID = userID ?? 0
+        Session.createSession(createdSessionID, createdSessionName)
         sessionList = helper.fetchAll()
         print(sessionList)
+        
+        self.performSegue(withIdentifier: "CreateSessionSegue", sender: nil)
     }
     
     @IBAction func joinSessionButtonAction(_ sender: Any) {
         let alert = UIAlertController(title: "Join Session", message: "Please enter session ID!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
+        
         alert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Input session ID here..."
         })
-
+        
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-
+            var existedSession = [Session]()
             if let sessionID = alert.textFields?.first?.text {
                 print("Session ID: \(sessionID)")
-                self.existedSession = self.helper.fetchSpecificID(id: Int(sessionID) ?? 0)
+                self.existedSessionID = Int(sessionID) ?? 0
+                existedSession = self.helper.fetchSpecificID(id: self.existedSessionID)
             }
-            if !self.existedSession.isEmpty {
+            if !existedSession.isEmpty {
                 self.performSegue(withIdentifier: "JoinSessionSegue", sender: nil)
+            }else{
+                self.existedSessionID = 0
+                //tolong kasih komponen apakek disini yg bisa ngasih tau user kalo sessionID yg di cari ga exist
             }
         }))
-
+        
         self.present(alert, animated: true)
     }
     
@@ -91,38 +99,55 @@ class HomeVC: UIViewController {
         
         // Rounded Tab Bar
         /*
-        let offset : CGFloat = (tabBarController?.view.safeAreaInsets.bottom ?? 20)
-
-        let shadowView = UIView(frame: CGRect(x: 0, y: 0,
-                                              width: (tabBarController?.tabBar.bounds.width)!,
-                                              height: (tabBarController?.tabBar.bounds.height)! + offset))
-        shadowView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
-        tabBarController?.tabBar.insertSubview(shadowView, at: 1)
-
-        let shadowLayer = CAShapeLayer()
-        shadowLayer.path = UIBezierPath(roundedRect: shadowView.bounds, byRoundingCorners: [.topLeft , .topRight], cornerRadii: CGSize(width: 20, height: 20)).cgPath
-
-        shadowLayer.fillColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
-
-        shadowLayer.shadowColor = UIColor.darkGray.cgColor
-        shadowLayer.shadowPath = shadowLayer.path
-        shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
-        shadowLayer.shadowOpacity = 0.2
-        shadowLayer.shadowRadius = 4
-
-        shadowView.layer.insertSublayer(shadowLayer, at: 0)
-        */
+         let offset : CGFloat = (tabBarController?.view.safeAreaInsets.bottom ?? 20)
+         
+         let shadowView = UIView(frame: CGRect(x: 0, y: 0,
+         width: (tabBarController?.tabBar.bounds.width)!,
+         height: (tabBarController?.tabBar.bounds.height)! + offset))
+         shadowView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+         tabBarController?.tabBar.insertSubview(shadowView, at: 1)
+         
+         let shadowLayer = CAShapeLayer()
+         shadowLayer.path = UIBezierPath(roundedRect: shadowView.bounds, byRoundingCorners: [.topLeft , .topRight], cornerRadii: CGSize(width: 20, height: 20)).cgPath
+         
+         shadowLayer.fillColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+         
+         shadowLayer.shadowColor = UIColor.darkGray.cgColor
+         shadowLayer.shadowPath = shadowLayer.path
+         shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
+         shadowLayer.shadowOpacity = 0.2
+         shadowLayer.shadowRadius = 4
+         
+         shadowView.layer.insertSublayer(shadowLayer, at: 0)
+         */
     }
     
-
-    /*
+    
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //cek segue yang mana
+        if segue.identifier == "CreateSessionSegue"{
+            //kirim data
+            
+            //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
+            if let  destination = segue.destination as? SessionHostVC{
+                destination.sessionName = self.createdSessionName
+                destination.sessionID = self.createdSessionID
+            }
+        }
+        
+        else if segue.identifier == "JoinSessionSegue"{
+            //kirim data
+            
+            //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
+            if let  destination = segue.destination as? SessionMemberVC{
+//                destination.sessionName = self.createdSessionName
+                destination.sessionID = self.existedSessionID
+            }
+        }
+        
     }
-    */
-
+    
 }
