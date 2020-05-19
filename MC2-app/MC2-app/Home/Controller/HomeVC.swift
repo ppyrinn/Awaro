@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeVC: UIViewController {
     
@@ -36,6 +37,8 @@ class HomeVC: UIViewController {
     // MARK: - IBAction Function
     @IBAction func createSessionButtonAction(_ sender: Any) {
         self.performSegue(withIdentifier: "CreateSessionSegue", sender: nil)
+        
+        Session.createSession(userID ?? 0, users?.firstName ?? "")
     }
     
     @IBAction func joinSessionButtonAction(_ sender: Any) {
