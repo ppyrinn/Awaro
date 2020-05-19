@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AuG-Fg-kMr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AuG-Fg-kMr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -567,6 +567,7 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="d9H-rb-Dfw"/>
                     <connections>
+                        <outlet property="participantCountLabel" destination="4Ca-Pl-8W8" id="Jy5-Yg-0SI"/>
                         <outlet property="sessionHostTable" destination="g7x-G4-vjw" id="OsH-ra-7fk"/>
                         <outlet property="sessionIDLabel" destination="hC4-jd-Rj7" id="a5D-6j-W3y"/>
                         <outlet property="sessionNameLabel" destination="Isg-fW-hlT" id="HQO-w6-uAZ"/>

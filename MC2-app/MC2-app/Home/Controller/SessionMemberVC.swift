@@ -15,6 +15,8 @@ class SessionMemberVC: UIViewController {
     var sessionID = Int()
     var helper:CoreDataHelper!
     var sessionData = [Session]()
+    var members = [User]()
+    var memberName = [String]()
     
     var timer = Timer()
     var duration = 0
@@ -46,6 +48,8 @@ class SessionMemberVC: UIViewController {
         
         sessionIDLabel.text = "ID: \(sessionID)"
         sessionNameLabel.text = "\(sessionName)'s Session"
+        
+        toggleTimer(on: true)
     }
     
     
@@ -92,6 +96,12 @@ class SessionMemberVC: UIViewController {
                     }
                 }
             }
+            
+            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
+            for member in strongSelf.members{
+                strongSelf.memberName.append(member.fullName ?? "")
+            }
+            
         })
     }
 
@@ -100,7 +110,7 @@ class SessionMemberVC: UIViewController {
 extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return memberName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

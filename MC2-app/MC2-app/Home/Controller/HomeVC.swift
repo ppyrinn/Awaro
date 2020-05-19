@@ -45,6 +45,7 @@ class HomeVC: UIViewController {
         createdSessionName = users?.firstName ?? ""
         createdSessionID = userID ?? 0
         Session.createSession(createdSessionID, createdSessionName)
+        User.addSessionToMember(createdSessionID, userID ?? 0)
         sessionList = helper.fetchAll()
         print(sessionList)
         
