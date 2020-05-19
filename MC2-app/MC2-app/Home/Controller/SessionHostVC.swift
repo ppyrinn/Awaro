@@ -18,6 +18,7 @@ class SessionHostVC: UIViewController {
     var helper: CoreDataHelper!
     var memberName = [String]()
     var currentTotalMember = 0
+    var isSessionEnd = false
     
     var timer = Timer()
     var duration = 0
@@ -41,13 +42,9 @@ class SessionHostVC: UIViewController {
         sessionHostTable.dataSource = self
         sessionHostTable.delegate = self
         
-        for member in members{
-            sessionID = Int(member.userID)
-        }
-        
         sessionIDLabel.text = "ID: \(sessionID)"
         print(sessionID)
-        sessionNameLabel.text = "\(KeychainItem.currentUserBirthName ?? "Your Name")'s Session"
+        sessionNameLabel.text = "\(sessionName)'s Session"
         toggleTimer(on: true)
     }
     
@@ -61,6 +58,7 @@ class SessionHostVC: UIViewController {
         let alert = UIAlertController(title: "Are you sure you want to end this session?", message: "All of the participants will be removed if you end this session.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "End", style: .destructive, handler: { action in
+            self.isSessionEnd = true
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
             Session.deleteSession(self.sessionID)
             self.members.removeAll()
@@ -102,7 +100,9 @@ class SessionHostVC: UIViewController {
                 }
             }
             
-            Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
+            if strongSelf.isSessionEnd == false{
+                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
+            }
             
             strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
             if strongSelf.currentTotalMember != strongSelf.members.count{

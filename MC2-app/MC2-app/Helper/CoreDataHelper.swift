@@ -32,5 +32,16 @@ struct CoreDataHelper {
             return []
         }
     }
+    
+    func fetchUserByEmail<T : NSManagedObject>(email:String) -> [T] {
+        let request = T.fetchRequest()
+        let predicate = NSPredicate(format: "email = %@",email)
+        request.predicate = predicate
+        do {
+            return try context.fetch(request) as? [T] ?? []
+        } catch {
+            return []
+        }
+    }
 }
 

@@ -13,14 +13,15 @@ import SwiftyGif
 class LandingTabBarVC: UITabBarController {
 
     let logoAnimationView = LogoAnimationView()
-    var userList = [User]()
+    var currentUser = [User]()
+//    var userList = [User]()
     var helper:CoreDataHelper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         helper = CoreDataHelper(context: getViewContext())
-        userList = helper.fetchAll()
+//        userList = helper.fetchAll()
 
         // Do any additional setup after loading the view.
         setStatusBar(backgroundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1))
@@ -52,13 +53,21 @@ class LandingTabBarVC: UITabBarController {
 //                userID = id
 //
 //                User.createUser(id,fullName, email)
-                self.userList = self.helper.fetchAll() as [User]
-
-                //            print("\n\nIsi User List\n\n\(userList[0].fullName)\n\ntotal userList = \(userList.count)")
-                for user in self.userList{
-                    print(user.fullName)
-                    print(user.userID)
+//                self.userList = self.helper.fetchAll() as [User]
+//
+//                //            print("\n\nIsi User List\n\n\(userList[0].fullName)\n\ntotal userList = \(userList.count)")
+//                for user in self.userList{
+//                    print(user.fullName)
+//                    print(user.userID)
+//                }
+                self.currentUser = self.helper.fetchUserByEmail(email: KeychainItem.currentUserEmail ?? "") as [User]
+                if self.currentUser.count >= 1{
+                    userID = Int(self.currentUser[0].userID)
+                    userEmail = self.currentUser[0].email!
+                    userFullName = self.currentUser[0].fullName
                 }
+                
+                print("\n\nUserID = \(String(describing: userID))\n\nUserEmail = \(String(describing: userEmail))\n\nUserFullName = \(String(describing: userFullName))\n\n")
                 
                 break // The Apple ID credential is valid.
             case .revoked, .notFound:

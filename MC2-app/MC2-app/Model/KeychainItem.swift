@@ -133,7 +133,7 @@ struct KeychainItem {
      */
 extension KeychainItem {
     static var bundleIdentifier: String {
-        return Bundle.main.bundleIdentifier ?? "MC1-G7.Plano"
+        return Bundle.main.bundleIdentifier ?? "com.poppy.MC2-app"
     }
     
     static var currentUserIdentifier: String? {

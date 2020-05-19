@@ -46,7 +46,8 @@ class HomeVC: UIViewController {
     
     // MARK: - IBAction Function
     @IBAction func createSessionButtonAction(_ sender: Any) {
-        createdSessionName = users?.firstName ?? ""
+        let userFirstName = userFullName?.split(separator: " ")
+        createdSessionName = String(userFirstName?[0] ?? "")
         createdSessionID = userID ?? 0
         Session.createSession(createdSessionID, createdSessionName)
         User.addSessionToMember(createdSessionID, userID ?? 0)
