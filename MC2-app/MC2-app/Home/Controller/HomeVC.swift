@@ -64,9 +64,12 @@ class HomeVC: UIViewController {
             if let sessionID = alert.textFields?.first?.text {
                 print("Session ID: \(sessionID)")
                 self.existedSessionID = Int(sessionID) ?? 0
-                existedSession = self.helper.fetchSpecificID(id: self.existedSessionID)
+                existedSession = self.helper.fetchSpecificID(idType: "sessionID", id: self.existedSessionID)
             }
             if !existedSession.isEmpty {
+                User.addSessionToMember(self.existedSessionID, userID!)
+                let joinedUserList = self.helper.fetchSpecificID(idType: "userID", id: userID!) as [User]
+                print(joinedUserList)
                 self.performSegue(withIdentifier: "JoinSessionSegue", sender: nil)
             }else{
                 self.existedSessionID = 0

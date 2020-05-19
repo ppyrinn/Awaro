@@ -13,11 +13,19 @@ class SessionHostVC: UIViewController {
     // MARK: - Variables
     var sessionName = String()
     var sessionID = Int()
+    var members = [User]()
+    
+    var timer = Timer()
+    var duration = 0
+    var hour = 0
+    var min = 0
+    var sec = 0
 
     // MARK: - IBOutlet
     @IBOutlet weak var sessionHostTable: UITableView!
     @IBOutlet weak var sessionNameLabel: UILabel!
     @IBOutlet weak var sessionIDLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -29,6 +37,7 @@ class SessionHostVC: UIViewController {
         
         sessionIDLabel.text = "ID : \(sessionID)"
         sessionNameLabel.text = "\(sessionName)'s Session"
+        toggleTimer(on: true)
     }
     
     
@@ -42,6 +51,7 @@ class SessionHostVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "End", style: .destructive, handler: { action in
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
+            Session.deleteSession(self.sessionID)
         }))
 
         self.present(alert, animated: true)
@@ -58,6 +68,29 @@ class SessionHostVC: UIViewController {
     }
     */
 
+    
+    //MARK: - Functions
+       
+       func toggleTimer(on : Bool){
+           timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+               
+               guard let strongSelf = self else {return}
+               strongSelf.duration += 1
+               strongSelf.hour = strongSelf.duration / 3600
+               strongSelf.min = (strongSelf.duration % 3600)/60
+               strongSelf.sec = strongSelf.duration % 60
+               
+               if(strongSelf.hour < 10){
+                   strongSelf.timerLabel.text = "0\(strongSelf.hour) : \(strongSelf.min) : \(strongSelf.sec)"
+                   if(strongSelf.min < 10){
+                       strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : \(strongSelf.sec)"
+                       if(strongSelf.duration < 10){
+                           strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : 0\(strongSelf.sec)"
+                       }
+                   }
+               }
+           })
+       }
 }
 
 extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
