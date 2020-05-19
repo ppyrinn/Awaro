@@ -436,7 +436,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji5-9v-H7h">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="56"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                        <state key="normal" title="Create Awareness">
+                                        <state key="normal" title="Create Challenge!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -986,11 +986,41 @@
                         <outlet property="durationPicker" destination="wax-z3-lji" id="ena-Dl-6Lj"/>
                         <outlet property="questionTextView" destination="rLy-pl-Bd6" id="82a-cF-52D"/>
                         <outlet property="timeLabel" destination="Coi-fu-6TR" id="XMe-x5-dka"/>
+                        <segue destination="dHo-PG-hnQ" kind="show" id="m3P-LM-ibw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXb-3m-woz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4213.04347826087" y="-177.45535714285714"/>
+        </scene>
+        <!--Challenge Question-->
+        <scene sceneID="rgy-lH-ozu">
+            <objects>
+                <tableViewController id="dHo-PG-hnQ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8xS-WO-D6f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QgS-Td-uoc">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QgS-Td-uoc" id="RLu-Z8-8I2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dHo-PG-hnQ" id="NEy-70-iiK"/>
+                            <outlet property="delegate" destination="dHo-PG-hnQ" id="hWH-IP-htd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Challenge Question" id="M8K-8e-tYP"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCx-ai-HN7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5120" y="-177"/>
         </scene>
         <!--Session MemberVC-->
         <scene sceneID="zxo-Cx-0VO">
