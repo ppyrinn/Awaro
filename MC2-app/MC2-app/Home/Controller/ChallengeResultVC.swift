@@ -30,7 +30,7 @@ class ChallengeResultVC: UIViewController {
     }
     
     
-    // MARK: - IBAction
+    // MARK: - IBAction Functin
     @IBAction func doneButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
