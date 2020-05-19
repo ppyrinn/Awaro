@@ -2,7 +2,7 @@
 //  BadgeCollectionCell.swift
 //  Awaro
 //
-//  Created by Rayhan Martiza Faluda on 17/05/20.
+//  Created by Rayhan Martiza Faluda on 19/05/20.
 //  Copyright © 2020 Poppy. All rights reserved.
 //
 
@@ -10,4 +10,13 @@ import UIKit
 
 class BadgeCollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var circleView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        /*
+        circleView.layer.cornerRadius = frame.size.width / 2
+        circleView.layer.masksToBounds = true
+        */
+    }
 }

@@ -430,12 +430,17 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFF-X9-GCl">
-                                                                        <rect key="frame" x="54" y="67" width="20" height="20"/>
+                                                                        <rect key="frame" x="56.5" y="69" width="15" height="15"/>
                                                                         <color key="backgroundColor" red="0.33333333333333331" green="0.30980392156862746" blue="0.78823529411764703" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="20" id="i7e-zq-nUj"/>
-                                                                            <constraint firstAttribute="width" constant="20" id="q8A-3P-maf"/>
+                                                                            <constraint firstAttribute="height" constant="15" id="i7e-zq-nUj"/>
+                                                                            <constraint firstAttribute="width" constant="15" id="q8A-3P-maf"/>
                                                                         </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="7.5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                 </subviews>
                                                                 <constraints>
@@ -449,7 +454,7 @@
                                                                     <constraint firstItem="kmC-iQ-PE6" firstAttribute="leading" secondItem="4ip-5V-OXK" secondAttribute="leading" constant="20" id="d21-qe-7da"/>
                                                                     <constraint firstAttribute="trailing" secondItem="shN-bN-uzh" secondAttribute="trailing" constant="40" id="hJl-dD-wmJ"/>
                                                                     <constraint firstAttribute="bottom" secondItem="kmC-iQ-PE6" secondAttribute="bottom" constant="8" id="kcC-M2-Wwg"/>
-                                                                    <constraint firstItem="nFF-X9-GCl" firstAttribute="top" secondItem="4ip-5V-OXK" secondAttribute="top" constant="67" id="lHD-FW-Nqq"/>
+                                                                    <constraint firstItem="nFF-X9-GCl" firstAttribute="top" secondItem="4ip-5V-OXK" secondAttribute="top" constant="69" id="lHD-FW-Nqq"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                         </collectionViewCell>
