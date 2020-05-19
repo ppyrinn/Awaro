@@ -528,6 +528,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="badgeImageView" destination="gzI-CQ-jZR" id="qbm-QT-Jhz"/>
+                                            <outlet property="clockInLabel" destination="jPd-l1-7HW" id="zfy-iI-199"/>
+                                            <outlet property="participantLabel" destination="EJa-Fz-aYy" id="pSM-ly-lZm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

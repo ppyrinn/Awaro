@@ -13,14 +13,14 @@ import SwiftyGif
 class LandingTabBarVC: UITabBarController {
 
     let logoAnimationView = LogoAnimationView()
-//    var userList = [User]()
-//    var helper:CoreDataHelper!
+    var userList = [User]()
+    var helper:CoreDataHelper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        helper = CoreDataHelper(context: getViewContext())
-//        userList = helper.fetchAll()
+        helper = CoreDataHelper(context: getViewContext())
+        userList = helper.fetchAll()
 
         // Do any additional setup after loading the view.
         setStatusBar(backgroundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1))
@@ -52,12 +52,13 @@ class LandingTabBarVC: UITabBarController {
 //                userID = id
 //
 //                User.createUser(id,fullName, email)
-//                self.userList = self.helper.fetchAll() as [User]
-//
-//                //            print("\n\nIsi User List\n\n\(userList[0].fullName)\n\ntotal userList = \(userList.count)")
-//                for user in self.userList{
-//                    print(user.fullName)
-//                }
+                self.userList = self.helper.fetchAll() as [User]
+
+                //            print("\n\nIsi User List\n\n\(userList[0].fullName)\n\ntotal userList = \(userList.count)")
+                for user in self.userList{
+                    print(user.fullName)
+                    print(user.userID)
+                }
                 
                 break // The Apple ID credential is valid.
             case .revoked, .notFound:
