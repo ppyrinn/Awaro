@@ -89,27 +89,29 @@ class HomeVC: UIViewController {
             tabBarController?.tabBar.unselectedItemTintColor = .lightGray
         }
         
-//        Rounded Tab Bar
-//        let offset : CGFloat = (tabBarController?.view.safeAreaInsets.bottom ?? 20)
-//
-//        let shadowView = UIView(frame: CGRect(x: 0, y: 0,
-//                                              width: (tabBarController?.tabBar.bounds.width)!,
-//                                              height: (tabBarController?.tabBar.bounds.height)! + offset))
-//        shadowView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
-//        tabBarController?.tabBar.insertSubview(shadowView, at: 1)
-//
-//        let shadowLayer = CAShapeLayer()
-//        shadowLayer.path = UIBezierPath(roundedRect: shadowView.bounds, byRoundingCorners: [.topLeft , .topRight], cornerRadii: CGSize(width: 20, height: 20)).cgPath
-//
-//        shadowLayer.fillColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
-//
-//        shadowLayer.shadowColor = UIColor.darkGray.cgColor
-//        shadowLayer.shadowPath = shadowLayer.path
-//        shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
-//        shadowLayer.shadowOpacity = 0.2
-//        shadowLayer.shadowRadius = 4
-//
-//        shadowView.layer.insertSublayer(shadowLayer, at: 0)
+        // Rounded Tab Bar
+        /*
+        let offset : CGFloat = (tabBarController?.view.safeAreaInsets.bottom ?? 20)
+
+        let shadowView = UIView(frame: CGRect(x: 0, y: 0,
+                                              width: (tabBarController?.tabBar.bounds.width)!,
+                                              height: (tabBarController?.tabBar.bounds.height)! + offset))
+        shadowView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+        tabBarController?.tabBar.insertSubview(shadowView, at: 1)
+
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.path = UIBezierPath(roundedRect: shadowView.bounds, byRoundingCorners: [.topLeft , .topRight], cornerRadii: CGSize(width: 20, height: 20)).cgPath
+
+        shadowLayer.fillColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+
+        shadowLayer.shadowColor = UIColor.darkGray.cgColor
+        shadowLayer.shadowPath = shadowLayer.path
+        shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
+        shadowLayer.shadowOpacity = 0.2
+        shadowLayer.shadowRadius = 4
+
+        shadowView.layer.insertSublayer(shadowLayer, at: 0)
+        */
     }
     
 
