@@ -162,8 +162,12 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
             userID = id
             
             User.createUser(id,fullName, email)
-            userList = helper.fetchAll()
-            print("\n\nIsi User List\n\n\(userList)\n\ntotal userList = \(userList.count)")
+            userList = helper.fetchAll() as [User]
+            
+//            print("\n\nIsi User List\n\n\(userList[0].fullName)\n\ntotal userList = \(userList.count)")
+            for user in userList{
+                print(user.fullName)
+            }
                 
             print("User Id - \(appleIDCredential.user)")
             print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")

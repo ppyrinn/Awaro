@@ -57,9 +57,9 @@
         <memberEntity name="History"/>
     </configuration>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="268"/>
+        <element name="User" positionX="-510.109375" positionY="-61.5078125" width="128" height="268"/>
         <element name="Session" positionX="-63" positionY="63" width="128" height="208"/>
-        <element name="History" positionX="-54" positionY="72" width="128" height="148"/>
-        <element name="HistoryDetail" positionX="-36" positionY="81" width="128" height="88"/>
+        <element name="History" positionX="-69.46484375" positionY="-252.9453125" width="128" height="148"/>
+        <element name="HistoryDetail" positionX="197.56640625" positionY="15.01953125" width="128" height="88"/>
     </elements>
 </model>

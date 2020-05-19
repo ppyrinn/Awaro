@@ -61,4 +61,22 @@ extension Session{
         }
         
     }
+//    
+//    static func fetchSpecificSessionData(sessionID:Int){
+//        // referensi ke AppDelegate
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        
+//        // managed context
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        
+//        // fetch data to delete
+//        let fetchRequest = NSFetchRequest<NSDictionary>(entityName: "Session")
+//        fetchRequest.predicate = NSPredicate(format: "sessionID = %@", sessionID)
+//        fetchRequest.resultType = .dictionaryResultType
+//        do {
+//            
+//        } catch <#pattern#> {
+//            <#statements#>
+//        }
+//    }
 }
