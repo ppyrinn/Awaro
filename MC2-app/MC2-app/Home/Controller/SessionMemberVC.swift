@@ -17,6 +17,7 @@ class SessionMemberVC: UIViewController {
     var sessionData = [Session]()
     var members = [User]()
     var memberName = [String]()
+    var currentTotalMember = 0
     
     var timer = Timer()
     var duration = 0
@@ -29,16 +30,19 @@ class SessionMemberVC: UIViewController {
     @IBOutlet weak var sessionNameLabel: UILabel!
     @IBOutlet weak var sessionIDLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var participantCountLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // get session data
         helper = CoreDataHelper(context: getViewContext())
         sessionData = helper.fetchSpecificID(idType: "sessionID",id: sessionID) as [Session]
         print(sessionData)
         for data in sessionData{
             sessionName = data.sessionName ?? ""
+            duration = Int(data.currentDuration)
         }
         
 
@@ -98,11 +102,16 @@ class SessionMemberVC: UIViewController {
             }
             
             strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
-            for member in strongSelf.members{
-                strongSelf.memberName.append(member.fullName ?? "")
-            }
-            
-        })
+                if strongSelf.currentTotalMember != strongSelf.members.count{
+                    strongSelf.currentTotalMember = strongSelf.members.count
+                    strongSelf.memberName.removeAll()
+                    for member in strongSelf.members{
+                        strongSelf.memberName.append(member.fullName ?? "")
+                    }
+                }
+                
+                strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
+            })
     }
 
 }

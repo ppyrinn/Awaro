@@ -96,6 +96,8 @@ class SessionHostVC: UIViewController {
                 }
             }
             
+            Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
+            
             strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
             if strongSelf.currentTotalMember != strongSelf.members.count{
                 strongSelf.currentTotalMember = strongSelf.members.count

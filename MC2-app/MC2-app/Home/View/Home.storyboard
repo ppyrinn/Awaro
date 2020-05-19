@@ -1204,6 +1204,7 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Xsw-iu-Oay"/>
                     <connections>
+                        <outlet property="participantCountLabel" destination="tqe-Nn-uhp" id="pSA-6f-0Ea"/>
                         <outlet property="sessionIDLabel" destination="xBu-Th-mBJ" id="O3T-6D-Nv9"/>
                         <outlet property="sessionMemberTable" destination="aYg-FD-EGI" id="pFi-d0-fCT"/>
                         <outlet property="sessionNameLabel" destination="JqO-Al-NsI" id="6FH-uc-9z0"/>
