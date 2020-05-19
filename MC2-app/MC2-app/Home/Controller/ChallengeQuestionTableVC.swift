@@ -72,6 +72,9 @@ class ChallengeQuestionTableVC: UITableViewController {
         self.present(alert, animated: true)
     }
     
+    @IBAction func submitButton(_ sender: Any) {
+        performSegue(withIdentifier: "SubmitSegue", sender: nil)
+    }
     
     // MARK: - Function
     
@@ -79,6 +82,7 @@ class ChallengeQuestionTableVC: UITableViewController {
 
     // MARK: - Table view data source
 
+    // Uncomment to use Dynamic Prototypes
     /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -293,7 +297,7 @@ extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource
         durationPicker.delegate = self
         durationPicker.isHidden = true
         
-        timeLabel.text = "\(minutes) Min" + " " + "\(seconds) Sec"
+        timeLabel.text = "\(minutes) min" + " " + "\(seconds) sec"
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -318,9 +322,9 @@ extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return "\(row) Min"
+            return "\(row) min"
         case 1:
-            return "\(row) Sec"
+            return "\(row) sec"
         default:
             return ""
         }
@@ -329,10 +333,10 @@ extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource
         switch component {
         case 0:
             minutes = row
-            timeLabel.text = "\(minutes) Min" + " " + "\(seconds) Sec"
+            timeLabel.text = "\(minutes) min" + " " + "\(seconds) sec"
         case 1:
             seconds = row
-            timeLabel.text = "\(minutes) Min" + " " + "\(seconds) Sec"
+            timeLabel.text = "\(minutes) min" + " " + "\(seconds) sec"
         default:
             break;
         }
