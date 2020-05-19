@@ -39,4 +39,28 @@ extension User{
         }
     }
     
+    static func addSessionToMember(_ sessionID:Int,_ userID:Int){
+            
+            // referensi ke AppDelegate
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            
+            // managed context
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            // fetch data to delete
+            let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "User")
+            fetchRequest.predicate = NSPredicate(format: "userID = %@", userID)
+            
+            do{
+                let fetch = try managedContext.fetch(fetchRequest)
+                let dataToUpdate = fetch[0] as! NSManagedObject
+                dataToUpdate.setValue(sessionID, forKey: "sessionID")
+                
+                try managedContext.save()
+            }catch let err{
+                print(err)
+            }
+            
+        }
+    
 }

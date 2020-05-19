@@ -12,7 +12,9 @@ import CoreData
 class HomeVC: UIViewController {
     
     // MARK: - Variables
-     
+    var helper:CoreDataHelper!
+    var existedSession = [Session]()
+    var sessionList = [Session]()
     
     // MARK: - IBOutlet Function
 
@@ -31,6 +33,8 @@ class HomeVC: UIViewController {
         configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "Home", preferredLargeTitle: true)
         //roundedNavigationBar(title: "Home")
         tabBarCustomization()
+        
+        helper = CoreDataHelper(context: getViewContext())
     }
     
     
@@ -39,6 +43,8 @@ class HomeVC: UIViewController {
         self.performSegue(withIdentifier: "CreateSessionSegue", sender: nil)
         
         Session.createSession(userID ?? 0, users?.firstName ?? "")
+        sessionList = helper.fetchAll()
+        print(sessionList)
     }
     
     @IBAction func joinSessionButtonAction(_ sender: Any) {
@@ -53,9 +59,11 @@ class HomeVC: UIViewController {
 
             if let sessionID = alert.textFields?.first?.text {
                 print("Session ID: \(sessionID)")
+                self.existedSession = self.helper.fetchSpecificID(id: Int(sessionID) ?? 0)
             }
-            
-            self.performSegue(withIdentifier: "JoinSessionSegue", sender: nil)
+            if !self.existedSession.isEmpty {
+                self.performSegue(withIdentifier: "JoinSessionSegue", sender: nil)
+            }
         }))
 
         self.present(alert, animated: true)
