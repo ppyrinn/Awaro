@@ -16,17 +16,24 @@ class SessionMemberVC: UIViewController {
     var helper:CoreDataHelper!
     var sessionData = [Session]()
     
+    var timer = Timer()
+    var duration = 0
+    var hour = 0
+    var min = 0
+    var sec = 0
+    
     // MARK: - IBOutlet
     @IBOutlet weak var sessionMemberTable: UITableView!
     @IBOutlet weak var sessionNameLabel: UILabel!
     @IBOutlet weak var sessionIDLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         helper = CoreDataHelper(context: getViewContext())
-        sessionData = helper.fetchSpecificID(id: sessionID) as [Session]
+        sessionData = helper.fetchSpecificID(idType: "sessionID",id: sessionID) as [Session]
         print(sessionData)
         for data in sessionData{
             sessionName = data.sessionName ?? ""
@@ -47,6 +54,7 @@ class SessionMemberVC: UIViewController {
         let alert = UIAlertController(title: "Are you sure you want to quit this session?", message: "You will still be able to rejoin this session afterwards.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Quit", style: .destructive, handler: { action in
+            User.addSessionToMember(0, userID!)
             self.dismiss(animated: true, completion: nil)
         }))
 
@@ -63,6 +71,29 @@ class SessionMemberVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK: - Functions
+    
+    func toggleTimer(on : Bool){
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+            
+            guard let strongSelf = self else {return}
+            strongSelf.duration += 1
+            strongSelf.hour = strongSelf.duration / 3600
+            strongSelf.min = (strongSelf.duration % 3600)/60
+            strongSelf.sec = strongSelf.duration % 60
+            
+            if(strongSelf.hour < 10){
+                strongSelf.timerLabel.text = "0\(strongSelf.hour) : \(strongSelf.min) : \(strongSelf.sec)"
+                if(strongSelf.min < 10){
+                    strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : \(strongSelf.sec)"
+                    if(strongSelf.duration < 10){
+                        strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : 0\(strongSelf.sec)"
+                    }
+                }
+            }
+        })
+    }
 
 }
 

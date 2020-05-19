@@ -59,24 +59,29 @@ extension Session{
         }catch let err{
             print(err)
         }
-        
     }
-//    
-//    static func fetchSpecificSessionData(sessionID:Int){
-//        // referensi ke AppDelegate
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//        
-//        // managed context
-//        let managedContext = appDelegate.persistentContainer.viewContext
-//        
-//        // fetch data to delete
-//        let fetchRequest = NSFetchRequest<NSDictionary>(entityName: "Session")
-//        fetchRequest.predicate = NSPredicate(format: "sessionID = %@", sessionID)
-//        fetchRequest.resultType = .dictionaryResultType
-//        do {
-//            
-//        } catch <#pattern#> {
-//            <#statements#>
-//        }
-//    }
+    
+    static func deleteSession(_ sessionID:Int){
+    
+        // referensi ke AppDelegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    
+        // managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+    
+        // fetch data to delete
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Session")
+        fetchRequest.predicate = NSPredicate(format: "sessionID = %d", sessionID)
+    
+        do{
+            let dataToDelete = try managedContext.fetch(fetchRequest)[0] as! NSManagedObject
+            managedContext.delete(dataToDelete)
+            
+            try managedContext.save()
+            
+            print("\n\nsession is deleted\n\n")
+        }catch let err{
+            print(err)
+        }
+    }
 }
