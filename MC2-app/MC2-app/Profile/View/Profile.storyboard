@@ -590,7 +590,7 @@
                                                                     <rect key="frame" x="108" y="0.0" width="286" height="45"/>
                                                                     <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                     <connections>
                                                                         <outlet property="delegate" destination="mNq-9h-va6" id="zwr-zf-0Wi"/>
                                                                     </connections>
