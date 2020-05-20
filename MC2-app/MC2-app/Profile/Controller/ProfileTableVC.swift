@@ -107,10 +107,10 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
             editMode = true
             
             nameTextView.isEditable = true
-            emailTextView.isEditable = true
+            emailTextView.isEditable = false
             
             nameTextView.textColor = .darkText
-            emailTextView.textColor = .darkText
+            emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
             
             nameTextView.becomeFirstResponder()
         }
@@ -323,7 +323,7 @@ extension ProfileTableVC: UITextViewDelegate {
             nameTextView.textColor = .darkText
         }
         if (textView.tag == 1) {
-            emailTextView.textColor = .darkText
+            emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
         }
     }
     
@@ -350,12 +350,7 @@ extension ProfileTableVC: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if textView == nameTextView && text == "\n" {  // Recognizes enter key in keyboard
-            emailTextView.becomeFirstResponder()
-            
-            return false
-        }
-        if textView == emailTextView && text == "\n" {
-            emailTextView.resignFirstResponder()
+            nameTextView.resignFirstResponder()
             
             return false
         }
