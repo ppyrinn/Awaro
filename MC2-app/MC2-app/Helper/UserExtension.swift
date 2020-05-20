@@ -62,4 +62,13 @@ extension User{
         }
     }
     
+    static func deleteAll(context : NSManagedObjectContext){
+        //karna dia minta bentuknya umum
+        let request : NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        //try? itu sama kyk do catch, kalo dia error return nil
+        try? context.execute(deleteRequest)
+    }
+    
 }

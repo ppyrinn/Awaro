@@ -168,7 +168,7 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
             for user in userList{
                 print(user.fullName)
             }
-                
+            
             print("User Id - \(appleIDCredential.user)")
             print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")
             print("User Email - \(appleIDCredential.email ?? "N/A")")
