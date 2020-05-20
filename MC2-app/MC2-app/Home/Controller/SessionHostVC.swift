@@ -91,11 +91,11 @@ class SessionHostVC: UIViewController {
             strongSelf.sec = strongSelf.duration % 60
             
             if(strongSelf.hour < 10){
-                strongSelf.timerLabel.text = "0\(strongSelf.hour) : \(strongSelf.min) : \(strongSelf.sec)"
+                strongSelf.timerLabel.text = "0\(strongSelf.hour):\(strongSelf.min):\(strongSelf.sec)"
                 if(strongSelf.min < 10){
-                    strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : \(strongSelf.sec)"
+                    strongSelf.timerLabel.text = "0\(strongSelf.hour):0\(strongSelf.min):\(strongSelf.sec)"
                     if(strongSelf.duration < 10){
-                        strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : 0\(strongSelf.sec)"
+                        strongSelf.timerLabel.text = "0\(strongSelf.hour):0\(strongSelf.min):0\(strongSelf.sec)"
                     }
                 }
             }
@@ -132,8 +132,11 @@ extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionHostCell", for: indexPath) as! SessionHostCell
 
         // Configure the cell...
-        if sessionID == members[indexPath.row].userID {
+        if sessionID == sessionID {
             cell.participantLabel.text = memberName[indexPath.row] + " " + "(Host)"
+        }
+        else {
+            cell.participantLabel.text = memberName[indexPath.row]
         }
 
         return cell
