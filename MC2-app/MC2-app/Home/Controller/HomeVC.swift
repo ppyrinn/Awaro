@@ -56,6 +56,9 @@ class HomeVC: UIViewController {
         sessionList = helper.fetchAll()
         print(sessionList)
         
+        User.assignSessionToMember(sessionID: createdSessionID, userID: currentUserID ?? 0)
+        Session.createNewSession(sessionID: createdSessionID, sessionName: createdSessionName)
+        
         print("\n\nCurrentUserID = \(String(describing: currentUserID))\n\nUserEmail = \(String(describing: userEmail))\n\nUserFullName = \(String(describing: userFullName))\n\n")
         
         self.performSegue(withIdentifier: "CreateSessionSegue", sender: nil)

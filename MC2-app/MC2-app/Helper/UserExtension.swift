@@ -152,7 +152,7 @@ extension User{
         }
     }
     
-    static func assignSessionToMember(sessionID:String, userID:String){
+    static func assignSessionToMember(sessionID:Int, userID:Int){
         let container = CKContainer.default()
         let privateContainer = container.publicCloudDatabase
         
@@ -171,7 +171,6 @@ extension User{
                     print($0)
                     $0["sessionID"] = sessionID as CKRecordValue
                     
-                    
                     CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
                         DispatchQueue.main.async {
                             if let error = error {
@@ -187,4 +186,6 @@ extension User{
             
         }
     }
+    
+    
 }

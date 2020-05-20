@@ -61,6 +61,7 @@ class SessionHostVC: UIViewController {
             self.isSessionEnd = true
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
             Session.deleteSession(self.sessionID)
+            User.assignSessionToMember(sessionID: 0, userID: currentUserID ?? 0)
             self.members.removeAll()
         }))
 

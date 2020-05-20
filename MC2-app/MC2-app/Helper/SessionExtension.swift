@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import CloudKit
 
 extension Session{
     static func createSession(_ sessionID:Int, _ sessionName:String) {
@@ -119,4 +120,24 @@ extension Session{
            try? context.execute(deleteRequest)
        }
     
+    //MARK: - CloudKit Functions
+    static func createNewSession(sessionID:Int, sessionName:String){
+        let memberRecord = CKRecord(recordType: "Sessions")
+        memberRecord["sessionID"] = sessionID as CKRecordValue
+        memberRecord["sessionName"] = sessionName as CKRecordValue
+        
+        CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("\n\ncreate member is Error: \(error.localizedDescription)\n\n")
+                } else {
+                    print("\n\ncreate member is Done!\n\n")
+                }
+            }
+        }
+    }
+    
+    static func endCurrentSession(sessionID:Int){
+        
+    }
 }
