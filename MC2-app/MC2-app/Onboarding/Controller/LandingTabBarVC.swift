@@ -60,6 +60,7 @@ class LandingTabBarVC: UITabBarController {
                 break // The Apple ID credential is valid.
             case .revoked, .notFound:
                 // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+                User.countAllMember()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
                     self.pushTo(viewController: .welcome)
                 }

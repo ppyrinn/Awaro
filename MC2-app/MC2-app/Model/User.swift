@@ -28,6 +28,7 @@ var users:UserModel?
 var currentUserID:Int?
 var userFullName:String?
 var userEmail:String?
+var memberCounter = 0
 
 extension UserModel:CustomDebugStringConvertible{
     var debugDescription: String{

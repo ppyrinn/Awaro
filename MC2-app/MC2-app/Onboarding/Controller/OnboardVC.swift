@@ -18,6 +18,7 @@ class OnboardVC: UIViewController {
     var userList = [User]()
     var helper:CoreDataHelper!
     var cloudKitHelper:CloudKitHelper?
+    var counter = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,15 +160,19 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
             let fullName = firstName + " " + lastName
             guard let email = appleIDCredential.email else { return }
         
-            let id = userList.count + 1
+//            let id = userList.count + 1
+            let id = memberCounter + 1
+            print("\n\nid = \(id)\n\nmemberCounter = \(memberCounter)")
             currentUserID = id
+            
+            print("\n\nCurrentUserID \(String(describing: currentUserID))\n\n")
             
             User.createUser(id,fullName, email)
             userList = helper.fetchAll() as [User]
             
 //            print("\n\nIsi User List\n\n\(userList[0].fullName)\n\ntotal userList = \(userList.count)")
             for user in userList{
-                print(user.fullName)
+                print(user.fullName ?? "")
             }
             
             User.createMember(id: id, fullName: fullName, email: email)

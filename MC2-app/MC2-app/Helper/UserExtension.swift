@@ -79,7 +79,7 @@ extension User{
         memberRecord["userID"] = id as CKRecordValue
         memberRecord["fullName"] = fullName as CKRecordValue
         memberRecord["email"] = email as CKRecordValue
-
+        
         CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
             DispatchQueue.main.async {
                 if let error = error {
@@ -92,36 +92,66 @@ extension User{
     }
     
     static func getMemberBySpecificEmail(email:String){
-            // use default container, we can set custom container by setting
-            let container = CKContainer.default()
-            let privateContainer = container.publicCloudDatabase
+        // use default container, we can set custom container by setting
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        // fetch with query string
+        //        let predicate = NSPredicate(format: "name BEGINSWITH %@", "Cafee")
+        //        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+        
+        // fecth with array
+        let predicate = NSPredicate(format: "email = %@", email)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
             
-            // fetch with query string
-    //        let predicate = NSPredicate(format: "name BEGINSWITH %@", "Cafee")
-    //        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
-            
-            // fecth with array
-            let predicate = NSPredicate(format: "email = %@", email)
-            let query = CKQuery(recordType: "Members", predicate: predicate)
-            
-            privateContainer.perform(query, inZoneWith: nil) { (result, error) in
-                if let err = error {
-                    print(err.localizedDescription)
-                    return
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    userEmail = $0["email"]
+                    userFullName = $0["fullName"]
+                    currentUserID = $0["userID"]
                 }
-                
-                if let records = result {
-                    print("\n\n")
-                    records.forEach{
-                        print($0)
-                        userEmail = $0["email"]
-                        userFullName = $0["fullName"]
-                        currentUserID = $0["userID"]
-                    }
-                    print("\n\n")
+                print("\n\n")
+            }
+            
+        }
+    }
+    
+   static func countAllMember() {
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        // fetch all record
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        // sort description
+        let sort = NSSortDescriptor(key: "userID", ascending: false)
+        query.sortDescriptors = [sort]
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            // deliver later when we reach CKAssets
+            if let records = result {
+                print("\n\nResult\n")
+                records.forEach{
+                    print($0)
+                    memberCounter += 1
+                    print(memberCounter)
                 }
-                
+                print("\n\n")
             }
         }
-    
+    }
 }
