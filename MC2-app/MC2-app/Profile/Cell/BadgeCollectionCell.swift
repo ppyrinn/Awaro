@@ -10,7 +10,9 @@ import UIKit
 
 class BadgeCollectionCell: UICollectionViewCell {
     
-    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var badgeImageView: UIImageView!
+    @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var xpLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
