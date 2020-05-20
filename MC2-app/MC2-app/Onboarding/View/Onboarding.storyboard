@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uv0-18-PLB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uv0-18-PLB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -74,24 +74,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bG2-Od-i9a">
-                                <rect key="frame" x="40" y="746" width="334" height="44"/>
+                                <rect key="frame" x="40" y="778" width="334" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ewk-bP-S2H"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd9-vS-nBw">
-                                <rect key="frame" x="40" y="798" width="334" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="mjJ-Hq-Hdd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipButton:" destination="drp-wK-FuB" eventType="touchUpInside" id="uPn-Jr-inX"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingIcons" translatesAutoresizingMaskIntoConstraints="NO" id="zpt-dc-BV1">
                                 <rect key="frame" x="120.5" y="160" width="173" height="68"/>
                                 <constraints>
@@ -183,6 +170,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2aO-zf-U1i" firstAttribute="bottom" secondItem="bG2-Od-i9a" secondAttribute="bottom" constant="40" id="1hs-KM-Wi7"/>
                             <constraint firstItem="bG2-Od-i9a" firstAttribute="leading" secondItem="2aO-zf-U1i" secondAttribute="leading" constant="40" id="5P2-xR-WtY">
                                 <variation key="heightClass=regular-widthClass=regular" constant="142"/>
                             </constraint>
@@ -198,13 +186,10 @@
                             <constraint firstItem="2aO-zf-U1i" firstAttribute="trailing" secondItem="IgO-Z4-uXh" secondAttribute="trailing" constant="40" id="DDw-cR-dVK"/>
                             <constraint firstItem="IgO-Z4-uXh" firstAttribute="top" secondItem="2aO-zf-U1i" secondAttribute="top" constant="56" id="E1n-OJ-zhb"/>
                             <constraint firstItem="IgO-Z4-uXh" firstAttribute="leading" secondItem="2aO-zf-U1i" secondAttribute="leading" constant="40" id="QZd-BP-e6G"/>
-                            <constraint firstItem="2aO-zf-U1i" firstAttribute="bottom" secondItem="yd9-vS-nBw" secondAttribute="bottom" priority="250" constant="20" id="YdR-jG-zY6"/>
-                            <constraint firstItem="yd9-vS-nBw" firstAttribute="top" secondItem="bG2-Od-i9a" secondAttribute="bottom" constant="8" id="YsX-AP-SNH"/>
                             <constraint firstItem="Ls1-zu-h6Q" firstAttribute="top" secondItem="zpt-dc-BV1" secondAttribute="bottom" constant="74" id="ZfN-1M-dlR"/>
                             <constraint firstItem="Ls1-zu-h6Q" firstAttribute="leading" secondItem="2aO-zf-U1i" secondAttribute="leading" constant="40" id="cDY-Yu-L7a">
                                 <variation key="heightClass=regular-widthClass=regular" constant="142"/>
                             </constraint>
-                            <constraint firstItem="yd9-vS-nBw" firstAttribute="leading" secondItem="bG2-Od-i9a" secondAttribute="leading" id="iTs-yI-JKO"/>
                             <constraint firstItem="Ls1-zu-h6Q" firstAttribute="centerX" secondItem="RXw-gU-OFN" secondAttribute="centerX" id="mlZ-EY-tb8"/>
                             <constraint firstItem="Nf1-uJ-3i4" firstAttribute="top" secondItem="Ls1-zu-h6Q" secondAttribute="bottom" constant="10" id="oVN-np-370"/>
                             <constraint firstItem="Nf1-uJ-3i4" firstAttribute="leading" secondItem="2aO-zf-U1i" secondAttribute="leading" constant="40" id="pfM-vn-bp5">
@@ -213,7 +198,6 @@
                             <constraint firstItem="2aO-zf-U1i" firstAttribute="trailing" secondItem="bG2-Od-i9a" secondAttribute="trailing" constant="40" id="qkP-z9-v9w">
                                 <variation key="heightClass=regular-widthClass=regular" constant="142"/>
                             </constraint>
-                            <constraint firstItem="yd9-vS-nBw" firstAttribute="trailing" secondItem="bG2-Od-i9a" secondAttribute="trailing" id="uQG-8H-6iv"/>
                             <constraint firstItem="zpt-dc-BV1" firstAttribute="centerX" secondItem="2aO-zf-U1i" secondAttribute="centerX" id="yzN-MW-aDs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2aO-zf-U1i"/>
