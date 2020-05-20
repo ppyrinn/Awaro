@@ -25,7 +25,7 @@ struct UserModel{
 }
 
 var users:UserModel?
-var userID:Int?
+var currentUserID:Int?
 var userFullName:String?
 var userEmail:String?
 

@@ -91,30 +91,37 @@ extension User{
         }
     }
     
-//    static func getMemberBySpecificEmail(email:String){
-//            // use default container, we can set custom container by setting
-//            let container = CKContainer.default()
-//            let privateContainer = container.publicCloudDatabase
-//            
-//            // fetch with query string
-//    //        let predicate = NSPredicate(format: "name BEGINSWITH %@", "Cafee")
-//    //        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
-//            
-//            // fecth with array
-//            let predicate = NSPredicate(format: "email = %@", email)
-//            let query = CKQuery(recordType: "Members", predicate: predicate)
-//            
-//            privateContainer.perform(query, inZoneWith: nil) { (result, error) in
-//                if let err = error {
-//                    print(err.localizedDescription)
-//                    return
-//                }
-//                
-//                if let records = result {
-//                    records.forEach{print($0)}
-//                }
-//                
-//            }
-//        }
+    static func getMemberBySpecificEmail(email:String){
+            // use default container, we can set custom container by setting
+            let container = CKContainer.default()
+            let privateContainer = container.publicCloudDatabase
+            
+            // fetch with query string
+    //        let predicate = NSPredicate(format: "name BEGINSWITH %@", "Cafee")
+    //        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+            
+            // fecth with array
+            let predicate = NSPredicate(format: "email = %@", email)
+            let query = CKQuery(recordType: "Members", predicate: predicate)
+            
+            privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+                if let err = error {
+                    print(err.localizedDescription)
+                    return
+                }
+                
+                if let records = result {
+                    print("\n\n")
+                    records.forEach{
+                        print($0)
+                        userEmail = $0["email"]
+                        userFullName = $0["fullName"]
+                        currentUserID = $0["userID"]
+                    }
+                    print("\n\n")
+                }
+                
+            }
+        }
     
 }

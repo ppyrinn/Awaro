@@ -160,7 +160,7 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
             guard let email = appleIDCredential.email else { return }
         
             let id = userList.count + 1
-            userID = id
+            currentUserID = id
             
             User.createUser(id,fullName, email)
             userList = helper.fetchAll() as [User]

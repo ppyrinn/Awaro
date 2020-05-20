@@ -27,6 +27,8 @@ class HomeVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,11 +50,13 @@ class HomeVC: UIViewController {
     @IBAction func createSessionButtonAction(_ sender: Any) {
         let userFirstName = userFullName?.split(separator: " ")
         createdSessionName = String(userFirstName?[0] ?? "")
-        createdSessionID = userID ?? 0
+        createdSessionID = currentUserID ?? 0
         Session.createSession(createdSessionID, createdSessionName)
-        User.addSessionToMember(createdSessionID, userID ?? 0)
+        User.addSessionToMember(createdSessionID, currentUserID ?? 0)
         sessionList = helper.fetchAll()
         print(sessionList)
+        
+        print("\n\nCurrentUserID = \(String(describing: currentUserID))\n\nUserEmail = \(String(describing: userEmail))\n\nUserFullName = \(String(describing: userFullName))\n\n")
         
         self.performSegue(withIdentifier: "CreateSessionSegue", sender: nil)
     }
@@ -73,8 +77,8 @@ class HomeVC: UIViewController {
                 existedSession = self.helper.fetchSpecificID(idType: "sessionID", id: self.existedSessionID)
             }
             if !existedSession.isEmpty {
-                User.addSessionToMember(self.existedSessionID, userID!)
-                let joinedUserList = self.helper.fetchSpecificID(idType: "userID", id: userID!) as [User]
+                User.addSessionToMember(self.existedSessionID, currentUserID!)
+                let joinedUserList = self.helper.fetchSpecificID(idType: "userID", id: currentUserID!) as [User]
                 print(joinedUserList)
                 self.performSegue(withIdentifier: "JoinSessionSegue", sender: nil)
             }else{

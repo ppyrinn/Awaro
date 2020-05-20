@@ -44,30 +44,18 @@ class LandingTabBarVC: UITabBarController {
                     self.pushTo(viewController: .home)
                 } */
                 
-//                guard let firstName = KeychainItem.currentUserGivenName else {return}
-//                guard let lastName = KeychainItem.currentUserBirthName else {return}
-//                let fullName = firstName + " " + lastName
-//                guard let email = KeychainItem.currentUserEmail else {return}
-//
-//                let id = self.userList.count + 1
-//                userID = id
-//
-//                User.createUser(id,fullName, email)
-//                self.userList = self.helper.fetchAll() as [User]
-//
-//                //            print("\n\nIsi User List\n\n\(userList[0].fullName)\n\ntotal userList = \(userList.count)")
-//                for user in self.userList{
-//                    print(user.fullName)
-//                    print(user.userID)
+                //MARK: - Core Data
+//                self.currentUser = self.helper.fetchUserByEmail(email: KeychainItem.currentUserEmail ?? "") as [User]
+//                if self.currentUser.count >= 1{
+//                    currentUserID = Int(self.currentUser[0].userID)
+//                    userEmail = self.currentUser[0].email!
+//                    userFullName = self.currentUser[0].fullName
 //                }
-                self.currentUser = self.helper.fetchUserByEmail(email: KeychainItem.currentUserEmail ?? "") as [User]
-                if self.currentUser.count >= 1{
-                    userID = Int(self.currentUser[0].userID)
-                    userEmail = self.currentUser[0].email!
-                    userFullName = self.currentUser[0].fullName
-                }
                 
-                print("\n\nUserID = \(String(describing: userID))\n\nUserEmail = \(String(describing: userEmail))\n\nUserFullName = \(String(describing: userFullName))\n\n")
+                //MARK: - CloudKit
+                User.getMemberBySpecificEmail(email: KeychainItem.currentUserEmail ?? "")
+                
+                print("\n\nCurrentUserID = \(String(describing: currentUserID))\n\nUserEmail = \(String(describing: userEmail))\n\nUserFullName = \(String(describing: userFullName))\n\n")
                 
                 break // The Apple ID credential is valid.
             case .revoked, .notFound:
