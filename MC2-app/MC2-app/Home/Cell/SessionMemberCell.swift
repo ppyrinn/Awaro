@@ -9,6 +9,10 @@
 import UIKit
 
 class SessionMemberCell: UITableViewCell {
+    
+    @IBOutlet weak var badgeImageView: UIImageView!
+    @IBOutlet weak var participantLabel: UILabel!
+    @IBOutlet weak var clockInLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

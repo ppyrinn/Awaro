@@ -128,6 +128,12 @@ extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionMemberCell", for: indexPath) as! SessionMemberCell
 
         // Configure the cell...
+        if sessionID == sessionID {
+            cell.participantLabel.text = memberName[indexPath.row] + " " + "(Host)"
+        }
+        else {
+            cell.participantLabel.text = memberName[indexPath.row]
+        }
 
         return cell
     }

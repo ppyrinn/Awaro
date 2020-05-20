@@ -10,10 +10,19 @@ import UIKit
 
 class SessionResultVC: UIViewController {
     
+    // MARK: - Variables
+    var sessionName = String()
+    var sessionID = Int()
+    var memberName = [String]()
+    
+    
     // MARK: - IBOutlet
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var viewContainingTableView: UIView!
+    @IBOutlet weak var sessionNameLabel: UILabel!
+    @IBOutlet weak var sessionIDLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var participantCountLabel: UILabel!
     @IBOutlet weak var sessionResultTable: UITableView!
 
     override func viewDidLoad() {
@@ -22,6 +31,10 @@ class SessionResultVC: UIViewController {
         // Do any additional setup after loading the view.
         sessionResultTable.dataSource = self
         sessionResultTable.delegate = self
+        
+        sessionIDLabel.text = "ID: \(sessionID)"
+        print(sessionID)
+        sessionNameLabel.text = "\(sessionName)'s Session"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +93,7 @@ class SessionResultVC: UIViewController {
 extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return memberName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,6 +107,13 @@ extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
         else {
             cell.contentView.backgroundColor = .white
             cell.placeholderView.backgroundColor = .white
+        }
+        
+        if sessionID == sessionID {
+            cell.nameLabel.text = memberName[indexPath.row] + " " + "(Host)"
+        }
+        else {
+            cell.nameLabel.text = memberName[indexPath.row]
         }
         
         return cell

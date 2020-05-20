@@ -1185,6 +1185,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="badgeImageView" destination="cnS-n5-EiE" id="ibj-Rn-HHM"/>
+                                            <outlet property="clockInLabel" destination="nmg-AR-BKf" id="FdK-3S-mT4"/>
+                                            <outlet property="participantLabel" destination="uil-0f-WId" id="o88-Gw-svb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1487,6 +1492,9 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="4zg-38-TFw"/>
                     <connections>
                         <outlet property="durationLabel" destination="Wby-c7-9Cy" id="t2C-kE-SVB"/>
+                        <outlet property="participantCountLabel" destination="L37-Sp-EJf" id="kgt-Rt-03m"/>
+                        <outlet property="sessionIDLabel" destination="pw1-y7-ds4" id="uGu-hy-WWI"/>
+                        <outlet property="sessionNameLabel" destination="IlR-sc-Y4R" id="655-Nd-wTp"/>
                         <outlet property="sessionResultTable" destination="eQF-Sz-FWm" id="Ula-jA-vIk"/>
                         <outlet property="topView" destination="UXV-9n-Smb" id="du0-au-76m"/>
                         <outlet property="viewContainingTableView" destination="fFH-s7-mGi" id="JdP-5Q-xCU"/>
