@@ -138,6 +138,44 @@ extension Session{
     }
     
     static func endCurrentSession(sessionID:Int){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
         
+        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+        let query = CKQuery(recordType: "Sessions", predicate: predicate)
+
+        // Fetch the record to delete from the public database
+        privateContainer.perform(query, inZoneWith: nil) {results, error in
+            if (error != nil) {
+                print(error?.localizedDescription ?? "")
+            } else {
+                if results?.count == 0 {
+                    // On the main thread, update the textView
+                    OperationQueue.main.addOperation {
+                        print("Sorry, that item doesn't exists in the database.")
+                    }
+                } else {
+                    // Put the first record in the recordToDelete variable
+                    let recordToDelete: CKRecord! = results?.first!
+
+                    if let record = recordToDelete {
+                        privateContainer.delete(withRecordID: record.recordID) {result, error in
+                            if error != nil {
+                                OperationQueue.main.addOperation {
+                                    print("Delete error: \(String(describing: error?.localizedDescription))")
+                                }
+                            } else {
+                                OperationQueue.main.addOperation {
+                                    print("The record was deleted from the database.")
+//                                    self.itemNameList.removeAll(keepCapacity: false)
+//                                    self.itemPhotoList.removeAll(keepCapacity: false)
+//                                    self.fetchAllRecords()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

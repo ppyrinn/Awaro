@@ -60,6 +60,7 @@ class SessionHostVC: UIViewController {
         alert.addAction(UIAlertAction(title: "End", style: .destructive, handler: { action in
             self.isSessionEnd = true
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
+            Session.endCurrentSession(sessionID: self.sessionID)
             Session.deleteSession(self.sessionID)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID ?? 0)
             self.members.removeAll()
