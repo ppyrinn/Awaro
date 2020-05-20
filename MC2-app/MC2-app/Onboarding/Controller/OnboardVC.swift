@@ -22,8 +22,8 @@ class OnboardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        helper = CoreDataHelper(context: getViewContext())
-        userList = helper.fetchAll()
+//        helper = CoreDataHelper(context: getViewContext())
+//        userList = helper.fetchAll()
         
         setupProviderLoginView()
     }
@@ -167,15 +167,18 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
             
             print("\n\nCurrentUserID \(String(describing: currentUserID))\n\n")
             
-            User.createUser(id,fullName, email)
-            userList = helper.fetchAll() as [User]
+//            User.createUser(id,fullName, email)
+//            userList = helper.fetchAll() as [User]
             
 //            print("\n\nIsi User List\n\n\(userList[0].fullName)\n\ntotal userList = \(userList.count)")
-            for user in userList{
-                print(user.fullName ?? "")
-            }
+//            for user in userList{
+//                print(user.fullName ?? "")
+//            }
             
             User.createMember(id: id, fullName: fullName, email: email)
+            
+            userFullName = fullName
+            userEmail = email
             
             print("User Id - \(appleIDCredential.user)")
             print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")

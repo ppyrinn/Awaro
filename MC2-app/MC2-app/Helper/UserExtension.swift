@@ -79,6 +79,7 @@ extension User{
         memberRecord["userID"] = id as CKRecordValue
         memberRecord["fullName"] = fullName as CKRecordValue
         memberRecord["email"] = email as CKRecordValue
+        memberRecord["sessionID"] = 0 as CKRecordValue
         
         CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
             DispatchQueue.main.async {
@@ -95,10 +96,6 @@ extension User{
         // use default container, we can set custom container by setting
         let container = CKContainer.default()
         let privateContainer = container.publicCloudDatabase
-        
-        // fetch with query string
-        //        let predicate = NSPredicate(format: "name BEGINSWITH %@", "Cafee")
-        //        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
         
         // fecth with array
         let predicate = NSPredicate(format: "email = %@", email)
@@ -152,6 +149,42 @@ extension User{
                 }
                 print("\n\n")
             }
+        }
+    }
+    
+    static func assignSessionToMember(sessionID:String, userID:String){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(format: "userID = %d", userID)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    $0["sessionID"] = sessionID as CKRecordValue
+                    
+                    
+                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                print("\n\nassign session to member is Error: \(error.localizedDescription)\n\n")
+                            } else {
+                                print("\n\nassign session to member is Done!\n\n")
+                            }
+                        }
+                    }
+                }
+                print("\n\n")
+            }
+            
         }
     }
 }
