@@ -11,6 +11,11 @@ import UIKit
 class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - IBOutlet
+    @IBOutlet weak var largeBadgeImage: UIImageView!
+    @IBOutlet weak var largeRankLabel: UILabel!
+    @IBOutlet weak var largeXPLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var editButtonOutlet: UIButton!
     @IBOutlet weak var sessionIDLabel: UILabel!
     @IBOutlet weak var nameTextView: UITextView!
@@ -19,8 +24,47 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     
     // MARK: - Variables
     var editMode = false
-    let nameTextViewPlaceholderText = "John Appleseed"
-    let emailTextViewPlaceholderText = "john@appleseed.com"
+    
+    let sessionIDLabelPlaceholderText = "123456789"
+    let nameTextViewPlaceholderText = "Your Name"
+    let emailTextViewPlaceholderText = "youremail@email.com"
+    
+    let badgeImage = ["Bronze I",
+                      "Bronze II",
+                      "Bronze III",
+                      "Silver I",
+                      "Silver II",
+                      "Silver III",
+                      "Gold I",
+                      "Gold II",
+                      "Gold III"]
+    let rankLabel = ["Bronze I",
+                     "Bronze II",
+                     "Bronze III",
+                     "Silver I",
+                     "Silver II",
+                     "Silver III",
+                     "Gold I",
+                     "Gold II",
+                     "Gold III"]
+    let rankLabelColor = [(UIColor.rbg(r: 241, g: 144, b: 73)), //Bronze
+                          (UIColor.rbg(r: 241, g: 144, b: 73)), //Bronze
+                          (UIColor.rbg(r: 241, g: 144, b: 73)), //Bronze
+                          (UIColor.rbg(r: 160, g: 168, b: 184)), //Silver
+                          (UIColor.rbg(r: 160, g: 168, b: 184)), //Silver
+                          (UIColor.rbg(r: 160, g: 168, b: 184)), //Silver
+                          (UIColor.rbg(r: 255, g: 177, b: 15)), //Gold
+                          (UIColor.rbg(r: 255, g: 177, b: 15)), //Gold
+                          (UIColor.rbg(r: 255, g: 177, b: 15))] //Gold
+    let xpLabel = ["0 XP",
+                   "50 XP",
+                   "100 XP",
+                   "200 XP",
+                   "300 XP",
+                   "400 XP",
+                   "600 XP",
+                   "800 XP",
+                   "1000 XP"]
     
 
     override func viewDidLoad() {
@@ -32,15 +76,22 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableView.keyboardDismissMode = .interactive
-        setupTextView()
+        tableView.keyboardDismissMode = .onDrag
+        loadSessionID()
+        loadTextView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         tableView.backgroundColor = #colorLiteral(red: 0.9750029445, green: 0.9783667922, blue: 0.9844790101, alpha: 1)
         configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "Profile", preferredLargeTitle: true)
         //roundedNavigationBar(title: "Profile")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -54,29 +105,44 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         if editMode == false {
             editButtonOutlet.setTitle("Done", for: .normal)
             editMode = true
+            
             nameTextView.isEditable = true
             emailTextView.isEditable = true
             
-            nameTextView.becomeFirstResponder()
-            
             nameTextView.textColor = .darkText
             emailTextView.textColor = .darkText
+            
+            nameTextView.becomeFirstResponder()
         }
         else {
             editButtonOutlet.setTitle("Edit", for: .normal)
             editMode = false
+            
             nameTextView.isEditable = false
             emailTextView.isEditable = false
             
-            emailTextView.resignFirstResponder()
+            nameTextView.isSelectable = false
+            emailTextView.isSelectable = false
             
             nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
             emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
+            
+            emailTextView.resignFirstResponder()
         }
     }
     
     
-
+    // MARK: - Function
+    func loadSessionID() {
+        if currentUserID == nil {
+            sessionIDLabel.text = sessionIDLabelPlaceholderText
+        }
+        else {
+            sessionIDLabel.text = "\(currentUserID ?? 0)"
+        }
+    }
+    
+    
     // MARK: - Table view data source
 
     // Uncomment to use Dynamic Prototypes
@@ -175,6 +241,10 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BadgeCollectionCell", for: indexPath) as! BadgeCollectionCell
     
         // Configure the cell
+        cell.badgeImageView.image = UIImage(named: badgeImage[indexPath.row])
+        cell.rankLabel.text = rankLabel[indexPath.row]
+        cell.rankLabel.textColor = rankLabelColor[indexPath.row]
+        cell.xpLabel.text = xpLabel[indexPath.row]
     
         return cell
     }
@@ -222,21 +292,30 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
 // MARK: - Extension
 extension ProfileTableVC: UITextViewDelegate {
     
-    func setupTextView() {
+    func loadTextView() {
         nameTextView.delegate = self
         emailTextView.delegate = self
         
         nameTextView.tag = 0
         emailTextView.tag = 1
         
-        nameTextView.text = nameTextViewPlaceholderText
-        emailTextView.text = emailTextViewPlaceholderText
+        if userFullName == nil && userEmail == nil {
+            nameTextView.text = nameTextViewPlaceholderText
+            emailTextView.text = emailTextViewPlaceholderText
+        }
+        else {
+            nameTextView.text = userFullName
+            emailTextView.text = userEmail
+        }
         
         nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
         emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
         
         nameTextView.isEditable = false
         emailTextView.isEditable = false
+        
+        nameTextView.isSelectable = false
+        emailTextView.isSelectable = false
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -250,12 +329,36 @@ extension ProfileTableVC: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if nameTextView.text.isEmpty {
-            nameTextView.text = nameTextViewPlaceholderText
+            if userFullName == nil {
+                nameTextView.text = nameTextViewPlaceholderText
+            }
+            else {
+                nameTextView.text = userFullName
+            }
             nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
         }
         if emailTextView.text.isEmpty {
-            emailTextView.text = emailTextViewPlaceholderText
+            if userEmail == nil {
+                emailTextView.text = emailTextViewPlaceholderText
+            }
+            else {
+                emailTextView.text = userEmail
+            }
             emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView == nameTextView && text == "\n" {  // Recognizes enter key in keyboard
+            emailTextView.becomeFirstResponder()
+            
+            return false
+        }
+        if textView == emailTextView && text == "\n" {
+            emailTextView.resignFirstResponder()
+            
+            return false
+        }
+        return true
     }
 }
