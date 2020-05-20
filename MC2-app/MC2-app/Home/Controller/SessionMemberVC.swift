@@ -62,7 +62,9 @@ class SessionMemberVC: UIViewController {
         let alert = UIAlertController(title: "Are you sure you want to quit this session?", message: "You will still be able to rejoin this session afterwards.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Quit", style: .destructive, handler: { action in
-            User.addSessionToMember(0, currentUserID!)
+//            User.addSessionToMember(0, currentUserID!)
+            User.assignSessionToMember(sessionID: 0, userID: currentUserID!)
+            isSessionExist = false
             self.dismiss(animated: true, completion: nil)
         }))
 

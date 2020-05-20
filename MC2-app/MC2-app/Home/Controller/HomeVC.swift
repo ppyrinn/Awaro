@@ -51,10 +51,10 @@ class HomeVC: UIViewController {
         let userFirstName = userFullName?.split(separator: " ")
         createdSessionName = String(userFirstName?[0] ?? "")
         createdSessionID = currentUserID ?? 0
-        Session.createSession(createdSessionID, createdSessionName)
-        User.addSessionToMember(createdSessionID, currentUserID ?? 0)
-        sessionList = helper.fetchAll()
-        print(sessionList)
+//        Session.createSession(createdSessionID, createdSessionName)
+//        User.addSessionToMember(createdSessionID, currentUserID ?? 0)
+//        sessionList = helper.fetchAll()
+//        print(sessionList)
         
         User.assignSessionToMember(sessionID: createdSessionID, userID: currentUserID ?? 0)
         Session.createNewSession(sessionID: createdSessionID, sessionName: createdSessionName)
@@ -73,16 +73,18 @@ class HomeVC: UIViewController {
         })
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            var existedSession = [Session]()
+//            var existedSession = [Session]()
             if let sessionID = alert.textFields?.first?.text {
                 print("Session ID: \(sessionID)")
                 self.existedSessionID = Int(sessionID) ?? 0
-                existedSession = self.helper.fetchSpecificID(idType: "sessionID", id: self.existedSessionID)
+//                existedSession = self.helper.fetchSpecificID(idType: "sessionID", id: self.existedSessionID)
+                Session.getSessionByID(sessionID: self.existedSessionID)
             }
-            if !existedSession.isEmpty {
-                User.addSessionToMember(self.existedSessionID, currentUserID!)
-                let joinedUserList = self.helper.fetchSpecificID(idType: "userID", id: currentUserID!) as [User]
-                print(joinedUserList)
+            if isSessionExist == true {
+//                User.addSessionToMember(self.existedSessionID, currentUserID!)
+                User.assignSessionToMember(sessionID: self.existedSessionID, userID: currentUserID!)
+//                let joinedUserList = self.helper.fetchSpecificID(idType: "userID", id: currentUserID!) as [User]
+//                print(joinedUserList)
                 self.performSegue(withIdentifier: "JoinSessionSegue", sender: nil)
             }else{
                 self.existedSessionID = 0

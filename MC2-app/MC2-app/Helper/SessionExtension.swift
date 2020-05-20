@@ -125,6 +125,7 @@ extension Session{
         let memberRecord = CKRecord(recordType: "Sessions")
         memberRecord["sessionID"] = sessionID as CKRecordValue
         memberRecord["sessionName"] = sessionName as CKRecordValue
+        memberRecord["duration"] = 0 as CKRecordValue
         
         CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
             DispatchQueue.main.async {
@@ -176,6 +177,68 @@ extension Session{
                     }
                 }
             }
+        }
+    }
+    
+    static func getSessionByID(sessionID:Int){
+        // use default container, we can set custom container by setting
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        // fecth with array
+        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+        let query = CKQuery(recordType: "Sessions", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    isSessionExist = true
+                }
+                print("\n\n")
+            }
+            
+        }
+    }
+    
+    static func setCurrentDuration(sessionID:Int, duration:Int){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+        let query = CKQuery(recordType: "Sessions", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    $0["duration"] = duration as CKRecordValue
+                    
+                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                print("\n\nset duration is Error: \(error.localizedDescription)\n\n")
+                            } else {
+                                print("\n\nset duration is Done!\n\n")
+                            }
+                        }
+                    }
+                }
+                print("\n\n")
+            }
+            
         }
     }
 }

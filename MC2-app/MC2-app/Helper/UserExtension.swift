@@ -187,5 +187,36 @@ extension User{
         }
     }
     
+    static func getAllSessionMembers(sessionID:Int){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        // fecth with array
+        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                totalMembersInSession = 0
+                membersInSession.removeAll()
+                records.forEach{
+                    print($0)
+                    membersInSession.append($0["fullName"] as! String)
+                    totalMembersInSession += 1
+//                    print("\n\n\nMembers in session = \(membersInSession)\n\n\nTotal = \(totalMembersInSession)\n\n")
+                }
+                print("\n\n")
+            }
+            
+        }
+        
+    }
+    
     
 }

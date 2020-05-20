@@ -61,7 +61,7 @@ class SessionHostVC: UIViewController {
             self.isSessionEnd = true
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
             Session.endCurrentSession(sessionID: self.sessionID)
-            Session.deleteSession(self.sessionID)
+//            Session.deleteSession(self.sessionID)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID ?? 0)
             self.members.removeAll()
         }))
@@ -103,16 +103,21 @@ class SessionHostVC: UIViewController {
             }
             
             if strongSelf.isSessionEnd == false{
-                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
+//                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
+                Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
             }
             
-            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
-            if strongSelf.currentTotalMember != strongSelf.members.count{
-                strongSelf.currentTotalMember = strongSelf.members.count
+//            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
+
+            User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+
+            print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
+            if strongSelf.currentTotalMember != totalMembersInSession{
+                strongSelf.currentTotalMember = totalMembersInSession
                 strongSelf.memberName.removeAll()
                 self?.sessionHostTable.reloadData()
-                for member in strongSelf.members{
-                    strongSelf.memberName.append(member.fullName ?? "")
+                for member in membersInSession{
+                    strongSelf.memberName.append(member)
                     self?.sessionHostTable.reloadData()
                 }
             }
