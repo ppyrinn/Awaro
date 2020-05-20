@@ -25,8 +25,9 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     // MARK: - Variables
     var editMode = false
     
-    let nameTextViewPlaceholderText = "John Appleseed"
-    let emailTextViewPlaceholderText = "john@appleseed.com"
+    let sessionIDLabelPlaceholderText = "123456789"
+    let nameTextViewPlaceholderText = "Your Name"
+    let emailTextViewPlaceholderText = "youremail@email.com"
     
     let badgeImage = ["Bronze I",
                       "Bronze II",
@@ -76,7 +77,8 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         tableView.keyboardDismissMode = .onDrag
-        setupTextView()
+        loadSessionID()
+        loadTextView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +91,6 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         
     }
     
@@ -108,10 +109,10 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
             nameTextView.isEditable = true
             emailTextView.isEditable = true
             
-            nameTextView.becomeFirstResponder()
-            
             nameTextView.textColor = .darkText
             emailTextView.textColor = .darkText
+            
+            nameTextView.becomeFirstResponder()
         }
         else {
             editButtonOutlet.setTitle("Edit", for: .normal)
@@ -123,15 +124,25 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
             nameTextView.isSelectable = false
             emailTextView.isSelectable = false
             
-            emailTextView.resignFirstResponder()
-            
             nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
             emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
+            
+            emailTextView.resignFirstResponder()
         }
     }
     
     
-
+    // MARK: - Function
+    func loadSessionID() {
+        if currentUserID == nil {
+            sessionIDLabel.text = sessionIDLabelPlaceholderText
+        }
+        else {
+            sessionIDLabel.text = "\(currentUserID ?? 0)"
+        }
+    }
+    
+    
     // MARK: - Table view data source
 
     // Uncomment to use Dynamic Prototypes
@@ -281,15 +292,21 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
 // MARK: - Extension
 extension ProfileTableVC: UITextViewDelegate {
     
-    func setupTextView() {
+    func loadTextView() {
         nameTextView.delegate = self
         emailTextView.delegate = self
         
         nameTextView.tag = 0
         emailTextView.tag = 1
         
-        nameTextView.text = nameTextViewPlaceholderText
-        emailTextView.text = emailTextViewPlaceholderText
+        if userFullName == nil && userEmail == nil {
+            nameTextView.text = nameTextViewPlaceholderText
+            emailTextView.text = emailTextViewPlaceholderText
+        }
+        else {
+            nameTextView.text = userFullName
+            emailTextView.text = userEmail
+        }
         
         nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
         emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
@@ -312,11 +329,21 @@ extension ProfileTableVC: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if nameTextView.text.isEmpty {
-            nameTextView.text = nameTextViewPlaceholderText
+            if userFullName == nil {
+                nameTextView.text = nameTextViewPlaceholderText
+            }
+            else {
+                nameTextView.text = userFullName
+            }
             nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
         }
         if emailTextView.text.isEmpty {
-            emailTextView.text = emailTextViewPlaceholderText
+            if userEmail == nil {
+                emailTextView.text = emailTextViewPlaceholderText
+            }
+            else {
+                emailTextView.text = userEmail
+            }
             emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
         }
     }
