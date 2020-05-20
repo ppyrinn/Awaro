@@ -322,16 +322,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold III" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5k-hg-TEh">
-                                                            <rect key="frame" x="184" y="40" width="210" height="41"/>
+                                                            <rect key="frame" x="184" y="47" width="210" height="41"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="210" id="zg7-cS-dbJ"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
-                                                            <color key="textColor" red="0.98431372549019602" green="0.85882352941176465" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="textColor" red="1" green="0.69411764705882351" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 XP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXW-eO-zaI">
-                                                            <rect key="frame" x="184" y="81" width="210" height="28"/>
+                                                            <rect key="frame" x="184" y="82" width="210" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="210" id="FUw-ap-Yib"/>
                                                             </constraints>
@@ -340,12 +340,12 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Most Ambis Person" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNw-gq-au7">
-                                                            <rect key="frame" x="184" y="117" width="210" height="21"/>
+                                                            <rect key="frame" x="184" y="118" width="210" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="8TN-00-FUV"/>
                                                                 <constraint firstAttribute="width" constant="210" id="VYt-E0-sbw"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                             <color key="textColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -360,12 +360,12 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="l5k-hg-TEh" firstAttribute="leading" secondItem="Wyi-ff-DBg" secondAttribute="trailing" constant="-38" id="0gK-cb-bhK"/>
-                                                        <constraint firstItem="l5k-hg-TEh" firstAttribute="top" secondItem="07C-Sx-TT2" secondAttribute="top" constant="40" id="4H8-24-Iel"/>
+                                                        <constraint firstItem="l5k-hg-TEh" firstAttribute="top" secondItem="07C-Sx-TT2" secondAttribute="top" constant="47" id="4H8-24-Iel"/>
                                                         <constraint firstItem="QNw-gq-au7" firstAttribute="leading" secondItem="Wyi-ff-DBg" secondAttribute="trailing" constant="-38" id="8ji-lT-Mly"/>
                                                         <constraint firstAttribute="bottom" secondItem="Wyi-ff-DBg" secondAttribute="bottom" constant="30" id="B8T-V0-ue5"/>
                                                         <constraint firstItem="ga1-21-ZnG" firstAttribute="top" secondItem="07C-Sx-TT2" secondAttribute="top" id="J7Q-Ty-dak"/>
                                                         <constraint firstItem="Wyi-ff-DBg" firstAttribute="top" secondItem="07C-Sx-TT2" secondAttribute="top" constant="30" id="Jfx-Ro-G2O"/>
-                                                        <constraint firstItem="eXW-eO-zaI" firstAttribute="top" secondItem="l5k-hg-TEh" secondAttribute="bottom" id="SBr-ec-sRX"/>
+                                                        <constraint firstItem="eXW-eO-zaI" firstAttribute="top" secondItem="l5k-hg-TEh" secondAttribute="bottom" constant="-6" id="SBr-ec-sRX"/>
                                                         <constraint firstAttribute="bottom" secondItem="ga1-21-ZnG" secondAttribute="bottom" constant="40" id="Tu7-Zt-eQ7"/>
                                                         <constraint firstItem="eXW-eO-zaI" firstAttribute="leading" secondItem="Wyi-ff-DBg" secondAttribute="trailing" constant="-38" id="e7f-zQ-pbC"/>
                                                         <constraint firstItem="Wyi-ff-DBg" firstAttribute="leading" secondItem="ga1-21-ZnG" secondAttribute="trailing" constant="40" id="o9M-fo-xbF"/>

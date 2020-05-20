@@ -52,9 +52,9 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
                           (UIColor.rbg(r: 160, g: 168, b: 184)), //Silver
                           (UIColor.rbg(r: 160, g: 168, b: 184)), //Silver
                           (UIColor.rbg(r: 160, g: 168, b: 184)), //Silver
-                          (UIColor.rbg(r: 251, g: 219, b: 75)), //Gold
-                          (UIColor.rbg(r: 251, g: 219, b: 75)), //Gold
-                          (UIColor.rbg(r: 251, g: 219, b: 75))] //Gold
+                          (UIColor.rbg(r: 255, g: 177, b: 15)), //Gold
+                          (UIColor.rbg(r: 255, g: 177, b: 15)), //Gold
+                          (UIColor.rbg(r: 255, g: 177, b: 15))] //Gold
     let xpLabel = ["0 XP",
                    "50 XP",
                    "100 XP",
