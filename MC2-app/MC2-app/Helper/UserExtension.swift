@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
+import CloudKit
 
 extension User{
     // fungsi tambah data ke core data
@@ -70,5 +71,50 @@ extension User{
         //try? itu sama kyk do catch, kalo dia error return nil
         try? context.execute(deleteRequest)
     }
+    
+    //MARK: - CloudKit Functions
+    
+    static func createMember(id:Int,fullName:String,email:String) {
+        let memberRecord = CKRecord(recordType: "Members")
+        memberRecord["userID"] = id as CKRecordValue
+        memberRecord["fullName"] = fullName as CKRecordValue
+        memberRecord["email"] = email as CKRecordValue
+
+        CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("\n\ncreate member is Error: \(error.localizedDescription)\n\n")
+                } else {
+                    print("\n\ncreate member is Done!\n\n")
+                }
+            }
+        }
+    }
+    
+//    static func getMemberBySpecificEmail(email:String){
+//            // use default container, we can set custom container by setting
+//            let container = CKContainer.default()
+//            let privateContainer = container.publicCloudDatabase
+//            
+//            // fetch with query string
+//    //        let predicate = NSPredicate(format: "name BEGINSWITH %@", "Cafee")
+//    //        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+//            
+//            // fecth with array
+//            let predicate = NSPredicate(format: "email = %@", email)
+//            let query = CKQuery(recordType: "Members", predicate: predicate)
+//            
+//            privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+//                if let err = error {
+//                    print(err.localizedDescription)
+//                    return
+//                }
+//                
+//                if let records = result {
+//                    records.forEach{print($0)}
+//                }
+//                
+//            }
+//        }
     
 }

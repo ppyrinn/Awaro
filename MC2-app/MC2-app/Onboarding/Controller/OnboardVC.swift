@@ -17,6 +17,7 @@ class OnboardVC: UIViewController {
     
     var userList = [User]()
     var helper:CoreDataHelper!
+    var cloudKitHelper:CloudKitHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,6 +169,8 @@ extension OnboardVC: ASAuthorizationControllerDelegate {
             for user in userList{
                 print(user.fullName)
             }
+            
+            User.createMember(id: id, fullName: fullName, email: email)
             
             print("User Id - \(appleIDCredential.user)")
             print("User Name - \(appleIDCredential.fullName?.description ?? "N/A")")
