@@ -9,6 +9,19 @@
 import UIKit
 
 class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - IBOutlet
+    @IBOutlet weak var editButtonOutlet: UIButton!
+    @IBOutlet weak var sessionIDLabel: UILabel!
+    @IBOutlet weak var nameTextView: UITextView!
+    @IBOutlet weak var emailTextView: UITextView!
+    
+    
+    // MARK: - Variables
+    var editMode = false
+    let nameTextViewPlaceholderText = "John Appleseed"
+    let emailTextViewPlaceholderText = "john@appleseed.com"
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +31,50 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.keyboardDismissMode = .interactive
+        setupTextView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.backgroundColor = #colorLiteral(red: 0.9750029445, green: 0.9783667922, blue: 0.9844790101, alpha: 1)
         configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "Profile", preferredLargeTitle: true)
         //roundedNavigationBar(title: "Profile")
-        tableView.backgroundColor = #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1)
     }
+    
+    override func viewDidLayoutSubviews() {
+        nameTextView.centerVertically()
+        emailTextView.centerVertically()
+    }
+    
+    
+    // MARK: - IBAction Function
+    @IBAction func editButtonAction(_ sender: Any) {
+        if editMode == false {
+            editButtonOutlet.setTitle("Done", for: .normal)
+            editMode = true
+            nameTextView.isEditable = true
+            emailTextView.isEditable = true
+            
+            nameTextView.becomeFirstResponder()
+            
+            nameTextView.textColor = .darkText
+            emailTextView.textColor = .darkText
+        }
+        else {
+            editButtonOutlet.setTitle("Edit", for: .normal)
+            editMode = false
+            nameTextView.isEditable = false
+            emailTextView.isEditable = false
+            
+            emailTextView.resignFirstResponder()
+            
+            nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
+            emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
+        }
+    }
+    
     
 
     // MARK: - Table view data source
@@ -167,4 +216,46 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         return CGSize(width: 125, height: 125)
     }
 
+}
+
+
+// MARK: - Extension
+extension ProfileTableVC: UITextViewDelegate {
+    
+    func setupTextView() {
+        nameTextView.delegate = self
+        emailTextView.delegate = self
+        
+        nameTextView.tag = 0
+        emailTextView.tag = 1
+        
+        nameTextView.text = nameTextViewPlaceholderText
+        emailTextView.text = emailTextViewPlaceholderText
+        
+        nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
+        emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
+        
+        nameTextView.isEditable = false
+        emailTextView.isEditable = false
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.tag == 0) {
+            nameTextView.textColor = .darkText
+        }
+        if (textView.tag == 1) {
+            emailTextView.textColor = .darkText
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if nameTextView.text.isEmpty {
+            nameTextView.text = nameTextViewPlaceholderText
+            nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
+        }
+        if emailTextView.text.isEmpty {
+            emailTextView.text = emailTextViewPlaceholderText
+            emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
+        }
+    }
 }
