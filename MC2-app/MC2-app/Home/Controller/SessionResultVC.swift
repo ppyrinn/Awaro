@@ -15,6 +15,7 @@ class SessionResultVC: UIViewController {
     var sessionID = Int()
     var memberName = [String]()
     var currentTotalMember = 0
+    var memberClockIn = [String]()
     
     
     // MARK: - IBOutlet
@@ -88,12 +89,15 @@ class SessionResultVC: UIViewController {
         if strongSelf.currentTotalMember != totalMembersInSession{
             strongSelf.currentTotalMember = totalMembersInSession
             strongSelf.memberName.removeAll()
+            strongSelf.memberClockIn.removeAll()
             self.sessionResultTable.reloadData()
-            for member in membersInSession{
-                strongSelf.memberName.append(member)
+            for member in membersData{
+                strongSelf.memberName.append(member.name)
+                strongSelf.memberClockIn.append(member.clockIn)
                 self.sessionResultTable.reloadData()
             }
         }
+        
         strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
     }
     
