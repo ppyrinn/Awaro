@@ -11,6 +11,8 @@ import UIKit
 class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Variables
+    let notificationCenter = NotificationCenter.default
+    
     var editMode = false
     
     let sessionIDLabelPlaceholderText = "123456789"
@@ -80,9 +82,8 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         loadSessionID()
         loadTextView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ProfileTableVC.keyboardWillShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ProfileTableVC.keyboardWillHide(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
-     
+        self.notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -157,6 +158,22 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         else {
             sessionIDLabel.text = "\(currentUserID ?? 0)"
         }
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            tableView.contentInset = UIEdgeInsets.zero
+        } else {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
+        }
+        
+        tableView.scrollIndicatorInsets = tableView.contentInset
+        
     }
     
     
