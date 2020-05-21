@@ -55,12 +55,12 @@ class SessionHostVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         formatter.timeStyle = .medium
         formatter.dateStyle = .none
         let time = formatter.string(from: currentDateTime)
         print("\n\n\(time)\n\n")
         User.setMemberClockInTime(userID: currentUserID ?? 0, joinAt: time)
-        
     }
     
     
@@ -177,8 +177,8 @@ extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
         else {
             cell.participantLabel.text = memberName[indexPath.row]
         }
-        
         cell.clockInLabel.text = memberClockIn[indexPath.row]
+        
         return cell
     }
 }

@@ -251,7 +251,6 @@ extension User{
                 }
                 print("\n\n")
             }
-            
         }
     }
 }
