@@ -317,13 +317,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John's Session" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isg-fW-hlT">
-                                        <rect key="frame" x="20" y="70" width="254" height="31.5"/>
+                                        <rect key="frame" x="20" y="88.5" width="254" height="31.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID: 123456789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC4-jd-Rj7">
-                                        <rect key="frame" x="294" y="76" width="100" height="19.5"/>
+                                        <rect key="frame" x="294" y="94.5" width="100" height="19.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="GxP-gK-kjN"/>
                                         </constraints>
@@ -334,12 +334,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Isg-fW-hlT" firstAttribute="top" secondItem="JXG-of-9ir" secondAttribute="top" constant="70" id="7me-nK-Byh"/>
                                     <constraint firstAttribute="trailing" secondItem="hC4-jd-Rj7" secondAttribute="trailing" constant="20" id="EpG-An-4gC"/>
                                     <constraint firstItem="hC4-jd-Rj7" firstAttribute="leading" secondItem="Isg-fW-hlT" secondAttribute="trailing" constant="20" id="Jka-cw-may"/>
                                     <constraint firstItem="Isg-fW-hlT" firstAttribute="leading" secondItem="JXG-of-9ir" secondAttribute="leading" constant="20" id="Pca-Te-bVK"/>
                                     <constraint firstAttribute="height" constant="140" id="TsF-Z5-kUo"/>
                                     <constraint firstItem="hC4-jd-Rj7" firstAttribute="centerY" secondItem="Isg-fW-hlT" secondAttribute="centerY" id="w1f-ys-siF"/>
+                                    <constraint firstAttribute="bottom" secondItem="Isg-fW-hlT" secondAttribute="bottom" constant="20" id="wqs-oQ-mTi"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TaD-2c-OCV">
@@ -595,7 +595,7 @@
         <scene sceneID="QKN-9t-cgW">
             <objects>
                 <tableViewController id="CcS-Yv-MjO" customClass="ChallengeQuestionTableVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jXE-jK-g9W">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jXE-jK-g9W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
@@ -1026,13 +1026,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John's Session" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqO-Al-NsI">
-                                        <rect key="frame" x="20" y="70" width="254" height="31.5"/>
+                                        <rect key="frame" x="20" y="88.5" width="254" height="31.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID: 123456789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBu-Th-mBJ">
-                                        <rect key="frame" x="294" y="76" width="100" height="19.5"/>
+                                        <rect key="frame" x="294" y="94.5" width="100" height="19.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="DQb-Jd-If1"/>
                                         </constraints>
@@ -1044,8 +1044,8 @@
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="BGt-5C-cBp"/>
-                                    <constraint firstItem="JqO-Al-NsI" firstAttribute="top" secondItem="8ZI-r2-RH5" secondAttribute="top" constant="70" id="Coz-gR-KHC"/>
                                     <constraint firstAttribute="trailing" secondItem="xBu-Th-mBJ" secondAttribute="trailing" constant="20" id="PYS-cL-dDU"/>
+                                    <constraint firstAttribute="bottom" secondItem="JqO-Al-NsI" secondAttribute="bottom" constant="20" id="SNj-Tp-r69"/>
                                     <constraint firstItem="xBu-Th-mBJ" firstAttribute="centerY" secondItem="JqO-Al-NsI" secondAttribute="centerY" id="bv9-e8-igq"/>
                                     <constraint firstItem="xBu-Th-mBJ" firstAttribute="leading" secondItem="JqO-Al-NsI" secondAttribute="trailing" constant="20" id="iwZ-Yl-abe"/>
                                     <constraint firstItem="JqO-Al-NsI" firstAttribute="leading" secondItem="8ZI-r2-RH5" secondAttribute="leading" constant="20" id="qqY-fm-D0S"/>
@@ -1524,13 +1524,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John's Session Result" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlR-sc-Y4R">
-                                        <rect key="frame" x="20" y="70" width="254" height="31.5"/>
+                                        <rect key="frame" x="20" y="88.5" width="254" height="31.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID: 123456789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pw1-y7-ds4">
-                                        <rect key="frame" x="294" y="76" width="100" height="19.5"/>
+                                        <rect key="frame" x="294" y="94.5" width="100" height="19.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Fz0-ps-DwK"/>
                                         </constraints>
@@ -1541,12 +1541,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="IlR-sc-Y4R" firstAttribute="top" secondItem="fEv-vp-fsy" secondAttribute="top" constant="70" id="0kp-Lm-FPw"/>
                                     <constraint firstAttribute="trailing" secondItem="pw1-y7-ds4" secondAttribute="trailing" constant="20" id="5da-c4-nmh"/>
                                     <constraint firstAttribute="height" constant="140" id="DdE-ia-X6L"/>
                                     <constraint firstItem="IlR-sc-Y4R" firstAttribute="leading" secondItem="fEv-vp-fsy" secondAttribute="leading" constant="20" id="Iia-sO-Mm1"/>
                                     <constraint firstItem="pw1-y7-ds4" firstAttribute="centerY" secondItem="IlR-sc-Y4R" secondAttribute="centerY" id="gA2-Ll-RL1"/>
                                     <constraint firstItem="pw1-y7-ds4" firstAttribute="leading" secondItem="IlR-sc-Y4R" secondAttribute="trailing" constant="20" id="tSO-TX-mZe"/>
+                                    <constraint firstItem="uvE-q5-kTT" firstAttribute="bottom" secondItem="IlR-sc-Y4R" secondAttribute="bottom" constant="20" id="wZj-KK-gzC"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="uvE-q5-kTT"/>
                             </view>
