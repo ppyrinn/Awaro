@@ -29,6 +29,13 @@ class ChallengeAnswerTableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+    }
+    
     
     // MARK: - IBAction
     @IBAction func submitButtonAction(_ sender: Any) {
@@ -50,6 +57,21 @@ class ChallengeAnswerTableVC: UITableViewController {
         return 0
     }
     */
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if isDarkMode ==  true {
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
+        }
+        else {
+            (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+            (view as! UITableViewHeaderFooterView).textLabel?.textColor = .black
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
