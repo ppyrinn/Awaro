@@ -169,8 +169,9 @@ class HomeVC: UIViewController {
             
             //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
             if let  destination = segue.destination as? SessionMemberVC{
-//                destination.sessionName = self.createdSessionName
+                destination.sessionName = sessionData[0].name
                 destination.sessionID = self.existedSessionID
+                destination.duration = sessionData[0].duration
             }
         }
         

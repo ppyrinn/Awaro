@@ -8,7 +8,7 @@
 
 import Foundation
 
-var isSessionExist = true
+var isSessionExist = false
 var membersInSession = [String]()
 var totalMembersInSession = 0
 
@@ -20,3 +20,11 @@ struct MembersDataInSession{
 }
 
 var membersData = [MembersDataInSession]()
+
+struct CurrentSessionData{
+    var name:String
+    var id:Int
+    var duration:Int
+}
+
+var sessionData = [CurrentSessionData]()

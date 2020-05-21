@@ -171,7 +171,7 @@ extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionHostCell", for: indexPath) as! SessionHostCell
 
         // Configure the cell...
-        if sessionID == sessionID {
+        if sessionID == currentUserID {
             cell.participantLabel.text = memberName[indexPath.row] + " " + "(Host)"
         }
         else {

@@ -19,6 +19,7 @@ class SessionMemberVC: UIViewController {
     var memberName = [String]()
     var memberClockIn = [String]()
     var currentTotalMember = 0
+    var isSessionEnd:Bool?
     
     var currentDateTime = Date()
     let formatter = DateFormatter()
@@ -53,13 +54,13 @@ class SessionMemberVC: UIViewController {
         super.viewDidAppear(animated)
         
         // get session data
-        helper = CoreDataHelper(context: getViewContext())
-        sessionData = helper.fetchSpecificID(idType: "sessionID",id: sessionID) as [Session]
-        print(sessionData)
-        for data in sessionData{
-            sessionName = data.sessionName ?? ""
-            duration = Int(data.currentDuration)
-        }
+//        helper = CoreDataHelper(context: getViewContext())
+//        sessionData = helper.fetchSpecificID(idType: "sessionID",id: sessionID) as [Session]
+//        print(sessionData)
+//        for data in sessionData{
+//            sessionName = data.sessionName ?? ""
+//            duration = Int(data.currentDuration)
+//        }
         
         formatter.timeStyle = .medium
         formatter.dateStyle = .none
@@ -119,17 +120,36 @@ class SessionMemberVC: UIViewController {
                 }
             }
             
-            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
-                if strongSelf.currentTotalMember != strongSelf.members.count{
-                    strongSelf.currentTotalMember = strongSelf.members.count
-                    strongSelf.memberName.removeAll()
-                    for member in strongSelf.members{
-                        strongSelf.memberName.append(member.fullName ?? "")
-                    }
-                }
-                
-                strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
-            })
+            if strongSelf.isSessionEnd == false{
+            //                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
+                            Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
+                        }
+                        
+            //            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
+
+                        User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+
+                        print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
+                        if strongSelf.currentTotalMember != totalMembersInSession{
+                            strongSelf.currentTotalMember = totalMembersInSession
+            //                strongSelf.memberName.removeAll()
+            //                self?.sessionHostTable.reloadData()
+            //                for member in membersInSession{
+            //                    strongSelf.memberName.append(member)
+            //                    self?.sessionHostTable.reloadData()
+            //                }
+                            strongSelf.memberName.removeAll()
+                            strongSelf.memberClockIn.removeAll()
+                            self?.sessionMemberTable.reloadData()
+                            for member in membersData{
+                                strongSelf.memberName.append(member.name)
+                                strongSelf.memberClockIn.append(member.clockIn)
+                                self?.sessionMemberTable.reloadData()
+                            }
+                        }
+                        
+                        strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
+                    })
     }
 
 }
@@ -144,7 +164,7 @@ extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionMemberCell", for: indexPath) as! SessionMemberCell
 
         // Configure the cell...
-        if sessionID == sessionID {
+        if sessionID == currentUserID {
             cell.participantLabel.text = memberName[indexPath.row] + " " + "(Host)"
         }
         else {

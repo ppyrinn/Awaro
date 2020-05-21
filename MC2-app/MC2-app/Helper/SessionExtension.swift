@@ -199,9 +199,11 @@ extension Session{
             if let records = result {
                 print("\n\n")
                 isSessionExist = false
+                sessionData.removeAll()
                 records.forEach{
                     print($0)
                     isSessionExist = true
+                    sessionData.append(CurrentSessionData(name: $0["sessionName"] as! String, id: $0["sessionID"] as! Int, duration: $0["duration"] as! Int))
                     print("\n\nis session exist true\n\n")
                 }
                 print("\n\n")
