@@ -145,6 +145,7 @@ extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
         else {
             cell.nameLabel.text = memberName[indexPath.row]
         }
+        cell.clockInLabel.text = memberClockIn[indexPath.row]
         
         return cell
     }

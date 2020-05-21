@@ -510,7 +510,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenny North" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJa-Fz-aYy">
-                                                    <rect key="frame" x="53" y="10" width="221" height="24"/>
+                                                    <rect key="frame" x="53" y="10" width="231" height="24"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -521,7 +521,7 @@
                                                 <constraint firstItem="jPd-l1-7HW" firstAttribute="centerY" secondItem="EJa-Fz-aYy" secondAttribute="centerY" id="8kf-Sw-stt"/>
                                                 <constraint firstItem="gzI-CQ-jZR" firstAttribute="leading" secondItem="wSa-fq-OWz" secondAttribute="leading" constant="20" id="OhZ-Aw-hMv"/>
                                                 <constraint firstItem="gzI-CQ-jZR" firstAttribute="centerY" secondItem="wSa-fq-OWz" secondAttribute="centerY" id="Ven-Se-NDn"/>
-                                                <constraint firstItem="jPd-l1-7HW" firstAttribute="leading" secondItem="EJa-Fz-aYy" secondAttribute="trailing" constant="20" id="WRW-7q-f4c"/>
+                                                <constraint firstItem="jPd-l1-7HW" firstAttribute="leading" secondItem="EJa-Fz-aYy" secondAttribute="trailing" constant="10" id="WRW-7q-f4c"/>
                                                 <constraint firstAttribute="trailing" secondItem="jPd-l1-7HW" secondAttribute="trailing" constant="20" id="iCl-Bo-W2X"/>
                                                 <constraint firstItem="EJa-Fz-aYy" firstAttribute="centerY" secondItem="gzI-CQ-jZR" secondAttribute="centerY" id="pbX-Bj-846"/>
                                                 <constraint firstItem="EJa-Fz-aYy" firstAttribute="leading" secondItem="gzI-CQ-jZR" secondAttribute="trailing" constant="8" id="xP4-y2-99F"/>
@@ -1177,7 +1177,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenny North" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uil-0f-WId">
-                                                    <rect key="frame" x="53" y="10" width="221" height="24"/>
+                                                    <rect key="frame" x="53" y="10" width="231" height="24"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1190,7 +1190,7 @@
                                                 <constraint firstItem="cnS-n5-EiE" firstAttribute="centerY" secondItem="EbV-sd-OQb" secondAttribute="centerY" id="DcV-UP-BXh"/>
                                                 <constraint firstItem="nmg-AR-BKf" firstAttribute="centerY" secondItem="uil-0f-WId" secondAttribute="centerY" id="Ny5-nB-Lv9"/>
                                                 <constraint firstItem="cnS-n5-EiE" firstAttribute="leading" secondItem="EbV-sd-OQb" secondAttribute="leading" constant="20" id="f9M-gM-P3e"/>
-                                                <constraint firstItem="nmg-AR-BKf" firstAttribute="leading" secondItem="uil-0f-WId" secondAttribute="trailing" constant="20" id="ljf-up-31L"/>
+                                                <constraint firstItem="nmg-AR-BKf" firstAttribute="leading" secondItem="uil-0f-WId" secondAttribute="trailing" constant="10" id="ljf-up-31L"/>
                                                 <constraint firstAttribute="trailing" secondItem="nmg-AR-BKf" secondAttribute="trailing" constant="20" id="rvw-As-e6b"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1625,7 +1625,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenny North" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkS-CR-8pE">
-                                                                    <rect key="frame" x="46" y="0.0" width="172" height="24"/>
+                                                                    <rect key="frame" x="46" y="0.0" width="174" height="24"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1640,9 +1640,9 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9in-E4-10D">
-                                                                    <rect key="frame" x="234" y="0.0" width="100" height="24"/>
+                                                                    <rect key="frame" x="230" y="0.0" width="104" height="24"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="gw6-9l-gTY"/>
+                                                                        <constraint firstAttribute="width" constant="104" id="gw6-9l-gTY"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                     <color key="textColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1650,7 +1650,7 @@
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="9in-E4-10D" firstAttribute="leading" secondItem="tkS-CR-8pE" secondAttribute="trailing" constant="16" id="0Qw-rh-egC"/>
+                                                                <constraint firstItem="9in-E4-10D" firstAttribute="leading" secondItem="tkS-CR-8pE" secondAttribute="trailing" constant="10" id="0Qw-rh-egC"/>
                                                                 <constraint firstItem="CKe-YC-Qt1" firstAttribute="centerY" secondItem="7lO-BC-SJg" secondAttribute="centerY" id="36B-gs-Dkr"/>
                                                                 <constraint firstItem="7lO-BC-SJg" firstAttribute="top" secondItem="tkS-CR-8pE" secondAttribute="bottom" constant="-1" id="3tv-b5-qW3"/>
                                                                 <constraint firstItem="CKe-YC-Qt1" firstAttribute="leading" secondItem="7lO-BC-SJg" secondAttribute="trailing" id="8j1-cl-6DG"/>

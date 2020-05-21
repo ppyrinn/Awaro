@@ -17,6 +17,7 @@ class SessionMemberVC: UIViewController {
     var sessionData = [Session]()
     var members = [User]()
     var memberName = [String]()
+    var memberClockIn = [String]()
     var currentTotalMember = 0
     
     var timer = Timer()
@@ -140,6 +141,7 @@ extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {
         else {
             cell.participantLabel.text = memberName[indexPath.row]
         }
+        cell.clockInLabel.text = memberClockIn[indexPath.row]
 
         return cell
     }
