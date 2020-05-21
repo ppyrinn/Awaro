@@ -8,7 +8,7 @@
 
 import Foundation
 
-var isSessionExist:Bool?
+var isSessionExist = true
 var membersInSession = [String]()
 var totalMembersInSession = 0
 
