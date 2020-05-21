@@ -35,6 +35,18 @@ class SessionMemberVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        sessionMemberTable.dataSource = self
+        sessionMemberTable.delegate = self
+        
+        sessionIDLabel.text = "ID: \(sessionID)"
+        sessionNameLabel.text = "\(sessionName)'s Session"
+        
+        toggleTimer(on: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         // get session data
         helper = CoreDataHelper(context: getViewContext())
@@ -44,16 +56,6 @@ class SessionMemberVC: UIViewController {
             sessionName = data.sessionName ?? ""
             duration = Int(data.currentDuration)
         }
-        
-
-        // Do any additional setup after loading the view.
-        sessionMemberTable.dataSource = self
-        sessionMemberTable.delegate = self
-        
-        sessionIDLabel.text = "ID: \(sessionID)"
-        sessionNameLabel.text = "\(sessionName)'s Session"
-        
-        toggleTimer(on: true)
     }
     
     

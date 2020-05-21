@@ -14,6 +14,7 @@ class SessionResultVC: UIViewController {
     var sessionName = String()
     var sessionID = Int()
     var memberName = [String]()
+    var currentTotalMember = 0
     
     
     // MARK: - IBOutlet
@@ -39,9 +40,16 @@ class SessionResultVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
         roundedTopView()
         roundedTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        loadSessionData()
     }
     
     
@@ -69,6 +77,24 @@ class SessionResultVC: UIViewController {
         sessionResultTable.cornerRadius = 10
         sessionResultTable.layer.masksToBounds = true
         sessionResultTable.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+    }
+    
+    func loadSessionData() {
+        let strongSelf = self
+        
+        User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+
+        print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
+        if strongSelf.currentTotalMember != totalMembersInSession{
+            strongSelf.currentTotalMember = totalMembersInSession
+            strongSelf.memberName.removeAll()
+            self.sessionResultTable.reloadData()
+            for member in membersInSession{
+                strongSelf.memberName.append(member)
+                self.sessionResultTable.reloadData()
+            }
+        }
+        strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
     }
     
     

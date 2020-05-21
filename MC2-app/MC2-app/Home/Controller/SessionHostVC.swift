@@ -138,7 +138,6 @@ class SessionHostVC: UIViewController {
 }
 
 
-//MARK: - Extensions
 extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
