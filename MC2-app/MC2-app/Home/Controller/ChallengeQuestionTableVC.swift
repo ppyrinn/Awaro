@@ -26,6 +26,11 @@ class ChallengeQuestionTableVC: UITableViewController {
     var seconds: Int = 0
     let questionTextViewPlaceholderText = "Enter your question..."
     let answerTextViewPlaceholderText = "Your right answer..."
+    var question = ""
+    var answerA = ""
+    var answerB = ""
+    var answerC = ""
+    var answerD = ""
     
     
     // MARK: - View Behaviour
@@ -73,6 +78,7 @@ class ChallengeQuestionTableVC: UITableViewController {
     }
     
     @IBAction func submitButton(_ sender: Any) {
+        print("\n\n\(question)\n\n\(answerA)\n\n\(answerB)\n\n\(answerC)\n\n\(answerD)\n\n")
         performSegue(withIdentifier: "SubmitSegue", sender: nil)
     }
     
