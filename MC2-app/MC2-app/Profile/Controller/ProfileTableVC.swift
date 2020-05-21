@@ -79,6 +79,10 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         tableView.keyboardDismissMode = .onDrag
         loadSessionID()
         loadTextView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileTableVC.keyboardWillShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileTableVC.keyboardWillHide(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,7 +91,20 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         tableView.backgroundColor = #colorLiteral(red: 0.9750029445, green: 0.9783667922, blue: 0.9844790101, alpha: 1)
         configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "Profile", preferredLargeTitle: true)
         //roundedNavigationBar(title: "Profile")
+      
+        
     }
+    
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+    
+        view.frame.origin.y = -10
+
+    }
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+    
+
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
