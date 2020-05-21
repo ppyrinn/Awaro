@@ -192,14 +192,17 @@ extension Session{
         privateContainer.perform(query, inZoneWith: nil) { (result, error) in
             if let err = error {
                 print(err.localizedDescription)
+                isSessionExist = false
                 return
             }
             
             if let records = result {
                 print("\n\n")
+                isSessionExist = false
                 records.forEach{
                     print($0)
                     isSessionExist = true
+                    print("\n\nis session exist true\n\n")
                 }
                 print("\n\n")
             }

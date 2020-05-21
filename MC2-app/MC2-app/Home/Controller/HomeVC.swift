@@ -81,14 +81,17 @@ class HomeVC: UIViewController {
 //                existedSession = self.helper.fetchSpecificID(idType: "sessionID", id: self.existedSessionID)
                 Session.getSessionByID(sessionID: self.existedSessionID)
             }
+            print("\n\nis session exist \(isSessionExist)\n\n")
             if isSessionExist == true {
 //                User.addSessionToMember(self.existedSessionID, currentUserID!)
+                print("\n\nMasuk pak eko\n\n")
                 User.assignSessionToMember(sessionID: self.existedSessionID, userID: currentUserID!)
 //                let joinedUserList = self.helper.fetchSpecificID(idType: "userID", id: currentUserID!) as [User]
 //                print(joinedUserList)
                 self.performSegue(withIdentifier: "JoinSessionSegue", sender: nil)
             }else{
                 self.existedSessionID = 0
+                isSessionExist = false
                 //tolong kasih komponen apakek disini yg bisa ngasih tau user kalo sessionID yg di cari ga exist
                 let alert = UIAlertController(title: "Session ID Doesn't Exist", message: "Make sure you input the right Session ID.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

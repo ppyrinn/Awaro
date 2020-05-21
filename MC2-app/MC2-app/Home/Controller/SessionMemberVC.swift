@@ -20,6 +20,9 @@ class SessionMemberVC: UIViewController {
     var memberClockIn = [String]()
     var currentTotalMember = 0
     
+    var currentDateTime = Date()
+    let formatter = DateFormatter()
+    
     var timer = Timer()
     var duration = 0
     var hour = 0
@@ -57,6 +60,12 @@ class SessionMemberVC: UIViewController {
             sessionName = data.sessionName ?? ""
             duration = Int(data.currentDuration)
         }
+        
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .none
+        let time = formatter.string(from: currentDateTime)
+        print("\n\n\(time)\n\n")
+        User.setMemberClockInTime(userID: currentUserID ?? 0, joinAt: time)
     }
     
     
