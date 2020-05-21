@@ -2168,8 +2168,8 @@
         <!--Challenge Answer TableVC-->
         <scene sceneID="gmj-oT-g2U">
             <objects>
-                <tableViewController id="3G3-Ci-ET4" customClass="ChallengeAnswerTableVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b49-kR-Rou">
+                <tableViewController storyboardIdentifier="ChallengeAnswerTableVC" id="3G3-Ci-ET4" customClass="ChallengeAnswerTableVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b49-kR-Rou">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -2463,15 +2463,15 @@
                             </tableViewSection>
                             <tableViewSection id="T0F-PO-aBB">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="60" id="hIg-VV-7CJ">
-                                        <rect key="frame" x="0.0" y="668" width="414" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="80" id="hIg-VV-7CJ">
+                                        <rect key="frame" x="0.0" y="668" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hIg-VV-7CJ" id="mfo-Ie-0VG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwX-r2-CxH">
-                                                    <rect key="frame" x="40" y="5" width="334" height="50"/>
+                                                    <rect key="frame" x="40" y="15" width="334" height="50"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryr-5p-xuL">
                                                             <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -2490,6 +2490,7 @@
                                                         <constraint firstItem="Ryr-5p-xuL" firstAttribute="leading" secondItem="PwX-r2-CxH" secondAttribute="leading" id="fq7-0K-YG9"/>
                                                         <constraint firstAttribute="bottom" secondItem="Ryr-5p-xuL" secondAttribute="bottom" id="onL-KW-fd4"/>
                                                         <constraint firstAttribute="trailing" secondItem="Ryr-5p-xuL" secondAttribute="trailing" id="pQh-am-1ON"/>
+                                                        <constraint firstAttribute="height" constant="50" id="vxX-hw-Wu3"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2513,8 +2514,7 @@
                                             <constraints>
                                                 <constraint firstItem="PwX-r2-CxH" firstAttribute="leading" secondItem="mfo-Ie-0VG" secondAttribute="leading" constant="40" id="0Tc-MR-Odz"/>
                                                 <constraint firstAttribute="trailing" secondItem="PwX-r2-CxH" secondAttribute="trailing" constant="40" id="4A0-7X-lrw"/>
-                                                <constraint firstAttribute="bottom" secondItem="PwX-r2-CxH" secondAttribute="bottom" constant="5" id="M9U-cW-Dry"/>
-                                                <constraint firstItem="PwX-r2-CxH" firstAttribute="top" secondItem="mfo-Ie-0VG" secondAttribute="top" constant="5" id="PEm-9U-UV2"/>
+                                                <constraint firstItem="PwX-r2-CxH" firstAttribute="centerY" secondItem="mfo-Ie-0VG" secondAttribute="centerY" id="B6z-Si-wEc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
