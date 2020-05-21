@@ -11,3 +11,12 @@ import Foundation
 var isSessionExist:Bool?
 var membersInSession = [String]()
 var totalMembersInSession = 0
+
+struct MembersDataInSession{
+    var name:String
+    var clockIn:String
+    var score:Int
+    var duration:Int
+}
+
+var membersData = [MembersDataInSession]()

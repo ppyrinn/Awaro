@@ -500,8 +500,8 @@
                                                         <constraint firstAttribute="height" constant="25" id="wQ0-YR-Be2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPd-l1-7HW">
-                                                    <rect key="frame" x="314" y="10" width="80" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPd-l1-7HW">
+                                                    <rect key="frame" x="302" y="10" width="92" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="pMr-dm-u28"/>
                                                     </constraints>
@@ -589,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k22-RA-3Qa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2358" y="222"/>
+            <point key="canvasLocation" x="2357.971014492754" y="221.65178571428569"/>
         </scene>
         <!--Challenge Question-->
         <scene sceneID="QKN-9t-cgW">

@@ -204,10 +204,12 @@ extension User{
             if let records = result {
                 print("\n\n")
                 totalMembersInSession = 0
-                membersInSession.removeAll()
+//                membersInSession.removeAll()
+                membersData.removeAll()
                 records.forEach{
                     print($0)
-                    membersInSession.append($0["fullName"] as! String)
+//                    membersInSession.append($0["fullName"] as! String)
+                    membersData.append(MembersDataInSession(name: $0["fullName"] as! String, clockIn: $0["joinAt"] as! String, score: 0, duration: 0))
                     totalMembersInSession += 1
 //                    print("\n\n\nMembers in session = \(membersInSession)\n\n\nTotal = \(totalMembersInSession)\n\n")
                 }
@@ -218,5 +220,38 @@ extension User{
         
     }
     
-    
+    static func setMemberClockInTime(userID:Int, joinAt:String){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(format: "userID = %d", userID)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    $0["joinAt"] = joinAt as CKRecordValue
+                    
+                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                print("\n\nassign clockin time to member is Error: \(error.localizedDescription)\n\n")
+                            } else {
+                                print("\n\nassign clockin time to member is Done!\n\n")
+                            }
+                        }
+                    }
+                }
+                print("\n\n")
+            }
+            
+        }
+    }
 }

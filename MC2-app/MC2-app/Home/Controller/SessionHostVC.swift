@@ -19,6 +19,10 @@ class SessionHostVC: UIViewController {
     var memberName = [String]()
     var currentTotalMember = 0
     var isSessionEnd = false
+    var memberClockIn = [String]()
+    
+    var currentDateTime = Date()
+    let formatter = DateFormatter()
     
     var timer = Timer()
     var duration = 0
@@ -32,6 +36,7 @@ class SessionHostVC: UIViewController {
     @IBOutlet weak var sessionIDLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var participantCountLabel: UILabel!
+    @IBOutlet weak var clockInLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -46,6 +51,16 @@ class SessionHostVC: UIViewController {
         print(sessionID)
         sessionNameLabel.text = "\(sessionName)'s Session"
         toggleTimer(on: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .none
+        let time = formatter.string(from: currentDateTime)
+        print("\n\n\(time)\n\n")
+        User.setMemberClockInTime(userID: currentUserID ?? 0, joinAt: time)
+        
     }
     
     
@@ -124,10 +139,18 @@ class SessionHostVC: UIViewController {
             print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
             if strongSelf.currentTotalMember != totalMembersInSession{
                 strongSelf.currentTotalMember = totalMembersInSession
+//                strongSelf.memberName.removeAll()
+//                self?.sessionHostTable.reloadData()
+//                for member in membersInSession{
+//                    strongSelf.memberName.append(member)
+//                    self?.sessionHostTable.reloadData()
+//                }
                 strongSelf.memberName.removeAll()
+                strongSelf.memberClockIn.removeAll()
                 self?.sessionHostTable.reloadData()
-                for member in membersInSession{
-                    strongSelf.memberName.append(member)
+                for member in membersData{
+                    strongSelf.memberName.append(member.name)
+                    strongSelf.memberClockIn.append(member.clockIn)
                     self?.sessionHostTable.reloadData()
                 }
             }
@@ -154,7 +177,8 @@ extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
         else {
             cell.participantLabel.text = memberName[indexPath.row]
         }
-
+        
+        cell.clockInLabel.text = memberClockIn[indexPath.row]
         return cell
     }
 }

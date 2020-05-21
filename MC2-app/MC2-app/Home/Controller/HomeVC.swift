@@ -43,6 +43,7 @@ class HomeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         helper = CoreDataHelper(context: getViewContext())
+        
     }
     
     
