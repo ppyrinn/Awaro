@@ -10,18 +10,6 @@ import UIKit
 
 class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    // MARK: - IBOutlet
-    @IBOutlet weak var largeBadgeImage: UIImageView!
-    @IBOutlet weak var largeRankLabel: UILabel!
-    @IBOutlet weak var largeXPLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    
-    @IBOutlet weak var editButtonOutlet: UIButton!
-    @IBOutlet weak var sessionIDLabel: UILabel!
-    @IBOutlet weak var nameTextView: UITextView!
-    @IBOutlet weak var emailTextView: UITextView!
-    
-    
     // MARK: - Variables
     var editMode = false
     
@@ -66,7 +54,19 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
                    "800 XP",
                    "1000 XP"]
     
-
+    
+    // MARK: - IBOutlet
+    @IBOutlet weak var largeBadgeImage: UIImageView!
+    @IBOutlet weak var largeRankLabel: UILabel!
+    @IBOutlet weak var largeXPLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var editButtonOutlet: UIButton!
+    @IBOutlet weak var sessionIDLabel: UILabel!
+    @IBOutlet weak var nameTextView: UITextView!
+    @IBOutlet weak var emailTextView: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
