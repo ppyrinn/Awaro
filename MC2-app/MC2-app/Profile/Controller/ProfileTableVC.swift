@@ -289,7 +289,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
 }
 
 
-// MARK: - Extension
+// MARK: - UITextViewDelegate
 extension ProfileTableVC: UITextViewDelegate {
     
     func loadTextView() {

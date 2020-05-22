@@ -218,7 +218,7 @@ class ChallengeQuestionTableVC: UITableViewController {
 }
 
 
-// MARK: - Extension
+// MARK: - UITextViewDelegate
 extension ChallengeQuestionTableVC: UITextViewDelegate {
     
     func setupTextView() {
@@ -395,6 +395,7 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
     }
 }
 
+// MARK: - UIPickerViewDelegate & DataSource
 extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func setupDurationPicker() {
