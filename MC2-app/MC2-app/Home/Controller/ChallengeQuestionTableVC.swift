@@ -74,7 +74,7 @@ class ChallengeQuestionTableVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
             self.dismiss(animated: true, completion: nil)
         }))
-
+        
         self.present(alert, animated: true)
     }
     
@@ -136,6 +136,7 @@ class ChallengeQuestionTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 && indexPath.section == 2 {
             let height:CGFloat = durationPicker.isHidden ? 0.0 : 216.0
+            
             return height
         }
 
@@ -144,8 +145,8 @@ class ChallengeQuestionTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let durationIndexPath = IndexPath(row: 0, section: 2)
+        
         if durationIndexPath == indexPath {
-            
             if durationPicker.isHidden == true {
                 durationPicker.isHidden = false
 
@@ -261,7 +262,6 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             else {
                 questionTextView.textColor = .white
             }
-            submitButtonOutlet.isEnabled = false
         }
         if (textView.tag == 1) {
             if aAnswerTextView.text == answerTextViewPlaceholderText {
@@ -271,7 +271,6 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             else {
                 aAnswerTextView.textColor = .black
             }
-            submitButtonOutlet.isEnabled = false
         }
         if (textView.tag == 2) {
             if bAnswerTextView.text == answerTextViewPlaceholderText {
@@ -281,7 +280,6 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             else {
                 bAnswerTextView.textColor = .black
             }
-            submitButtonOutlet.isEnabled = false
         }
         if (textView.tag == 3) {
             if cAnswerTextView.text == answerTextViewPlaceholderText {
@@ -291,7 +289,6 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             else {
                 cAnswerTextView.textColor = .black
             }
-            submitButtonOutlet.isEnabled = false
         }
         if (textView.tag == 4) {
             if dAnswerTextView.text == answerTextViewPlaceholderText {
@@ -301,7 +298,6 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             else {
                 dAnswerTextView.textColor = .black
             }
-            submitButtonOutlet.isEnabled = false
         }
     }
     
@@ -309,32 +305,22 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
         if questionTextView.text.isEmpty {
             questionTextView.text = questionTextViewPlaceholderText
             questionTextView.textColor = .lightGray
-            
-            submitButtonOutlet.isEnabled = false
         }
         if aAnswerTextView.text.isEmpty {
             aAnswerTextView.text = answerTextViewPlaceholderText
             aAnswerTextView.textColor = .lightGray
-            
-            submitButtonOutlet.isEnabled = false
         }
         if bAnswerTextView.text.isEmpty {
             bAnswerTextView.text = answerTextViewPlaceholderText
             bAnswerTextView.textColor = .lightGray
-            
-            submitButtonOutlet.isEnabled = false
         }
         if cAnswerTextView.text.isEmpty {
             cAnswerTextView.text = answerTextViewPlaceholderText
             cAnswerTextView.textColor = .lightGray
-            
-            submitButtonOutlet.isEnabled = false
         }
         if dAnswerTextView.text.isEmpty {
             dAnswerTextView.text = answerTextViewPlaceholderText
             dAnswerTextView.textColor = .lightGray
-            
-            submitButtonOutlet.isEnabled = false
         }
     }
     
@@ -364,13 +350,47 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             
             return false
         }
+        
         return true
     }
     
-    @objc func tapDone(sender: Any) {
-        if questionTextView.text.isEmpty == false && aAnswerTextView.text.isEmpty == false && bAnswerTextView.text.isEmpty == false && cAnswerTextView.text.isEmpty == false && dAnswerTextView.text.isEmpty == false {
-            submitButtonOutlet.isEnabled = true
+    func textViewDidChange(_ textView: UITextView) {
+        if textView == questionTextView {
+            setSubmitButtonState()
         }
+        if textView == aAnswerTextView {
+            setSubmitButtonState()
+        }
+        if textView == bAnswerTextView {
+            setSubmitButtonState()
+        }
+        if textView == cAnswerTextView {
+            setSubmitButtonState()
+        }
+        if textView == dAnswerTextView {
+            setSubmitButtonState()
+        }
+    }
+    
+    func setSubmitButtonState() {
+        if questionTextView.text != questionTextViewPlaceholderText &&
+            aAnswerTextView.text != answerTextViewPlaceholderText &&
+            bAnswerTextView.text != answerTextViewPlaceholderText &&
+            cAnswerTextView.text != answerTextViewPlaceholderText &&
+            dAnswerTextView.text != answerTextViewPlaceholderText &&
+            !questionTextView.text.isEmpty &&
+            !aAnswerTextView.text.isEmpty &&
+            !bAnswerTextView.text.isEmpty &&
+            !cAnswerTextView.text.isEmpty &&
+            !dAnswerTextView.text.isEmpty {
+                submitButtonOutlet.isEnabled = true
+        }
+        else {
+            submitButtonOutlet.isEnabled = false
+        }
+    }
+    
+    @objc func tapDone(sender: Any) {
         self.view.endEditing(true)
     }
 }
