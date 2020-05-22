@@ -11,6 +11,7 @@ import UIKit
 class ChallengeQuestionTableVC: UITableViewController {
     
     // MARK: - IBOutlet
+    @IBOutlet weak var submitButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var aAnswerTextView: UITextView!
     @IBOutlet weak var bAnswerTextView: UITextView!
@@ -78,6 +79,12 @@ class ChallengeQuestionTableVC: UITableViewController {
     }
     
     @IBAction func submitButton(_ sender: Any) {
+        question = questionTextView.text
+        answerA = aAnswerTextView.text
+        answerB = bAnswerTextView.text
+        answerC = cAnswerTextView.text
+        answerD = dAnswerTextView.text
+        
         print("\n\n\(question)\n\n\(answerA)\n\n\(answerB)\n\n\(answerC)\n\n\(answerD)\n\n")
         performSegue(withIdentifier: "SubmitSegue", sender: nil)
     }
@@ -247,24 +254,54 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if (textView.tag == 0) {
-            questionTextView.text = nil
-            questionTextView.textColor = .white
+            if questionTextView.text == questionTextViewPlaceholderText {
+                questionTextView.text = nil
+                questionTextView.textColor = .white
+            }
+            else {
+                questionTextView.textColor = .white
+            }
+            submitButtonOutlet.isEnabled = false
         }
         if (textView.tag == 1) {
-            aAnswerTextView.text = nil
-            aAnswerTextView.textColor = .black
+            if aAnswerTextView.text == answerTextViewPlaceholderText {
+                aAnswerTextView.text = nil
+                aAnswerTextView.textColor = .black
+            }
+            else {
+                aAnswerTextView.textColor = .black
+            }
+            submitButtonOutlet.isEnabled = false
         }
         if (textView.tag == 2) {
-            bAnswerTextView.text = nil
-            bAnswerTextView.textColor = .black
+            if bAnswerTextView.text == answerTextViewPlaceholderText {
+                bAnswerTextView.text = nil
+                bAnswerTextView.textColor = .black
+            }
+            else {
+                bAnswerTextView.textColor = .black
+            }
+            submitButtonOutlet.isEnabled = false
         }
         if (textView.tag == 3) {
-            cAnswerTextView.text = nil
-            cAnswerTextView.textColor = .black
+            if cAnswerTextView.text == answerTextViewPlaceholderText {
+                cAnswerTextView.text = nil
+                cAnswerTextView.textColor = .black
+            }
+            else {
+                cAnswerTextView.textColor = .black
+            }
+            submitButtonOutlet.isEnabled = false
         }
         if (textView.tag == 4) {
-            dAnswerTextView.text = nil
-            dAnswerTextView.textColor = .black
+            if dAnswerTextView.text == answerTextViewPlaceholderText {
+                dAnswerTextView.text = nil
+                dAnswerTextView.textColor = .black
+            }
+            else {
+                dAnswerTextView.textColor = .black
+            }
+            submitButtonOutlet.isEnabled = false
         }
     }
     
@@ -272,26 +309,68 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
         if questionTextView.text.isEmpty {
             questionTextView.text = questionTextViewPlaceholderText
             questionTextView.textColor = .lightGray
+            
+            submitButtonOutlet.isEnabled = false
         }
         if aAnswerTextView.text.isEmpty {
             aAnswerTextView.text = answerTextViewPlaceholderText
             aAnswerTextView.textColor = .lightGray
+            
+            submitButtonOutlet.isEnabled = false
         }
         if bAnswerTextView.text.isEmpty {
             bAnswerTextView.text = answerTextViewPlaceholderText
             bAnswerTextView.textColor = .lightGray
+            
+            submitButtonOutlet.isEnabled = false
         }
         if cAnswerTextView.text.isEmpty {
             cAnswerTextView.text = answerTextViewPlaceholderText
             cAnswerTextView.textColor = .lightGray
+            
+            submitButtonOutlet.isEnabled = false
         }
         if dAnswerTextView.text.isEmpty {
             dAnswerTextView.text = answerTextViewPlaceholderText
             dAnswerTextView.textColor = .lightGray
+            
+            submitButtonOutlet.isEnabled = false
         }
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView == questionTextView && text == "\n" {  // Recognizes enter key in keyboard
+            aAnswerTextView.becomeFirstResponder()
+            
+            return false
+        }
+        if textView == aAnswerTextView && text == "\n" {
+            bAnswerTextView.becomeFirstResponder()
+            
+            return false
+        }
+        if textView == bAnswerTextView && text == "\n" {
+            cAnswerTextView.becomeFirstResponder()
+            
+            return false
+        }
+        if textView == cAnswerTextView && text == "\n" {
+            dAnswerTextView.becomeFirstResponder()
+            
+            return false
+        }
+        if textView == dAnswerTextView && text == "\n" {
+            dAnswerTextView.resignFirstResponder()
+            
+            return false
+        }
+        return true
+    }
+    
     @objc func tapDone(sender: Any) {
+        if questionTextView.text.isEmpty == false && aAnswerTextView.text.isEmpty == false && bAnswerTextView.text.isEmpty == false && cAnswerTextView.text.isEmpty == false && dAnswerTextView.text.isEmpty == false {
+            submitButtonOutlet.isEnabled = true
+        }
         self.view.endEditing(true)
     }
 }

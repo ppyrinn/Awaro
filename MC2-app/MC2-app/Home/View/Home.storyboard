@@ -616,7 +616,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="188"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" returnKeyType="next"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -695,7 +695,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" returnKeyType="next"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -751,7 +751,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" returnKeyType="next"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -807,7 +807,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" returnKeyType="next"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -863,7 +863,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" returnKeyType="done"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -992,7 +992,7 @@
                                 <action selector="cancelButton:" destination="CcS-Yv-MjO" id="xSB-q9-af2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="bgI-eX-j9p">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Submit" id="bgI-eX-j9p">
                             <connections>
                                 <action selector="submitButton:" destination="CcS-Yv-MjO" id="Ycu-Uv-Pp7"/>
                             </connections>
@@ -1006,6 +1006,7 @@
                         <outlet property="durationLabel" destination="Ovb-TN-GNR" id="451-G9-BKE"/>
                         <outlet property="durationPicker" destination="wax-z3-lji" id="ena-Dl-6Lj"/>
                         <outlet property="questionTextView" destination="rLy-pl-Bd6" id="82a-cF-52D"/>
+                        <outlet property="submitButtonOutlet" destination="bgI-eX-j9p" id="0pM-Y0-9jZ"/>
                         <outlet property="timeLabel" destination="Coi-fu-6TR" id="XMe-x5-dka"/>
                         <segue destination="pFz-7I-59D" kind="show" identifier="SubmitSegue" id="cC6-By-3ov"/>
                     </connections>

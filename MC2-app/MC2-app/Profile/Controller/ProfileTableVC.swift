@@ -81,9 +81,6 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         tableView.keyboardDismissMode = .onDrag
         loadSessionID()
         loadTextView()
-        
-        self.notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        self.notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,20 +89,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         tableView.backgroundColor = #colorLiteral(red: 0.9750029445, green: 0.9783667922, blue: 0.9844790101, alpha: 1)
         configureNavigationBar(largeTitleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgoundColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), tintColor: .white, title: "Profile", preferredLargeTitle: true)
         //roundedNavigationBar(title: "Profile")
-      
-        
     }
-    
-    @objc func keyboardWillShow(_ notification: NSNotification) {
-    
-        view.frame.origin.y = -10
-
-    }
-    @objc func keyboardWillHide(_ notification: NSNotification) {
-    
-
-    }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -129,8 +113,6 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
             
             nameTextView.textColor = .darkText
             emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
-            
-            nameTextView.becomeFirstResponder()
         }
         else {
             editButtonOutlet.setTitle("Edit", for: .normal)
@@ -145,7 +127,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
             nameTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
             emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
             
-            emailTextView.resignFirstResponder()
+            nameTextView.resignFirstResponder()
         }
     }
     
@@ -158,22 +140,6 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         else {
             sessionIDLabel.text = "\(currentUserID ?? 0)"
         }
-    }
-    
-    @objc func adjustForKeyboard(notification: Notification) {
-        let userInfo = notification.userInfo!
-        
-        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
-        if notification.name == UIResponder.keyboardWillHideNotification {
-            tableView.contentInset = UIEdgeInsets.zero
-        } else {
-            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
-        }
-        
-        tableView.scrollIndicatorInsets = tableView.contentInset
-        
     }
     
     
