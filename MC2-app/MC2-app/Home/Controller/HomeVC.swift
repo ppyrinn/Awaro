@@ -71,6 +71,7 @@ class HomeVC: UIViewController {
         
         alert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Input Session ID here..."
+            textField.keyboardType = UIKeyboardType.numberPad
         })
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in

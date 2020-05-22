@@ -16,7 +16,6 @@ class ChallengeAnswerTableVC: UITableViewController {
     @IBOutlet weak var bAnswerLabel: UILabel!
     @IBOutlet weak var cAnswerLabel: UILabel!
     @IBOutlet weak var dAnswerLabel: UILabel!
-    @IBOutlet weak var submitButtonOutlet: UIButton!
     
     
     override func viewDidLoad() {
@@ -38,11 +37,8 @@ class ChallengeAnswerTableVC: UITableViewController {
     
     
     // MARK: - IBAction
-    @IBAction func submitButtonAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     
-
+    
     // MARK: - Table view data source
 
     // Uncomment to use Dynamic Prototypes
