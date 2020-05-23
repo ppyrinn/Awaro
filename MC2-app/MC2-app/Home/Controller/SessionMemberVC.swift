@@ -78,6 +78,7 @@ class SessionMemberVC: UIViewController {
             //            User.addSessionToMember(0, currentUserID!)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID!)
             isSessionExist = false
+            User.setScoreToUser(userID: currentUserID ?? 0, score: 0)
             self.dismiss(animated: true, completion: nil)
         }))
         
@@ -100,8 +101,11 @@ class SessionMemberVC: UIViewController {
             //kirim data
             
             //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
-            if let  destination = segue.destination as? ChallengeAnswerContainerVC {
-                destination.sessionID = self.sessionID
+            if let destination = segue.destination as? UINavigationController,
+                let targetController = destination.topViewController as? ChallengeAnswerContainerVC{
+                //                destination.sessionName = self.createdSessionName
+                print("\n\nyang dikirim \(self.sessionID)\n\n")
+                targetController.sessionID = self.sessionID
             }
         }
     }
@@ -159,7 +163,7 @@ class SessionMemberVC: UIViewController {
             
             strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
             
-            if challengeExist {
+            if challengeExist == true {
                 self!.performSegue(withIdentifier: "ChallengeAnswerSegue", sender: nil)
             }
         })

@@ -78,6 +78,7 @@ class SessionHostVC: UIViewController {
             Session.endCurrentSession(sessionID: self.sessionID)
 //            Session.deleteSession(self.sessionID)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID ?? 0)
+            User.setScoreToUser(userID: currentUserID ?? 0, score: 0)
             self.members.removeAll()
         }))
 
