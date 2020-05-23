@@ -136,7 +136,7 @@
         <!--Home-->
         <scene sceneID="aPs-bs-EfP">
             <objects>
-                <viewController id="hHz-Bq-LWx" customClass="HomeVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="hHz-Bq-LWx" customClass="HomeVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jbr-p4-Wx3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
