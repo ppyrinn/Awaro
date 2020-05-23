@@ -158,9 +158,12 @@ class SessionMemberVC: UIViewController {
             }
             
             strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
+            
+            if challengeExist {
+                self!.performSegue(withIdentifier: "ChallengeAnswerSegue", sender: nil)
+            }
         })
     }
-    
 }
 
 extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {

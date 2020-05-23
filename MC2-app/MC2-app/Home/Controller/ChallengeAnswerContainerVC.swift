@@ -37,7 +37,7 @@ class ChallengeAnswerContainerVC: UIViewController {
         let selectedAnswer = self.challengeAnswerTableVCReference?.selectedAnswer
         
         if selectedAnswer == "A" {
-            currentScore+=1
+            currentScore += 1
         }
         else {
             print("Wrong Answer!")
