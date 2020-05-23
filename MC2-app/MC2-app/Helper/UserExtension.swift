@@ -333,4 +333,39 @@ extension User{
             
         }
     }
+    
+    static func setScoreToUser(userID:Int, score:Int){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(format: "userID = %d", userID)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    $0["score"] = score as CKRecordValue
+                    $0["isChallengeAvailable"] = false as CKRecordValue
+                    
+                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                print("\n\nset score to member is Error: \(error.localizedDescription)\n\n")
+                            } else {
+                                print("\n\nset score to member is Done!\n\n")
+                            }
+                        }
+                    }
+                }
+                print("\n\n")
+            }
+        }
+    }
 }

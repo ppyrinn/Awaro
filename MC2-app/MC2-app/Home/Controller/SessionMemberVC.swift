@@ -54,13 +54,13 @@ class SessionMemberVC: UIViewController {
         super.viewDidAppear(animated)
         
         // get session data
-//        helper = CoreDataHelper(context: getViewContext())
-//        sessionData = helper.fetchSpecificID(idType: "sessionID",id: sessionID) as [Session]
-//        print(sessionData)
-//        for data in sessionData{
-//            sessionName = data.sessionName ?? ""
-//            duration = Int(data.currentDuration)
-//        }
+        //        helper = CoreDataHelper(context: getViewContext())
+        //        sessionData = helper.fetchSpecificID(idType: "sessionID",id: sessionID) as [Session]
+        //        print(sessionData)
+        //        for data in sessionData{
+        //            sessionName = data.sessionName ?? ""
+        //            duration = Int(data.currentDuration)
+        //        }
         
         formatter.timeStyle = .medium
         formatter.dateStyle = .none
@@ -75,12 +75,12 @@ class SessionMemberVC: UIViewController {
         let alert = UIAlertController(title: "Are you sure you want to quit this session?", message: "You will still be able to rejoin this session afterwards.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Quit", style: .destructive, handler: { action in
-//            User.addSessionToMember(0, currentUserID!)
+            //            User.addSessionToMember(0, currentUserID!)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID!)
             isSessionExist = false
             self.dismiss(animated: true, completion: nil)
         }))
-
+        
         self.present(alert, animated: true)
     }
     
@@ -91,20 +91,19 @@ class SessionMemberVC: UIViewController {
     
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "ChallengeAnswerSegue"{
-                   //kirim data
-                   
-                   //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
-                   if let  destination = segue.destination as? ChallengeAnswerContainerVC {
-//                       destination.sessionName = self.sessionName
-//                       destination.sessionID = self.sessionID
-                   }
-               }
+            //kirim data
+            
+            //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
+            if let  destination = segue.destination as? ChallengeAnswerContainerVC {
+                destination.sessionID = self.sessionID
+            }
+        }
     }
     
     
@@ -130,37 +129,38 @@ class SessionMemberVC: UIViewController {
             }
             
             if strongSelf.isSessionEnd == false{
-            //                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
-                            Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
-                        }
-                        
+                //                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
+                Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
+                User.getChallengeToUser(sessionID: strongSelf.sessionID)
+            }
+            
             //            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
-
-                        User.getAllSessionMembers(sessionID: strongSelf.sessionID)
-
-                        print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
-                        if strongSelf.currentTotalMember != totalMembersInSession{
-                            strongSelf.currentTotalMember = totalMembersInSession
-            //                strongSelf.memberName.removeAll()
-            //                self?.sessionHostTable.reloadData()
-            //                for member in membersInSession{
-            //                    strongSelf.memberName.append(member)
-            //                    self?.sessionHostTable.reloadData()
-            //                }
-                            strongSelf.memberName.removeAll()
-                            strongSelf.memberClockIn.removeAll()
-                            self?.sessionMemberTable.reloadData()
-                            for member in membersData{
-                                strongSelf.memberName.append(member.name)
-                                strongSelf.memberClockIn.append(member.clockIn)
-                                self?.sessionMemberTable.reloadData()
-                            }
-                        }
-                        
-                        strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
-                    })
+            
+            User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+            
+            print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
+            if strongSelf.currentTotalMember != totalMembersInSession{
+                strongSelf.currentTotalMember = totalMembersInSession
+                //                strongSelf.memberName.removeAll()
+                //                self?.sessionHostTable.reloadData()
+                //                for member in membersInSession{
+                //                    strongSelf.memberName.append(member)
+                //                    self?.sessionHostTable.reloadData()
+                //                }
+                strongSelf.memberName.removeAll()
+                strongSelf.memberClockIn.removeAll()
+                self?.sessionMemberTable.reloadData()
+                for member in membersData{
+                    strongSelf.memberName.append(member.name)
+                    strongSelf.memberClockIn.append(member.clockIn)
+                    self?.sessionMemberTable.reloadData()
+                }
+            }
+            
+            strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
+        })
     }
-
+    
 }
 
 extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {
@@ -171,7 +171,7 @@ extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionMemberCell", for: indexPath) as! SessionMemberCell
-
+        
         // Configure the cell...
         if sessionID == currentUserID {
             cell.participantLabel.text = memberName[indexPath.row] + " " + "(Host)"
@@ -180,7 +180,7 @@ extension SessionMemberVC: UITableViewDataSource, UITableViewDelegate {
             cell.participantLabel.text = memberName[indexPath.row]
         }
         cell.clockInLabel.text = memberClockIn[indexPath.row]
-
+        
         return cell
     }
 }

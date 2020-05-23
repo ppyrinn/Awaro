@@ -11,6 +11,7 @@ import UIKit
 class ChallengeAnswerContainerVC: UIViewController {
     
     //MARK: - Variables
+    var sessionID = Int()
     
     // MARK: - IBOutlet
     @IBOutlet weak var submitButtonOutlet: UIButton!
@@ -25,6 +26,8 @@ class ChallengeAnswerContainerVC: UIViewController {
     
     // MARK: - IBActions
     @IBAction func submitButtonAction(_ sender: Any) {
+        currentChallenge?.available = false
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore)
         dismiss(animated: true, completion: nil)
     }
     

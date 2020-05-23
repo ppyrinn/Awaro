@@ -9,6 +9,15 @@
 import UIKit
 
 class ChallengeAnswerTableVC: UITableViewController {
+    
+    //MARK: - Variables
+    var question = currentChallenge?.question
+    var answerA = currentChallenge?.a
+    var answerB = currentChallenge?.b
+    var answerC = currentChallenge?.c
+    var answerD = currentChallenge?.d
+    var duration = currentChallenge?.duration
+    var selectedAnswer = "" //disini nanti nampung answer yang dipilih user
 
     // MARK: - IBOutlet
     @IBOutlet weak var questionLabel: UILabel!
@@ -16,6 +25,14 @@ class ChallengeAnswerTableVC: UITableViewController {
     @IBOutlet weak var bAnswerLabel: UILabel!
     @IBOutlet weak var cAnswerLabel: UILabel!
     @IBOutlet weak var dAnswerLabel: UILabel!
+    
+    //MARK: - Functions
+    
+    //bikin fungsi utk random pelatakan jawabannya, lets say answerA letaknya di option C
+    
+    //bikin fungsi utk nampung jawaban yg dipilih user ke variable selectedAnswer
+    
+    //bikin fungsi utk compare if selectedAnswer == answerA, brarti currentScore++ (dia ini global variable) 
     
     
     override func viewDidLoad() {
