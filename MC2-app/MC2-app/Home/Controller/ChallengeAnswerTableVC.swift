@@ -11,6 +11,7 @@ import UIKit
 class ChallengeAnswerTableVC: UITableViewController {
     
     //MARK: - Variables
+    var sessionID = Int()
     var question = challengeQuestion
     var answerA = challengeAnswerA
     var answerB = challengeAnswerB
@@ -40,6 +41,7 @@ class ChallengeAnswerTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        setQuestionData()
         setButtonTag()
     }
     
@@ -89,6 +91,14 @@ class ChallengeAnswerTableVC: UITableViewController {
     
     
     //MARK: - Functions
+    func setQuestionData() {
+        questionLabel.text = question
+        aAnswerLabel.text = answerA
+        bAnswerLabel.text = answerB
+        cAnswerLabel.text = answerC
+        dAnswerLabel.text = answerD
+    }
+    
     func setButtonTag() {
         aAnswerButtonOutlet.tag = 0
         bAnswerButtonOutlet.tag = 1

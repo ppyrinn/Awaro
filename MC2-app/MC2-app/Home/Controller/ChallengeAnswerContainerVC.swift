@@ -35,9 +35,13 @@ class ChallengeAnswerContainerVC: UIViewController {
         let answerA = self.challengeAnswerTableVCReference?.answerA
         let selectedAnswer = self.challengeAnswerTableVCReference?.selectedAnswer
         
-        if selectedAnswer == answerA{
+        if selectedAnswer == "A" {
             currentScore+=1
         }
+        else {
+            print("Wrong Answer!")
+        }
+        print("YourScore: \(currentScore)")
         dismiss(animated: true, completion: nil)
     }
     
@@ -48,14 +52,19 @@ class ChallengeAnswerContainerVC: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ChallengeAnswerEmbedSegue" {
+            if let destination = segue.destination as? ChallengeAnswerTableVC {
+                destination.sessionID = self.sessionID
+            }
+        }
     }
-    */
+    
 
 }

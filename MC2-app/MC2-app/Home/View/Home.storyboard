@@ -2177,7 +2177,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEF-94-2dv">
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <connections>
-                                    <segue destination="3G3-Ci-ET4" kind="embed" id="XSe-vV-FH4"/>
+                                    <segue destination="3G3-Ci-ET4" kind="embed" identifier="ChallengeAnswerEmbedSegue" id="XSe-vV-FH4"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykt-ZV-MAb">
@@ -2267,7 +2267,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shd-ut-yDt">
                                                     <rect key="frame" x="20" y="20" width="374" height="188"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8S-IL-eD9">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8S-IL-eD9">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="188"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
