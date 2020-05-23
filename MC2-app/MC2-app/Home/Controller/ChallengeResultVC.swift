@@ -9,6 +9,16 @@
 import UIKit
 
 class ChallengeResultVC: UIViewController {
+    //MARK: - Variables
+    var question = challengeQuestion
+    var answerA = challengeAnswerA
+    var answerB = challengeAnswerB
+    var answerC = challengeAnswerC
+    var answerD = challengeAnswerD
+    var duration = challengeDuration
+    var participantsName = [String]()
+    var participantsAnswer = [String]()
+    var participantsDuration = [String]()
 
     // MARK: - IBOutlet
     @IBOutlet weak var participantResultTable: UITableView!
@@ -27,6 +37,11 @@ class ChallengeResultVC: UIViewController {
         configureNavigationBar(largeTitleColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), backgoundColor: #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1), tintColor: #colorLiteral(red: 0.4093762636, green: 0.408560425, blue: 0.8285056949, alpha: 1), title: "Challenge Result", preferredLargeTitle: false)
         navigationItem.hidesBackButton = true
         //roundedNavigationBar(title: "History")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     

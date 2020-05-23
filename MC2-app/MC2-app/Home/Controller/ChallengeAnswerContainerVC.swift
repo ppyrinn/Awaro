@@ -25,7 +25,7 @@ class ChallengeAnswerContainerVC: UIViewController {
         // Do any additional setup after loading the view.
         print("\n\n is challenge exist = \(challengeExist)\n\n")
         
-        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore)
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "")
     }
     
     
@@ -48,6 +48,7 @@ class ChallengeAnswerContainerVC: UIViewController {
             print("Wrong Answer!")
         }
         print("YourScore: \(currentScore)")
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "")
         dismiss(animated: true, completion: nil)
     }
     

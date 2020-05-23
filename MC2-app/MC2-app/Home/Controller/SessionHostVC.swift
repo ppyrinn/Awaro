@@ -78,7 +78,7 @@ class SessionHostVC: UIViewController {
             Session.endCurrentSession(sessionID: self.sessionID)
 //            Session.deleteSession(self.sessionID)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID ?? 0)
-            User.setScoreToUser(userID: currentUserID ?? 0, score: 0)
+            User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "")
             self.members.removeAll()
         }))
 
@@ -101,6 +101,7 @@ class SessionHostVC: UIViewController {
             if let  destination = segue.destination as? SessionResultVC {
                 destination.sessionName = self.sessionName
                 destination.sessionID = self.sessionID
+                destination.sessionDuration = self.duration
             }
         }
         
