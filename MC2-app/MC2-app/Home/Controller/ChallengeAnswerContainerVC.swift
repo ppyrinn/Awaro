@@ -21,12 +21,13 @@ class ChallengeAnswerContainerVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("\n\nquestion = \(String(describing: challengeQuestion))\n\n")
     }
     
     
     // MARK: - IBActions
     @IBAction func submitButtonAction(_ sender: Any) {
-        currentChallenge?.available = false
+        challengeExist = false
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore)
         dismiss(animated: true, completion: nil)
     }

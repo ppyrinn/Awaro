@@ -11,12 +11,12 @@ import UIKit
 class ChallengeAnswerTableVC: UITableViewController {
     
     //MARK: - Variables
-    var question = currentChallenge?.question
-    var answerA = currentChallenge?.a
-    var answerB = currentChallenge?.b
-    var answerC = currentChallenge?.c
-    var answerD = currentChallenge?.d
-    var duration = currentChallenge?.duration
+    var question = challengeQuestion
+    var answerA = challengeAnswerA
+    var answerB = challengeAnswerB
+    var answerC = challengeAnswerC
+    var answerD = challengeAnswerD
+    var duration = challengeDuration
     var selectedAnswer = "" //disini nanti nampung answer yang dipilih user
 
     // MARK: - IBOutlet

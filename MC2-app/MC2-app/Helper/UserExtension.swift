@@ -301,38 +301,37 @@ extension User{
         }
     }
     
-    static func getChallengeToUser(sessionID:Int){
-        let container = CKContainer.default()
-        let privateContainer = container.publicCloudDatabase
-        
-        // fecth with array
-        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
-        let query = CKQuery(recordType: "Members", predicate: predicate)
-        
-        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
-            if let err = error {
-                print(err.localizedDescription)
-                return
-            }
-            
-            if let records = result {
-                print("\n\n")
-                currentChallenge = nil
-                records.forEach{
-                    print($0)
-                    currentChallenge?.question = $0["question"] as! String
-                    currentChallenge?.a = $0["answerA"] as! String
-                    currentChallenge?.b = $0["answerB"] as! String
-                    currentChallenge?.c = $0["answerC"] as! String
-                    currentChallenge?.d = $0["answerD"] as! String
-                    currentChallenge?.duration = $0["duration"] as! Int
-                    currentChallenge?.available = ($0["isChallengeAvailable"] != nil)
-                }
-                print("\n\n")
-            }
-            
-        }
-    }
+//    static func getChallengeToUser(sessionID:Int){
+//        let container = CKContainer.default()
+//        let privateContainer = container.publicCloudDatabase
+//        
+//        // fecth with array
+//        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+//        let query = CKQuery(recordType: "Members", predicate: predicate)
+//        
+//        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+//            if let err = error {
+//                print(err.localizedDescription)
+//                return
+//            }
+//            
+//            if let records = result {
+//                print("\n\n")
+//                records.forEach{
+//                    print($0)
+//                    currentChallenge?.question = $0["question"] as! String
+//                    currentChallenge?.a = $0["answerA"] as! String
+//                    currentChallenge?.b = $0["answerB"] as! String
+//                    currentChallenge?.c = $0["answerC"] as! String
+//                    currentChallenge?.d = $0["answerD"] as! String
+//                    currentChallenge?.duration = $0["duration"] as! Int
+//                    currentChallenge?.available = ($0["isChallengeAvailable"] != nil)
+//                }
+//                print("\n\n")
+//            }
+//            
+//        }
+//    }
     
     static func setScoreToUser(userID:Int, score:Int){
         let container = CKContainer.default()

@@ -29,15 +29,12 @@ struct CurrentSessionData{
 
 var sessionData = [CurrentSessionData]()
 
-struct sessionChallenge {
-    var question = ""
-    var a = ""
-    var b = ""
-    var c = ""
-    var d = ""
-    var duration = 0
-    var available = false
-}
-
-var currentChallenge : sessionChallenge?
 var currentScore = 0
+
+var challengeQuestion = ""
+var challengeAnswerA = ""
+var challengeAnswerB = ""
+var challengeAnswerC = ""
+var challengeAnswerD = ""
+var challengeDuration = 0
+var challengeExist = false

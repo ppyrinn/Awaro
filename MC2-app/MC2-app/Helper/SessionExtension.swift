@@ -277,6 +277,7 @@ extension Session{
                     $0["answerC"] = answerC as CKRecordValue
                     $0["answerD"] = answerD as CKRecordValue
                     $0["challengeDuration"] = duration as CKRecordValue
+                    $0["isChallengeAvailable"] = true as CKRecordValue
                     
                     CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
                         DispatchQueue.main.async {
@@ -290,6 +291,38 @@ extension Session{
                 }
                 print("\n\n")
             }
+        }
+    }
+    
+    static func getChallengeFromSession(sessionID:Int){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        // fecth with array
+        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+        let query = CKQuery(recordType: "Sessions", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    challengeQuestion = $0["question"] as! String
+                    challengeAnswerA = $0["answerA"] as! String
+                    challengeAnswerB = $0["answerB"] as! String
+                    challengeAnswerC = $0["answerC"] as! String
+                    challengeAnswerD = $0["answerD"] as! String
+                    challengeDuration = $0["duration"] as! Int
+                    challengeExist = ($0["isChallengeAvailable"] != nil)
+                }
+                print("\n\n")
+            }
+            
         }
     }
 }

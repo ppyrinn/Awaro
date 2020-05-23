@@ -131,12 +131,12 @@ class SessionMemberVC: UIViewController {
             if strongSelf.isSessionEnd == false{
                 //                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
                 Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
-                User.getChallengeToUser(sessionID: strongSelf.sessionID)
             }
             
             //            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
             
             User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+            Session.getChallengeFromSession(sessionID: strongSelf.sessionID)
             
             print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
             if strongSelf.currentTotalMember != totalMembersInSession{
