@@ -14,6 +14,7 @@ class ChallengeAnswerContainerVC: UIViewController {
     var challengeAnswerTableVCReference: ChallengeAnswerTableVC?
     var sessionID = Int()
     
+    
     // MARK: - IBOutlet
     @IBOutlet weak var submitButtonOutlet: UIButton!
     
@@ -32,7 +33,7 @@ class ChallengeAnswerContainerVC: UIViewController {
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore)
         
         //bikin fungsi utk compare if selectedAnswer == answerA, brarti currentScore++ (dia ini global variable)
-        let answerA = self.challengeAnswerTableVCReference?.answerA
+        //let answerA = self.challengeAnswerTableVCReference?.answerA
         let selectedAnswer = self.challengeAnswerTableVCReference?.selectedAnswer
         
         if selectedAnswer == "A" {
