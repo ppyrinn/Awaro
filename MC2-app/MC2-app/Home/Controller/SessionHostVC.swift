@@ -102,6 +102,18 @@ class SessionHostVC: UIViewController {
                 destination.sessionID = self.sessionID
             }
         }
+        
+        else if segue.identifier == "CreateAwarenessSegue"{
+            //kirim data
+            
+            //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
+            if let destination = segue.destination as? UINavigationController,
+                let targetController = destination.topViewController as? ChallengeQuestionTableVC{
+//                destination.sessionName = self.createdSessionName
+                print("\n\nyang dikirim \(self.sessionID)\n\n")
+                targetController.sessionID = self.sessionID
+            }
+        }
     }
     
 

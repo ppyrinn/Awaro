@@ -2265,10 +2265,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shd-ut-yDt">
-                                                    <rect key="frame" x="20" y="20" width="280" height="188"/>
+                                                    <rect key="frame" x="20" y="20" width="374" height="188"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8S-IL-eD9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="188"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="188"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -2321,17 +2321,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X38-Vs-5jl">
-                                                    <rect key="frame" x="150" y="86" width="20" height="128"/>
+                                                    <rect key="frame" x="197" y="86" width="20" height="128"/>
                                                     <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="RFZ-8G-HV4"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="mXd-w4-coC">
-                                                    <rect key="frame" x="20" y="20" width="130" height="120"/>
+                                                    <rect key="frame" x="20" y="20" width="177" height="120"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeAnsButton_A" translatesAutoresizingMaskIntoConstraints="NO" id="7U6-Af-SED">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -2339,7 +2339,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPF-uE-cwf">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2376,10 +2376,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLP-3t-cwQ">
-                                                    <rect key="frame" x="170" y="20" width="130" height="120"/>
+                                                    <rect key="frame" x="217" y="20" width="177" height="120"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeAnsButton_B" translatesAutoresizingMaskIntoConstraints="NO" id="goe-do-LzF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -2387,7 +2387,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiF-Ig-oZA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2424,10 +2424,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nnV-38-c1H">
-                                                    <rect key="frame" x="20" y="160" width="130" height="120"/>
+                                                    <rect key="frame" x="20" y="160" width="177" height="120"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeAnsButton_C" translatesAutoresizingMaskIntoConstraints="NO" id="Mv6-k0-Ot3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -2435,7 +2435,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="963-tg-wFp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2472,10 +2472,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzE-fF-3M6">
-                                                    <rect key="frame" x="170" y="160" width="130" height="120"/>
+                                                    <rect key="frame" x="217" y="160" width="177" height="120"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChallengeAnsButton_D" translatesAutoresizingMaskIntoConstraints="NO" id="hah-cD-rab">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
@@ -2483,7 +2483,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxM-Zg-a0a">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>

@@ -10,6 +10,8 @@ import UIKit
 
 class ChallengeAnswerContainerVC: UIViewController {
     
+    //MARK: - Variables
+    
     // MARK: - IBOutlet
     @IBOutlet weak var submitButtonOutlet: UIButton!
     

@@ -32,6 +32,8 @@ class ChallengeQuestionTableVC: UITableViewController {
     var answerB = ""
     var answerC = ""
     var answerD = ""
+    var duration = 0
+    var sessionID = Int()
     
     
     // MARK: - View Behaviour
@@ -85,7 +87,9 @@ class ChallengeQuestionTableVC: UITableViewController {
         answerC = cAnswerTextView.text
         answerD = dAnswerTextView.text
         
-        print("\n\n\(question)\n\n\(answerA)\n\n\(answerB)\n\n\(answerC)\n\n\(answerD)\n\n")
+        print("\n\n\(question)\n\n\(answerA)\n\n\(answerB)\n\n\(answerC)\n\n\(answerD)\n\nsession id = \(sessionID)\n\n")
+        Session.setChallenge(sessionID: sessionID, question: question, answerA: answerA, answerB: answerB, answerC: answerC, answerD: answerD, duration: duration)
+        User.setChallengeToUser(sessionID: sessionID, question: question, answerA: answerA, answerB: answerB, answerC: answerC, answerD: answerD, duration: duration)
         performSegue(withIdentifier: "SubmitSegue", sender: nil)
     }
     
@@ -446,5 +450,7 @@ extension ChallengeQuestionTableVC: UIPickerViewDelegate, UIPickerViewDataSource
         default:
             break;
         }
+        duration = minutes * 60 + seconds
+        print("\n\nduration = \(duration)\n\n")
     }
 }
