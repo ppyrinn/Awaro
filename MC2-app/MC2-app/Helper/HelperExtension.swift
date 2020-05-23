@@ -388,7 +388,7 @@ extension UIViewController {
             navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
             
             navigationController?.navigationBar.prefersLargeTitles = preferredLargeTitle
-            navigationController?.navigationBar.isTranslucent = false
+            navigationController?.navigationBar.isTranslucent = true
             navigationController?.navigationBar.tintColor = tintColor
             navigationItem.title = title
             
@@ -401,7 +401,7 @@ extension UIViewController {
             // Fallback on earlier versions
             navigationController?.navigationBar.barTintColor = backgoundColor
             navigationController?.navigationBar.tintColor = tintColor
-            navigationController?.navigationBar.isTranslucent = false
+            navigationController?.navigationBar.isTranslucent = true
             navigationItem.title = title
         }
     }
