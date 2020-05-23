@@ -26,7 +26,8 @@ class ChallengeQuestionTableVC: UITableViewController {
     var minutes: Int = 0
     var seconds: Int = 0
     let questionTextViewPlaceholderText = "Enter your question..."
-    let answerTextViewPlaceholderText = "Your right answer..."
+    let rightAnswerTextViewPlaceholderText = "Your right answer..."
+    let wrongAnswerTextViewPlaceholderText = "Your wrong asnwer..."
     var question = ""
     var answerA = ""
     var answerB = ""
@@ -239,10 +240,10 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
         dAnswerTextView.tag = 4
         
         questionTextView.text = questionTextViewPlaceholderText
-        aAnswerTextView.text = answerTextViewPlaceholderText
-        bAnswerTextView.text = answerTextViewPlaceholderText
-        cAnswerTextView.text = answerTextViewPlaceholderText
-        dAnswerTextView.text = answerTextViewPlaceholderText
+        aAnswerTextView.text = rightAnswerTextViewPlaceholderText
+        bAnswerTextView.text = wrongAnswerTextViewPlaceholderText
+        cAnswerTextView.text = wrongAnswerTextViewPlaceholderText
+        dAnswerTextView.text = wrongAnswerTextViewPlaceholderText
         
         questionTextView.textColor = .lightGray
         aAnswerTextView.textColor = .lightGray
@@ -268,7 +269,7 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             }
         }
         if (textView.tag == 1) {
-            if aAnswerTextView.text == answerTextViewPlaceholderText {
+            if aAnswerTextView.text == rightAnswerTextViewPlaceholderText {
                 aAnswerTextView.text = nil
                 aAnswerTextView.textColor = .black
             }
@@ -277,7 +278,7 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             }
         }
         if (textView.tag == 2) {
-            if bAnswerTextView.text == answerTextViewPlaceholderText {
+            if bAnswerTextView.text == wrongAnswerTextViewPlaceholderText {
                 bAnswerTextView.text = nil
                 bAnswerTextView.textColor = .black
             }
@@ -286,7 +287,7 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             }
         }
         if (textView.tag == 3) {
-            if cAnswerTextView.text == answerTextViewPlaceholderText {
+            if cAnswerTextView.text == wrongAnswerTextViewPlaceholderText {
                 cAnswerTextView.text = nil
                 cAnswerTextView.textColor = .black
             }
@@ -295,7 +296,7 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             }
         }
         if (textView.tag == 4) {
-            if dAnswerTextView.text == answerTextViewPlaceholderText {
+            if dAnswerTextView.text == wrongAnswerTextViewPlaceholderText {
                 dAnswerTextView.text = nil
                 dAnswerTextView.textColor = .black
             }
@@ -311,19 +312,19 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
             questionTextView.textColor = .lightGray
         }
         if aAnswerTextView.text.isEmpty {
-            aAnswerTextView.text = answerTextViewPlaceholderText
+            aAnswerTextView.text = rightAnswerTextViewPlaceholderText
             aAnswerTextView.textColor = .lightGray
         }
         if bAnswerTextView.text.isEmpty {
-            bAnswerTextView.text = answerTextViewPlaceholderText
+            bAnswerTextView.text = wrongAnswerTextViewPlaceholderText
             bAnswerTextView.textColor = .lightGray
         }
         if cAnswerTextView.text.isEmpty {
-            cAnswerTextView.text = answerTextViewPlaceholderText
+            cAnswerTextView.text = wrongAnswerTextViewPlaceholderText
             cAnswerTextView.textColor = .lightGray
         }
         if dAnswerTextView.text.isEmpty {
-            dAnswerTextView.text = answerTextViewPlaceholderText
+            dAnswerTextView.text = wrongAnswerTextViewPlaceholderText
             dAnswerTextView.textColor = .lightGray
         }
     }
@@ -331,30 +332,24 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if textView == questionTextView && text == "\n" {  // Recognizes enter key in keyboard
             aAnswerTextView.becomeFirstResponder()
-            
             return false
         }
         if textView == aAnswerTextView && text == "\n" {
             bAnswerTextView.becomeFirstResponder()
-            
             return false
         }
         if textView == bAnswerTextView && text == "\n" {
             cAnswerTextView.becomeFirstResponder()
-            
             return false
         }
         if textView == cAnswerTextView && text == "\n" {
             dAnswerTextView.becomeFirstResponder()
-            
             return false
         }
         if textView == dAnswerTextView && text == "\n" {
             dAnswerTextView.resignFirstResponder()
-            
             return false
         }
-        
         return true
     }
     
@@ -378,10 +373,10 @@ extension ChallengeQuestionTableVC: UITextViewDelegate {
     
     func setSubmitButtonState() {
         if questionTextView.text != questionTextViewPlaceholderText &&
-            aAnswerTextView.text != answerTextViewPlaceholderText &&
-            bAnswerTextView.text != answerTextViewPlaceholderText &&
-            cAnswerTextView.text != answerTextViewPlaceholderText &&
-            dAnswerTextView.text != answerTextViewPlaceholderText &&
+            aAnswerTextView.text != rightAnswerTextViewPlaceholderText &&
+            bAnswerTextView.text != wrongAnswerTextViewPlaceholderText &&
+            cAnswerTextView.text != wrongAnswerTextViewPlaceholderText &&
+            dAnswerTextView.text != wrongAnswerTextViewPlaceholderText &&
             !questionTextView.text.isEmpty &&
             !aAnswerTextView.text.isEmpty &&
             !bAnswerTextView.text.isEmpty &&

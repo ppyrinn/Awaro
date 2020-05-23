@@ -25,14 +25,10 @@ class ChallengeAnswerTableVC: UITableViewController {
     @IBOutlet weak var bAnswerLabel: UILabel!
     @IBOutlet weak var cAnswerLabel: UILabel!
     @IBOutlet weak var dAnswerLabel: UILabel!
-    
-    //MARK: - Functions
-    
-    //bikin fungsi utk random pelatakan jawabannya, lets say answerA letaknya di option C
-    
-    //bikin fungsi utk nampung jawaban yg dipilih user ke variable selectedAnswer
-    
-    //bikin fungsi utk compare if selectedAnswer == answerA, brarti currentScore++ (dia ini global variable) 
+    @IBOutlet weak var aAnswerButtonOutlet: UIButton!
+    @IBOutlet weak var bAnswerButtonOutlet: UIButton!
+    @IBOutlet weak var cAnswerButtonOutlet: UIButton!
+    @IBOutlet weak var dAnswerButtonOutlet: UIButton!
     
     
     override func viewDidLoad() {
@@ -43,6 +39,8 @@ class ChallengeAnswerTableVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        setButtonTag()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,8 +50,61 @@ class ChallengeAnswerTableVC: UITableViewController {
         tableView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let challengeAnswerContainerVC = self.parent as! ChallengeAnswerContainerVC
+        challengeAnswerContainerVC.saveContrainerViewReference(vc: self)
+    }
+    
     
     // MARK: - IBAction
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        //clear all button selected state
+        clearSelectedState()
+        
+        //select the button that was clicked
+        sender.isSelected = true
+        sender.borderWidth = 3
+        sender.borderColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        
+        //bikin fungsi utk nampung jawaban yg dipilih user ke variable selectedAnswer
+        if sender.tag == 0 {
+            selectedAnswer = "A"
+            print(selectedAnswer)
+        }
+        if sender.tag == 1 {
+            selectedAnswer = "B"
+            print(selectedAnswer)
+        }
+        if sender.tag == 2 {
+            selectedAnswer = "C"
+            print(selectedAnswer)
+        }
+        if sender.tag == 3 {
+            selectedAnswer = "D"
+            print(selectedAnswer)
+        }
+    }
+    
+    
+    //MARK: - Functions
+    func setButtonTag() {
+        aAnswerButtonOutlet.tag = 0
+        bAnswerButtonOutlet.tag = 1
+        cAnswerButtonOutlet.tag = 2
+        dAnswerButtonOutlet.tag = 3
+    }
+    
+    func clearSelectedState() {
+        [aAnswerButtonOutlet, bAnswerButtonOutlet, cAnswerButtonOutlet, dAnswerButtonOutlet].forEach {
+            $0!.isSelected = false
+            $0!.borderColor = .clear
+         }
+    }
+    
+    //bikin fungsi utk random pelatakan jawabannya, lets say answerA letaknya di option C
+    
     
     
     // MARK: - Table view data source

@@ -11,6 +11,7 @@ import UIKit
 class ChallengeAnswerContainerVC: UIViewController {
     
     //MARK: - Variables
+    var challengeAnswerTableVCReference: ChallengeAnswerTableVC?
     var sessionID = Int()
     
     // MARK: - IBOutlet
@@ -25,11 +26,25 @@ class ChallengeAnswerContainerVC: UIViewController {
     }
     
     
-    // MARK: - IBActions
+    // MARK: - IBAction
     @IBAction func submitButtonAction(_ sender: Any) {
         challengeExist = false
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore)
+        
+        //bikin fungsi utk compare if selectedAnswer == answerA, brarti currentScore++ (dia ini global variable)
+        let answerA = self.challengeAnswerTableVCReference?.answerA
+        let selectedAnswer = self.challengeAnswerTableVCReference?.selectedAnswer
+        
+        if selectedAnswer == answerA{
+            currentScore+=1
+        }
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Function
+    func saveContrainerViewReference(vc: ChallengeAnswerTableVC){
+        self.challengeAnswerTableVCReference = vc
     }
     
 
