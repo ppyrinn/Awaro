@@ -16,6 +16,7 @@ class SessionResultVC: UIViewController {
     var memberName = [String]()
     var currentTotalMember = 0
     var memberClockIn = [String]()
+    var sessionDuration = Int()
     
     
     // MARK: - IBOutlet
@@ -37,6 +38,20 @@ class SessionResultVC: UIViewController {
         sessionIDLabel.text = "ID: \(sessionID)"
         print(sessionID)
         sessionNameLabel.text = "\(sessionName)'s Session"
+        
+        let hour = sessionDuration / 3600
+        let min = (sessionDuration % 3600)/60
+        let sec = sessionDuration % 60
+        
+        if(hour < 10){
+            durationLabel.text = "0\(hour):\(min):\(sec)"
+            if(min < 10){
+                durationLabel.text = "0\(hour):0\(min):\(sec)"
+                if(sessionDuration < 10){
+                    durationLabel.text = "0\(hour):0\(min):0\(sec)"
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

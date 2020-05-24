@@ -20,6 +20,7 @@ class SessionMemberVC: UIViewController {
     var memberClockIn = [String]()
     var currentTotalMember = 0
     var isSessionEnd:Bool?
+    var memberDuration = 0
     
     var currentDateTime = Date()
     let formatter = DateFormatter()
@@ -78,6 +79,7 @@ class SessionMemberVC: UIViewController {
             //            User.addSessionToMember(0, currentUserID!)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID!)
             isSessionExist = false
+            User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "")
             self.dismiss(animated: true, completion: nil)
         }))
         
@@ -100,8 +102,11 @@ class SessionMemberVC: UIViewController {
             //kirim data
             
             //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
-            if let  destination = segue.destination as? ChallengeAnswerContainerVC {
-                destination.sessionID = self.sessionID
+            if let destination = segue.destination as? UINavigationController,
+                let targetController = destination.topViewController as? ChallengeAnswerContainerVC{
+                //                destination.sessionName = self.createdSessionName
+                print("\n\nyang dikirim \(self.sessionID)\n\n")
+                targetController.sessionID = self.sessionID
             }
         }
     }
@@ -114,6 +119,7 @@ class SessionMemberVC: UIViewController {
             
             guard let strongSelf = self else {return}
             strongSelf.duration += 1
+            strongSelf.memberDuration += 1
             strongSelf.hour = strongSelf.duration / 3600
             strongSelf.min = (strongSelf.duration % 3600)/60
             strongSelf.sec = strongSelf.duration % 60
@@ -128,15 +134,17 @@ class SessionMemberVC: UIViewController {
                 }
             }
             
-            if strongSelf.isSessionEnd == false{
-                //                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
-                Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
-            }
+//            if strongSelf.isSessionEnd == false{
+//                //                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
+//                Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
+//            }
             
             //            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
             
             User.getAllSessionMembers(sessionID: strongSelf.sessionID)
             Session.getChallengeFromSession(sessionID: strongSelf.sessionID)
+
+            User.setMemberDuration(userID: currentUserID ?? 0, duration: strongSelf.memberDuration)
             
             print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
             if strongSelf.currentTotalMember != totalMembersInSession{
@@ -159,7 +167,7 @@ class SessionMemberVC: UIViewController {
             
             strongSelf.participantCountLabel.text = "Participants (\(strongSelf.currentTotalMember))"
             
-            if challengeExist {
+            if challengeExist == true {
                 self!.performSegue(withIdentifier: "ChallengeAnswerSegue", sender: nil)
             }
         })

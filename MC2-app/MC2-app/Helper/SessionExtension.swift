@@ -132,6 +132,7 @@ extension Session{
         memberRecord["answerC"] = "" as CKRecordValue
         memberRecord["answerD"] = "" as CKRecordValue
         memberRecord["challengeDuration"] = 0 as CKRecordValue
+        memberRecord["isChallengeAvailable"] = false as CKRecordValue
         
         CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
             DispatchQueue.main.async {
@@ -310,6 +311,7 @@ extension Session{
             
             if let records = result {
                 print("\n\n")
+                challengeExist = false
                 records.forEach{
                     print($0)
                     challengeQuestion = $0["question"] as! String
@@ -318,11 +320,45 @@ extension Session{
                     challengeAnswerC = $0["answerC"] as! String
                     challengeAnswerD = $0["answerD"] as! String
                     challengeDuration = $0["duration"] as! Int
-                    challengeExist = ($0["isChallengeAvailable"] != nil)
+                    challengeExist = $0["isChallengeAvailable"] as! Bool
                 }
                 print("\n\n")
             }
             
+        }
+    }
+    
+    static func setChallengeToDone(sessionID:Int){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+        let query = CKQuery(recordType: "Sessions", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    $0["isChallengeAvailable"] = false as CKRecordValue
+                    
+                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                print("\n\nset challenge answered is Error: \(error.localizedDescription)\n\n")
+                            } else {
+                                print("\n\nset challenge answered is Done!\n\n")
+                            }
+                        }
+                    }
+                }
+                print("\n\n")
+            }
         }
     }
 }

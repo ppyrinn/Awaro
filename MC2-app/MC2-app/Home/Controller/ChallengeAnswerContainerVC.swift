@@ -25,7 +25,9 @@ class ChallengeAnswerContainerVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print("\n\nquestion = \(String(describing: challengeQuestion))\n\n")
+        print("\n\n is challenge exist = \(challengeExist)\n\n")
+        
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +40,10 @@ class ChallengeAnswerContainerVC: UIViewController {
     // MARK: - IBAction
     @IBAction func submitButtonAction(_ sender: Any) {
         challengeExist = false
-        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore)
+        print("\n\n is challenge exist = \(challengeExist)\n\n")
+        
+        Session.setChallengeToDone(sessionID: sessionID)
+        print("\n\nchallenge to done in session \(sessionID)\n\n")
         
         //bikin fungsi utk compare if selectedAnswer == answerA, brarti currentScore++ (dia ini global variable)
         //let answerA = self.challengeAnswerTableVCReference?.answerA
@@ -51,6 +56,7 @@ class ChallengeAnswerContainerVC: UIViewController {
             print("Wrong Answer!")
         }
         print("YourScore: \(currentScore)")
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "")
         dismiss(animated: true, completion: nil)
     }
     
