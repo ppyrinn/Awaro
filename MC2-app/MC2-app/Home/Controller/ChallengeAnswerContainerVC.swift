@@ -28,12 +28,13 @@ class ChallengeAnswerContainerVC: UIViewController {
         print("\n\n is challenge exist = \(challengeExist)\n\n")
         
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "")
+        
         toggleTimer(on: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        Session.setChallengeToDone(sessionID: sessionID)
     }
     
     

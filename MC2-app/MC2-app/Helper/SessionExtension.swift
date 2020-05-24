@@ -346,6 +346,7 @@ extension Session{
                 records.forEach{
                     print($0)
                     $0["isChallengeAvailable"] = false as CKRecordValue
+                    print("\n\n challenge is \(String(describing: $0["isChallengeAvailable"])) in session \(sessionID)\n\n")
                     
                     CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
                         DispatchQueue.main.async {
