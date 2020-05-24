@@ -17,6 +17,7 @@ struct MembersDataInSession{
     var clockIn:String
     var score:Int
     var duration:Int
+    var selectedAnswer:String
 }
 
 var membersData = [MembersDataInSession]()
