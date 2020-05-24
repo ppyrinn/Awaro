@@ -89,7 +89,7 @@ extension User{
         memberRecord["badgeTitle"] = "Bronze I" as CKRecordValue
         memberRecord["badgePicture"] = "Bronze I" as CKRecordValue
         memberRecord["achievedTitle"] = "The noob one" as CKRecordValue
-        memberRecord["xp"] = 0 as CKRecordValue
+        memberRecord["xp"] = 100 as CKRecordValue
         
         CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
             DispatchQueue.main.async {
