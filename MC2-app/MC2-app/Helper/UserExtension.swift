@@ -83,7 +83,7 @@ extension User{
         memberRecord["fullName"] = fullName as CKRecordValue
         memberRecord["email"] = email as CKRecordValue
         memberRecord["sessionID"] = 0 as CKRecordValue
-        memberRecord["memberDuration"] = "" as CKRecordValue
+        memberRecord["memberDuration"] = 0 as CKRecordValue
         memberRecord["score"] = 0 as CKRecordValue
         memberRecord["selectedAnswer"] = "" as CKRecordValue
         memberRecord["badgeTitle"] = "Bronze I" as CKRecordValue
