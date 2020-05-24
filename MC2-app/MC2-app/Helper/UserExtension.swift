@@ -267,77 +267,77 @@ extension User{
         }
     }
     
-//    static func setChallengeToUser(sessionID:Int, question:String, answerA:String, answerB:String, answerC:String, answerD:String, duration:Int){
-//        let container = CKContainer.default()
-//        let privateContainer = container.publicCloudDatabase
-//
-//        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
-//        let query = CKQuery(recordType: "Members", predicate: predicate)
-//
-//        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
-//            if let err = error {
-//                print(err.localizedDescription)
-//                return
-//            }
-//
-//            if let records = result {
-//                print("\n\n")
-//                records.forEach{
-//                    print($0)
-//                    $0["question"] = question as CKRecordValue
-//                    $0["answerA"] = answerA as CKRecordValue
-//                    $0["answerB"] = answerB as CKRecordValue
-//                    $0["answerC"] = answerC as CKRecordValue
-//                    $0["answerD"] = answerD as CKRecordValue
-//                    $0["challengeDuration"] = duration as CKRecordValue
-//                    $0["isChallengeAvailable"] = true as CKRecordValue
-//
-//                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
-//                        DispatchQueue.main.async {
-//                            if let error = error {
-//                                print("\n\nset challenge to user is Error: \(error.localizedDescription)\n\n")
-//                            } else {
-//                                print("\n\nset challenge to user is Done!\n\n")
-//                            }
-//                        }
-//                    }
-//                }
-//                print("\n\n")
-//            }
-//        }
-//    }
+    //    static func setChallengeToUser(sessionID:Int, question:String, answerA:String, answerB:String, answerC:String, answerD:String, duration:Int){
+    //        let container = CKContainer.default()
+    //        let privateContainer = container.publicCloudDatabase
+    //
+    //        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+    //        let query = CKQuery(recordType: "Members", predicate: predicate)
+    //
+    //        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+    //            if let err = error {
+    //                print(err.localizedDescription)
+    //                return
+    //            }
+    //
+    //            if let records = result {
+    //                print("\n\n")
+    //                records.forEach{
+    //                    print($0)
+    //                    $0["question"] = question as CKRecordValue
+    //                    $0["answerA"] = answerA as CKRecordValue
+    //                    $0["answerB"] = answerB as CKRecordValue
+    //                    $0["answerC"] = answerC as CKRecordValue
+    //                    $0["answerD"] = answerD as CKRecordValue
+    //                    $0["challengeDuration"] = duration as CKRecordValue
+    //                    $0["isChallengeAvailable"] = true as CKRecordValue
+    //
+    //                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
+    //                        DispatchQueue.main.async {
+    //                            if let error = error {
+    //                                print("\n\nset challenge to user is Error: \(error.localizedDescription)\n\n")
+    //                            } else {
+    //                                print("\n\nset challenge to user is Done!\n\n")
+    //                            }
+    //                        }
+    //                    }
+    //                }
+    //                print("\n\n")
+    //            }
+    //        }
+    //    }
     
-//    static func getChallengeToUser(sessionID:Int){
-//        let container = CKContainer.default()
-//        let privateContainer = container.publicCloudDatabase
-//
-//        // fecth with array
-//        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
-//        let query = CKQuery(recordType: "Members", predicate: predicate)
-//
-//        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
-//            if let err = error {
-//                print(err.localizedDescription)
-//                return
-//            }
-//
-//            if let records = result {
-//                print("\n\n")
-//                records.forEach{
-//                    print($0)
-//                    currentChallenge?.question = $0["question"] as! String
-//                    currentChallenge?.a = $0["answerA"] as! String
-//                    currentChallenge?.b = $0["answerB"] as! String
-//                    currentChallenge?.c = $0["answerC"] as! String
-//                    currentChallenge?.d = $0["answerD"] as! String
-//                    currentChallenge?.duration = $0["duration"] as! Int
-//                    currentChallenge?.available = ($0["isChallengeAvailable"] != nil)
-//                }
-//                print("\n\n")
-//            }
-//
-//        }
-//    }
+    //    static func getChallengeToUser(sessionID:Int){
+    //        let container = CKContainer.default()
+    //        let privateContainer = container.publicCloudDatabase
+    //
+    //        // fecth with array
+    //        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
+    //        let query = CKQuery(recordType: "Members", predicate: predicate)
+    //
+    //        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+    //            if let err = error {
+    //                print(err.localizedDescription)
+    //                return
+    //            }
+    //
+    //            if let records = result {
+    //                print("\n\n")
+    //                records.forEach{
+    //                    print($0)
+    //                    currentChallenge?.question = $0["question"] as! String
+    //                    currentChallenge?.a = $0["answerA"] as! String
+    //                    currentChallenge?.b = $0["answerB"] as! String
+    //                    currentChallenge?.c = $0["answerC"] as! String
+    //                    currentChallenge?.d = $0["answerD"] as! String
+    //                    currentChallenge?.duration = $0["duration"] as! Int
+    //                    currentChallenge?.available = ($0["isChallengeAvailable"] != nil)
+    //                }
+    //                print("\n\n")
+    //            }
+    //
+    //        }
+    //    }
     
     static func setScoreToUser(userID:Int, score:Int, selectedAnswer:String, xp:Int){
         let container = CKContainer.default()
@@ -401,6 +401,42 @@ extension User{
                                 print("\n\nset member duration is Error: \(error.localizedDescription)\n\n")
                             } else {
                                 print("\n\nset member duration is Done!\n\n")
+                            }
+                        }
+                    }
+                }
+                print("\n\n")
+            }
+        }
+        
+    }
+    
+    static func setBadgeToMember(userID:Int, badgeTitle:String, badgePicture:String){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(format: "userID = %d", userID)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    $0["badgeTitle"] = badgeTitle as CKRecordValue
+                    $0["badgePicture"] = badgePicture as CKRecordValue
+                    
+                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                print("\n\nset badge to member is Error: \(error.localizedDescription)\n\n")
+                            } else {
+                                print("\n\nset badge to member is Done!\n\n")
                             }
                         }
                     }
