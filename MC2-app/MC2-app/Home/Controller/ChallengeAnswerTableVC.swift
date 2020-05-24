@@ -19,6 +19,7 @@ class ChallengeAnswerTableVC: UITableViewController {
     var answerD = challengeAnswerD
     var duration = challengeDuration
     var selectedAnswer = "" //disini nanti nampung answer yang dipilih user
+    
 
     // MARK: - IBOutlet
     @IBOutlet weak var questionLabel: UILabel!
