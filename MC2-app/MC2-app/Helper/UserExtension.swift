@@ -75,13 +75,16 @@ extension User{
     //MARK: - CloudKit Functions
     
     static func createMember(id:Int,fullName:String,email:String) {
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
         let memberRecord = CKRecord(recordType: "Members")
         memberRecord["userID"] = id as CKRecordValue
         memberRecord["fullName"] = fullName as CKRecordValue
         memberRecord["email"] = email as CKRecordValue
         memberRecord["sessionID"] = 0 as CKRecordValue
         memberRecord["memberDuration"] = "" as CKRecordValue
-        memberRecord["score"] = "" as CKRecordValue
+        memberRecord["score"] = 0 as CKRecordValue
         memberRecord["selectedAnswer"] = "" as CKRecordValue
         memberRecord["badgeTitle"] = "Bronze I" as CKRecordValue
         memberRecord["badgePicture"] = "Bronze I" as CKRecordValue
