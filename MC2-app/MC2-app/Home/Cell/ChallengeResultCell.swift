@@ -10,6 +10,13 @@ import UIKit
 
 class ChallengeResultCell: UITableViewCell {
 
+    @IBOutlet weak var badgeImage: UIImageView!
+    @IBOutlet weak var participantNameLabel: UILabel!
+    @IBOutlet weak var participantAnswerLabel: UILabel!
+    @IBOutlet weak var answerImageView: UIImageView!
+    @IBOutlet weak var answerDurationLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -125,11 +125,11 @@ class SessionMemberVC: UIViewController {
             strongSelf.sec = strongSelf.duration % 60
             
             if(strongSelf.hour < 10){
-                strongSelf.timerLabel.text = "0\(strongSelf.hour) : \(strongSelf.min) : \(strongSelf.sec)"
+                strongSelf.timerLabel.text = "0\(strongSelf.hour):\(strongSelf.min):\(strongSelf.sec)"
                 if(strongSelf.min < 10){
-                    strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : \(strongSelf.sec)"
+                    strongSelf.timerLabel.text = "0\(strongSelf.hour):0\(strongSelf.min):\(strongSelf.sec)"
                     if(strongSelf.duration < 10){
-                        strongSelf.timerLabel.text = "0\(strongSelf.hour) : 0\(strongSelf.min) : 0\(strongSelf.sec)"
+                        strongSelf.timerLabel.text = "0\(strongSelf.hour):0\(strongSelf.min):0\(strongSelf.sec)"
                     }
                 }
             }

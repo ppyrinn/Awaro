@@ -27,6 +27,7 @@ class SessionResultVC: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var participantCountLabel: UILabel!
     @IBOutlet weak var sessionResultTable: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

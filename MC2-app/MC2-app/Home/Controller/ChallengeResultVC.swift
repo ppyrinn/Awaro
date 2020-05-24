@@ -21,6 +21,9 @@ class ChallengeResultVC: UIViewController {
     var participantsDuration = [String]()
 
     // MARK: - IBOutlet
+    @IBOutlet weak var challengeQuestionLabel: UILabel!
+    @IBOutlet weak var rightAnswerLabel: UILabel!
+    @IBOutlet weak var challengeDurationLabel: UILabel!
     @IBOutlet weak var participantResultTable: UITableView!
     
     override func viewDidLoad() {
@@ -42,12 +45,21 @@ class ChallengeResultVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        loadChallengeResult()
     }
     
     
-    // MARK: - IBAction Functin
+    // MARK: - IBAction Function
     @IBAction func doneButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Function
+    func loadChallengeResult() {
+        challengeQuestionLabel.text = question
+        rightAnswerLabel.text = answerA
+        challengeDurationLabel.text = "\(duration)"
     }
     
 
@@ -66,13 +78,15 @@ class ChallengeResultVC: UIViewController {
 extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return participantsName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeResultCell", for: indexPath) as! ChallengeResultCell
 
         // Configure the cell...
+        cell.participantNameLabel.text = participantsName[indexPath.row]
+        cell.participantAnswerLabel.text = participantsAnswer[indexPath.row]
 
         return cell
     }

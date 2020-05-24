@@ -1969,6 +1969,13 @@
                                                         <constraint firstItem="hxY-0i-fjv" firstAttribute="leading" secondItem="za5-dM-bFF" secondAttribute="trailing" constant="8" id="xfC-cK-k0g"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="answerDurationLabel" destination="dxj-hB-nxz" id="Ei2-Mp-xRl"/>
+                                                    <outlet property="answerImageView" destination="kl0-U9-0dB" id="NPX-X0-lBE"/>
+                                                    <outlet property="badgeImage" destination="za5-dM-bFF" id="zdK-GQ-hcP"/>
+                                                    <outlet property="participantAnswerLabel" destination="hxY-0i-fjv" id="4iP-rW-F7f"/>
+                                                    <outlet property="participantNameLabel" destination="wIf-0L-eRX" id="DHb-bA-rHj"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -2030,7 +2037,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="challengeDurationLabel" destination="QZi-Bi-SuW" id="7yQ-H0-uQp"/>
+                        <outlet property="challengeQuestionLabel" destination="qxR-tD-4S3" id="ezZ-Dv-HwE"/>
                         <outlet property="participantResultTable" destination="fny-4a-YwW" id="9fc-lU-UwW"/>
+                        <outlet property="rightAnswerLabel" destination="oDk-YU-eGs" id="ybn-rp-lM2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ET-sX-lfa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2166,7 +2176,7 @@
             </objects>
             <point key="canvasLocation" x="6689.8550724637689" y="-177.45535714285714"/>
         </scene>
-        <!--Challenge Answer ContainerVC-->
+        <!--00:00-->
         <scene sceneID="5jT-bK-AGK">
             <objects>
                 <viewController id="8Tg-CU-eBu" customClass="ChallengeAnswerContainerVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
@@ -2237,7 +2247,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aEJ-ku-7lS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ieP-ey-1dO"/>
+                    <navigationItem key="navigationItem" title="00:00" id="ieP-ey-1dO"/>
                     <connections>
                         <outlet property="submitButtonOutlet" destination="Ryr-5p-xuL" id="eWU-9g-Ei0"/>
                     </connections>

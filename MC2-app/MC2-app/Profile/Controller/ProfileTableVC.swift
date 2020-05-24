@@ -19,6 +19,8 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     let nameTextViewPlaceholderText = "Your Name"
     let emailTextViewPlaceholderText = "youremail@email.com"
     
+    
+    // MARK: - Arrays
     let badgeImage = ["Bronze I",
                       "Bronze II",
                       "Bronze III",

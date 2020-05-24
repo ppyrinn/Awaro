@@ -28,23 +28,17 @@ class ChallengeAnswerContainerVC: UIViewController {
         print("\n\n is challenge exist = \(challengeExist)\n\n")
         
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "")
+        toggleTimer(on: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        navigationItem.title = "\(challengeDuration)"
     }
     
     
     // MARK: - IBAction
     @IBAction func submitButtonAction(_ sender: Any) {
-        challengeExist = false
-        print("\n\n is challenge exist = \(challengeExist)\n\n")
-        
-        Session.setChallengeToDone(sessionID: sessionID)
-        print("\n\nchallenge to done in session \(sessionID)\n\n")
-        
         //bikin fungsi utk compare if selectedAnswer == answerA, brarti currentScore++ (dia ini global variable)
         //let answerA = self.challengeAnswerTableVCReference?.answerA
         let selectedAnswer = self.challengeAnswerTableVCReference?.selectedAnswer
@@ -56,7 +50,15 @@ class ChallengeAnswerContainerVC: UIViewController {
             print("Wrong Answer!")
         }
         print("YourScore: \(currentScore)")
+        
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "")
+        
+        challengeExist = false
+        print("\n\n is challenge exist = \(challengeExist)\n\n")
+        
+        Session.setChallengeToDone(sessionID: sessionID)
+        print("\n\nchallenge to done in session \(sessionID)\n\n")
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -67,28 +69,38 @@ class ChallengeAnswerContainerVC: UIViewController {
     }
     
     func toggleTimer(on : Bool){
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+            guard let strongSelf = self else {return}
+            
+            strongSelf.duration -= 1
+            
+            if strongSelf.duration < 10 {
+                strongSelf.navigationItem.title = "00:0\(strongSelf.duration)"
                 
-                guard let strongSelf = self else {return}
-                
-                strongSelf.duration -= 1
-                strongSelf.min = (strongSelf.duration % 3600)/60
-                strongSelf.sec = strongSelf.duration % 60
-                
-                if(strongSelf.min < 10){
-                    strongSelf.timerLabel.text = "0\(strongSelf.min):\(strongSelf.sec)"
-                    if(strongSelf.duration < 10){
-                        strongSelf.timerLabel.text = ":0\(strongSelf.min):0\(strongSelf.sec)"
+                if strongSelf.duration == 0 {
+                    let selectedAnswer = self!.challengeAnswerTableVCReference?.selectedAnswer
+                    
+                    if selectedAnswer == "A" {
+                        currentScore += 1
                     }
+                    else {
+                        print("Wrong Answer!")
+                    }
+                    print("YourScore: \(currentScore)")
+                    
+                    User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "")
+                    
+                    challengeExist = false
+                    print("\n\n is challenge exist = \(challengeExist)\n\n")
+                    
+                    Session.setChallengeToDone(sessionID: self!.sessionID)
+                    print("\n\nchallenge to done in session \(self!.sessionID)\n\n")
+                    
+                    self!.dismiss(animated: true, completion: nil)
                 }
-                
-                
-                if strongSelf.isSessionEnd == false{
-                    Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
-                }
-            })
-        }
-    
+            }
+        })
+    }
 
     
     // MARK: - Navigation
@@ -103,6 +115,4 @@ class ChallengeAnswerContainerVC: UIViewController {
             }
         }
     }
-    
-
 }
