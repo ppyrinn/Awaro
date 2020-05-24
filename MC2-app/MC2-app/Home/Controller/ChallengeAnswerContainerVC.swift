@@ -13,6 +13,8 @@ class ChallengeAnswerContainerVC: UIViewController {
     //MARK: - Variables
     var challengeAnswerTableVCReference: ChallengeAnswerTableVC?
     var sessionID = Int()
+    var timer = Timer()
+    var duration = challengeDuration
     
     
     // MARK: - IBOutlet
@@ -24,6 +26,12 @@ class ChallengeAnswerContainerVC: UIViewController {
 
         // Do any additional setup after loading the view.
         print("\n\nquestion = \(String(describing: challengeQuestion))\n\n")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationItem.title = "\(challengeDuration)"
     }
     
     
@@ -51,6 +59,29 @@ class ChallengeAnswerContainerVC: UIViewController {
     func saveContrainerViewReference(vc: ChallengeAnswerTableVC){
         self.challengeAnswerTableVCReference = vc
     }
+    
+    func toggleTimer(on : Bool){
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+                
+                guard let strongSelf = self else {return}
+                
+                strongSelf.duration -= 1
+                strongSelf.min = (strongSelf.duration % 3600)/60
+                strongSelf.sec = strongSelf.duration % 60
+                
+                if(strongSelf.min < 10){
+                    strongSelf.timerLabel.text = "0\(strongSelf.min):\(strongSelf.sec)"
+                    if(strongSelf.duration < 10){
+                        strongSelf.timerLabel.text = ":0\(strongSelf.min):0\(strongSelf.sec)"
+                    }
+                }
+                
+                
+                if strongSelf.isSessionEnd == false{
+                    Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
+                }
+            })
+        }
     
 
     
