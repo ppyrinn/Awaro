@@ -83,6 +83,10 @@ extension User{
         memberRecord["memberDuration"] = "" as CKRecordValue
         memberRecord["score"] = "" as CKRecordValue
         memberRecord["selectedAnswer"] = "" as CKRecordValue
+        memberRecord["badgeTitle"] = "" as CKRecordValue
+        memberRecord["badgePicture"] = "" as CKRecordValue
+        memberRecord["achievedTitle"] = "" as CKRecordValue
+        memberRecord["xp"] = 0 as CKRecordValue
         
         CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
             DispatchQueue.main.async {
@@ -117,6 +121,12 @@ extension User{
                     userEmail = $0["email"]
                     userFullName = $0["fullName"]
                     currentUserID = $0["userID"]
+                    currentXP = $0["xp"]
+                    currentBadgeTitle = $0["badgeTitle"]
+                    currentBadgePicture = $0["badgePicture"]
+                    currentAchievedTitle = $0["achievedTitle"]
+                    
+                    print("\n\n\(currentXP)\n\n")
                 }
                 print("\n\n")
             }
@@ -260,16 +270,16 @@ extension User{
 //    static func setChallengeToUser(sessionID:Int, question:String, answerA:String, answerB:String, answerC:String, answerD:String, duration:Int){
 //        let container = CKContainer.default()
 //        let privateContainer = container.publicCloudDatabase
-//        
+//
 //        let predicate = NSPredicate(format: "sessionID = %d", sessionID)
 //        let query = CKQuery(recordType: "Members", predicate: predicate)
-//        
+//
 //        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
 //            if let err = error {
 //                print(err.localizedDescription)
 //                return
 //            }
-//            
+//
 //            if let records = result {
 //                print("\n\n")
 //                records.forEach{
@@ -281,7 +291,7 @@ extension User{
 //                    $0["answerD"] = answerD as CKRecordValue
 //                    $0["challengeDuration"] = duration as CKRecordValue
 //                    $0["isChallengeAvailable"] = true as CKRecordValue
-//                    
+//
 //                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
 //                        DispatchQueue.main.async {
 //                            if let error = error {
@@ -329,7 +339,7 @@ extension User{
 //        }
 //    }
     
-    static func setScoreToUser(userID:Int, score:Int, selectedAnswer:String){
+    static func setScoreToUser(userID:Int, score:Int, selectedAnswer:String, xp:Int){
         let container = CKContainer.default()
         let privateContainer = container.publicCloudDatabase
         
@@ -349,6 +359,7 @@ extension User{
                     $0["score"] = score as CKRecordValue
                     $0["isChallengeAvailable"] = false as CKRecordValue
                     $0["selectedAnswer"] = selectedAnswer as CKRecordValue
+                    $0["xp"] = xp as CKRecordValue
                     
                     CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
                         DispatchQueue.main.async {

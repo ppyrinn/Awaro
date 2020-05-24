@@ -29,6 +29,10 @@ var currentUserID:Int?
 var userFullName:String?
 var userEmail:String?
 var memberCounter = 0
+var currentXP:Int?
+var currentBadgeTitle:String?
+var currentBadgePicture:String?
+var currentAchievedTitle:String?
 
 extension UserModel:CustomDebugStringConvertible{
     var debugDescription: String{

@@ -27,7 +27,7 @@ class ChallengeAnswerContainerVC: UIViewController {
         // Do any additional setup after loading the view.
         print("\n\n is challenge exist = \(challengeExist)\n\n")
         
-        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "")
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "", xp:currentXP ?? 0)
         
         toggleTimer(on: true)
     }
@@ -46,13 +46,14 @@ class ChallengeAnswerContainerVC: UIViewController {
         
         if selectedAnswer == "A" {
             currentScore += 1
+            currentXP! += 4
         }
         else {
             print("Wrong Answer!")
         }
         print("YourScore: \(currentScore)")
         
-        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "")
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0)
         
         challengeExist = false
         print("\n\n is challenge exist = \(challengeExist)\n\n")
@@ -83,13 +84,14 @@ class ChallengeAnswerContainerVC: UIViewController {
                     
                     if selectedAnswer == "A" {
                         currentScore += 1
+                        currentXP! += 4
                     }
                     else {
                         print("Wrong Answer!")
                     }
                     print("YourScore: \(currentScore)")
                     
-                    User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "")
+                    User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0)
                     
                     challengeExist = false
                     print("\n\n is challenge exist = \(challengeExist)\n\n")

@@ -79,7 +79,7 @@ class SessionMemberVC: UIViewController {
             //            User.addSessionToMember(0, currentUserID!)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID!)
             isSessionExist = false
-            User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "")
+            User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "", xp: currentXP ?? 0)
             self.dismiss(animated: true, completion: nil)
         }))
         
