@@ -81,7 +81,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         tableView.keyboardDismissMode = .onDrag
-        loadSessionID()
+        
         loadTextView()
     }
     
@@ -96,6 +96,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        loadProfileData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -135,7 +136,12 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     
     
     // MARK: - Function
-    func loadSessionID() {
+    func loadProfileData() {
+        largeBadgeImage.image = UIImage(named: currentBadgePicture ?? "")
+        largeRankLabel.text = currentBadgeTitle
+        largeXPLabel.text = "\(currentXP ?? 0) XP"
+        titleLabel.text = currentAchievedTitle
+        
         if currentUserID == nil {
             sessionIDLabel.text = sessionIDLabelPlaceholderText
         }
@@ -244,10 +250,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BadgeCollectionCell", for: indexPath) as! BadgeCollectionCell
     
         // Configure the cell
-//        cell.badgeImageView.image = UIImage(named: badgeImage[indexPath.row])
-//        cell.rankLabel.text = rankLabel[indexPath.row]
-//        cell.rankLabel.textColor = rankLabelColor[indexPath.row]
-//        cell.xpLabel.text = xpLabel[indexPath.row]
+        cell.xpProgressView.progress = Float(currentXP ?? 0)
     
         return cell
     }

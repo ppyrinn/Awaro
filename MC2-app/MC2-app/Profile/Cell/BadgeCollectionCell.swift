@@ -13,6 +13,7 @@ class BadgeCollectionCell: UICollectionViewCell {
     @IBOutlet weak var badgeImageView: UIImageView!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var xpLabel: UILabel!
+    @IBOutlet weak var xpProgressView: UIProgressView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

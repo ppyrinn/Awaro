@@ -699,7 +699,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhy-aa-nx7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="369.56521739130437" y="221.65178571428569"/>
+            <point key="canvasLocation" x="1204" y="-504"/>
         </scene>
         <!--Profile-->
         <scene sceneID="NRc-MB-9RF">
@@ -1368,7 +1368,7 @@
                                                                             <constraint firstItem="mE1-dD-1Sl" firstAttribute="top" secondItem="cDj-Ec-fDQ" secondAttribute="top" id="vvh-lb-CLP"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.96999999999999997" translatesAutoresizingMaskIntoConstraints="NO" id="6ia-eB-uu9">
+                                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ia-eB-uu9">
                                                                         <rect key="frame" x="0.0" y="74.5" width="1000" height="2"/>
                                                                         <color key="progressTintColor" red="0.38431372549999998" green="0.21176470589999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <color key="trackTintColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1426,6 +1426,9 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="1000" height="125.5"/>
+                                                            <connections>
+                                                                <outlet property="xpProgressView" destination="6ia-eB-uu9" id="Tlx-dd-bC7"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
@@ -1624,7 +1627,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfx-x1-MQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230.4347826086957" y="221.65178571428569"/>
+            <point key="canvasLocation" x="370" y="221"/>
         </scene>
     </scenes>
     <resources>
