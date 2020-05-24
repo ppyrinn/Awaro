@@ -41,6 +41,7 @@ class ChallengeAnswerTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        loadQuestionData()
         setButtonTag()
     }
     
@@ -56,8 +57,6 @@ class ChallengeAnswerTableVC: UITableViewController {
         
         let challengeAnswerContainerVC = self.parent as! ChallengeAnswerContainerVC
         challengeAnswerContainerVC.saveContrainerViewReference(vc: self)
-        
-        loadQuestionData()
     }
     
     

@@ -82,6 +82,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         
         tableView.keyboardDismissMode = .onDrag
         
+        loadProfileData()
         loadTextView()
         
         //buat update badge ke cloud
@@ -99,7 +100,6 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        loadProfileData()
     }
     
     override func viewDidLayoutSubviews() {
