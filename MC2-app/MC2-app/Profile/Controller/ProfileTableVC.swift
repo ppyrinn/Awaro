@@ -83,6 +83,9 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         tableView.keyboardDismissMode = .onDrag
         loadSessionID()
         loadTextView()
+        
+        //buat update badge ke cloud
+//        User.setBadgeToMember(userID: currentUserID, badgeTitle: currentBadgeTitle, badgePicture: currentBadgePicture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
