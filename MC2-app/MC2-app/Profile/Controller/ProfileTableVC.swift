@@ -226,8 +226,9 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     }
     */
     
+    
     // MARK: UICollectionViewDataSource
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -236,17 +237,17 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 9
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BadgeCollectionCell", for: indexPath) as! BadgeCollectionCell
     
         // Configure the cell
-        cell.badgeImageView.image = UIImage(named: badgeImage[indexPath.row])
-        cell.rankLabel.text = rankLabel[indexPath.row]
-        cell.rankLabel.textColor = rankLabelColor[indexPath.row]
-        cell.xpLabel.text = xpLabel[indexPath.row]
+//        cell.badgeImageView.image = UIImage(named: badgeImage[indexPath.row])
+//        cell.rankLabel.text = rankLabel[indexPath.row]
+//        cell.rankLabel.textColor = rankLabelColor[indexPath.row]
+//        cell.xpLabel.text = xpLabel[indexPath.row]
     
         return cell
     }
@@ -284,9 +285,11 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     
     // MARK: UICollectionViewDelegateFlowLayout
     
+    /*
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 125, height: 125)
     }
+     */
 
 }
 

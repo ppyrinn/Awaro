@@ -9,6 +9,7 @@
 import UIKit
 
 class ChallengeResultVC: UIViewController {
+    
     //MARK: - Variables
     var question = challengeQuestion
     var answerA = challengeAnswerA
@@ -19,12 +20,14 @@ class ChallengeResultVC: UIViewController {
     var participantsName = [String]()
     var participantsAnswer = [String]()
     var participantsDuration = [String]()
+    
 
     // MARK: - IBOutlet
     @IBOutlet weak var challengeQuestionLabel: UILabel!
     @IBOutlet weak var rightAnswerLabel: UILabel!
     @IBOutlet weak var challengeDurationLabel: UILabel!
     @IBOutlet weak var participantResultTable: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,15 +81,16 @@ class ChallengeResultVC: UIViewController {
 extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return participantsName.count
+        return membersData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeResultCell", for: indexPath) as! ChallengeResultCell
 
         // Configure the cell...
-        cell.participantNameLabel.text = participantsName[indexPath.row]
-        cell.participantAnswerLabel.text = participantsAnswer[indexPath.row]
+        cell.participantNameLabel.text = membersData[indexPath.row].name
+        cell.participantAnswerLabel.text = membersData[indexPath.row].selectedAnswer
+        cell.answerDurationLabel.text = "\(membersData[indexPath.row].duration)"
 
         return cell
     }
