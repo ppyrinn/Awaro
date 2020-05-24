@@ -362,7 +362,6 @@ extension ProfileTableVC: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if textView == nameTextView && text == "\n" {  // Recognizes enter key in keyboard
             nameTextView.resignFirstResponder()
-            
             return false
         }
         return true
