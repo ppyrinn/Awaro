@@ -251,10 +251,12 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BadgeCollectionCell", for: indexPath) as! BadgeCollectionCell
+        let floatXP = Float(currentXP ?? 0)
     
         // Configure the cell
-        cell.xpProgressView.progress = Float(currentXP ?? 0)
-    
+        cell.xpProgressView.progress = floatXP * 0.001
+        print(floatXP * 0.001)
+        
         return cell
     }
 

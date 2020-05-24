@@ -1313,14 +1313,14 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDj-Ec-fDQ">
                                                                         <rect key="frame" x="850" y="0.0" width="100" height="125.5"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gold II" translatesAutoresizingMaskIntoConstraints="NO" id="mE1-dD-1Sl">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gold III" translatesAutoresizingMaskIntoConstraints="NO" id="mE1-dD-1Sl">
                                                                                 <rect key="frame" x="28.5" y="0.0" width="43" height="62"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="43" id="XOv-oh-xQ9"/>
                                                                                     <constraint firstAttribute="height" constant="62" id="vz0-jf-MY1"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold II" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7R-fD-Qmq">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold III" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7R-fD-Qmq">
                                                                                 <rect key="frame" x="20" y="86.5" width="60" height="18"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="97V-TG-CYq"/>
