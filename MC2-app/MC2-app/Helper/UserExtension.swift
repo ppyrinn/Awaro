@@ -414,7 +414,7 @@ extension User{
         
     }
     
-    static func setBadgeToMember(userID:Int, badgeTitle:String, badgePicture:String){
+    static func setBadgeToMember(userID:Int, badgeTitle:String, badgePicture:String, achievedTitle:String){
         let container = CKContainer.default()
         let privateContainer = container.publicCloudDatabase
         
@@ -433,6 +433,7 @@ extension User{
                     print($0)
                     $0["badgeTitle"] = badgeTitle as CKRecordValue
                     $0["badgePicture"] = badgePicture as CKRecordValue
+                    $0["achievedTitle"] = achievedTitle as CKRecordValue
                     
                     CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
                         DispatchQueue.main.async {

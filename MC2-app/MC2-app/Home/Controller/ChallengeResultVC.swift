@@ -17,6 +17,8 @@ class ChallengeResultVC: UIViewController {
     var answerC = challengeAnswerC
     var answerD = challengeAnswerD
     var duration = challengeDuration
+    var minutes: Int = 0
+    var seconds: Int = 0
     var participantsName = [String]()
     var participantsAnswer = [String]()
     var participantsDuration = [String]()
@@ -33,6 +35,7 @@ class ChallengeResultVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadChallengeResult()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +51,6 @@ class ChallengeResultVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        loadChallengeResult()
     }
     
     
@@ -61,8 +63,22 @@ class ChallengeResultVC: UIViewController {
     // MARK: - Function
     func loadChallengeResult() {
         challengeQuestionLabel.text = question
-        rightAnswerLabel.text = answerA
-        challengeDurationLabel.text = "\(duration)"
+        rightAnswerLabel.text = "Answer: \(answerA)"
+        print(question)
+        
+        if duration < 60 {
+            seconds = duration
+            challengeDurationLabel.text = "Duration: \(seconds) sec"
+        }
+        if duration == 60 {
+            minutes = duration / 60
+            challengeDurationLabel.text = "Duration: \(minutes) min"
+        }
+        if duration > 60 {
+            minutes = duration / 60
+            seconds = duration % 60
+            challengeDurationLabel.text = "Duration: \(minutes) min" + " " + "\(seconds) sec"
+        }
     }
     
 

@@ -88,7 +88,7 @@ class ChallengeQuestionTableVC: UITableViewController {
         answerC = cAnswerTextView.text
         answerD = dAnswerTextView.text
         
-        print("\n\n\(question)\n\n\(answerA)\n\n\(answerB)\n\n\(answerC)\n\n\(answerD)\n\nsession id = \(sessionID)\n\n")
+        print("\n\n\(question)\n\n\(answerA)\n\n\(answerB)\n\n\(answerC)\n\n\(answerD)\n\nsession id = \(sessionID)\n\nDuration = \(duration)")
         Session.setChallenge(sessionID: sessionID, question: question, answerA: answerA, answerB: answerB, answerC: answerC, answerD: answerD, duration: duration)
 //        User.setChallengeToUser(sessionID: sessionID, question: question, answerA: answerA, answerB: answerB, answerC: answerC, answerD: answerD, duration: duration)
         performSegue(withIdentifier: "SubmitSegue", sender: nil)
@@ -210,15 +210,25 @@ class ChallengeQuestionTableVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "SubmitSegue" {
+            //kirim data
+            
+            //tanya ke segue tujuannya kemana, di cek tujuannya bener ato engga itu view yang mau di tuju
+            if let destination = segue.destination as? ChallengeResultVC {
+                destination.question = self.question
+                destination.answerA = self.answerA
+                destination.duration = self.duration
+            }
+        }
     }
-    */
+    
 
 }
 
