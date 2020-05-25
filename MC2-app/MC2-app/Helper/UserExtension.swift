@@ -225,7 +225,7 @@ extension User{
                 records.forEach{
                     print($0)
                     //                    membersInSession.append($0["fullName"] as! String)
-                    membersData.append(MembersDataInSession(name: $0["fullName"] as! String, clockIn: $0["joinAt"] as! String, score: $0["score"] as! Int, duration: $0["memberDuration"] as! Int, selectedAnswer: $0["selectedAnswer"] as! String))
+                    membersData.append(MembersDataInSession(name: $0["fullName"] as! String, clockIn: $0["joinAt"] as! String, score: $0["score"] as! Int, duration: $0["memberDuration"] as! Int, selectedAnswer: $0["selectedAnswer"] as! String, badgeTitle: $0["badgeTitle"] as! String, badgePicture: $0["badgePicture"] as! String))
                     totalMembersInSession += 1
                     //                    print("\n\n\nMembers in session = \(membersInSession)\n\n\nTotal = \(totalMembersInSession)\n\n")
                 }
