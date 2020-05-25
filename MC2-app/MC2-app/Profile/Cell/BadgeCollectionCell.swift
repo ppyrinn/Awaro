@@ -15,6 +15,16 @@ class BadgeCollectionCell: UICollectionViewCell {
     @IBOutlet weak var xpLabel: UILabel!
     @IBOutlet weak var xpProgressView: UIProgressView!
     
+    @IBOutlet weak var bronze1DotView: UIView!
+    @IBOutlet weak var bronze2DotView: UIView!
+    @IBOutlet weak var bronze3DotView: UIView!
+    @IBOutlet weak var silver1DotView: UIView!
+    @IBOutlet weak var silver2DotView: UIView!
+    @IBOutlet weak var silver3DotView: UIView!
+    @IBOutlet weak var gold1DotView: UIView!
+    @IBOutlet weak var gold2DotView: UIView!
+    @IBOutlet weak var gold3DotView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         /*

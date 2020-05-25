@@ -140,10 +140,65 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     
     // MARK: - Function
     func loadProfileData() {
-        largeBadgeImage.image = UIImage(named: currentBadgePicture ?? "")
-        largeRankLabel.text = currentBadgeTitle
+        if currentXP ?? 0 >= 0 {
+            largeBadgeImage.image = UIImage(named: "Bronze I")
+            largeRankLabel.text = "Bronze I"
+            titleLabel.text = "Awaro Beginner"
+            User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Awaro Beginner", badgePicture: "Bronze I")
+        }
+        if currentXP ?? 0 >= 200 {
+            largeBadgeImage.image = UIImage(named: "A New Beginning")
+            largeRankLabel.text = "A New Beginning"
+            titleLabel.text = "A New Beginning"
+            User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "A New Beginning", badgePicture: "A New Beginning")
+        }
+        if currentXP ?? 0 >= 300 {
+            largeBadgeImage.image = UIImage(named: "Bronze III")
+            largeRankLabel.text = "Bronze III"
+            titleLabel.text = "A New Beginning"
+            User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "A New Beginning", badgePicture: "Bronze III")
+        }
+        if currentXP ?? 0 >= 400 {
+            largeBadgeImage.image = UIImage(named: "Silver I")
+            largeRankLabel.text = "Silver I"
+            titleLabel.text = "Who's Outside The Class?"
+            User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Who's Outside The Class?", badgePicture: "Silver I")
+        }
+        if currentXP ?? 0 >= 500 {
+            largeBadgeImage.image = UIImage(named: "Silver II")
+            largeRankLabel.text = "Silver II"
+            titleLabel.text = "Who's Inside The Class?"
+           User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Who's Inside The Class?", badgePicture: "Silver II")
+        }
+        if currentXP ?? 0 >= 600 {
+            largeBadgeImage.image = UIImage(named: "Silver III")
+            largeRankLabel.text = "Silver III"
+            titleLabel.text = "Class Master"
+            User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Class Master", badgePicture: "Silver III")
+        }
+        if currentXP ?? 0 >= 700 {
+            largeBadgeImage.image = UIImage(named: "Gold I")
+            largeRankLabel.text = "Gold I"
+            titleLabel.text = "700 and Up"
+           User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "700 and Up", badgePicture: "Gold I")
+        }
+        if currentXP ?? 0 >= 800 {
+            largeBadgeImage.image = UIImage(named: "Gold II")
+            largeRankLabel.text = "Gold II"
+            titleLabel.text = "One in A Million"
+            User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "One in A Million", badgePicture: "Gold II")
+        }
+        if currentXP ?? 0 >= 900 {
+            largeBadgeImage.image = UIImage(named: "Gold III")
+            largeRankLabel.text = "Gold III"
+            titleLabel.text = "The Chosen One"
+            User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "The Chosen One", badgePicture: "Gold III")
+        }
+        
+//        largeBadgeImage.image = UIImage(named: currentBadgePicture ?? "")
+//        largeRankLabel.text = currentBadgeTitle
         largeXPLabel.text = "\(currentXP ?? 0) XP"
-        titleLabel.text = currentAchievedTitle
+//        titleLabel.text = currentAchievedTitle
         
         if currentUserID == nil {
             sessionIDLabel.text = sessionIDLabelPlaceholderText
@@ -254,8 +309,36 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         let floatXP = Float(currentXP ?? 0)
     
         // Configure the cell
-        cell.xpProgressView.progress = floatXP * 0.001
-        print(floatXP * 0.001)
+        cell.xpProgressView.setProgress(floatXP / 1000, animated: true)
+        print(floatXP / 1000)
+        
+        if currentXP ?? 0 >= 0 {
+            cell.bronze1DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
+        if currentXP ?? 0 >= 200 {
+            cell.bronze2DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
+        if currentXP ?? 0 >= 300 {
+            cell.bronze3DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
+        if currentXP ?? 0 >= 400 {
+            cell.silver1DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
+        if currentXP ?? 0 >= 500 {
+            cell.silver2DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
+        if currentXP ?? 0 >= 600 {
+            cell.silver3DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
+        if currentXP ?? 0 >= 700 {
+           cell.gold1DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
+        if currentXP ?? 0 >= 800 {
+            cell.gold2DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
+        if currentXP ?? 0 >= 900 {
+            cell.gold3DotView.backgroundColor = #colorLiteral(red: 0.3333333333, green: 0.3098039216, blue: 0.7882352941, alpha: 1)
+        }
         
         return cell
     }

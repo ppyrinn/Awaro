@@ -846,6 +846,11 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="1000" height="125.5"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
+                                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="6ia-eB-uu9">
+                                                                        <rect key="frame" x="0.0" y="75" width="1000" height="2.5"/>
+                                                                        <color key="progressTintColor" red="0.38431372549999998" green="0.21176470589999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <color key="trackTintColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    </progressView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6C-g4-rB8">
                                                                         <rect key="frame" x="50" y="0.5" width="100" height="124.5"/>
                                                                         <subviews>
@@ -875,8 +880,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="za0-rH-LlY">
-                                                                                <rect key="frame" x="45" y="70" width="10" height="10"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="45" y="70.5" width="10" height="10"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="dzK-gC-O0d"/>
                                                                                     <constraint firstAttribute="height" constant="10" id="nJT-Hu-0pA"/>
@@ -888,7 +893,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="100" id="Cg0-Sq-f3x"/>
                                                                             <constraint firstItem="AYb-aI-wqP" firstAttribute="leading" secondItem="Y6C-g4-rB8" secondAttribute="leading" constant="20" id="HLW-5z-jaY"/>
@@ -933,8 +938,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbd-1F-QRI">
-                                                                                <rect key="frame" x="45" y="70" width="10" height="10"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="45" y="70.5" width="10" height="10"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="FOS-Qf-h8M"/>
                                                                                     <constraint firstAttribute="height" constant="10" id="pWq-NK-QDU"/>
@@ -946,7 +951,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="EDn-8Y-jSN" firstAttribute="top" secondItem="XMg-K7-q9L" secondAttribute="top" id="2nH-lg-F9a"/>
                                                                             <constraint firstAttribute="trailing" secondItem="Zcv-T0-ofO" secondAttribute="trailing" id="Ert-WJ-2Pq"/>
@@ -991,8 +996,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5S-WC-1Rb">
-                                                                                <rect key="frame" x="42.5" y="67.5" width="15" height="15"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="42.5" y="68" width="15" height="15"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="15" id="4ex-Hm-hz3"/>
                                                                                     <constraint firstAttribute="width" constant="15" id="Khx-Gz-Uv7"/>
@@ -1004,7 +1009,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="s8d-CW-AaI" firstAttribute="top" secondItem="80m-nq-pMk" secondAttribute="bottom" id="1EF-hU-E1C"/>
                                                                             <constraint firstAttribute="trailing" secondItem="80m-nq-pMk" secondAttribute="trailing" constant="20" id="7vP-pw-G3f"/>
@@ -1049,8 +1054,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXw-3E-nmB">
-                                                                                <rect key="frame" x="45" y="70" width="10" height="10"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="45" y="70.5" width="10" height="10"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="3rm-kV-45J"/>
                                                                                     <constraint firstAttribute="height" constant="10" id="WGa-yf-Y1c"/>
@@ -1062,7 +1067,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="BE9-D5-TC5" secondAttribute="bottom" constant="8" id="6Ks-wq-piA"/>
                                                                             <constraint firstAttribute="width" constant="100" id="J71-Aw-kiO"/>
@@ -1107,8 +1112,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hwn-Sr-j85">
-                                                                                <rect key="frame" x="45" y="70.5" width="10" height="10"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="45" y="71" width="10" height="10"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="EsB-Dy-zJt"/>
                                                                                     <constraint firstAttribute="height" constant="10" id="kAV-F1-UDA"/>
@@ -1120,7 +1125,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="100" id="20i-hA-80C"/>
                                                                             <constraint firstItem="Hwn-Sr-j85" firstAttribute="centerX" secondItem="frr-sA-bhY" secondAttribute="centerX" id="3OK-xN-aoP"/>
@@ -1165,8 +1170,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAM-1K-Tfp">
-                                                                                <rect key="frame" x="42.5" y="68" width="15" height="15"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="42.5" y="68.5" width="15" height="15"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="15" id="MRN-n1-62e"/>
                                                                                     <constraint firstAttribute="width" constant="15" id="V8t-Wn-3ga"/>
@@ -1178,7 +1183,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="bDf-9S-yn3" firstAttribute="leading" secondItem="Ugw-Dq-awg" secondAttribute="leading" constant="20" id="3WK-EU-xGV"/>
                                                                             <constraint firstItem="jF0-wI-haQ" firstAttribute="centerX" secondItem="Ugw-Dq-awg" secondAttribute="centerX" id="7KN-0U-dWn"/>
@@ -1223,8 +1228,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sha-P1-nqT">
-                                                                                <rect key="frame" x="45" y="70.5" width="10" height="10"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="45" y="71" width="10" height="10"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="10" id="7Dn-xD-4I7"/>
                                                                                     <constraint firstAttribute="width" constant="10" id="jLT-ve-BVt"/>
@@ -1236,7 +1241,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="iZJ-Ky-lPe" secondAttribute="bottom" constant="8" id="0iN-5M-qQU"/>
                                                                             <constraint firstItem="Pqo-bo-U2g" firstAttribute="centerX" secondItem="mL8-LV-A7Z" secondAttribute="centerX" id="1Ed-co-Ugh"/>
@@ -1281,8 +1286,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsv-3o-wDD">
-                                                                                <rect key="frame" x="45" y="70.5" width="10" height="10"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="45" y="71" width="10" height="10"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="DbE-Xy-ggM"/>
                                                                                     <constraint firstAttribute="height" constant="10" id="Qoc-uX-l46"/>
@@ -1294,7 +1299,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="100" id="3F2-cx-dxq"/>
                                                                             <constraint firstItem="YmZ-6u-rHg" firstAttribute="centerX" secondItem="UDZ-6j-NAW" secondAttribute="centerX" id="6kY-3M-Vib"/>
@@ -1339,8 +1344,8 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsM-Cv-y8N">
-                                                                                <rect key="frame" x="42.5" y="68" width="15" height="15"/>
-                                                                                <color key="backgroundColor" red="0.33333333329999998" green="0.30980392159999998" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <rect key="frame" x="42.5" y="68.5" width="15" height="15"/>
+                                                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="15" id="Xsu-aZ-bAx"/>
                                                                                     <constraint firstAttribute="width" constant="15" id="o1y-4f-Gqt"/>
@@ -1352,7 +1357,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="mE1-dD-1Sl" firstAttribute="centerX" secondItem="cDj-Ec-fDQ" secondAttribute="centerX" id="08j-dc-wr7"/>
                                                                             <constraint firstItem="IsM-Cv-y8N" firstAttribute="centerX" secondItem="cDj-Ec-fDQ" secondAttribute="centerX" id="2Nh-zW-kWf"/>
@@ -1368,11 +1373,6 @@
                                                                             <constraint firstItem="mE1-dD-1Sl" firstAttribute="top" secondItem="cDj-Ec-fDQ" secondAttribute="top" id="vvh-lb-CLP"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ia-eB-uu9">
-                                                                        <rect key="frame" x="0.0" y="74.5" width="1000" height="2"/>
-                                                                        <color key="progressTintColor" red="0.38431372549999998" green="0.21176470589999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                        <color key="trackTintColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                    </progressView>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="cxZ-oD-dNZ" firstAttribute="centerY" secondItem="pV8-xr-eUL" secondAttribute="centerY" id="0D2-Oe-E4w"/>
@@ -1427,6 +1427,15 @@
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="1000" height="125.5"/>
                                                             <connections>
+                                                                <outlet property="bronze1DotView" destination="za0-rH-LlY" id="ZO0-nS-l8i"/>
+                                                                <outlet property="bronze2DotView" destination="xbd-1F-QRI" id="wjd-Sy-T59"/>
+                                                                <outlet property="bronze3DotView" destination="A5S-WC-1Rb" id="rlI-xi-us9"/>
+                                                                <outlet property="gold1DotView" destination="sha-P1-nqT" id="Amh-g8-xN6"/>
+                                                                <outlet property="gold2DotView" destination="wsv-3o-wDD" id="pmC-2z-wdw"/>
+                                                                <outlet property="gold3DotView" destination="IsM-Cv-y8N" id="3dP-AB-hY4"/>
+                                                                <outlet property="silver1DotView" destination="tXw-3E-nmB" id="6KW-8S-1wp"/>
+                                                                <outlet property="silver2DotView" destination="Hwn-Sr-j85" id="4Kl-ui-fPc"/>
+                                                                <outlet property="silver3DotView" destination="oAM-1K-Tfp" id="UO4-nI-Hvh"/>
                                                                 <outlet property="xpProgressView" destination="6ia-eB-uu9" id="Tlx-dd-bC7"/>
                                                             </connections>
                                                         </collectionViewCell>
