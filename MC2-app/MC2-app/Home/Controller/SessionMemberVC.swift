@@ -79,7 +79,7 @@ class SessionMemberVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Quit", style: .destructive, handler: { action in
             //            User.addSessionToMember(0, currentUserID!)
-            History.createHistory(userID: currentUserID ?? 0, sessionID: self.sessionID, sessionName: self.sessionName, sessionDate: self.sessionDate, sessionDuration: self.duration, userClockIn: self.time)
+            History.createHistory(userID: currentUserID ?? 0, sessionID: self.sessionID, sessionName: self.sessionName, sessionDate: self.sessionDate, sessionDuration: self.duration, userClockIn: self.time, memberDuration: self.duration, memberScore: currentScore)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID!)
             isSessionExist = false
             User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "", xp: currentXP ?? 0)
