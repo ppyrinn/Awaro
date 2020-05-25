@@ -12,12 +12,6 @@ class ChallengeAnswerTableVC: UITableViewController {
     
     //MARK: - Variables
     var sessionID = Int()
-    var question = challengeQuestion
-    var answerA = challengeAnswerA
-    var answerB = challengeAnswerB
-    var answerC = challengeAnswerC
-    var answerD = challengeAnswerD
-    var duration = challengeDuration
     var selectedAnswer = "" //disini nanti nampung answer yang dipilih user
     
     var answers = [challengeAnswerA, challengeAnswerB, challengeAnswerC, challengeAnswerD].shuffled()
@@ -95,7 +89,7 @@ class ChallengeAnswerTableVC: UITableViewController {
     
     //MARK: - Functions
     func loadQuestionData() {
-        questionLabel.text = question
+        questionLabel.text = challengeQuestion
         aAnswerLabel.text = answers[0]
         bAnswerLabel.text = answers[1]
         cAnswerLabel.text = answers[2]
