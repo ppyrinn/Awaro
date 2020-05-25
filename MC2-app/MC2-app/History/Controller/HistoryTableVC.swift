@@ -28,15 +28,15 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
         //roundedNavigationBar(title: "History")
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
-        
-        
-        History.getHistoryByUserID(userID: currentUserID ?? 0)
-        print(histories.count)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        History.getHistoryByUserID(userID: currentUserID ?? 0)
+        print(histories.count)
+        
+        tableView.reloadData()
     }
     
 
@@ -49,7 +49,7 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return histories.count
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -88,6 +88,9 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
             cell.historyView.shadowOpacity = 0.2
         }
         cell.historyView.cornerRadius = 10
+        
+        cell.sessionName.text = "\(histories[indexPath.row].sessionName)'s Session"
+        cell.sessionTime.text = histories[indexPath.row].sessionDate
 
         return cell
     }

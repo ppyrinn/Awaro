@@ -73,7 +73,9 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="historyView" destination="y9w-h7-ozY" id="o4Z-6k-m13"/>
-                                    <segue destination="G9Y-Kf-MFo" kind="show" id="oCJ-9M-Mxx"/>
+                                    <outlet property="sessionName" destination="OZl-US-Das" id="NgF-Tm-Ggn"/>
+                                    <outlet property="sessionTime" destination="tdM-eh-EOg" id="lX6-sl-Tad"/>
+                                    <segue destination="G9Y-Kf-MFo" kind="show" identifier="HistoryDetailSegue" id="oCJ-9M-Mxx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -32,6 +32,10 @@ class HistoryDetailVC: UIViewController {
         roundedTableView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     
     // MARK: - Function
     func roundedTopView() {

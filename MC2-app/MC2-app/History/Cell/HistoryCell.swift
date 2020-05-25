@@ -10,6 +10,8 @@ import UIKit
 
 class HistoryCell: UITableViewCell {
 
+    @IBOutlet weak var sessionName: UILabel!
+    @IBOutlet weak var sessionTime: UILabel!
     @IBOutlet weak var historyView: UIView!
     
     override func awakeFromNib() {
