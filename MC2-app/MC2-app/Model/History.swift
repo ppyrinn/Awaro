@@ -13,7 +13,7 @@ struct historyData {
     var sessionID:Int
     var sessionName:String
     var sessionDate:String
-    var sessionDuration:String
+    var sessionDuration:Int
     var userClockIn:String
 }
 

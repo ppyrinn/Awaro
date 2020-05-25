@@ -50,7 +50,7 @@ extension History{
                 histories.removeAll()
                 records.forEach{
                     print($0)
-                    histories.append(historyData(userID: $0["userID"] as! Int, sessionID: $0["sessionID"] as! Int, sessionName: $0["sessionName"] as! String, sessionDate: $0["sessionDate"] as! String, sessionDuration: $0["sessionDuration"] as! String, userClockIn: $0["userClockIn"] as! String))
+                    histories.append(historyData(userID: $0["userID"] as! Int, sessionID: $0["sessionID"] as! Int, sessionName: $0["sessionName"] as! String, sessionDate: $0["sessionDate"] as! String, sessionDuration: $0["sessionDuration"] as! Int, userClockIn: $0["userClockIn"] as! String))
                     print("\n\nget history is done\n\n")
                 }
                 print("\n\n")
