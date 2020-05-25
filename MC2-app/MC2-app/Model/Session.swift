@@ -13,6 +13,7 @@ var membersInSession = [String]()
 var totalMembersInSession = 0
 
 struct MembersDataInSession{
+    var id:Int
     var name:String
     var clockIn:String
     var score:Int

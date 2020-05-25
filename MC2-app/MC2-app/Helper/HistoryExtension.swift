@@ -11,12 +11,13 @@ import CloudKit
 import UIKit
 
 extension History{
-    static func createHistory(userID:Int, sessionID:Int, sessionName:String, date:String, duration:Int){
+    static func createHistory(userID:Int, sessionID:Int, sessionName:String, sessionDate:String, sessionDuration:Int){
         let memberRecord = CKRecord(recordType: "Histories")
         memberRecord["userID"] = userID as CKRecordValue
         memberRecord["sessionID"] = sessionID as CKRecordValue
-        memberRecord["sessionID"] = sessionID as CKRecordValue
-        
+        memberRecord["sessionName"] = sessionName as CKRecordValue
+        memberRecord["sessionDate"] = sessionDate as CKRecordValue
+        memberRecord["sessionDuration"] = sessionDuration as CKRecordValue
         
         CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
             DispatchQueue.main.async {
