@@ -20,6 +20,8 @@ class ChallengeAnswerTableVC: UITableViewController {
     var duration = challengeDuration
     var selectedAnswer = "" //disini nanti nampung answer yang dipilih user
     
+    var answers = [challengeAnswerA, challengeAnswerB, challengeAnswerC, challengeAnswerD].shuffled()
+    
 
     // MARK: - IBOutlet
     @IBOutlet weak var questionLabel: UILabel!
@@ -73,19 +75,19 @@ class ChallengeAnswerTableVC: UITableViewController {
         
         //bikin fungsi utk nampung jawaban yg dipilih user ke variable selectedAnswer
         if sender.tag == 0 {
-            selectedAnswer = answerA
+            selectedAnswer = answers[0]
             print(selectedAnswer)
         }
         if sender.tag == 1 {
-            selectedAnswer = answerB
+            selectedAnswer = answers[1]
             print(selectedAnswer)
         }
         if sender.tag == 2 {
-            selectedAnswer = answerC
+            selectedAnswer = answers[2]
             print(selectedAnswer)
         }
         if sender.tag == 3 {
-            selectedAnswer = answerD
+            selectedAnswer = answers[3]
             print(selectedAnswer)
         }
     }
@@ -94,10 +96,10 @@ class ChallengeAnswerTableVC: UITableViewController {
     //MARK: - Functions
     func loadQuestionData() {
         questionLabel.text = question
-        aAnswerLabel.text = answerA
-        bAnswerLabel.text = answerB
-        cAnswerLabel.text = answerC
-        dAnswerLabel.text = answerD
+        aAnswerLabel.text = answers[0]
+        bAnswerLabel.text = answers[1]
+        cAnswerLabel.text = answers[2]
+        dAnswerLabel.text = answers[3]
     }
     
     func setButtonTag() {
