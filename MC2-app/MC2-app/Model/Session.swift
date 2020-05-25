@@ -18,6 +18,8 @@ struct MembersDataInSession{
     var score:Int
     var duration:Int
     var selectedAnswer:String
+    var badgeTitle:String
+    var badgePicture:String
 }
 
 var membersData = [MembersDataInSession]()
