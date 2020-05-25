@@ -54,6 +54,7 @@
 		F465BC7D246249DB0025396A /* MC2_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC7C246249DB0025396A /* MC2_appTests.swift */; };
 		F465BC88246249DB0025396A /* MC2_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC87246249DB0025396A /* MC2_appUITests.swift */; };
 		F465BC9724628FAC0025396A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465BC9624628FAC0025396A /* User.swift */; };
+		F4C674D8247C0D3800955CA0 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C674D7247C0D3800955CA0 /* History.swift */; };
 		F4FAFDB62468F3BC00B4F3A5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FAFDB52468F3BC00B4F3A5 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 		F465BC89246249DB0025396A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F465BC9524628C7D0025396A /* MC2-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC2-app.entitlements"; sourceTree = "<group>"; };
 		F465BC9624628FAC0025396A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F4C674D7247C0D3800955CA0 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		F4FAFDB52468F3BC00B4F3A5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -294,6 +296,7 @@
 				F465BC9624628FAC0025396A /* User.swift */,
 				2C1F67EB2469029E00323DE3 /* KeychainItem.swift */,
 				F40773B42475C3E000CEC2B0 /* Session.swift */,
+				F4C674D7247C0D3800955CA0 /* History.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				F465BC9724628FAC0025396A /* User.swift in Sources */,
 				2C6FC450246D75770033A1C8 /* SessionMemberCell.swift in Sources */,
 				F465BC65246249D70025396A /* SceneDelegate.swift in Sources */,
+				F4C674D8247C0D3800955CA0 /* History.swift in Sources */,
 				F40773B12474CA8B00CEC2B0 /* CloudKitHelper.swift in Sources */,
 				2CAAB6FB24781BC00028D74E /* ChallengeAnswerContainerVC.swift in Sources */,
 			);

@@ -28,6 +28,12 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
         tableView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        History.getHistoryByUserID(userID: currentUserID ?? 0)
+    }
+    
 
     // MARK: - Table view data source
 

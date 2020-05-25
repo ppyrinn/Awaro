@@ -29,6 +29,7 @@ struct CurrentSessionData{
     var name:String
     var id:Int
     var duration:Int
+    var date:String
 }
 
 var sessionData = [CurrentSessionData]()

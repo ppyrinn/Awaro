@@ -13,6 +13,7 @@ class SessionMemberVC: UIViewController {
     // MARK: - Variables
     var sessionName = String()
     var sessionID = Int()
+    var sessionDate = String()
     var helper:CoreDataHelper!
     var sessionData = [Session]()
     var members = [User]()
@@ -24,6 +25,7 @@ class SessionMemberVC: UIViewController {
     
     var currentDateTime = Date()
     let formatter = DateFormatter()
+    var time = ""
     
     var timer = Timer()
     var duration = 0
@@ -65,7 +67,7 @@ class SessionMemberVC: UIViewController {
         
         formatter.timeStyle = .medium
         formatter.dateStyle = .none
-        let time = formatter.string(from: currentDateTime)
+        time = formatter.string(from: currentDateTime)
         print("\n\n\(time)\n\n")
         User.setMemberClockInTime(userID: currentUserID ?? 0, joinAt: time)
     }
@@ -77,6 +79,7 @@ class SessionMemberVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Quit", style: .destructive, handler: { action in
             //            User.addSessionToMember(0, currentUserID!)
+            History.createHistory(userID: currentUserID ?? 0, sessionID: self.sessionID, sessionName: self.sessionName, sessionDate: self.sessionDate, sessionDuration: self.duration, userClockIn: self.time)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID!)
             isSessionExist = false
             User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "", xp: currentXP ?? 0)
