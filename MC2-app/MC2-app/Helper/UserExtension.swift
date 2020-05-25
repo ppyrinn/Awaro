@@ -450,4 +450,32 @@ extension User{
         }
         
     }
+    
+    static func getMemberByUserID(userID:Int){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        // fecth with array
+        let predicate = NSPredicate(format: "userID = %d", userID)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                membersInHistory.removeAll()
+                records.forEach{
+                    print($0)
+                    membersInHistory.append(memberDataInHistory(id: $0["userID"] as! Int, name: $0["fullName"] as! String, badgePicture: $0["badgePicture"] as! String))
+                }
+                print("\n\n")
+            }
+            
+        }
+        
+    }
 }

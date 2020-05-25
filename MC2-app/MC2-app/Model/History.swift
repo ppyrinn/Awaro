@@ -15,6 +15,18 @@ struct historyData {
     var sessionDate:String
     var sessionDuration:Int
     var userClockIn:String
+    var memberDuration:Int
+    var memberScore:Int
 }
 
 var histories = [historyData]()
+
+var memberInSessionHistory = [Int]()
+
+struct memberDataInHistory {
+    var id:Int
+    var name:String
+    var badgePicture:String
+}
+
+var membersInHistory = [memberDataInHistory]()
