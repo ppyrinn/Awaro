@@ -178,7 +178,7 @@ class SessionHostVC: UIViewController {
 extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memberName.count
+        return membersData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -186,12 +186,12 @@ extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
 
         // Configure the cell...
         if currentUserID == sessionID {
-            cell.participantLabel.text = memberName[indexPath.row] + " " + "(Host)"
+            cell.participantLabel.text = membersData[indexPath.row].name + " " + "(Host)"
         }
         else {
-            cell.participantLabel.text = memberName[indexPath.row]
+            cell.participantLabel.text = membersData[indexPath.row].name
         }
-        cell.clockInLabel.text = memberClockIn[indexPath.row]
+        cell.clockInLabel.text = membersData[indexPath.row].clockIn
         
         return cell
     }

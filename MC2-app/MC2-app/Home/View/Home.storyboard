@@ -1511,7 +1511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSx-n5-qjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5916" y="965"/>
+            <point key="canvasLocation" x="7519" y="-179"/>
         </scene>
         <!--Session ResultVC-->
         <scene sceneID="Rmx-d8-NGy">
@@ -2056,7 +2056,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kxv-Rk-XQc">
-                                <rect key="frame" x="40" y="316" width="334" height="264"/>
+                                <rect key="frame" x="40" y="320.5" width="334" height="265"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ansRight" translatesAutoresizingMaskIntoConstraints="NO" id="FFl-vP-00M">
                                         <rect key="frame" x="126" y="25" width="100" height="100"/>
@@ -2077,6 +2077,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="bbd-YR-JzT" firstAttribute="top" secondItem="XxD-oC-XNy" secondAttribute="bottom" constant="8" id="15B-hG-9eE"/>
+                                    <constraint firstAttribute="height" constant="265" id="9mR-AK-U5m"/>
                                     <constraint firstItem="XxD-oC-XNy" firstAttribute="top" secondItem="FFl-vP-00M" secondAttribute="bottom" constant="10" id="G5I-wm-6tw"/>
                                     <constraint firstItem="bbd-YR-JzT" firstAttribute="leading" secondItem="Kxv-Rk-XQc" secondAttribute="leading" constant="100" id="STt-VQ-10A"/>
                                     <constraint firstItem="FFl-vP-00M" firstAttribute="leading" secondItem="Kxv-Rk-XQc" secondAttribute="leading" constant="126" id="X12-3z-xTN"/>
@@ -2095,9 +2096,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Kxv-Rk-XQc" firstAttribute="top" secondItem="hDY-wA-jDN" secondAttribute="top" constant="272" id="KQ3-hZ-78u"/>
+                            <constraint firstItem="Kxv-Rk-XQc" firstAttribute="centerY" secondItem="hDY-wA-jDN" secondAttribute="centerY" id="31S-bW-pbU"/>
+                            <constraint firstItem="Kxv-Rk-XQc" firstAttribute="centerX" secondItem="hDY-wA-jDN" secondAttribute="centerX" id="Hyf-l8-75H"/>
                             <constraint firstItem="hDY-wA-jDN" firstAttribute="trailing" secondItem="Kxv-Rk-XQc" secondAttribute="trailing" constant="40" id="SCP-4g-GrQ"/>
-                            <constraint firstItem="hDY-wA-jDN" firstAttribute="bottom" secondItem="Kxv-Rk-XQc" secondAttribute="bottom" constant="282" id="XYz-js-QkG"/>
                             <constraint firstItem="Kxv-Rk-XQc" firstAttribute="leading" secondItem="hDY-wA-jDN" secondAttribute="leading" constant="40" id="wgR-2e-fiT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hDY-wA-jDN"/>
