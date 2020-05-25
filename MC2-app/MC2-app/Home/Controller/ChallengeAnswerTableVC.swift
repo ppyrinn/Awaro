@@ -47,6 +47,10 @@ class ChallengeAnswerTableVC: UITableViewController {
         
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9921568627, alpha: 1)
+        tableView.layer.cornerRadius = 20
+        tableView.clipsToBounds = true
+        tableView.layer.masksToBounds = true
+        tableView.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMaxYCorner]
     }
     
     override func viewDidAppear(_ animated: Bool) {

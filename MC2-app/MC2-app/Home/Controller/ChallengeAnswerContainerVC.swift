@@ -18,6 +18,9 @@ class ChallengeAnswerContainerVC: UIViewController {
     
     
     // MARK: - IBOutlet
+    @IBOutlet weak var durationView: UIView!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var submitButtonOutlet: UIButton!
     
 
@@ -30,6 +33,15 @@ class ChallengeAnswerContainerVC: UIViewController {
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "", xp:currentXP ?? 0)
         
         toggleTimer(on: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        isModalInPresentation = true
+        navigationController?.navigationBar.isHidden = true
+        
+        roundedView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,9 +63,9 @@ class ChallengeAnswerContainerVC: UIViewController {
         else {
             print("Wrong Answer!")
         }
-        print("YourScore: \(currentScore)")
         
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0)
+        print("YourScore: \(currentScore)")
         
         challengeExist = false
         print("\n\n is challenge exist = \(challengeExist)\n\n")
@@ -61,7 +73,12 @@ class ChallengeAnswerContainerVC: UIViewController {
         Session.setChallengeToDone(sessionID: sessionID)
         print("\n\nchallenge to done in session \(sessionID)\n\n")
         
-        dismiss(animated: true, completion: nil)
+        if selectedAnswer == challengeAnswerA {
+            performSegue(withIdentifier: "RightAnswerSegue", sender: nil)
+        }
+        else {
+            performSegue(withIdentifier: "WrongAnswerSegue", sender: nil)
+        }
     }
     
     
@@ -77,7 +94,7 @@ class ChallengeAnswerContainerVC: UIViewController {
             strongSelf.duration -= 1
             
             if strongSelf.duration < 10 {
-                strongSelf.navigationItem.title = "00:0\(strongSelf.duration)"
+                strongSelf.durationLabel.text = "00:0\(strongSelf.duration)"
                 
                 if strongSelf.duration == 0 {
                     let selectedAnswer = self!.challengeAnswerTableVCReference?.selectedAnswer
@@ -103,6 +120,18 @@ class ChallengeAnswerContainerVC: UIViewController {
                 }
             }
         })
+    }
+    
+    func roundedView() {
+        durationView.layer.cornerRadius = 20
+        durationView.clipsToBounds = true
+        durationView.layer.masksToBounds = true
+        durationView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        containerView.layer.cornerRadius = 20
+        containerView.clipsToBounds = true
+        containerView.layer.masksToBounds = true
+        containerView.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMaxYCorner]
     }
 
     

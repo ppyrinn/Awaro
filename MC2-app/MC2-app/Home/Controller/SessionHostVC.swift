@@ -185,12 +185,15 @@ extension SessionHostVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionHostCell", for: indexPath) as! SessionHostCell
 
         // Configure the cell...
-        if currentUserID == sessionID {
+        cell.badgeImageView.image = UIImage(named: membersData[indexPath.row].badgePicture)
+        
+        if membersData[indexPath.row].id == sessionID {
             cell.participantLabel.text = membersData[indexPath.row].name + " " + "(Host)"
         }
         else {
             cell.participantLabel.text = membersData[indexPath.row].name
         }
+        
         cell.clockInLabel.text = membersData[indexPath.row].clockIn
         
         return cell
