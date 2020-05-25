@@ -73,19 +73,19 @@ class ChallengeAnswerTableVC: UITableViewController {
         
         //bikin fungsi utk nampung jawaban yg dipilih user ke variable selectedAnswer
         if sender.tag == 0 {
-            selectedAnswer = challengeAnswerA
+            selectedAnswer = answerA
             print(selectedAnswer)
         }
         if sender.tag == 1 {
-            selectedAnswer = challengeAnswerB
+            selectedAnswer = answerB
             print(selectedAnswer)
         }
         if sender.tag == 2 {
-            selectedAnswer = challengeAnswerC
+            selectedAnswer = answerC
             print(selectedAnswer)
         }
         if sender.tag == 3 {
-            selectedAnswer = challengeAnswerD
+            selectedAnswer = answerD
             print(selectedAnswer)
         }
     }
