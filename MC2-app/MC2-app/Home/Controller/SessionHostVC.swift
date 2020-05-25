@@ -14,6 +14,7 @@ class SessionHostVC: UIViewController {
     // MARK: - Variables
     var sessionName = String()
     var sessionID = Int()
+    var sessionDate = String()
     var members = [User]()
     var helper: CoreDataHelper!
     var memberName = [String]()
@@ -23,6 +24,7 @@ class SessionHostVC: UIViewController {
     
     var currentDateTime = Date()
     let formatter = DateFormatter()
+    var time = ""
     
     var timer = Timer()
     var duration = 0
@@ -58,7 +60,7 @@ class SessionHostVC: UIViewController {
         
         formatter.timeStyle = .medium
         formatter.dateStyle = .none
-        let time = formatter.string(from: currentDateTime)
+        time = formatter.string(from: currentDateTime)
         print("\n\n\(time)\n\n")
         User.setMemberClockInTime(userID: currentUserID ?? 0, joinAt: time)
     }
@@ -75,6 +77,7 @@ class SessionHostVC: UIViewController {
         alert.addAction(UIAlertAction(title: "End", style: .destructive, handler: { action in
             self.isSessionEnd = true
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
+            History.createHistory(userID: currentUserID ?? 0, sessionID: self.sessionID, sessionName: self.sessionName, sessionDate: self.sessionDate, sessionDuration: self.duration, userClockIn: self.time)
             Session.endCurrentSession(sessionID: self.sessionID)
 //            Session.deleteSession(self.sessionID)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID ?? 0)

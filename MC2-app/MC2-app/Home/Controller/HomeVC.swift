@@ -17,6 +17,9 @@ class HomeVC: UIViewController {
     var createdSessionName = String()
     var createdSessionID = Int()
     var existedSessionID = Int()
+    let now = Date()
+    let formatter = DateFormatter()
+    var currentDate = ""
     
     
     // MARK: - IBOutlet Function
@@ -43,7 +46,9 @@ class HomeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         helper = CoreDataHelper(context: getViewContext())
-        
+        formatter.dateStyle = .full
+        formatter.timeStyle = .short
+        currentDate = formatter.string(from: now)
     }
     
     
@@ -58,7 +63,7 @@ class HomeVC: UIViewController {
 //        print(sessionList)
         
         User.assignSessionToMember(sessionID: createdSessionID, userID: currentUserID ?? 0)
-        Session.createNewSession(sessionID: createdSessionID, sessionName: createdSessionName)
+        Session.createNewSession(sessionID: createdSessionID, sessionName: createdSessionName, sessionDate: currentDate)
         
         print("\n\nCurrentUserID = \(String(describing: currentUserID))\n\nUserEmail = \(String(describing: userEmail))\n\nUserFullName = \(String(describing: userFullName))\n\n")
         
@@ -164,6 +169,7 @@ class HomeVC: UIViewController {
             if let  destination = segue.destination as? SessionHostVC{
                 destination.sessionName = self.createdSessionName
                 destination.sessionID = self.createdSessionID
+                destination.sessionDate = self.currentDate
             }
         }
         
@@ -175,6 +181,7 @@ class HomeVC: UIViewController {
                 destination.sessionName = sessionData[0].name
                 destination.sessionID = self.existedSessionID
                 destination.duration = sessionData[0].duration
+                destination.sessionDate = sessionData[0].date
             }
         }
         
