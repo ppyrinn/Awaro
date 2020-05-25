@@ -94,6 +94,9 @@ extension HistoryDetailVC: UITableViewDataSource, UITableViewDelegate {
             cell.contentView.backgroundColor = .white
             cell.placeholderView.backgroundColor = .white
         }
+        
+        cell.badgeImage.image = UIImage(named: membersInHistory[indexPath.row].badgePicture)
+        cell.nameLabel.text = membersInHistory[indexPath.row].name
 
         return cell
     }
