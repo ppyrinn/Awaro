@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
     
@@ -19,6 +20,7 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        refreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +39,57 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
         print(histories.count)
         
         tableView.reloadData()
+    }
+    
+    
+    // MARK: - Function
+    func refreshControl() {
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let attributedTitle = NSAttributedString(string: "Reload History", attributes: attributes)
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+        self.refreshControl!.tintColor = UIColor.white
+        self.refreshControl!.attributedTitle = attributedTitle
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        // fecth with array
+        let predicate = NSPredicate(format: "userID = %d", currentUserID!)
+        let query = CKQuery(recordType: "Histories", predicate: predicate)
+        
+        histories.removeAll()
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                histories.removeAll()
+                records.forEach{
+                    print($0)
+                    histories.append(historyData(userID: $0["userID"] as! Int, sessionID: $0["sessionID"] as! Int, sessionName: $0["sessionName"] as! String, sessionDate: $0["sessionDate"] as! String, sessionDuration: $0["sessionDuration"] as! Int, userClockIn: $0["userClockIn"] as! String))
+                    print("\n\nget history is done\n\n")
+                    print(histories.count)
+                    self.dispatchDelay(delay: 1.0) {
+                        self.tableView.reloadData()
+                        self.refreshControl!.endRefreshing()
+                    }
+                }
+                print("\n\n")
+            }
+        }
+    }
+    
+    func dispatchDelay(delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: closure)
     }
     
 
