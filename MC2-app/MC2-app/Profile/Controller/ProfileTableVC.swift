@@ -143,54 +143,63 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         if currentXP ?? 0 >= 0 {
             largeBadgeImage.image = UIImage(named: "Bronze I")
             largeRankLabel.text = "Bronze I"
+            largeRankLabel.textColor = #colorLiteral(red: 0.9450980392, green: 0.5647058824, blue: 0.2862745098, alpha: 1)
             titleLabel.text = "Awaro Beginner"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Bronze I", badgePicture: "Bronze I", achievedTitle: "Awaro Beginner")
         }
         if currentXP ?? 0 >= 200 {
             largeBadgeImage.image = UIImage(named: "Bronze II")
             largeRankLabel.text = "Bronze II"
+            largeRankLabel.textColor = #colorLiteral(red: 0.9450980392, green: 0.5647058824, blue: 0.2862745098, alpha: 1)
             titleLabel.text = "A New Beginning"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Bronze II", badgePicture: "Bronze II", achievedTitle: "A New Beginning")
         }
         if currentXP ?? 0 >= 300 {
             largeBadgeImage.image = UIImage(named: "Bronze III")
             largeRankLabel.text = "Bronze III"
+            largeRankLabel.textColor = #colorLiteral(red: 0.9450980392, green: 0.5647058824, blue: 0.2862745098, alpha: 1)
             titleLabel.text = "On The Way Up"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Bronze III", badgePicture: "Bronze III", achievedTitle: "On The Way Up")
         }
         if currentXP ?? 0 >= 400 {
             largeBadgeImage.image = UIImage(named: "Silver I")
             largeRankLabel.text = "Silver I"
+            largeRankLabel.textColor = #colorLiteral(red: 0.6274509804, green: 0.6588235294, blue: 0.7215686275, alpha: 1)
             titleLabel.text = "Who's Outside The Class?"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Silver I", badgePicture: "Silver I", achievedTitle: "Who's Outside The Class?")
         }
         if currentXP ?? 0 >= 500 {
             largeBadgeImage.image = UIImage(named: "Silver II")
             largeRankLabel.text = "Silver II"
+            largeRankLabel.textColor = #colorLiteral(red: 0.6274509804, green: 0.6588235294, blue: 0.7215686275, alpha: 1)
             titleLabel.text = "Who's Inside The Class?"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Silver II", badgePicture: "Silver II", achievedTitle: "Who's Inside The Class?")
         }
         if currentXP ?? 0 >= 600 {
             largeBadgeImage.image = UIImage(named: "Silver III")
             largeRankLabel.text = "Silver III"
+            largeRankLabel.textColor = #colorLiteral(red: 0.6274509804, green: 0.6588235294, blue: 0.7215686275, alpha: 1)
             titleLabel.text = "Class Master"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Silver III", badgePicture: "Silver III", achievedTitle: "Class Master")
         }
         if currentXP ?? 0 >= 700 {
             largeBadgeImage.image = UIImage(named: "Gold I")
             largeRankLabel.text = "Gold I"
+            largeRankLabel.textColor = #colorLiteral(red: 1, green: 0.6941176471, blue: 0.05882352941, alpha: 1)
             titleLabel.text = "700 and Up"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Gold I", badgePicture: "Gold I", achievedTitle: "700 and Up")
         }
         if currentXP ?? 0 >= 800 {
             largeBadgeImage.image = UIImage(named: "Gold II")
             largeRankLabel.text = "Gold II"
+            largeRankLabel.textColor = #colorLiteral(red: 1, green: 0.6941176471, blue: 0.05882352941, alpha: 1)
             titleLabel.text = "One in A Million"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Gold II", badgePicture: "Gold II", achievedTitle: "One in A Million")
         }
         if currentXP ?? 0 >= 900 {
             largeBadgeImage.image = UIImage(named: "Gold III")
             largeRankLabel.text = "Gold III"
+            largeRankLabel.textColor = #colorLiteral(red: 1, green: 0.6941176471, blue: 0.05882352941, alpha: 1)
             titleLabel.text = "The Chosen One"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Gold III", badgePicture: "Gold III", achievedTitle: "The Chosen One")
         }

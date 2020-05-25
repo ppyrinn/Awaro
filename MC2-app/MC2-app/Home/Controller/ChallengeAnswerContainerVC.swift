@@ -44,7 +44,7 @@ class ChallengeAnswerContainerVC: UIViewController {
         //let answerA = self.challengeAnswerTableVCReference?.answerA
         let selectedAnswer = self.challengeAnswerTableVCReference?.selectedAnswer
         
-        if selectedAnswer == "A" {
+        if selectedAnswer == challengeAnswerA {
             currentScore += 1
             currentXP! += 4
         }
