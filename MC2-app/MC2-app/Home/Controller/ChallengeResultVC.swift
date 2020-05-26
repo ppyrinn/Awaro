@@ -91,15 +91,16 @@ class ChallengeResultVC: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
             guard let strongSelf = self else {return}
             
-            User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+//            User.getAllSessionMembers(sessionID: strongSelf.sessionID)
             
             self?.memberWhoAnswer.removeAll()
             for member in membersData{
                 if member.id != self?.sessionID{
                     self?.memberWhoAnswer.append(member)
-                    strongSelf.challengeResultTableView.reloadData()
                 }
             }
+
+            strongSelf.challengeResultTableView.reloadData()
         })
     }
     
@@ -140,8 +141,10 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
                 cell.answerDurationLabel.text = "in: \(minutes) min" + " " + "\(seconds) sec"
             }
             cell.participantNameLabel.text = memberWhoAnswer[indexPath.row].name
+            print("\n\ndia jawab : \(memberWhoAnswer[indexPath.row].selectedAnswer)\n\n")
             if memberWhoAnswer[indexPath.row].selectedAnswer == challengeAnswerA {
                 cell.participantAnswerLabel.text = "Answer: \(memberWhoAnswer[indexPath.row].selectedAnswer)"
+                
                 print(memberWhoAnswer[indexPath.row].selectedAnswer)
                 
                 cell.answerImageView.image = UIImage(named: "ansRight")
