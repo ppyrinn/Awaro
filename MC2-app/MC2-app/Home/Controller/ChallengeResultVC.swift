@@ -68,7 +68,7 @@ class ChallengeResultVC: UIViewController {
         
         if duration < 60 {
             seconds = duration
-            challengeDurationLabel.text = "Duration: \(seconds) sec"
+            challengeDurationLabel.text = "Duration: \(seconds) sec(s)"
         }
         if duration == 60 {
             minutes = duration / 60
@@ -77,7 +77,7 @@ class ChallengeResultVC: UIViewController {
         if duration > 60 {
             minutes = duration / 60
             seconds = duration % 60
-            challengeDurationLabel.text = "Duration: \(minutes) min" + " " + "\(seconds) sec"
+            challengeDurationLabel.text = "Duration: \(minutes) min" + " " + "\(seconds) sec(s)"
         }
     }
     
@@ -106,7 +106,15 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
         // Configure the cell...
         cell.participantNameLabel.text = membersData[indexPath.row].name
         cell.participantAnswerLabel.text = membersData[indexPath.row].selectedAnswer
-        cell.answerDurationLabel.text = "\(membersData[indexPath.row].duration)"
+        if membersData[indexPath.row].duration < 60{
+            cell.answerDurationLabel.text = "\(membersData[indexPath.row].duration) sec(s)"
+        }
+        else if membersData[indexPath.row].duration == 60{
+            cell.answerDurationLabel.text = "\(membersData[indexPath.row].duration / 60) min"
+        }
+        else{
+            cell.answerDurationLabel.text = "\(membersData[indexPath.row].duration / 60) min \(membersData[indexPath.row].duration % 60) sec(s)"
+        }
 
         return cell
     }
