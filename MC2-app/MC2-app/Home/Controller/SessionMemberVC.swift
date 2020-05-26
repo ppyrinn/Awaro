@@ -47,7 +47,7 @@ class SessionMemberVC: UIViewController {
         sessionMemberTable.dataSource = self
         sessionMemberTable.delegate = self
         
-        sessionIDLabel.text = "ID: \(sessionID)"
+        sessionIDLabel.text = "Session ID: \(sessionID)"
         sessionNameLabel.text = "\(sessionName)'s Session"
         
         toggleTimer(on: true)
