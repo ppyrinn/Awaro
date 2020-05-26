@@ -132,6 +132,14 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
             seconds = membersData[indexPath.row].answerDuration % 60
             cell.answerDurationLabel.text = "in: \(minutes) min" + " " + "\(seconds) sec"
         }
+        
+        if membersData[indexPath.row].id == sessionID {
+            membersData.remove(at: indexPath.row)
+        }
+        else {
+            cell.participantNameLabel.text = membersData[indexPath.row].name
+        }
+        
         if membersData[indexPath.row].selectedAnswer == challengeAnswerA {
             cell.answerImageView.image = UIImage(named: "ansRight")
         }
@@ -139,7 +147,6 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
             cell.answerImageView.image = UIImage(named: "ansWrong")
         }
         cell.badgeImage.image = UIImage(named: membersData[indexPath.row].badgePicture)
-        cell.participantNameLabel.text = membersData[indexPath.row].name
         cell.participantAnswerLabel.text = "Answer: \(membersData[indexPath.row].selectedAnswer)"
 
         return cell
