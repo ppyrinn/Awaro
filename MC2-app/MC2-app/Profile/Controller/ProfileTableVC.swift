@@ -88,6 +88,9 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         loadProfileData()
         loadTextView()
         
+        tableView.reloadData()
+        badgeCollectionView.reloadData()
+        
         //buat update badge ke cloud
 //        User.setBadgeToMember(userID: currentUserID, badgeTitle: currentBadgeTitle, badgePicture: currentBadgePicture)
     }
@@ -216,9 +219,6 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         else {
             sessionIDLabel.text = "\(currentUserID ?? 0)"
         }
-        
-        tableView.reloadData()
-        badgeCollectionView.reloadData()
     }
     
     func refreshControl() {

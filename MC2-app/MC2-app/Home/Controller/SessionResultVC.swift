@@ -163,7 +163,7 @@ extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
         }
         cell.badgeImage.image = UIImage(named: membersData[indexPath.row].badgePicture)
         cell.clockInLabel.text = membersData[indexPath.row].clockIn
-        cell.challengeScoreLabel.text = "Challenge score: \(membersData[indexPath.row].score)" + "/" + "/(currentChallengeCounter)"
+        cell.challengeScoreLabel.text = "Challenge score: \(membersData[indexPath.row].score)/\(currentChallengeCounter)"
         cell.inSessionForLabel.text = "In session for: \(membersData[indexPath.row].duration)"
         
         return cell
