@@ -63,6 +63,7 @@ class SessionHostVC: UIViewController {
         time = formatter.string(from: currentDateTime)
         print("\n\n\(time)\n\n")
         User.setMemberClockInTime(userID: currentUserID ?? 0, joinAt: time)
+        currentChallengeCounter = 0
     }
     
     
