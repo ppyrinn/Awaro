@@ -104,6 +104,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         super.viewDidAppear(animated)
         
         User.getMemberBySpecificEmail(email: userEmail ?? "")
+        loadProfileData()
         
         tableView.reloadData()
         badgeCollectionView.reloadData()
