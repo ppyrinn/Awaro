@@ -89,11 +89,6 @@ class SessionMemberVC: UIViewController {
         self.present(alert, animated: true)
     }
     
-    @IBAction func debugChallengeButtonAction(_ sender: Any) {
-        performSegue(withIdentifier: "ChallengeAnswerSegue", sender: nil)
-    }
-    
-    
     
     // MARK: - Navigation
     

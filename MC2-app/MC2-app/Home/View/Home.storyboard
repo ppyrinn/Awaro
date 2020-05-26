@@ -1083,31 +1083,21 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2N-Pp-065">
-                                        <rect key="frame" x="148" y="5.5" width="118" height="30"/>
-                                        <state key="normal" title="Debug Challenge"/>
-                                        <connections>
-                                            <action selector="debugChallengeButtonAction:" destination="G8l-lj-nQT" eventType="touchUpInside" id="b8i-uK-3ea"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Kqr-kR-uQ9" secondAttribute="trailing" constant="20" id="9Hg-SI-TI7"/>
                                     <constraint firstItem="VLy-fv-nvx" firstAttribute="leading" secondItem="tqe-Nn-uhp" secondAttribute="trailing" constant="20" id="Dnu-1b-mL6"/>
                                     <constraint firstItem="Kqr-kR-uQ9" firstAttribute="leading" secondItem="yno-vK-AXi" secondAttribute="leading" constant="20" id="FjE-ge-Gxw"/>
-                                    <constraint firstAttribute="trailing" secondItem="G2N-Pp-065" secondAttribute="trailing" constant="148" id="L0U-RD-CCq"/>
                                     <constraint firstAttribute="bottom" secondItem="tqe-Nn-uhp" secondAttribute="bottom" constant="8" id="LmJ-2e-0hF"/>
                                     <constraint firstAttribute="bottom" secondItem="VLy-fv-nvx" secondAttribute="bottom" constant="8" id="Qrv-tv-BwZ"/>
                                     <constraint firstItem="HMg-di-1st" firstAttribute="leading" secondItem="yno-vK-AXi" secondAttribute="leading" constant="20" id="Xz9-Em-5zj"/>
                                     <constraint firstItem="tqe-Nn-uhp" firstAttribute="leading" secondItem="yno-vK-AXi" secondAttribute="leading" constant="20" id="bD0-sG-oWG"/>
-                                    <constraint firstItem="G2N-Pp-065" firstAttribute="leading" secondItem="yno-vK-AXi" secondAttribute="leading" constant="148" id="cmU-yu-5YH"/>
                                     <constraint firstItem="Kqr-kR-uQ9" firstAttribute="centerX" secondItem="yno-vK-AXi" secondAttribute="centerX" id="d1q-km-Oqt"/>
                                     <constraint firstAttribute="height" constant="162" id="eX9-Zw-Hhg"/>
                                     <constraint firstAttribute="trailing" secondItem="HMg-di-1st" secondAttribute="trailing" constant="20" id="fsk-cj-Wd1"/>
                                     <constraint firstAttribute="trailing" secondItem="VLy-fv-nvx" secondAttribute="trailing" constant="20" id="gaz-J0-fmg"/>
                                     <constraint firstItem="Kqr-kR-uQ9" firstAttribute="centerY" secondItem="yno-vK-AXi" secondAttribute="centerY" id="heS-e6-5Aw"/>
-                                    <constraint firstItem="HMg-di-1st" firstAttribute="top" secondItem="G2N-Pp-065" secondAttribute="bottom" constant="8" id="qVp-Ly-t6A"/>
                                     <constraint firstItem="Kqr-kR-uQ9" firstAttribute="top" secondItem="HMg-di-1st" secondAttribute="bottom" id="vUd-zj-1P5"/>
                                 </constraints>
                             </view>
