@@ -255,7 +255,7 @@ extension Session{
         }
     }
     
-    static func setChallenge(sessionID:Int, question:String, answerA:String, answerB:String, answerC:String, answerD:String, duration:Int){
+    static func setChallenge(sessionID:Int, question:String, answerA:String, answerB:String, answerC:String, answerD:String, duration:Int, challengeCounter:Int){
         let container = CKContainer.default()
         let privateContainer = container.publicCloudDatabase
         
@@ -280,6 +280,7 @@ extension Session{
                     $0["answerD"] = answerD as CKRecordValue
                     $0["challengeDuration"] = duration as CKRecordValue
                     $0["isChallengeAvailable"] = true as CKRecordValue
+                    $0["challengeCounter"] = challengeCounter as CKRecordValue
                     
                     CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
                         DispatchQueue.main.async {
@@ -322,6 +323,7 @@ extension Session{
                     challengeAnswerD = $0["answerD"] as! String
                     challengeDuration = $0["duration"] as! Int
                     challengeExist = $0["isChallengeAvailable"] as! Bool
+                    currentChallengeCounter = $0["challengeCounter"] as! Int
                 }
                 print("\n\n")
             }

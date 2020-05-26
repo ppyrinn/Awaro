@@ -43,3 +43,4 @@ var challengeAnswerC = ""
 var challengeAnswerD = ""
 var challengeDuration = 0
 var challengeExist = false
+var currentChallengeCounter = 0
