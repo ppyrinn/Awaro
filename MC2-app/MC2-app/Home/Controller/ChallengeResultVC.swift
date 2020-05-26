@@ -22,6 +22,9 @@ class ChallengeResultVC: UIViewController {
     var participantsName = [String]()
     var participantsAnswer = [String]()
     var participantsDuration = [String]()
+    var timer = Timer()
+    var sessionID = Int()
+
     
 
     // MARK: - IBOutlet
@@ -29,6 +32,7 @@ class ChallengeResultVC: UIViewController {
     @IBOutlet weak var rightAnswerLabel: UILabel!
     @IBOutlet weak var challengeDurationLabel: UILabel!
     @IBOutlet weak var participantResultTable: UITableView!
+    @IBOutlet weak var challengeResultTableView: UITableView!
     
     
     override func viewDidLoad() {
@@ -36,6 +40,7 @@ class ChallengeResultVC: UIViewController {
 
         // Do any additional setup after loading the view.
         loadChallengeResult()
+        toggleTimer(on: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +86,16 @@ class ChallengeResultVC: UIViewController {
         }
     }
     
+    func toggleTimer(on : Bool){
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+            guard let strongSelf = self else {return}
+            
+            User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+            
+            strongSelf.challengeResultTableView.reloadData()
+        })
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -104,17 +119,17 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeResultCell", for: indexPath) as! ChallengeResultCell
 
         // Configure the cell...
-        if membersData[indexPath.row].duration < 60 {
-            seconds = membersData[indexPath.row].duration
+        if membersData[indexPath.row].answerDuration < 60 {
+            seconds = membersData[indexPath.row].answerDuration
             cell.answerDurationLabel.text = "in: \(seconds) sec"
         }
-        if membersData[indexPath.row].duration == 60 {
-            minutes = membersData[indexPath.row].duration / 60
+        if membersData[indexPath.row].answerDuration == 60 {
+            minutes = membersData[indexPath.row].answerDuration / 60
             cell.answerDurationLabel.text = "in: \(minutes) min"
         }
-        if membersData[indexPath.row].duration > 60 {
-            minutes = membersData[indexPath.row].duration / 60
-            seconds = membersData[indexPath.row].duration % 60
+        if membersData[indexPath.row].answerDuration > 60 {
+            minutes = membersData[indexPath.row].answerDuration / 60
+            seconds = membersData[indexPath.row].answerDuration % 60
             cell.answerDurationLabel.text = "in: \(minutes) min" + " " + "\(seconds) sec"
         }
         if membersData[indexPath.row].selectedAnswer == challengeAnswerA {

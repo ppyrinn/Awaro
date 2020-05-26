@@ -2039,6 +2039,7 @@
                     <connections>
                         <outlet property="challengeDurationLabel" destination="QZi-Bi-SuW" id="7yQ-H0-uQp"/>
                         <outlet property="challengeQuestionLabel" destination="qxR-tD-4S3" id="ezZ-Dv-HwE"/>
+                        <outlet property="challengeResultTableView" destination="fny-4a-YwW" id="LQw-kf-bHi"/>
                         <outlet property="participantResultTable" destination="fny-4a-YwW" id="9fc-lU-UwW"/>
                         <outlet property="rightAnswerLabel" destination="oDk-YU-eGs" id="ybn-rp-lM2"/>
                     </connections>

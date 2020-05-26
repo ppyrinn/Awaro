@@ -225,6 +225,7 @@ class ChallengeQuestionTableVC: UITableViewController {
                 destination.question = self.question
                 destination.answerA = self.answerA
                 destination.duration = self.duration
+                destination.sessionID = self.sessionID
             }
         }
     }

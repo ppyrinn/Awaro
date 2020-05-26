@@ -1624,6 +1624,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="AWQ-z3-9XO"/>
                     <connections>
+                        <outlet property="badgeCollectionView" destination="BTH-1A-q7m" id="Rcg-xB-0d4"/>
                         <outlet property="editButtonOutlet" destination="2cl-ZJ-kgl" id="U09-yu-tly"/>
                         <outlet property="emailTextView" destination="IUD-IS-YtB" id="jUz-ca-1EY"/>
                         <outlet property="largeBadgeImage" destination="e16-qq-uSb" id="hzU-4f-Qvu"/>

@@ -116,7 +116,6 @@ class SessionMemberVC: UIViewController {
     
     
     //MARK: - Functions
-    
     func toggleTimer(on : Bool){
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
             

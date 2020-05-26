@@ -70,6 +70,8 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var nameTextView: UITextView!
     @IBOutlet weak var emailTextView: UITextView!
     
+    @IBOutlet weak var badgeCollectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +84,7 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         
         tableView.keyboardDismissMode = .onDrag
         
+        refreshControl()
         loadProfileData()
         loadTextView()
         
@@ -134,6 +137,8 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
             emailTextView.textColor = #colorLiteral(red: 0.3014600277, green: 0.3024867773, blue: 0.332267046, alpha: 0.6)
             
             nameTextView.resignFirstResponder()
+            
+            User.updateMemberName(userID: currentUserID ?? 0, fullName: nameTextView.text)
         }
     }
     
@@ -203,17 +208,39 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
             titleLabel.text = "The Chosen One"
             User.setBadgeToMember(userID: currentUserID ?? 0, badgeTitle: "Gold III", badgePicture: "Gold III", achievedTitle: "The Chosen One")
         }
-        
-//        largeBadgeImage.image = UIImage(named: currentBadgePicture ?? "")
-//        largeRankLabel.text = currentBadgeTitle
         largeXPLabel.text = "\(currentXP ?? 0) XP"
-//        titleLabel.text = currentAchievedTitle
         
         if currentUserID == nil {
             sessionIDLabel.text = sessionIDLabelPlaceholderText
         }
         else {
             sessionIDLabel.text = "\(currentUserID ?? 0)"
+        }
+        
+        tableView.reloadData()
+        badgeCollectionView.reloadData()
+    }
+    
+    func refreshControl() {
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let attributedTitle = NSAttributedString(string: "Reload Profile", attributes: attributes)
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+        self.refreshControl!.tintColor = UIColor.white
+        self.refreshControl!.attributedTitle = attributedTitle
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            User.getMemberBySpecificEmail(email: userEmail ?? "")
+            
+            self.loadProfileData()
+            
+            self.tableView.reloadData()
+            self.badgeCollectionView.reloadData()
+            self.refreshControl!.endRefreshing()
         }
     }
     

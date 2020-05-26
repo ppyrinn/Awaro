@@ -55,10 +55,10 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
     
     @objc func refresh(sender:AnyObject) {
         // Code to refresh table view
-        History.getHistoryByUserID(userID: currentUserID ?? 0)
-        print(histories.count)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            History.getHistoryByUserID(userID: currentUserID ?? 0)
+            print(histories.count)
+            
             self.tableView.reloadData()
             self.refreshControl!.endRefreshing()
         }
