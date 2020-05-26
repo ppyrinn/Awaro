@@ -97,10 +97,9 @@ class ChallengeResultVC: UIViewController {
             for member in membersData{
                 if member.id != self?.sessionID{
                     self?.memberWhoAnswer.append(member)
+                    strongSelf.challengeResultTableView.reloadData()
                 }
             }
-            
-            strongSelf.challengeResultTableView.reloadData()
         })
     }
     
@@ -143,6 +142,8 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
             cell.participantNameLabel.text = memberWhoAnswer[indexPath.row].name
             if memberWhoAnswer[indexPath.row].selectedAnswer == challengeAnswerA {
                 cell.participantAnswerLabel.text = "Answer: \(memberWhoAnswer[indexPath.row].selectedAnswer)"
+                print(memberWhoAnswer[indexPath.row].selectedAnswer)
+                
                 cell.answerImageView.image = UIImage(named: "ansRight")
             }
             else if memberWhoAnswer[indexPath.row].selectedAnswer == "" {
