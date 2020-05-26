@@ -139,7 +139,7 @@ class SessionResultVC: UIViewController {
 extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memberName.count
+        return membersData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -155,13 +155,16 @@ extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
             cell.placeholderView.backgroundColor = .white
         }
         
-        if sessionID == sessionID {
-            cell.nameLabel.text = memberName[indexPath.row] + " " + "(Host)"
+        if membersData[indexPath.row].id == sessionID {
+            cell.nameLabel.text = membersData[indexPath.row].name + " " + "(Host)"
         }
         else {
-            cell.nameLabel.text = memberName[indexPath.row]
+            cell.nameLabel.text = membersData[indexPath.row].name
         }
-        cell.clockInLabel.text = memberClockIn[indexPath.row]
+        cell.badgeImage.image = UIImage(named: membersData[indexPath.row].badgePicture)
+        cell.clockInLabel.text = membersData[indexPath.row].clockIn
+        cell.challengeScoreLabel.text = "Challenge score: \(membersData[indexPath.row].score)"
+        cell.inSessionForLabel.text = "In session for: \(membersData[indexPath.row].duration)"
         
         return cell
     }

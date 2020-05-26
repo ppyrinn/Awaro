@@ -55,36 +55,12 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
     
     @objc func refresh(sender:AnyObject) {
         // Code to refresh table view
-        let container = CKContainer.default()
-        let privateContainer = container.publicCloudDatabase
+        History.getHistoryByUserID(userID: currentUserID ?? 0)
+        print(histories.count)
         
-        // fecth with array
-        let predicate = NSPredicate(format: "userID = %d", currentUserID!)
-        let query = CKQuery(recordType: "Histories", predicate: predicate)
-        
-        histories.removeAll()
-        
-        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
-            if let err = error {
-                print(err.localizedDescription)
-                return
-            }
-            
-            if let records = result {
-                print("\n\n")
-                histories.removeAll()
-                records.forEach{
-                    print($0)
-                    histories.append(historyData(userID: $0["userID"] as! Int, sessionID: $0["sessionID"] as! Int, sessionName: $0["sessionName"] as! String, sessionDate: $0["sessionDate"] as! String, sessionDuration: $0["sessionDuration"] as! Int, userClockIn: $0["userClockIn"] as! String, memberDuration: $0["memberDuration"] as! Int, memberScore: $0["memberScore"] as! Int))
-                    print("\n\nget history is done\n\n")
-                    print(histories.count)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        self.tableView.reloadData()
-                        self.refreshControl!.endRefreshing()
-                    }
-                }
-                print("\n\n")
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.tableView.reloadData()
+            self.refreshControl!.endRefreshing()
         }
     }
     
