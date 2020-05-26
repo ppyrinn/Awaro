@@ -75,7 +75,6 @@
                                     <outlet property="historyView" destination="y9w-h7-ozY" id="o4Z-6k-m13"/>
                                     <outlet property="sessionName" destination="OZl-US-Das" id="NgF-Tm-Ggn"/>
                                     <outlet property="sessionTime" destination="tdM-eh-EOg" id="lX6-sl-Tad"/>
-                                    <segue destination="G9Y-Kf-MFo" kind="show" identifier="HistoryDetailSegue" id="oCJ-9M-Mxx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,6 +84,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="History" id="jGx-LB-ctq"/>
+                    <connections>
+                        <segue destination="G9Y-Kf-MFo" kind="show" identifier="HistoryDetailSegue" id="USO-px-Ehe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="89Y-73-mkC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,7 +211,7 @@
         <!--History DetailVC-->
         <scene sceneID="HQb-Ja-F6t">
             <objects>
-                <viewController id="G9Y-Kf-MFo" customClass="HistoryDetailVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryDetailVC" id="G9Y-Kf-MFo" customClass="HistoryDetailVC" customModule="Awaro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tol-R5-qb3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

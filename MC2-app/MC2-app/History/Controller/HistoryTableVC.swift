@@ -11,6 +11,9 @@ import CloudKit
 
 class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
     
+    // MARK: - Variables
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -126,7 +129,7 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "HistoryDetailSegue", sender: indexPath.row)
     }
     
 
@@ -165,14 +168,21 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "HistoryDetailSegue"{
+            if let destination = segue.destination as? HistoryDetailVC {
+                let selectedRow = sender as? Int
+                destination.sessionID = histories[selectedRow ?? 0].sessionID
+                destination.sessionName = histories[selectedRow ?? 0].sessionName
+                destination.sessionDate = histories[selectedRow ?? 0].sessionDate
+                destination.sessionDuration = histories[selectedRow ?? 0].sessionDuration
+            }
+        }
     }
-    */
-
 }
