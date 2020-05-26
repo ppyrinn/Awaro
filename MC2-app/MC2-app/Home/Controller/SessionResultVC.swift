@@ -36,7 +36,7 @@ class SessionResultVC: UIViewController {
         sessionResultTable.dataSource = self
         sessionResultTable.delegate = self
         
-        sessionIDLabel.text = "ID: \(sessionID)"
+        sessionIDLabel.text = "Session ID: \(sessionID)"
         print(sessionID)
         sessionNameLabel.text = "\(sessionName)'s Session"
         

@@ -104,6 +104,9 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeResultCell", for: indexPath) as! ChallengeResultCell
 
         // Configure the cell...
+        if membersData[indexPath.row].duration < 10 {
+            cell.answerDurationLabel.text = "00:0\(membersData[indexPath.row].duration)"
+        }
         if membersData[indexPath.row].selectedAnswer == challengeAnswerA {
             cell.answerImageView.image = UIImage(named: "ansRight")
         }
@@ -112,17 +115,7 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
         }
         cell.badgeImage.image = UIImage(named: membersData[indexPath.row].badgePicture)
         cell.participantNameLabel.text = membersData[indexPath.row].name
-        cell.participantAnswerLabel.text = membersData[indexPath.row].selectedAnswer
-        
-        if membersData[indexPath.row].duration < 60{
-            cell.answerDurationLabel.text = "\(membersData[indexPath.row].duration) sec(s)"
-        }
-        else if membersData[indexPath.row].duration == 60{
-            cell.answerDurationLabel.text = "\(membersData[indexPath.row].duration / 60) min"
-        }
-        else{
-            cell.answerDurationLabel.text = "\(membersData[indexPath.row].duration / 60) min \(membersData[indexPath.row].duration % 60) sec(s)"
-        }
+        cell.participantAnswerLabel.text = "Answer: \(membersData[indexPath.row].selectedAnswer)"
 
         return cell
     }
