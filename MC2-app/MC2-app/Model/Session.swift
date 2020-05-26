@@ -21,6 +21,7 @@ struct MembersDataInSession{
     var selectedAnswer:String
     var badgeTitle:String
     var badgePicture:String
+    var answerDuration:Int
 }
 
 var membersData = [MembersDataInSession]()
