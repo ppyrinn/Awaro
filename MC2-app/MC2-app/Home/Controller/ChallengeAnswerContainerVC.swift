@@ -31,6 +31,7 @@ class ChallengeAnswerContainerVC: UIViewController {
         // Do any additional setup after loading the view.
         print("\n\n is challenge exist = \(challengeExist)\n\n")
         
+        User.getAllSessionMembers(sessionID: sessionID)
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "", xp:currentXP ?? 0, answerDuration: 0)
         
         toggleTimer(on: true)
@@ -65,6 +66,7 @@ class ChallengeAnswerContainerVC: UIViewController {
             print("Wrong Answer!")
         }
         
+        User.getAllSessionMembers(sessionID: sessionID)
         User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0, answerDuration: answerDuration)
         print("YourScore: \(currentScore)")
         
@@ -110,7 +112,8 @@ class ChallengeAnswerContainerVC: UIViewController {
                     }
                     print("YourScore: \(currentScore)")
                     
-                    User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0, answerDuration: self?.answerDuration ?? 0)
+                    User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+                    User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0, answerDuration: strongSelf.answerDuration )
                     
                     challengeExist = false
                     print("\n\n is challenge exist = \(challengeExist)\n\n")
