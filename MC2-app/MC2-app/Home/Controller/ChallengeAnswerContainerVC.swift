@@ -101,7 +101,7 @@ class ChallengeAnswerContainerVC: UIViewController {
                 if strongSelf.duration == 0 {
                     let selectedAnswer = self!.challengeAnswerTableVCReference?.selectedAnswer
                     
-                    if selectedAnswer == "A" {
+                    if selectedAnswer == challengeAnswerA {
                         currentScore += 1
                         currentXP! += 4
                     }
