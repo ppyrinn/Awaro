@@ -24,6 +24,7 @@ class ChallengeResultVC: UIViewController {
     var participantsDuration = [String]()
     var timer = Timer()
     var sessionID = Int()
+    var memberWhoAnswer = [MembersDataInSession]()
 
     
 
@@ -92,6 +93,13 @@ class ChallengeResultVC: UIViewController {
             
             User.getAllSessionMembers(sessionID: strongSelf.sessionID)
             
+            self?.memberWhoAnswer.removeAll()
+            for member in membersData{
+                if member.id != self?.sessionID{
+                    self?.memberWhoAnswer.append(member)
+                }
+            }
+            
             strongSelf.challengeResultTableView.reloadData()
         })
     }
@@ -112,43 +120,36 @@ class ChallengeResultVC: UIViewController {
 extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return membersData.count
+        return memberWhoAnswer.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeResultCell", for: indexPath) as! ChallengeResultCell
 
         // Configure the cell...
-        if membersData[indexPath.row].answerDuration < 60 {
-            seconds = membersData[indexPath.row].answerDuration
-            cell.answerDurationLabel.text = "in: \(seconds) sec"
-        }
-        if membersData[indexPath.row].answerDuration == 60 {
-            minutes = membersData[indexPath.row].answerDuration / 60
-            cell.answerDurationLabel.text = "in: \(minutes) min"
-        }
-        if membersData[indexPath.row].answerDuration > 60 {
-            minutes = membersData[indexPath.row].answerDuration / 60
-            seconds = membersData[indexPath.row].answerDuration % 60
-            cell.answerDurationLabel.text = "in: \(minutes) min" + " " + "\(seconds) sec"
-        }
-        
-        if membersData[indexPath.row].id == sessionID {
-            cell.isHidden = true
-        }
-        else {
-            cell.participantNameLabel.text = membersData[indexPath.row].name
-        }
-        
-        if membersData[indexPath.row].selectedAnswer == challengeAnswerA {
-            cell.participantAnswerLabel.text = "Answer: \(membersData[indexPath.row].selectedAnswer)"
-            cell.answerImageView.image = UIImage(named: "ansRight")
-        }
-        else if membersData[indexPath.row].selectedAnswer == "" {
-            cell.participantAnswerLabel.text = "Answer: -"
-            cell.answerImageView.image = UIImage(named: "ansWrong")
-        }
-        cell.badgeImage.image = UIImage(named: membersData[indexPath.row].badgePicture)
+            if memberWhoAnswer[indexPath.row].answerDuration < 60 {
+                seconds = memberWhoAnswer[indexPath.row].answerDuration
+                cell.answerDurationLabel.text = "in: \(seconds) sec"
+            }
+            if memberWhoAnswer[indexPath.row].answerDuration == 60 {
+                minutes = memberWhoAnswer[indexPath.row].answerDuration / 60
+                cell.answerDurationLabel.text = "in: \(minutes) min"
+            }
+            if memberWhoAnswer[indexPath.row].answerDuration > 60 {
+                minutes = memberWhoAnswer[indexPath.row].answerDuration / 60
+                seconds = memberWhoAnswer[indexPath.row].answerDuration % 60
+                cell.answerDurationLabel.text = "in: \(minutes) min" + " " + "\(seconds) sec"
+            }
+            cell.participantNameLabel.text = memberWhoAnswer[indexPath.row].name
+            if memberWhoAnswer[indexPath.row].selectedAnswer == challengeAnswerA {
+                cell.participantAnswerLabel.text = "Answer: \(memberWhoAnswer[indexPath.row].selectedAnswer)"
+                cell.answerImageView.image = UIImage(named: "ansRight")
+            }
+            else if memberWhoAnswer[indexPath.row].selectedAnswer == "" {
+                cell.participantAnswerLabel.text = "Answer: -"
+                cell.answerImageView.image = UIImage(named: "ansWrong")
+            }
+            cell.badgeImage.image = UIImage(named: memberWhoAnswer[indexPath.row].badgePicture)
 
         return cell
     }
