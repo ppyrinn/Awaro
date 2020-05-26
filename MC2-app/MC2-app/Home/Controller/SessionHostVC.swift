@@ -81,6 +81,7 @@ class SessionHostVC: UIViewController {
             self.isSessionEnd = true
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
             History.createHistory(userID: currentUserID ?? 0, sessionID: self.sessionID, sessionName: self.sessionName, sessionDate: self.sessionDate, sessionDuration: self.duration, userClockIn: self.time, memberDuration: self.duration, memberScore: currentScore)
+            User.setMemberDuration(userID: currentUserID ?? 0, duration: self.duration)
             Session.endCurrentSession(sessionID: self.sessionID)
 //            Session.deleteSession(self.sessionID)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID ?? 0)
