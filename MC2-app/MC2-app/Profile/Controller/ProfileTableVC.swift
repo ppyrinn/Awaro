@@ -88,9 +88,6 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
         loadProfileData()
         loadTextView()
         
-        tableView.reloadData()
-        badgeCollectionView.reloadData()
-        
         //buat update badge ke cloud
 //        User.setBadgeToMember(userID: currentUserID, badgeTitle: currentBadgeTitle, badgePicture: currentBadgePicture)
     }
@@ -106,6 +103,10 @@ class ProfileTableVC: UITableViewController, UICollectionViewDataSource, UIColle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        User.getMemberBySpecificEmail(email: userEmail ?? "")
+        
+        tableView.reloadData()
+        badgeCollectionView.reloadData()
     }
     
     override func viewDidLayoutSubviews() {

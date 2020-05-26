@@ -144,6 +144,9 @@ extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionResultCell", for: indexPath) as! SessionResultCell
+        let hour = membersData[indexPath.row].duration / 3600
+        let min = (membersData[indexPath.row].duration % 3600) / 60
+        let sec = membersData[indexPath.row].duration % 60
 
         // Configure the cell...
         if isDarkMode == true {
@@ -155,6 +158,15 @@ extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
             cell.placeholderView.backgroundColor = .white
         }
         
+        if hour < 10 {
+            cell.inSessionForLabel.text = "In session for: 0\(hour):\(min):\(sec)"
+            if min < 10 {
+                cell.inSessionForLabel.text = "In session for: 0\(hour):0\(min):\(sec)"
+                if sec < 10 {
+                    cell.inSessionForLabel.text = "In session for: 0\(hour):0\(min):0\(sec)"
+                }
+            }
+        }
         if membersData[indexPath.row].id == sessionID {
             cell.nameLabel.text = membersData[indexPath.row].name + " " + "(Host)"
         }
@@ -164,7 +176,6 @@ extension SessionResultVC: UITableViewDataSource, UITableViewDelegate {
         cell.badgeImage.image = UIImage(named: membersData[indexPath.row].badgePicture)
         cell.clockInLabel.text = membersData[indexPath.row].clockIn
         cell.challengeScoreLabel.text = "Challenge score: \(membersData[indexPath.row].score)/\(currentChallengeCounter)"
-        cell.inSessionForLabel.text = "In session for: \(membersData[indexPath.row].duration)"
         
         return cell
     }
