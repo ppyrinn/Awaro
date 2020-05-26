@@ -134,24 +134,19 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
         }
         
         if membersData[indexPath.row].id == sessionID {
-            membersData.remove(at: indexPath.row)
+            cell.isHidden = true
         }
         else {
             cell.participantNameLabel.text = membersData[indexPath.row].name
         }
         
         if membersData[indexPath.row].selectedAnswer == challengeAnswerA {
+            cell.participantAnswerLabel.text = "Answer: \(membersData[indexPath.row].selectedAnswer)"
             cell.answerImageView.image = UIImage(named: "ansRight")
         }
-        else {
-            cell.answerImageView.image = UIImage(named: "ansWrong")
-        }
-        
-        if membersData[indexPath.row].selectedAnswer == "" {
+        else if membersData[indexPath.row].selectedAnswer == "" {
             cell.participantAnswerLabel.text = "Answer: -"
-        }
-        else {
-            cell.participantAnswerLabel.text = "Answer: \(membersData[indexPath.row].selectedAnswer)"
+            cell.answerImageView.image = UIImage(named: "ansWrong")
         }
         cell.badgeImage.image = UIImage(named: membersData[indexPath.row].badgePicture)
 
