@@ -142,16 +142,12 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
             }
             cell.participantNameLabel.text = memberWhoAnswer[indexPath.row].name
             print("\n\ndia jawab : \(memberWhoAnswer[indexPath.row].selectedAnswer)\n\n")
+            cell.participantAnswerLabel.text = "Answer: \(memberWhoAnswer[indexPath.row].selectedAnswer)"
             if memberWhoAnswer[indexPath.row].selectedAnswer == challengeAnswerA {
-                cell.participantAnswerLabel.text = "Answer: \(memberWhoAnswer[indexPath.row].selectedAnswer)"
-                
-                print(memberWhoAnswer[indexPath.row].selectedAnswer)
-                
-                cell.answerImageView.image = UIImage(named: "ansRight")
-            }
-            else if memberWhoAnswer[indexPath.row].selectedAnswer == "" {
-                cell.participantAnswerLabel.text = "Answer: -"
                 cell.answerImageView.image = UIImage(named: "ansWrong")
+            }
+            else {
+                cell.answerImageView.image = UIImage(named: "ansRight")
             }
             cell.badgeImage.image = UIImage(named: memberWhoAnswer[indexPath.row].badgePicture)
 
