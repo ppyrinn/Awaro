@@ -66,7 +66,6 @@ class SessionHostVC: UIViewController {
         time = formatter.string(from: currentDateTime)
         print("\n\n\(time)\n\n")
         User.setMemberClockInTime(userID: currentUserID ?? 0, joinAt: time)
-        currentChallengeCounter = 0
     }
     
     
@@ -156,6 +155,7 @@ class SessionHostVC: UIViewController {
 //            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]
 
             User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+            strongSelf.challengeCountLabel.text = "Challenge Count: \(currentChallengeCounter)"
 
             print("\n\ntotal current member \(String(describing: totalMembersInSession))\n\n\n")
             if strongSelf.currentTotalMember != totalMembersInSession{

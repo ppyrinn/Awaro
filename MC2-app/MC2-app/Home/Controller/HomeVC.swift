@@ -64,6 +64,7 @@ class HomeVC: UIViewController {
         
         User.assignSessionToMember(sessionID: createdSessionID, userID: currentUserID ?? 0)
         Session.createNewSession(sessionID: createdSessionID, sessionName: createdSessionName, sessionDate: currentDate)
+        currentChallengeCounter = 0
         
         print("\n\nCurrentUserID = \(String(describing: currentUserID))\n\nUserEmail = \(String(describing: userEmail))\n\nUserFullName = \(String(describing: userFullName))\n\n")
         
