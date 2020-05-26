@@ -78,7 +78,7 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
                     histories.append(historyData(userID: $0["userID"] as! Int, sessionID: $0["sessionID"] as! Int, sessionName: $0["sessionName"] as! String, sessionDate: $0["sessionDate"] as! String, sessionDuration: $0["sessionDuration"] as! Int, userClockIn: $0["userClockIn"] as! String, memberDuration: $0["memberDuration"] as! Int, memberScore: $0["memberScore"] as! Int))
                     print("\n\nget history is done\n\n")
                     print(histories.count)
-                    self.dispatchDelay(delay: 1.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         self.tableView.reloadData()
                         self.refreshControl!.endRefreshing()
                     }
@@ -88,11 +88,7 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
         }
     }
     
-    func dispatchDelay(delay:Double, closure:@escaping ()->()) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: closure)
-    }
     
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
