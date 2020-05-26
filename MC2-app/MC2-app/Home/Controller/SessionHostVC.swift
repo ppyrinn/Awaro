@@ -38,7 +38,7 @@ class SessionHostVC: UIViewController {
     @IBOutlet weak var sessionIDLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var participantCountLabel: UILabel!
-    @IBOutlet weak var clockInLabel: UILabel!
+    @IBOutlet weak var challengeCountLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -51,7 +51,10 @@ class SessionHostVC: UIViewController {
         
         sessionIDLabel.text = "Session ID: \(sessionID)"
         print(sessionID)
+        
         sessionNameLabel.text = "\(sessionName)'s Session"
+        challengeCountLabel.text = "Challenge Count: \(currentChallengeCounter)"
+        
         toggleTimer(on: true)
     }
     
