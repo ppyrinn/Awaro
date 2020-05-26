@@ -68,7 +68,7 @@ class ChallengeResultVC: UIViewController {
         
         if duration < 60 {
             seconds = duration
-            challengeDurationLabel.text = "Duration: \(seconds) sec(s)"
+            challengeDurationLabel.text = "Duration: \(seconds) sec"
         }
         if duration == 60 {
             minutes = duration / 60
@@ -77,7 +77,7 @@ class ChallengeResultVC: UIViewController {
         if duration > 60 {
             minutes = duration / 60
             seconds = duration % 60
-            challengeDurationLabel.text = "Duration: \(minutes) min" + " " + "\(seconds) sec(s)"
+            challengeDurationLabel.text = "Duration: \(minutes) min" + " " + "\(seconds) sec"
         }
     }
     
@@ -106,16 +106,16 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
         // Configure the cell...
         if membersData[indexPath.row].duration < 60 {
             seconds = membersData[indexPath.row].duration
-            cell.answerDurationLabel.text = "Answered in: \(seconds) sec(s)"
+            cell.answerDurationLabel.text = "in: \(seconds) sec"
         }
         if membersData[indexPath.row].duration == 60 {
             minutes = membersData[indexPath.row].duration / 60
-            cell.answerDurationLabel.text = "Answered in: \(minutes) min"
+            cell.answerDurationLabel.text = "in: \(minutes) min"
         }
         if membersData[indexPath.row].duration > 60 {
             minutes = membersData[indexPath.row].duration / 60
             seconds = membersData[indexPath.row].duration % 60
-            cell.answerDurationLabel.text = "Answered in: \(minutes) min" + " " + "\(seconds) sec(s)"
+            cell.answerDurationLabel.text = "in: \(minutes) min" + " " + "\(seconds) sec"
         }
         if membersData[indexPath.row].selectedAnswer == challengeAnswerA {
             cell.answerImageView.image = UIImage(named: "ansRight")
