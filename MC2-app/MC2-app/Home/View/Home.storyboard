@@ -476,7 +476,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awareness Count: 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE4-Xe-Ayh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Count: 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE4-Xe-Ayh">
                                 <rect key="frame" x="20" y="690" width="374" height="20"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -578,6 +578,7 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="d9H-rb-Dfw"/>
                     <connections>
+                        <outlet property="challengeCountLabel" destination="VE4-Xe-Ayh" id="4Zs-jM-vtY"/>
                         <outlet property="participantCountLabel" destination="4Ca-Pl-8W8" id="Jy5-Yg-0SI"/>
                         <outlet property="sessionHostTable" destination="g7x-G4-vjw" id="OsH-ra-7fk"/>
                         <outlet property="sessionIDLabel" destination="hC4-jd-Rj7" id="a5D-6j-W3y"/>
