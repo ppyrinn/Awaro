@@ -146,8 +146,14 @@ extension ChallengeResultVC: UITableViewDataSource, UITableViewDelegate {
         else {
             cell.answerImageView.image = UIImage(named: "ansWrong")
         }
+        
+        if membersData[indexPath.row].selectedAnswer == "" {
+            cell.participantAnswerLabel.text = "Answer: -"
+        }
+        else {
+            cell.participantAnswerLabel.text = "Answer: \(membersData[indexPath.row].selectedAnswer)"
+        }
         cell.badgeImage.image = UIImage(named: membersData[indexPath.row].badgePicture)
-        cell.participantAnswerLabel.text = "Answer: \(membersData[indexPath.row].selectedAnswer)"
 
         return cell
     }
