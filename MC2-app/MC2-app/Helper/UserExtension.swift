@@ -478,4 +478,38 @@ extension User{
         }
         
     }
+    
+    static func updateMemberName(userID:Int, fullName:String){
+        let container = CKContainer.default()
+        let privateContainer = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(format: "userID = %d", userID)
+        let query = CKQuery(recordType: "Members", predicate: predicate)
+        
+        privateContainer.perform(query, inZoneWith: nil) { (result, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let records = result {
+                print("\n\n")
+                records.forEach{
+                    print($0)
+                    $0["fullName"] = fullName as CKRecordValue
+                    
+                    CKContainer.default().publicCloudDatabase.save($0) { [self] record, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                print("\n\nupdate member name is Error: \(error.localizedDescription)\n\n")
+                            } else {
+                                print("\n\nupdate member name is Done!\n\n")
+                            }
+                        }
+                    }
+                }
+                print("\n\n")
+            }
+        }
+    }
 }
