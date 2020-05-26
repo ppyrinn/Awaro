@@ -1682,6 +1682,7 @@
                                                     <outlet property="badgeImage" destination="DS6-KL-PWv" id="Jjj-Gb-hfl"/>
                                                     <outlet property="challengeScoreLabel" destination="7lO-BC-SJg" id="AD4-fy-9ia"/>
                                                     <outlet property="clockInLabel" destination="9in-E4-10D" id="0le-5W-5sm"/>
+                                                    <outlet property="inSessionForLabel" destination="CKe-YC-Qt1" id="8nT-Kq-7OV"/>
                                                     <outlet property="nameLabel" destination="tkS-CR-8pE" id="TZb-RE-Krw"/>
                                                     <outlet property="placeholderView" destination="XPx-SH-3x4" id="Dc6-tR-W6v"/>
                                                 </connections>
