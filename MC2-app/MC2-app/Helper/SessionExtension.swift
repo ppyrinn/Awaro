@@ -134,6 +134,7 @@ extension Session{
         memberRecord["challengeDuration"] = 0 as CKRecordValue
         memberRecord["isChallengeAvailable"] = false as CKRecordValue
         memberRecord["sessionDate"] = sessionDate as CKRecordValue
+        memberRecord["challengeCounter"] = 0 as CKRecordValue
         
         CKContainer.default().publicCloudDatabase.save(memberRecord) { [self] record, error in
             DispatchQueue.main.async {
