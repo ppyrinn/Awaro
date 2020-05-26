@@ -92,7 +92,7 @@ class HomeVC: UIViewController {
 //                User.addSessionToMember(self.existedSessionID, currentUserID!)
                 print("\n\nMasuk pak eko\n\n")
                 User.assignSessionToMember(sessionID: self.existedSessionID, userID: currentUserID!)
-                User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "", xp: currentXP ?? 0)
+                User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "", xp: currentXP ?? 0, answerDuration: 0)
                 currentScore = 0
 //                let joinedUserList = self.helper.fetchSpecificID(idType: "userID", id: currentUserID!) as [User]
 //                print(joinedUserList)

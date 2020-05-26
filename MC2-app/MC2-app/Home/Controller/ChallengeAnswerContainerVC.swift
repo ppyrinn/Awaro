@@ -15,6 +15,7 @@ class ChallengeAnswerContainerVC: UIViewController {
     var sessionID = Int()
     var timer = Timer()
     var duration = challengeDuration
+    var answerDuration = 0
     
     
     // MARK: - IBOutlet
@@ -30,7 +31,7 @@ class ChallengeAnswerContainerVC: UIViewController {
         // Do any additional setup after loading the view.
         print("\n\n is challenge exist = \(challengeExist)\n\n")
         
-        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "", xp:currentXP ?? 0)
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: "", xp:currentXP ?? 0, answerDuration: 0)
         
         toggleTimer(on: true)
     }
@@ -64,7 +65,7 @@ class ChallengeAnswerContainerVC: UIViewController {
             print("Wrong Answer!")
         }
         
-        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0)
+        User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0, answerDuration: answerDuration)
         print("YourScore: \(currentScore)")
         
         challengeExist = false
@@ -92,6 +93,7 @@ class ChallengeAnswerContainerVC: UIViewController {
             guard let strongSelf = self else {return}
             
             strongSelf.duration -= 1
+            strongSelf.answerDuration += 1
             
             if strongSelf.duration < 10 {
                 strongSelf.durationLabel.text = "00:0\(strongSelf.duration)"
@@ -108,7 +110,7 @@ class ChallengeAnswerContainerVC: UIViewController {
                     }
                     print("YourScore: \(currentScore)")
                     
-                    User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0)
+                    User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0, answerDuration: self?.answerDuration ?? 0)
                     
                     challengeExist = false
                     print("\n\n is challenge exist = \(challengeExist)\n\n")

@@ -82,7 +82,7 @@ class SessionMemberVC: UIViewController {
             History.createHistory(userID: currentUserID ?? 0, sessionID: self.sessionID, sessionName: self.sessionName, sessionDate: self.sessionDate, sessionDuration: self.duration, userClockIn: self.time, memberDuration: self.duration, memberScore: currentScore)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID!)
             isSessionExist = false
-            User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "", xp: currentXP ?? 0)
+            User.setScoreToUser(userID: currentUserID ?? 0, score: 0, selectedAnswer: "", xp: currentXP ?? 0, answerDuration: 0)
             self.dismiss(animated: true, completion: nil)
         }))
         
