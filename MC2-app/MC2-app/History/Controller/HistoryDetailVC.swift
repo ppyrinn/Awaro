@@ -163,8 +163,8 @@ extension HistoryDetailVC: UITableViewDataSource, UITableViewDelegate {
         for history in histories{
             if membersInHistory[indexPath.row].id == history.userID{
                 cell.clockInLabel.text = history.userClockIn
-//                cell.durationLabel.text = history.memberDuration
-//                cell.challengeScoreLabel
+                cell.inSessionForLabel.text = "In session for : \(history.memberDuration)"
+                cell.challengeScoreLabel.text = "Challenge score : \(history.memberScore)"
             }
         }
 
