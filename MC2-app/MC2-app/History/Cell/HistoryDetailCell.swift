@@ -15,6 +15,7 @@ class HistoryDetailCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var challengeScoreLabel: UILabel!
     @IBOutlet weak var clockInLabel: UILabel!
+    @IBOutlet weak var inSessionForLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
