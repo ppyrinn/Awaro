@@ -10,7 +10,7 @@ import UIKit
 
 class ChallengeAnswerContainerVC: UIViewController {
     
-    //MARK: - Variables
+    // MARK: - Variables
     var challengeAnswerTableVCReference: ChallengeAnswerTableVC?
     var sessionID = Int()
     var timer = Timer()
@@ -99,6 +99,33 @@ class ChallengeAnswerContainerVC: UIViewController {
             
             if strongSelf.duration < 10 {
                 strongSelf.durationLabel.text = "00:0\(strongSelf.duration)"
+                
+                if strongSelf.duration == 0 {
+                    let selectedAnswer = self!.challengeAnswerTableVCReference?.selectedAnswer
+                    
+                    if selectedAnswer == challengeAnswerA {
+                        currentScore += 1
+                        currentXP! += 4
+                    }
+                    else {
+                        print("Wrong Answer!")
+                    }
+                    print("YourScore: \(currentScore)")
+                    
+                    User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+                    User.setScoreToUser(userID: currentUserID ?? 0, score: currentScore, selectedAnswer: selectedAnswer ?? "", xp: currentXP ?? 0, answerDuration: strongSelf.answerDuration )
+                    
+                    challengeExist = false
+                    print("\n\n is challenge exist = \(challengeExist)\n\n")
+                    
+                    Session.setChallengeToDone(sessionID: self!.sessionID)
+                    print("\n\nchallenge to done in session \(self!.sessionID)\n\n")
+                    
+                    self!.dismiss(animated: true, completion: nil)
+                }
+            }
+            else {
+                strongSelf.durationLabel.text = "00:\(strongSelf.duration)"
                 
                 if strongSelf.duration == 0 {
                     let selectedAnswer = self!.challengeAnswerTableVCReference?.selectedAnswer
