@@ -475,6 +475,7 @@ extension User{
                     print($0)
                     membersInHistory.append(memberDataInHistory(id: $0["userID"] as! Int, name: $0["fullName"] as! String, badgePicture: $0["badgePicture"] as! String))
                 }
+                print("\n\n\(membersInHistory)\n\n")
                 print("\n\n")
             }
             

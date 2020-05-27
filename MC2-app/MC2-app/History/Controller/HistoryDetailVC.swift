@@ -160,6 +160,13 @@ extension HistoryDetailVC: UITableViewDataSource, UITableViewDelegate {
         
         cell.badgeImage.image = UIImage(named: membersInHistory[indexPath.row].badgePicture)
         cell.nameLabel.text = membersInHistory[indexPath.row].name
+        for history in histories{
+            if membersInHistory[indexPath.row].id == history.userID{
+                cell.clockInLabel.text = history.userClockIn
+//                cell.durationLabel.text = history.memberDuration
+//                cell.challengeScoreLabel
+            }
+        }
 
         return cell
     }

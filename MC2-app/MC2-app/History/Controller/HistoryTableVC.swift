@@ -119,6 +119,14 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
         
         cell.sessionName.text = "\(histories[indexPath.row].sessionName)'s Session"
         cell.sessionTime.text = histories[indexPath.row].sessionDate
+        History.getMemberToHistoryDetail(sessionID: histories[indexPath.row].sessionID, sessionDate: histories[indexPath.row].sessionDate)
+        
+        membersInHistory.removeAll()
+        for history in histories{
+            User.getMemberByUserID(userID: history.userID)
+        }
+        
+        print("\n\n\(membersInHistory)\n\n")
 
         return cell
     }
