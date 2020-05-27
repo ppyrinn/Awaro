@@ -81,7 +81,6 @@ class SessionHostVC: UIViewController {
             self.isSessionEnd = true
             self.performSegue(withIdentifier: "EndSessionSegue", sender: nil)
             History.createHistory(userID: currentUserID ?? 0, sessionID: self.sessionID, sessionName: self.sessionName, sessionDate: self.sessionDate, sessionDuration: self.duration, userClockIn: self.time, memberDuration: self.duration, memberScore: currentScore)
-            User.setMemberDuration(userID: currentUserID ?? 0, duration: self.duration)
             Session.endCurrentSession(sessionID: self.sessionID)
 //            Session.deleteSession(self.sessionID)
             User.assignSessionToMember(sessionID: 0, userID: currentUserID ?? 0)
@@ -151,6 +150,8 @@ class SessionHostVC: UIViewController {
             if strongSelf.isSessionEnd == false{
 //                Session.setSessionDuration(strongSelf.sessionID, strongSelf.duration)
                 Session.setCurrentDuration(sessionID: strongSelf.sessionID, duration: strongSelf.duration)
+
+                User.setMemberDuration(userID: currentUserID ?? 0, duration: strongSelf.duration)
             }
             
 //            strongSelf.members = strongSelf.helper.fetchSpecificID(idType: "sessionID", id: strongSelf.sessionID) as [User]

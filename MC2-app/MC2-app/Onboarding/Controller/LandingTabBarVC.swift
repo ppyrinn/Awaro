@@ -54,7 +54,6 @@ class LandingTabBarVC: UITabBarController {
                 
                 //MARK: - CloudKit
                 User.getMemberBySpecificEmail(email: KeychainItem.currentUserEmail ?? "")
-                
                 print("\n\nCurrentUserID = \(String(describing: currentUserID))\n\nUserEmail = \(String(describing: userEmail))\n\nUserFullName = \(String(describing: userFullName))\n\n")
                 
                 break // The Apple ID credential is valid.
