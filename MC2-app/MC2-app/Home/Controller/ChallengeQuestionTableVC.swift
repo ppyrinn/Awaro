@@ -90,6 +90,7 @@ class ChallengeQuestionTableVC: UITableViewController {
         currentChallengeCounter += 1
         
         print("\n\n\(question)\n\n\(answerA)\n\n\(answerB)\n\n\(answerC)\n\n\(answerD)\n\nsession id = \(sessionID)\n\nDuration = \(duration)")
+//        Session.getChallengeFromSession(sessionID: sessionID)
         Session.setChallenge(sessionID: sessionID, question: question, answerA: answerA, answerB: answerB, answerC: answerC, answerD: answerD, duration: duration, challengeCounter: currentChallengeCounter)
         print("\n\ncurrent challenge counter = \(currentChallengeCounter)\n\n")
         performSegue(withIdentifier: "SubmitSegue", sender: nil)

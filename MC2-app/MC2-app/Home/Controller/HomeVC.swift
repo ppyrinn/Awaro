@@ -49,6 +49,7 @@ class HomeVC: UIViewController {
         formatter.dateStyle = .full
         formatter.timeStyle = .short
         currentDate = formatter.string(from: now)
+        User.setMemberDuration(userID: currentUserID ?? 0, duration: 0)
     }
     
     
