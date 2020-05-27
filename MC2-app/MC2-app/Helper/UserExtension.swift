@@ -470,7 +470,6 @@ extension User{
             
             if let records = result {
                 print("\n\n")
-                membersInHistory.removeAll()
                 records.forEach{
                     print($0)
                     membersInHistory.append(memberDataInHistory(id: $0["userID"] as! Int, name: $0["fullName"] as! String, badgePicture: $0["badgePicture"] as! String))

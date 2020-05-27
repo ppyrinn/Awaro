@@ -77,11 +77,16 @@ extension History{
             if let records = result {
                 print("\n\n")
                 memberInSessionHistory.removeAll()
+                totalMemberInHistoryDetail = 0
+                membersInHistory.removeAll()
                 records.forEach{
                     print($0)
                     memberInSessionHistory.append($0["userID"] as! Int)
+                    User.getMemberByUserID(userID: $0["userID"] as! Int)
+                    totalMemberInHistoryDetail += 1
                     print("\n\nget member in session history is done\n\n")
                 }
+                print(memberInSessionHistory)
                 print("\n\n")
             }
         }

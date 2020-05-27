@@ -119,12 +119,7 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
         
         cell.sessionName.text = "\(histories[indexPath.row].sessionName)'s Session"
         cell.sessionTime.text = histories[indexPath.row].sessionDate
-        History.getMemberToHistoryDetail(sessionID: histories[indexPath.row].sessionID, sessionDate: histories[indexPath.row].sessionDate)
-        
-        membersInHistory.removeAll()
-        for history in histories{
-            User.getMemberByUserID(userID: history.userID)
-        }
+      
         
         print("\n\n\(membersInHistory)\n\n")
 
@@ -186,6 +181,8 @@ class HistoryTableVC: UITableViewController, RoundedCornerNavigationBar {
         if segue.identifier == "HistoryDetailSegue"{
             if let destination = segue.destination as? HistoryDetailVC {
                 let selectedRow = sender as? Int
+                History.getMemberToHistoryDetail(sessionID: histories[selectedRow ?? 0].sessionID, sessionDate: histories[selectedRow ?? 0].sessionDate)
+                
                 destination.sessionID = histories[selectedRow ?? 0].sessionID
                 destination.sessionName = histories[selectedRow ?? 0].sessionName
                 destination.sessionDate = histories[selectedRow ?? 0].sessionDate

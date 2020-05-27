@@ -18,6 +18,7 @@ class HistoryDetailVC: UIViewController {
     var hour: Int = 0
     var minutes: Int = 0
     var seconds: Int = 0
+    var timer = Timer()
     
     
     // MARK: - IBOutlet
@@ -35,6 +36,8 @@ class HistoryDetailVC: UIViewController {
         historyDetailTable.delegate = self
         
         loadHistoryDetail()
+        print(membersInHistory)
+        toggleTimer(on: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,33 +101,57 @@ class HistoryDetailVC: UIViewController {
 //            }
 //        }
         
-        if sessionDuration ?? 0 < 60 {
-            seconds = sessionDuration ?? 0
-            durationLabel.text = "0\(hour):0\(minutes):\(seconds)"
-        }
-        if sessionDuration ?? 0 == 60 {
-            minutes = sessionDuration ?? 0 / 60
-            durationLabel.text = "0\(hour):0\(minutes):0\(seconds)"
-        }
-        if sessionDuration ?? 0 > 60 && sessionDuration ?? 0 < 3600 {
-            minutes = sessionDuration ?? 0 / 60
-            seconds = sessionDuration ?? 0 % 60
-            print("\(minutes) min \(seconds) sec")
-            durationLabel.text = "0\(hour):\(minutes):\(seconds)"
-        }
-        if sessionDuration ?? 0 == 3600 {
-            hour = sessionDuration ?? 0 / 3600
-            durationLabel.text = "0\(hour):0\(minutes):0\(seconds)"
-        }
-        if sessionDuration ?? 0 > 3600 {
-            hour = sessionDuration ?? 0 / 3600
-            minutes = sessionDuration ?? 0 / 60
-            seconds = sessionDuration ?? 0 % 60
-            durationLabel.text = "\(hour):\(minutes):\(seconds)"
+//        if sessionDuration ?? 0 < 60 {
+//            seconds = sessionDuration ?? 0
+//            durationLabel.text = "0\(hour):0\(minutes):\(seconds)"
+//        }
+//        else if sessionDuration ?? 0 == 60 {
+//            minutes = sessionDuration ?? 0 / 60
+//            durationLabel.text = "0\(hour):0\(minutes):0\(seconds)"
+//        }
+//        else if sessionDuration ?? 0 > 60 && sessionDuration ?? 0 < 3600 {
+//            minutes = sessionDuration ?? 0 / 60
+//            seconds = sessionDuration ?? 0 % 60
+//            print("\(minutes) min \(seconds) sec")
+//            durationLabel.text = "0\(hour):\(minutes):\(seconds)"
+//        }
+//        else if sessionDuration ?? 0 == 3600 {
+//            hour = sessionDuration ?? 0 / 3600
+//            durationLabel.text = "0\(hour):0\(minutes):0\(seconds)"
+//        }
+//        else if sessionDuration ?? 0 > 3600 {
+//            hour = sessionDuration ?? 0 / 3600
+//            minutes = sessionDuration ?? 0 / 60
+//            seconds = sessionDuration ?? 0 % 60
+//            durationLabel.text = "\(hour):\(minutes):\(seconds)"
+//        }
+        
+        let hour = sessionDuration ?? 0 / 3600
+        let min = (sessionDuration  ?? 0 % 3600) / 60
+        let sec = sessionDuration ?? 0 % 60
+        
+        if hour < 10 {
+            durationLabel.text = "0\(hour):\(min):\(sec)"
+            if min < 10 {
+                durationLabel.text = "0\(hour):0\(min):\(sec)"
+                if sec < 10 {
+                    durationLabel.text = "0\(hour):0\(min):0\(sec)"
+                }
+            }
         }
         
         self.title = "\(sessionName ?? "")'s Session"
     }
+    
+    func toggleTimer(on : Bool){
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+                guard let strongSelf = self else {return}
+                
+    //            User.getAllSessionMembers(sessionID: strongSelf.sessionID)
+                
+                strongSelf.historyDetailTable.reloadData()
+            })
+        }
     
     
     /*
@@ -161,13 +188,27 @@ extension HistoryDetailVC: UITableViewDataSource, UITableViewDelegate {
         cell.badgeImage.image = UIImage(named: membersInHistory[indexPath.row].badgePicture)
         cell.nameLabel.text = membersInHistory[indexPath.row].name
         for history in histories{
-            if membersInHistory[indexPath.row].id == history.userID{
+            if membersInHistory[indexPath.row].id == history.userID && sessionID == history.sessionID && sessionDate == history.sessionDate{
+                
+                print("\n\nmember yang di print \(membersInHistory[indexPath.row].id)\n\n")
+                
                 cell.clockInLabel.text = history.userClockIn
-                cell.inSessionForLabel.text = "In session for : \(history.memberDuration)"
+                let hour = history.memberDuration / 3600
+                let min = (history.memberDuration % 3600) / 60
+                let sec = history.memberDuration % 60
+                
+                if hour < 10 {
+                    cell.inSessionForLabel.text = "In session for: 0\(hour):\(min):\(sec)"
+                    if min < 10 {
+                        cell.inSessionForLabel.text = "In session for: 0\(hour):0\(min):\(sec)"
+                        if sec < 10 {
+                            cell.inSessionForLabel.text = "In session for: 0\(hour):0\(min):0\(sec)"
+                        }
+                    }
+                }
                 cell.challengeScoreLabel.text = "Challenge score : \(history.memberScore)"
             }
         }
-
         return cell
     }
 }

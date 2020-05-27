@@ -30,3 +30,5 @@ struct memberDataInHistory {
 }
 
 var membersInHistory = [memberDataInHistory]()
+
+var totalMemberInHistoryDetail = 0
