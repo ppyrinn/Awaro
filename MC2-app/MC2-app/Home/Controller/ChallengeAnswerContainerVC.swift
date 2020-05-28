@@ -97,9 +97,12 @@ class ChallengeAnswerContainerVC: UIViewController {
             strongSelf.duration -= 1
             strongSelf.answerDuration += 1
             
+            let min = strongSelf.duration / 60
+            let sec = (strongSelf.duration % 60) / 60
+            
+            strongSelf.durationLabel.text = "0\(min):0\(sec)"
+            
             if strongSelf.duration < 10 {
-                strongSelf.durationLabel.text = "00:0\(strongSelf.duration)"
-                
                 if strongSelf.duration == 0 {
                     let selectedAnswer = self!.challengeAnswerTableVCReference?.selectedAnswer
                     
